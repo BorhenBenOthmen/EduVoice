@@ -1,0 +1,3614 @@
+{
+  "items": [
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 10,
+        "name": "المنزل الجديد",
+        "description": "المنزل الجديد",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/المنزل_الجديد.wav",
+        "id": 10,
+        "file": "/media/audio/%D8%A7%D9%84%D9%85%D9%86%D8%B2%D9%84_%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF.wav",
+        "name": "المنزل الجديد",
+        "description": "المنزل الجديد",
+        "duration": "P0DT00H02M35S",
+        "type": 1,
+        "reference": "9e190f29-5c3f-44a9-99bf-5151defee6f4"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 10,
+      "name": "المنزل الجديد",
+      "description": "المنزل الجديد",
+      "transcription": {
+        "type": "نص",
+        "title": "المنزل الجديد",
+        "author": "عبد الحميد جودة السحار",
+        "source": "الشارع الجديد: دار مصر للطباعة، القاهرة، د.ت، ط 3 ، ص ص 1 - 6",
+        "content": [
+          {
+            "text": "الطَّرِيقُ ضَيِّقَةٌ مُتَعَرِّجَةٌ انْتَثَرَتْ فِيهَا بِرَكٌ صَغِيرَةٌ خَلَّفَهَا الْمَطَرُ وَسُرْعَانَ مَا عَكْرَتْهَا أَرْجُلُ الصَّبْيَةِ الْحَافِيَةُ الَّتِي هَرَعَتْ تَخُوضُ الْمَاءَ عَابِثَةً فَيَتَطَايَرُ مِنْ أَقْدَامِهَا نُثَارٌ قَاتِمٌ يُصِيبُ الْجُدْرَانَ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "يُونُسُ عَلَى حَذَرٍ يَتَحَاشَى الْمَاءَ دُونَ أَنْ يُقَطِّبَ أَوْ يَلُوحَ فِي وَجْهِهِ الْأَسْمَرِ أَثَرُ التَّبَرُّمِ والضَّيقِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَهُوَ يَسِيرُ وَقَدْ عَشَّشَ الْفَرَحُ فِي صَدْرِهِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": " إِنَّهُ رَاضِي النَّفْسِ مُرْتَاحُ الضَّمِيرِ ، وَمَا كَانَتْ تَرِكَةُ الْمَطَرِ الْمُثَقَّلَةُ بِالطِّينِ لِتُكَدِّرَ صَفْوَهُ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 4,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَسَارَتْ خَلْفَهُ عَلَى بُعْدِ خُطُوَاتٍ مِنْهُ زَوْجَتُهُ فَاطِمَةُ ضَيِّقَةَ الصَّدْرِ مُتَبَرِّمَةً بِالْحَيِّ وَمَا فِيهِ وَمِنْ فِيهِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَمَرَّا بِخِرْبَةٍ ارْتَفَعَتْ عَنِ الْأَرْضِ أَشْبَارًا، وَاقْتَرَبَا مِنْ مَنْزِلٍ يَتَكَوَّنُ مِنْ ثَلَاثِ طَبَقَاتٍ أُغْلِقَتْ نَوَافِذُهُ وَسَيْطَرَ عَلَيْهِ سُكُونٌ عَمِيقٌ، فَلاحَ لِعَيْنَي يُونُسَ كَأَنَّمَا يَقُومُ وَحْدَهُ فِي الْحَيِّ فَخَفَقَ قَلْبُهُ طَرَبًا وَالْتَفَتَ إِلَى زَوْجَتِهِ فَرِحًا وَقَدْ تَهَلَّلَتْ أَسَارِيرُهُ، وَقَالَ وَهُوَ يُشِيرُ إِلَى الْبَيْتِ : «هَذَا هُوَ الْبَيْتُ !» نَظَرَتْ فَاطِمَةُ وَلَمْ تَنْبُسُ بِكَلِمَةٍ وَإِنْ كَانَتْ قَدْ مَطَّتْ شَفَتَهَا السُّفْلَى أَسَفًا.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "واسْتَمَرًا فِي سَيْرِهِمَا حَتَّى بَلَغَا الْبَابَ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "دَفَعَ يُونُسُ الْبَابَ وَدَلَفَتْ فَاطِمَةُ وَهْيَ غَارِقَةٌ فِي الصَّمْتِ تُدِيرُ عَيْنَيْهَا فِي السَّاحَةِ الرِّطْبَةِ فَلَا تَزْدَادُ إِلا امْتِعَاضًا.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وأَسْرَعَ إِلَيْهَا يُونُسُ وَأَخَذَ بِيَدِهَا وَهْيَ تَرْقَى الدَّرَجَ وَلِسَانُهُ لَا يَكُفُّ عَنِ الدَّوَرَانِ فِي حَلْقِهِ يَتَغَنَّى بِمَحَاسِنِ بَيْتِهِ الْجَدِيدِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَدَخَلَا الطَّبَقَةَ الأُولَى وَرَاحًا يَجُوسَانِ خِلالَ غُرُفَاتِهَا الْوَاسِعَةِ وَهُوَ يَقُولُ : انْظُرِي، مَا أَرْوَعَ الْبَحْرَ ! » فَقَالَتْ وَهْيَ تُشِيحُ بِوَجْهِهَا : «هَيَّا نَهْبِطْ مَا أَقْسَى الْبَرْدَ هُنَا !» وَ رَاحَا يَهْبِطَانِ وَفَاطِمَةُ تَقُولُ فِي مَرَارَةٍ : «أَكْتِبَ عَلَيْنَا أَنْ نَظَلَّ فِي هَذَا الْحَيِّ حَتَّى نَمُوتَ ؟ أَمَا كَانَ الأَفْضَلُ شِراءَ بَيْتِ آخَرَ فِي شَارِعٍ كَبِيرٍ ؟ أَنْفَقْتَ مَا ادَّخَرْنَاهُ طَوَالَ الْعُمْرِ لِنَنْتَقِلَ مِنْ بَيْتِ إِلَى بَيْتِ قَرِيبٍ مِنْهُ فِي نَفْسٍ الشَّارِعِ !»",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 10,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَمْ تَنْفُذْ مَرَارَةُ كَلِمَاتِهَا إِلَى قَلْبِهِ، وَلَمْ تُكَدِّرْ نَفْسَهُ، فَابْتَسَمَ ابْتِسَامَةً لَطِيفَةً وَنَظَرَ إِلَى وَجْهِهَا فِي زُهُو، وَقَالَ فِي نَبَرَاتِ الْوَائِقِ : «لَمْ أَكُنْ قَصِيرَ النَّظَرِ يَوْمَ اشْتَرَيْتُ هَذَا الْبَيْتَ إِنَّنِي اطْلَعْتُ عَلَى التَّخْطِيطِ الْجَدِيدِ لِهَذِهِ الْمِنْطَقَةِ، فَوَجَدْتُ أَنَّ شَارِعًا جَدِيدًا سَيَشُقُّ هَذَا الْحَيَّ وأَنَّ هَذَا الْبَيْتَ سَيَقَعُ عَلَى نَاصِيَةِ ذَلِكَ الشَّارِعِ الْجَدِيدِ».",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [
+        {
+          "id": 1,
+          "name": "سلامة الجسم"
+        },
+        {
+          "id": 2,
+          "name": "سلامة العقل"
+        }
+      ],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 1,
+        "name": "الدواء بيدك",
+        "description": "الدواء بيدك",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/الدواء_بيدك.wav",
+        "id": 1,
+        "file": "/media/audio/%D8%A7%D9%84%D8%AF%D9%88%D8%A7%D8%A1_%D8%A8%D9%8A%D8%AF%D9%83.wav",
+        "name": "الدواء بيدك",
+        "description": "الدواء بيدك",
+        "duration": "P0DT00H03M12S",
+        "type": 1,
+        "reference": "6db2afac-3ba1-49d0-b2c5-95806ac97ee8"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 1,
+      "name": "الدواء بيدك",
+      "description": "الدواء بيدك",
+      "transcription": {
+        "type": "حوار",
+        "title": "الدواء بيدك",
+        "author": "نجيب محفوظ",
+        "source": "الشحاذ: دار مصر للطباعة، 1982، ص ص 8-9",
+        "content": [
+          {
+            "text": "... شَبَكَ الطَّبِيبُ ذِرَاعَيْهِ وَقَالَ بِجِدِّيَّةٍ :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "هَاتِ مَا عِنْدَكَ",
+            "time": "00:00:04",
+            "type": "حوار",
+            "index": 2,
+            "speaker": "الطَّبِيب",
+            "paragraph": 1,
+            "timestamp": 4,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "مَسَحَ عُمَرُ عَلَى شَعْرِهِ الْغَزِيرِ الْأَسْوَدِ الَّذِي لاَ تُرَى شُعَيْرَاتُ سَوَالِفِهِ الْبَيْضَاءُ إِلَّا بِحَدِّ الْبَصَرِ وَقَالٍَ :",
+            "time": "00:00:06",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 6,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "لَا أَعْتَقِدُ أَنِّي مَرِيضٌ بِالْمَعْنَى الْمَأْلُوفِ.",
+            "time": "00:00:15",
+            "type": "حوار",
+            "index": 4,
+            "speaker": "عُمَر",
+            "paragraph": 2,
+            "timestamp": 15,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَازْدَادَ اهْتِمَامُ الطَّبِيبِ وَهُوَ يُمْعِنُ فِيهِ النَّظَرَ بِاسْتِمْرَارِ، فَأَرْدَفَ عُمَرُ مُوَضِّحًا :",
+            "time": "00:00:18",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 18,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَعْنِي أَنِّي لَا أَشْكُو عَرَضًا مِنَ الْأَعْرَاضِ الْمَرَضِيَّةِ الْمَأْلُوفَةِ. وَلَكِنِّي أَشْعُرُ بِخُمُودٍ غَرِيبٍ.",
+            "time": "00:00:25",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "عُمَر",
+            "paragraph": 3,
+            "timestamp": 25,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَهَذَا كُلُّ مَا هُنَالِكَ ؟",
+            "time": "00:00:32",
+            "type": "حوار",
+            "index": 7,
+            "speaker": "الطَّبِيب",
+            "paragraph": 3,
+            "timestamp": 32,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَظُنُّ هَذَا.",
+            "time": "00:00:34",
+            "type": "حوار",
+            "index": 8,
+            "speaker": "عُمَر",
+            "paragraph": 3,
+            "timestamp": 34,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَعَلَّهُ مِنَ الْإِجْهَادِ الْمُسْتَمِرُ .",
+            "time": "00:00:36",
+            "type": "حوار",
+            "index": 9,
+            "speaker": "الطَّبِيب",
+            "paragraph": 3,
+            "timestamp": 36,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "رُبِّمَا، وَلَكِنَّنِي غَيْرُ مُقْتَنِعٍ تَمَامًا.",
+            "time": "00:00:38",
+            "type": "حوار",
+            "index": 10,
+            "speaker": "عُمَر",
+            "paragraph": 3,
+            "timestamp": 38,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "طَبْعًا، وَإِلَّا مَا شَرَّفْتَنِي .",
+            "time": "00:00:41",
+            "type": "حوار",
+            "index": 11,
+            "speaker": "الطَّبِيب",
+            "paragraph": 3,
+            "timestamp": 41,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "الْحَقُّ أَنَّهُ نَتِيجَةً لِذَلِكَ الْخُمُودِ مَاتَتْ رَغْبَتِي فِي الْعَمَلِ بِحَالٍ لَا تُصَدَّقُ لَيْسَ تَعَبًا بِالْمَعْنَى الْمَأْلُوفِ. يُخَيَّلُ إِلَيَّ أَنِّي مَا زِلْتُ قَادِرًا عَلَى الْعَمَلِ وَلَكِنِّي لَا أَرْغَبُ فِيهِ ... لَمْ تَعُدْ لِي رَغْبَةٌ فِيهِ عَلَى الإِطْلَاقِ ، تَرَكْتُهُ لِلْمُحَاسِبِ الْمُسَاعِدِ فِي مَكْتَبِي، وَكُلُّ الْقَضَايَا تُؤَجَّلُ عِنْدِي مِّنْذُ شَهْرٍ.",
+            "time": "00:00:44",
+            "type": "حوار",
+            "index": 12,
+            "speaker": "عُمَر",
+            "paragraph": 3,
+            "timestamp": 44,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَلَمْ تُفَكِّرُ فِي إِجَازَةٍ ؟",
+            "time": "00:01:07",
+            "type": "حوار",
+            "index": 13,
+            "speaker": "الطَّبِيب",
+            "paragraph": 3,
+            "timestamp": 67,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَيُوَاصِلُ عُمَرُ حَدِيثَهُ وَكَأَنَّهُ لَمْ يَسْمَعْهُ :",
+            "time": "00:01:10",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 70,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَكَثِيرًا مَا أَضِيقُ بِالدُّنْيَا، بِالنَّاسِ، بِالْأَسْرَةِ نَفْسِهَا، فَاقْتَنَعْتُ بِأَنَّ الْحَالَ أَخْطَرُ مِنْ أَنْ أَسْكُتَ عَنْهَا ... فَخَطَرَ لِي عَلَى سَبِيلِ الأَمَلِ أَنَّنِي سَأَجِدُ لِذَلِكَ سَبَبًا عُضْوِيًّا.",
+            "time": "00:01:14",
+            "type": "حوار",
+            "index": 15,
+            "speaker": "عُمَر",
+            "paragraph": 4,
+            "timestamp": 74,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "قَالَ الطَّبِيبُ بَاسِمًا :",
+            "time": "00:01:26",
+            "type": "جملة",
+            "index": 16,
+            "speaker": "الراوي",
+            "paragraph": 5,
+            "timestamp": 86,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "مَا أَجْمَلَ أَنْ تُحَلَّ مَشَاكِلُنَا الْخَطِيرَةُ بِحَبَّةٍ بَعْدَ الْأَكْلِ أَوْ مِلْعَقَةٍ قَبْلَ النَّوْمِ.",
+            "time": "00:01:28",
+            "type": "حوار",
+            "index": 17,
+            "speaker": "الطَّبِيب",
+            "paragraph": 5,
+            "timestamp": 88,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ثُمَّ مَضَى بِهِ إِلَى حُجْرَةِ الْكَشْفِ.",
+            "time": "00:01:35",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 6,
+            "timestamp": 95,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "خَلَعَ عُمَرُ مَلَابِسَهُ وَ رَقَدَ عَلَى السَّرِيرِ الطَّبِيِّ، وَتَتَابَعَتِ الْأَوَامِرُ فَأَبْرَزَ لِسَانَهُ وَفَتَحَ بِشَدِّ الْجَفْنَيْنِ عَيْنَيْهِ وَنَقَرَتِ الْأَصَابِعُ الرَّشِيقَةُ عَلَى مَوَاضِعَ فِي الصَّدْرِ، وَضَغَطَتْ بِشِدَّةٍ عَلَى أَمَاكِنَ فِي الْبَطْنِ وَاسْتُعْمِلَتِ السَّمَّاعَةُ وَمِقْيَاسُ الضَّغْطِ، وَتَنَفَّسَ بِعُمْقٍ وَسَعَلَ وَهَتَفَ (آهُ) مِنَ الْحَلْقِ مَرَّةً وَمِنَ الْأَعْمَاقِ مَرَّةً أُخْرَى ...",
+            "time": "00:01:39",
+            "type": "جملة",
+            "index": 19,
+            "speaker": "الراوي",
+            "paragraph": 6,
+            "timestamp": 99,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَجَعَلَ يَخْتَلِسُ النَّظَرَاتِ إِلَى وَجْهِ الطَّبِيبِ وَلَكِنَّهُ لَمْ يَقْرَأْ شَيْئًا.",
+            "time": "00:02:06",
+            "type": "جملة",
+            "index": 20,
+            "speaker": "الراوي",
+            "paragraph": 6,
+            "timestamp": 126,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَرَغَ الطَّبِيبُ مِنَ الْكَشْفِ فَسَبَقَ إِلَى مَكْتَبِهِ وَمَا لَبِثَ أَنْ لَحِقَ بِهِ عُمَرُ.",
+            "time": "00:02:12",
+            "type": "جملة",
+            "index": 21,
+            "speaker": "الراوي",
+            "paragraph": 6,
+            "timestamp": 132,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَرَكَ الطَّبِيبُ يَدَيْهِ وَأَبْتَسَمَ ابْتِسَامَةً عَرِيضَةً وَقَالَ :",
+            "time": "00:02:19",
+            "type": "جملة",
+            "index": 22,
+            "speaker": "الراوي",
+            "paragraph": 7,
+            "timestamp": 139,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "عَزِيزِي الْمُحَامِيَ الْكَبِيرَ، لَا شَيْءَ الْبَتَّةَ.",
+            "time": "00:02:22",
+            "type": "حوار",
+            "index": 23,
+            "speaker": "الطَّبِيب",
+            "paragraph": 7,
+            "timestamp": 142,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "البتة ؟",
+            "time": "00:02:26",
+            "type": "حوار",
+            "index": 24,
+            "speaker": "عُمَر",
+            "paragraph": 7,
+            "timestamp": 146,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "دَعْنِي أَصِفُ لَكَ حَيَاتَكَ كَمَا اسْتَنْبَطْتُهَا مِنَ الْكَشْفِ. أَنْتَ رَجُلٌ نَاجِحٌ نَسِيتَ الْمَشْيَ أَوْ كِدْتَ، تَأْكُلُ فَاخِرَ الطَّعَامِ، تُرْهِقُ نَفْسَكَ بِالْعَمَلِ وَتَشْغَلُ دِمَاغَكَ بِقَضَايَا النَّاسِ وَأَمْلاكِكَ، فَأَخَذَ الْقَلَقُ يُسَاوِرُكَ عَلَى مُسْتَقْبَلِ عَمَلِكَ وَمَصِيرٍ أَمْوَالِكَ.",
+            "time": "00:02:27",
+            "type": "حوار",
+            "index": 25,
+            "speaker": "الطَّبِيب",
+            "paragraph": 7,
+            "timestamp": 147,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ضَحِكَ عُمَرُ بِفُتُورٍ وَقَالَ :",
+            "time": "00:02:48",
+            "type": "جملة",
+            "index": 26,
+            "speaker": "الراوي",
+            "paragraph": 8,
+            "timestamp": 168,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "صُورَةٌ صَادِقَةٌ فِي جُمْلَتِهَا وَلَكِنِّي لَمْ أَعُدْ أَهْتَمُّ بِشَيْءٍ.",
+            "time": "00:02:50",
+            "type": "حوار",
+            "index": 27,
+            "speaker": "عُمَر",
+            "paragraph": 8,
+            "timestamp": 170,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "حَسَنًا، لاَ شَيْءَ بِكَ، وَلَكِنَّ الْعَدُوَّ رَابِضُ عَلَى الْحُدُودِ... اعْتَدِلْ فِي الطَّعَامِ وَالْتَزِمْ بِرِيَاضَةٍ مُنْتَظِمَةٍ كَالْمَشْي ... فَلَنْ تَلْقَى مَا تَخْشَاهُ.الطَّعَامِ",
+            "time": "00:02:55",
+            "type": "حوار",
+            "index": 28,
+            "speaker": "الطَّبِيب",
+            "paragraph": 8,
+            "timestamp": 175,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَلَنْ تَكْتُبَ لِي دَوَاء ؟",
+            "time": "00:03:07",
+            "type": "حوار",
+            "index": 29,
+            "speaker": "عُمَر",
+            "paragraph": 8,
+            "timestamp": 187,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "الدَّوَاءُ الْحَقِيقِيُّ بِيَدِكَ أَنْتَ وَحْدَكَ.",
+            "time": "00:03:09",
+            "type": "حوار",
+            "index": 30,
+            "speaker": "الطَّبِيب",
+            "paragraph": 8,
+            "timestamp": 189,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 7,
+        "name": "الطفل والحمامتان",
+        "description": "الطفل والحمامتان",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/الطفل_والحمامتان.wav",
+        "id": 7,
+        "file": "/media/audio/%D8%A7%D9%84%D8%B7%D9%81%D9%84_%D9%88%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85%D8%AA%D8%A7%D9%86.wav",
+        "name": "الطفل والحمامتان",
+        "description": "الطفل والحمامتان",
+        "duration": "P0DT00H03M22S",
+        "type": 1,
+        "reference": "5088f99b-f428-488c-b772-ee3de77768ae"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 7,
+      "name": "الطفل والحمامتان",
+      "description": "الطفل والحمامتان",
+      "transcription": {
+        "type": "نص",
+        "title": "الطفل والحمامتان",
+        "author": "هند عزوز",
+        "source": "في الدرب الطويل: الدار التونسية للنشر، تونس، ص ص 123 - 126",
+        "content": [
+          {
+            "text": "كَانَ لِنَبِيلِ زَوْجُ حَمَامٍ، وَكَانَ شَدِيدَ الْوَلَعِ بِهِمَا مُتَتَبِّعًا لِحَرَكَاتِهِمَا وَسَكَنَاتِهِمَا وَتَغَارِيدِهِمَا الْمُتَوَاصِلَةِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "فَلاحَظَ عَلَيْهِ أَبُوهُ شِدَّةَ هَذَا الشَّغَفِ وَإِهْمَالَهُ لِبَعْضٍ دُرُوسِهِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَقَرَّرَ فِي نَفْسِهِ أَمْرًا. وَذَاتَ يَوْمٍ بَادَرَهُ قَائِلاً :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَقَدْ قَرَّرْتُ يَا بُنَيَّ أَنْ أَصْطَحِبَكَ مَعِي الآنَ فِي جَوْلَةٍ مُمْتِعَةٍ أَشْتَرِي لَكَ أَثْنَاءَهَا مَا يَطِيبُ لَكَ مِنْ لُعَبٍ وَحَلَوِيَّاتٍ فَلْتَسْتَعِدَّ لِذَلِكَ حَالاً.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 4,
+            "speaker": "الأَب",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَفَرِحِ الطِّفْلُ وَارْتَمَى عَلَى أَبِيهِ يُقَبِّلُهُ ثُمَّ وَلَّى رَاكِضًا لِيُغَيِّرَ مِنْ مَلَابِسِهِ اسْتِعْدَادًا لِلْخُرُوج.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَلَمْ أَفْهَمْ أَنَا سَبَبَ هَذَا الإِنْعَامِ الْمُفَاجِئ الَّذِي خَصَّ بِهِ زَوْجِي نَبِيلاً دُون إِخْوَتِهِ، وَهُوَ الْحَرِيصُ عَلَى الْمُسَاوَاةِ بَيْنَهُمْ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَعِنْدَمَا اسْتَفْسَرْتُهُ عَنِ الدَّافِعِ لِذَلِكَ قَالَ لي هَامِسًا :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": " لَقَدْ ذَبَحْتُ حَمَامَتَيْهِ فِي غَفْلَةٍ مِنْهُ ، وَسأُطْلِعُهُ عَلَى ذَلِكَ أَثْنَاءَ هَذِهِ الْجَوْلَةِ فِي جَوَ مِنَ الْمَرَحِ وَالْإِنْبِسَاطِ حَتَّى لَا يُصْدَمَ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 8,
+            "speaker": "الأَب",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَقُلْتُ، وَقَدْ صُدِمْتُ بِدَوْرِي لِمَا أَعْرِفُهُ عَن ابْنِي مِنْ حُبِّ لِلْحَمَامَتَيْنِ :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَمَا الَّذِي أَلْجَأَكَ إِلَى هَذَا التَّصَرُّفَ الْقَاسِي ؟ أَلَا تَعْرِفُ مَكَانَتَهُمَا فِي قَلْبِهِ؟",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 10,
+            "speaker": "الأَم",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "مِنْ أَجْلِ تِلْكَ الْمَكَانَةِ ذَبَحْتُهُمَا، فَإِنْ هَامَ بِغَيْرِ الدَّرْسِ الْيَوْمَ فَسَيَهِيمُ غَدًا فِي الدُّنْيَا دُونَ دَلِيل.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 11,
+            "speaker": "الأَب",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَلَكِنَّهُ رَقِيقُ الْقَلْبِ إِلَى حَدٌ بَعِيدٍ، وَقَدْ يَصْدِمُهُ هَذَا التَصَرُّفُ إِلَى دَرَجَةِ الْإِضْرَارِ بِصِحْتِهِ. إِنَّ ذَبْحَ حَمَامَتَيْهِ مُفَاجَأَةٌ أَلِيمَةٌ بِالنِّسْبَةِ إِلَيْهِ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 12,
+            "speaker": "الأَم",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "إِنِّي أُرِيدُ أَنْ أُعَوِّدَهُ عَلَى الصَّدَمَاتِ حَتَّى يُجَابِهَ الْحَيَاةَ بِقَلْبِ رَجُلٍ فَالْحَيَاةُ مشْحُونَةٌ بِالْمُفَاجَاتِ وَالصَّدَمَاتِ. وَإِذَا لَمْ نُعَوِّدْهُ عَلَى تَحَمُّلِهَا مِنَ الآنَ أَصْبَحَ فِي خَطَرٍ مُحَقَّق.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 13,
+            "speaker": "الأَب",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَخَرَجَ الإِثْنَانِ ثُمَّ عَادَا بَعْدَ سَاعَةٍ يَحْمِلانِ عُلَبًا مُغَلَّفَةً وَقَرَاطِيسَ .",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "إِتَّجَهَ نَبِيلٌ إِلَى الثَّلَاجَةِ لِيُرْوِيَ عَطَشَهُ، فَسِرْتُ وَرَاءَهُ وَوَدَدْتُ أَنْ أَمْنَعَهُ مِنْ ذَلِكَ، لَكِنَّهُ فَتَحَهَا،وَمَا رَاعَنِي إِلَّا أَنَّهُ وَلَّى مُنْدَهِشًا وَقَدْ فَاضَتْ عَيْنَاهُ دُمُوعًا، فَسَأَلْتُهُ فِي تَجَاهُل :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 15,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَوَ لَسْتَ مُوَافِقًا عَلَى ذَبْحِهِمَا ؟ كُنْتُ أَعْتَقِدُ أَنَّ بُلُوغَكَ الثَّانِيَةَ عَشْرَةَ مِنْ عُمْرِكَ يَضَعُ قَدَمَكَ عَلَى عَتَبَةِ الرُّجُولَةِ أَلَيْسَ الأَفْضَلُ أَنْ تَهْتَمَّ بِمَا يُهَيِّئُكَ لِهَذَا الطَّوْرِ الْجَدِيدِ مِنْ حَيَاتِكَ ؟",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 16,
+            "speaker": "الأَم",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "بَلَى ... لَقَدْ حَدَّثَنِي أَبِي عَنِ الْمَوْضُوعِ وَاقْتَنَعْتُ بِرَأْيِهِ، وَلَكِنَّنِي وَدَدْتُ أَنْ أُوَدِّعَهُما قَبْلَ أَنْ تَفْعَلُوا ... يَا لَلْأَسَفِ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 17,
+            "speaker": "ِنَبِيلِ",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ثُمَّ انْحَنَى عَلَى الْحَمَامَتَيْنِ يُقَبِّلُهُمَا لَحْمًا طَرِيًّا.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 5,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَرَفَعَ رَأْسَهُ يَنْظُرُ إِلَيَّ وَعَيْنَاهُ تَنِمَّانِ عَنِ الأَلَمِ الصَّرِيحِ، بَيْنَمَا شَفَتَاهُ تُصَوِّرَانِ ابْتِسَامَةً مَغْصُوبَةً مُتَكَلَّفَةً.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 19,
+            "speaker": "الراوي",
+            "paragraph": 5,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 8,
+        "name": "الراعي والماء",
+        "description": "الراعي والماء",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/الراعي_والماء.wav",
+        "id": 8,
+        "file": "/media/audio/%D8%A7%D9%84%D8%B1%D8%A7%D8%B9%D9%8A_%D9%88%D8%A7%D9%84%D9%85%D8%A7%D8%A1.wav",
+        "name": "الراعي والماء",
+        "description": "الراعي والماء",
+        "duration": "P0DT00H03M23S",
+        "type": 1,
+        "reference": "0d9af3f1-6393-4105-a8a8-4f81065eb9e4"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 8,
+      "name": "الراعي والماء",
+      "description": "الراعي والماء",
+      "transcription": {
+        "type": "نص",
+        "title": "الراعي والماء",
+        "author": "ريم العيساوي",
+        "source": "لماذا تموت العصافير ؟: منشورات «قصص»، 1988، ص  13 - 12",
+        "content": [
+          {
+            "text": "وَصَلَ الرَّاعِي إِلَى رَبْوَةٍ تَنَاثَرَتْ عَلَيْهَا أَعْشَابٌ قَدْ أَصَابَهَا الذُّبُولُ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَجَالَ بَصَرَهُ حَوْلَهُ فَانْقَبَضَ صَدْرُهُ لِمَرْأَى شُوَيْهَاتِهِ الْعَجْفَاءِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَسْنَدَ ظَهْرَهُ إِلَى صَخْرَةٍ وَأَجْهَدَ خَيَالَهُ فِي طَرِيقَةٍ تَحْفَظُ لَهُ ذَلِكَ السَّائِلَ الشَّفَّافَ وَتَصُونُهُ مِنَ الضَّيَاعِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "حَفَرَ بِعَصَاهُ سَاقِيَةً تَنْحَدِرُ مِنَ الْهَضْبَةِ وَحَفَرَ حَوْضًا فِي سَفْحِهَا تَجَمَّعَتْ فِيهِ اللِيَاهُ الْغَزِيرَةُ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 4,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "كَانَتْ فِكْرَتُهُ حُلْمًا بَعِيدًا وَهَا هِيَ يُشَاهِدُهَا وَيُخَطِّطُ لَهَا بِعَصَاهُ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَغْمَضَ عَيْنَيْهِ وَسَرَحَ بِخَيَالِهِ ثَانِيَةً فَرَأَى شُوَيْهَاتِهِ تُقْبِلُ لِتُطْفِئَ ظَمَا صَيْفِ طويل ...",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "رَأَى الرَّاعِي عَلَى سَطْح الْمَاءِ صُورَةَ قَرْيَةٍ خِصْبَةٍ خَضْرَاءَ وَفِيرَةِ الزَّرْعِ وَالثَّمَرِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَحَسَّ بِنِهَايَةِ الشَّقَاءِ وَإِدْبَارِ الْجُوعِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَحَرَّكَتْ يَدَاهُ ، يَدَانِ نَحِيفَتَانِ ، يَدَانِ تَغُوصَانِ فِي الْأَرْضِ لِتُكَدِّسَا التَّرْبَةَ عَلَى ضَفْتَيْ السَّاقِيَةِ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَتَوَاصَلَ الْحَفْرُ، وَتَوَاصَلَ الْجُهْدُ مُتَحَدِّيَا الزَّمَانَ الصُّلْبَ. أَنْصَتَ إِلَى هَاجِس يَهْتِفُ لَهُ : «حَوِّلْ جَدْبَ الْأَرْضِ إِلَى خِصْبٍ».",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 10,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَامْتَدَّتِ السَّاقِيَةُ، وَكَبُرَ الْحَوْضُ، أَصْبَحَ مَجْمَعًا لِسَواقٍ عَدِيدَةٍ تَنْحَدِرُ مِنْ مُرْتَفَعَاتِ الْهِضَابِ، وَصَارَ شَكُلُ الْحَوْضِ جَمِيلَ الْهَنْدَسَةِ وَالتَّخْطِيطِ الرَّاعِي يُسَابِقُ الشَّمْسَ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 12,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "يَمْسَحُ بِكُمْ كَدْرُونِهِ الْعَرَقَ الْمُتَصَبِّبَ عَلَى صُدْغَيْهِ، يَصْفَعُ أَدِيمَ الْأَرْضِ بِمِعْوَلِهِ صَفَعَاتٍ مُتَتَالِيَةً يُسْمَعُ لَهَا صَوْتٌ رَتِيبٌ يُرَدِّدُ صَدَاهُ فَضَاءُ الْجِبَالِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 13,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَكَثُرَتِ السَّواقِي الْمُنْحَدِرَةُ نَحْوَ الْحَوْضِ وَصَارَتْ جَدَاوِلَ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَانْقَلَبَ الْحَوْضُ إِلَى بُحَيْرَةٍ صَغِيرَةٍ كَتَبَ عَلَى ضِفَافِهَا الزَّمَنُ حِكَايَةَ الرّاعِي.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 15,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وامْتَدَّ الْعُشْبُ عَلَى جَوَانِبِهَا أَمْلَس أَخْضَرَ نَاعِمًا، وَاكْتَسَحَتِ الْخُضْرَةُ التَّرْبَةَ الْجَرْدَاءَ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 16,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "الرَّاعِي يُسَابِقُ الشَّمْسَ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 17,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "يَمْسَحُ بِكُمِّهِ الْعَرَقَ الْحَاجِبَ عَنْهُ الرُّؤْيَةَ..",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَمَحَ تَدَفَقًا غَزِيرًا فِي إِحْدَى السَّوَاقِي ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 19,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَعَادَ مَسْحَ الْعَرَقِ الْمَخْلُوطِ بِالتَّرْبَةِ الْمُبَلَّلَةِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 20,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "غَمَرَتْهُ لَذَّةُ الانْتِصَارِ وَسَرَتْ فِي كَامِل جِسْمِهِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 21,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "جَنَّا عَلَى رَكْبَتَيْهِ وَأَقْعَى فَاغِرًا فَاهُ، وَالْبَرَى يَنْهَلُ مِنَ الْمَاءِ الْمُتَدَفِّقِ جَرْعَاتٍ مُتَتَالِيَةً.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 22,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَانْسابَ الْمَاءُ فِي حَلْقِهِ كَالسُّلَافِ نَهَلَ مَرَّاتٍ وَمَرَّاتٍ حَلَاوَةُ الاِرْتِوَاءِ تَسْرِي فِي شَرَابِينِهِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 23,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "رَأَى شُوَيْهَاتِهِ فَتَيَاتٍ جَمِيلاتٍ يَسْبَحْنَ فِي حَوْضِ مَرْمَرِي، وَغَمَرَتْهُ فَرْحَةُ الظَّفَرِ بِحَرَارَةٍ عَذْبَةٍ، فَرْحَةُ الْعُثُورِ عَلَى كَنْزِ ثَمِين ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 24,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "جَعَلَ يَجْرِي كَالْمَعْتُوهِ، وَيُنَادِي وَالْعَرَقُ يُهَلِّلُ أَسَارِيرَ وَجْهِهِ : «يَا أَبْنَاءَ قَرْيَتِي ! إِجْرُوا، أَسْرِعُوا ! إِنَّهُ الْمَاءُ ... ! لَقَدْ وَجَدْتُ لَكُمْ عَيْنًا تَقِيكُمْ شَرَّ الْجَفَافِ ... ! يَا أَوْلَادَ عَمِّي أَحْضِرُوا الْمَعَاوِلَ لِتَحْفِرُوا السَّوَاقِي وَتُوصِلُوا الْمَاءَ إِلَى بُيُوتِكُمْ إِفْرَحُوا يَا رِجَالُ .... زَغْرِدْنَ يَا نِسَاءُ ... لَقَدْ جَادَ عَلَيْنَا اللَّهُ وَأَرَاحَنَا مِنَ الْجَدْبِ !»",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 25,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَلَمْ يُفِقُ الرَّاعِي مِنْ نَوْبَتِهِ إِلَّا عَلَى صَوْتِ أُمِّهِ تَصْرُحُ عَالِيًا : «وَيْحَكَ... ! أَيْنَ تَاهَتِ الشَّيَاهُ ... ؟»",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 26,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 9,
+        "name": "سمك ودلفين",
+        "description": "سمك ودلفين",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/سمك_ودلفين.wav",
+        "id": 9,
+        "file": "/media/audio/%D8%B3%D9%85%D9%83_%D9%88%D8%AF%D9%84%D9%81%D9%8A%D9%86.wav",
+        "name": "سمك ودلفين",
+        "description": "سمك ودلفين",
+        "duration": "P0DT00H02M49S",
+        "type": 1,
+        "reference": "e9a79a17-7486-4c65-bdab-2123c90765cd"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 9,
+      "name": "سمك ودلفين",
+      "description": "سمك ودلفين",
+      "transcription": {
+        "type": "نص",
+        "title": "سمك ودلفين",
+        "author": "عبد الوهاب الفقيه رمضان",
+        "source": "الدار التونسية للنشر، 1985 ، ص ص 130 - 131",
+        "content": [
+          {
+            "text": "أَفَاقَ حَامِدٌ مِنْ حُلْم يَقْظَتِهِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "شَاهَدَتْ عَيْنَاهُ الْمُسَمَّرَتَانِ فِي الْمَاءِ سِرْبًا كَبِيرًا مِنَ السَّمَكِ، سَرْدِينَةٍ غَلِيظَةٍ، اسْكُمْبَرِي غَلِيظٌ .",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "كَانَ السَّمَكُ يَبْدُو تَحْتَ ضَوْءِ الْأَنَابِيبِ كَأَنَّهُ قِطَعٌ مِنَ الْفِضَّةِ تَتَرَاقَصُ فِي الْمَاءِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "كَانَ السَّمَكُ يَقْفِرُ فَوْقَ الْمَاءِ كَأَنَّهُ يُرِيدُ أَنْ يَتَدَوَّقَ شَيْئًا مِنَ الْهَوَاءِ الَّذِي يَتَنَفُسُهُ ابْنُ الْيَابِسَةِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 4,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَسَرَتِ الْفَرْحَةُ فِي الْقُلُوبِ ، وَعَلَا الْبِشْرُ الْوُجُوهَ، وَحَدَّقَ الْجَمِيعُ فِي الْمَاءِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَقَدْ بَدأَتْ أَسْرَابٌ أُخْرَى مِنَ السَّمَكِ تَتَجَمَّعُ حَوْلَ الْمَرْكَبِ، فَحَلَّ مَحَلَّ الصَّمْتِ وَالْكَابَةِ حَدِيثٌ وَفُكَاهَةٌ ، وَأَسْرَعَ الْقَائِدُ يُعْطِي الإِشَارَةَ الضَّوْئِيَّةَ لِلْقَارِبَيْنِ الْبَعِيدَيْنِ فَأَقْبَلاً فِي حَرَكَةٍ بَطِيئَةٍ تَتَخَلَّلُهَا أَصْوَاتُ الْمَجَاذِيفِ، وَحَوْلَ كُلِّ قَارِبٍ تَتَرَاقَصُ أَسْرَابُ السَّمَكِ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَصَلَ الْقَارِبَانِ فَقَفَرَ الْجَمِيعُ مِنَ الْمَرْكَبِ الْكَبِيرِ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "كَانَ الْبَحَارَةُ يَجْذِبُونَ الشَّبَكَةَ بِكُلِّ مَا لَدَيْهِمْ مِنْ قُوَّةٍ حَتَّى لاَ تُفْلِتَ مِنْ قَبْضَتِهِمْ أَيُّ سَمَكَةٍ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَفَجْأَةً عَلَا صِيَاحُهُمْ : الدُّلْفِينُ ! الدُّلْفِينُ ... !",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 10,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَكِنَّ سِرْبَ الدَّلافِينِ كَانَ أَسْرَعَ مِنْ جَزْبِ الْبَحَارَةِ الدُّلْفِينِ هُوَ عَدُوٌّ الْبَحَارَةِ اللَّدُودُ فِي مَوْسِمِ السَّرْدِينَةِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "إِنَّهُ يَقْفِرُ وَسَطَ الشَّبَكَةِ ثُمَّ يُمَزِّقُهَا فَيَفْتَحُ لِلسَّمَكِ مَنَافِذَ الهَرَبِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 12,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "خَارَتْ عَزِيمَةُ الْبَحَارَةِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 13,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَقَدْ رَمَوْا الدَّلافِينَ بِالْحِجَارَةِ الْمُعَدَّةِ لِلْغَرَضِ إِلَى أَنْ نفَدَتْ وَلَمْ تُجْدِ نَفْعًا ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "خَرَجَتِ الشَّبَكَةُ فَارِغَةً بَعْدَ أَنْ عَادَ السَّمَكُ الْكَثِيرُ إِلَى قَاعِ الْبَحْرِ فِزِعًا مِنَ الدَّلافِينَ عَادَ الوُجُومُ إِلَى الْمَرْكَبَةِ وأُطْفِئتِ الْأَضْوَاءُ وَرُفِعَتِ الْمِرْسَاةُ، وأَخَذَ الْمَرْكَبُ طَرِيقَهُ نَحْوَ الْمِينَاءِ وَقَدْ فَقَدَ السَّمَكَ وَالشَّبَاكَ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 15,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "... وَدَخَلَ حَامِدٌ مَنْزِلَهُ صَامِنًا، فَاسْتَقْبَلَتْهُ زَوْجَتُهُ مُطْرِقَةً.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 16,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَلْقَى نَظْرَةً عَلَى أَبْنَائِهِ النِّيَامِ فِي صَمْت ثُمَّ اسْتَلْقَى عَلَى فِرَاشِهِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 17,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَنَهَّدَ وَقَالَ لِزَوْجَتِهِ فِي حَسْرَةٍ :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "غَدًا لَنْ أَعُودَ إِلَى الْمَرْكَبِ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 19,
+            "speaker": "حَامِدٌ",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "الْمُهِمُ أَنَّكَ عُدْتَ سَالِمًا.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 20,
+            "speaker": "الزَوْجَة",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَرَفَعَتِ الْمَرْأَةُ كَفَّهَا لِتَمْسَحَ دَمْعًا تَرَقْرَقَ فِي عَيْنَيْهَا.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 21,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "إِذَا نِمْتُ لَا تُوقِظيني.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 22,
+            "speaker": "حَامِدٌ",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَكِنَّ الرَّجُلَ لَمْ يُغْمَضْ لَهُ جَفْنٌ حَتَّى بَانَتْ تَبَاشِيرُ الْفَجْرِ، فَقَفَزَ مِنْ فِرَاشِهِ، وانْتَعَلَ حِذاءَهُ، وأَخَذَ قُفْتَهُ ، ثُمَّ سَارَ بِخُطى حَثِيثَةٍ نَحْوَ الْمِينَاءِ....",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 23,
+            "speaker": "الراوي",
+            "paragraph": 5,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 5,
+        "name": "الاختيار الصعب",
+        "description": "الاختيار الصعب",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/الاختيار_الصعب.wav",
+        "id": 5,
+        "file": "/media/audio/%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1_%D8%A7%D9%84%D8%B5%D8%B9%D8%A8.wav",
+        "name": "الاختيار الصعب",
+        "description": "الاختيار الصعب",
+        "duration": "P0DT00H02M57S",
+        "type": 1,
+        "reference": "4298a46e-68fc-4f9d-963c-fe70eb1ec72e"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 5,
+      "name": "الاختيار الصعب",
+      "description": "الاختيار الصعب",
+      "transcription": {
+        "type": "نص",
+        "title": "الاختيار الصعب",
+        "author": "نجيب محفوظ",
+        "source": "القاهرة الجديدة: دار مصر للطباعة، ص 38 - 39",
+        "content": [
+          {
+            "text": "جَاءَ الطَّبِيبُ وَفَحَصَ الْمَرِيضَ وَحَقَنَهُ ثُمَّ صَرَّحَ بِارْتِيَاحِهِ لِلْحَالَةِ مُؤَكَّدًا أَنْ الْخَطَرَ زَالَ تَمَامًا.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَغَادَرَ الطَّبِيبُ الْحُجْرَةَ يَتْبَعُهُ مَحْجُوبٌ حَتَّى أَدْرَكَهُ فِي الْفِنَاءِ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "الْتَفَتَ إِلَيْهِ قَائِلاً:",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "الْحَقِيقَةُ مَا قُلْتُ لأَبِيكَ. لَوْلاَ أَنَّ الإِصَابَةَ جُزْئِيَّةٌ لَكَانَتِ الْقَاضِيَةَ، بَيْدَ أَنِّي مَا صَارَحْتُهُ بِأَنَّهُ لَنْ يَعُودَ إِلَى عَمَلِهِ وبِأَنَّهُ سَيُلازِمُ الْفِرَاشَ بِضْعَةَ أَشْهُرٍ. لَكِنَّهُ سَيُحَرِّكُ جَنْبَهُ الْمَشْلُولَ، بَلْ رُبَّمَا عَاوَدَ الْمَشْيَ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 4,
+            "speaker": "الطَّبِيب",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَظْلَمَتِ الدُّنْيَا فِي عَيْنَيْهِ وَعَادَ إِلَى الْحُجْرَةِ ذَاهِلاً، وَكَانَ أَبُوهُ ذَا طَبِيعَةٍ عَمَلِيَّةٍ لَا يَدَعُ أَمْرًا مُعَلَّقًا إِذَا أَمْكَنَ أَنْ يَيْتَ فِيهِ بِرَأْي، فَدَعَا ابْنَهُ إِلَى الْاِقْتِرَابِ مِنَ الْفِرَاشِ وَقَالَ بِلِسَانٍ ثَقِيل:",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَصْغ إِلَيَّ يَا بُنَيَّ، لَنْ أَعُودَ إِلَى عَمَلِي بِالشَّرِكَةِ. هَذِهِ هِيَ الْحَقِيقَةُ. فَمَاذَا تَرَى؟",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "الأَب",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَازْدَادَ صَدْرُ مَحْجُوبِ انْقِبَاضًا وَلاَزِمَ الصَّمْ، فَاسْتَدْرَكَ الرَّجُلُ :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "رُبَّمَا مَنَحَتْنِي الشَّرِكَةُ مُكَافَأَةً صَغِيرَةً سَتَنْفَدُ قَبْلَ مُضِي أَشْهُرٍ قَلَائِلَ، وَلَكِنْ سأُحَاوِلُ قُصَارَى جُهْدِي الْبَحْتَ عَمَّنْ يَجِدُ لَكَ وَظِيفَةً تَنْهَضُ بِنَا جَمِيعًا.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 8,
+            "speaker": "الأَب",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَقَالَ مُحْجُوبٌ بِتَوسُّلٍ وَقَدْ نَطَقَتْ عَيْنَاهُ بِالأَلَمِ وَالْقُنُوطِ :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "الاِمْتِحَانُ، يَا أَبِي، عَلَى الأَبْوَابِ، فَإِذَا وَظُفْتُ الآنَ فَسَأَعَدُّ كَحَامِلِ الْبَا كَالُورِيَا، وَفِي ذَلِكَ ضَيَاعٌ لِمُسْتَقْبَلِي عَظِيمٌ ....",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 10,
+            "speaker": "مُحْجُوبٌ",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَقَالَ الْأَبُ فِي حُزْنٍ :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 5,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَعْلَمُ ذَلِكَ وَلَكِنْ مَا الحِيلَةُ ؟ أَخَافُ أَنْ نَتَعَرَّضَ لِلْفَضِيحَةِ أَوْ نَهْلَكَ جُوعًا !",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 12,
+            "speaker": "الأَب",
+            "paragraph": 5,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أفَقَالَ الشَّابُ بِتَوَكَّلِ حَارٌ وَبِصَوْتٍ مَلَأَهُ حَمَاسًا وَقُوَّةً :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 13,
+            "speaker": "الراوي",
+            "paragraph": 6,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَرْبَعَةُ أَشْهُرٍ، أَرْبَعَةُ أَشْهُرٍ ، فَقَط بَيْنِي وَبَيْنَ ثَمْرَةِ كَدٌ خَمْسَةَ عَشَرَ عَامًا .... أَمْهِلْنِي قَلِيلاً يَا أَبِتِ، سَتَكْفِينَا الْمُكَافَأَةُ حَتَّى انْهَضَ عَلَى قَدَمَيْ. لَنْ نَجُوعَ، لَنْ نَتَعَرَّضَ لِلْفَضِيحَةِ بِإِذْنِ اللَّهِ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 14,
+            "speaker": "مُحْجُوبٌ",
+            "paragraph": 6,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَمَاذَا يَكُونُ مِنْ أَمْرِنَا إِنْ أَخْطَأَ تَقْدِيرُكَ ... إِنْ خَابَ سَعْيُكَ لَا قَدَّرَ اللَّهُ ۚ إِنَّ حَيَاتِنَا بِيَدِكَ.",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 15,
+            "speaker": "الأَب",
+            "paragraph": 6,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "دَخَلَتِ الْأُمُّ عَلَيْهِمَا ، وَكَانَتْ قَدْ سَمِعَتْ مَا دَارَ بَيْنَهُمَا، فَجَعَلَتْ تُقَلِّبُ نَظَرَهَا بَيْنَ زَوْجِهَا الْمُقْعَدِ وَابْنِهَا الْمُنْكَسِرِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 16,
+            "speaker": "الراوي",
+            "paragraph": 7,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "خَيَّمَ عَلَى الْمَكَانِ صَمْتٌ ثَقِيلٌ، وَإِذَا يَدَا الأَمِّ تَمْتَدَّانِ فِي شَيْءٍ مِنَ الْإِصْرَارِ إِلَى رَقَبَتِهَا فَتَنْتَزِعَانِ عِقْدَهَا الذَّهَبِيَّ ثُمَّ تَتَنَاوَبَانِ عَلَى نَزْعِ الْأَسَاوِرِ ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 17,
+            "speaker": "الراوي",
+            "paragraph": 7,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "إِنْدَهَشَ الْأَبُ لَكِنَّ زَوجَتَهُ عَاجَلَتْهُ بِقَوْلِهَا : «هِيَ لَنَا جَمِيعًا، فَلِمَ أَسْتَأْثِرُ بِهَا دُونَكُمَا ؟»",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 7,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "أَحَسَّ الابْنَ بِأَنَّ أَبْوَابَ الْعَرْشِ قَدِ انْفَتَحَتْ أَمَامَهُ، فَارْتَمَى عَلَى أُمِّهِ يَحْضُنُهَا، وَمَسَحَ دَمْعًا تَرَقْرَقَ فِي عَيْنَيْهِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 19,
+            "speaker": "الراوي",
+            "paragraph": 7,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 3,
+        "name": "الغراب والثعلب",
+        "description": "الغراب والثعلب",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/الغراب_والثعلب.wav",
+        "id": 3,
+        "file": "/media/audio/%D8%A7%D9%84%D8%BA%D8%B1%D8%A7%D8%A8_%D9%88%D8%A7%D9%84%D8%AB%D8%B9%D9%84%D8%A8.wav",
+        "name": "الغراب والثعلب",
+        "description": "الغراب والثعلب",
+        "duration": "P0DT00H00M59S",
+        "type": 1,
+        "reference": "3bc88d6b-2639-4473-8160-bfd64c32d4ec"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 3,
+      "name": "الغراب والثعلب",
+      "description": "الغراب والثعلب",
+      "transcription": {
+        "type": "شعر",
+        "title": "الغراب والثعلب",
+        "author": "نقولا أبو هنا",
+        "source": "أمثال لا فونتين: دار المواسم، بيروت، 1995، ص ص 21 - 22",
+        "content": [
+          {
+            "text": "سمُو الْغُرَابِ أَوَى مَرَّةً*إِلَى دَوْحَةٍ فَوْقَهَا قَدْ جَشَمْ",
+            "time": "00:00:00",
+            "type": "ببت",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَكَانَتْ بِمِنْقَارِهِ جُبْنَةٌ*يَهشُ إِلَى أَكْلِهَا ذُو النَّهَمْ",
+            "time": "00:00:05",
+            "type": "ببت",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 5,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فوَافَاهُ مُسْتَرْوحًا ثَعْلَبٌ*يَهِيجُ حَشَاهُ بِمِثْلِ الضَّرَمْ",
+            "time": "00:00:11",
+            "type": "ببت",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 11,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَحَيَّا الْغُرَابَ وَقَالَ لَهُ:*سَلَامٌ أَيَا صَاحِبِي الْمُحْتَرَمْ",
+            "time": "00:00:16",
+            "type": "ببت",
+            "index": 4,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 16,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَعَمْرِي إِنَّكَ بَاهِرُ شَكْلٍ*بَدِيعُ الْمَلَامِحِ مِنْ غَيْرِ ذَمْ",
+            "time": "00:00:21",
+            "type": "ببت",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 21,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَرِيشُكَ زَاهِي الْجَمَالِ فَأَنْتَ*جَمِيلٌ مِنَ الرَّأْسِ حَتَّى الْقَدَمْ",
+            "time": "00:00:26",
+            "type": "ببت",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 26,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَلَوْ أَنَّ صَوْتَكَ نَاسَبَ رِيشَ*كَ حُسْنًا لَكَانَ لَكَ الْحُسْنُ تَمْ",
+            "time": "00:00:32",
+            "type": "ببت",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 32,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فأَفْرَجَ مِنْقَارَهُ فَإِذَا*بِحِبْنَتِهِ فِي فم ، أَي فَمْ",
+            "time": "00:00:38",
+            "type": "ببت",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 38,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَلَقَّفَهَا ذُو الدَّهَاءِ سَرِيعًا*فكَانَتْ لَهُ مِنْ أَلَدِّ اللُّقَمْ",
+            "time": "00:00:43",
+            "type": "ببت",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 43,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَكَادَ الغُرَابُ يَذُوبُ حَيَاءً*وأنشَأَ يَقْرَعُ مِنَّ النَّدَمْ",
+            "time": "00:00:48",
+            "type": "ببت",
+            "index": 10,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 48,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَأَقْسَمَ أَنْ لَنْ يُمَلَّقَ بَعْدُ*وَلَكِنْ تَأَخَّرَ ذَاكَ الْقَسَمْ",
+            "time": "00:00:53",
+            "type": "ببت",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 53,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 4,
+        "name": "أمومة",
+        "description": "أمومة",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/أمومة.wav",
+        "id": 4,
+        "file": "/media/audio/%D8%A3%D9%85%D9%88%D9%85%D8%A9.wav",
+        "name": "أمومة",
+        "description": "أمومة",
+        "duration": "P0DT00H02M39S",
+        "type": 1,
+        "reference": "d4537887-9f83-44c9-8274-b161a6135935"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 4,
+      "name": "أمومة",
+      "description": "أمومة",
+      "transcription": {
+        "type": "نص",
+        "title": "أمومة",
+        "author": "محمود طرشونة",
+        "source": "نوافذ: مؤسسات باباي تونس ط ،7، 1997، ص ص 25 - 27",
+        "content": [
+          {
+            "text": "أَحَبَّ الصَيَّادُ أَنْ يَأْخُذَ الْحَيَوَانَ حَيًّا، وَاسْتَطْرَفَتِ الزَّوْجَةُ الْجَرْوَ الْيَافِعَ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "كَانَ هَذَا الْجَرْوُ قَدْ ضَلَّ عَنْ غَابَتِهِ وَغَابَ عَنْ إِخْوَتِهِ وَوَصَلَ إِلَى الطَّرِيقِ فَتَوَقَّفَ أَمَامَ السَّيَّارَةِ مُتَعَجِّبًا مُتَحَيِّرًا تَائِِهَا صَاغِرًا.",
+            "time": "00:00:07",
+            "type": "جملة",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 7,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَصَوَّرَتْهُ الْمَرْأَةُ فِي حَدِيقَتِهَا يَحْطَى بِعَطْفِ الصِّغَارِ ويَفْخَرُ بِهِ الْكِبَارُ.",
+            "time": "00:00:19",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 19,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَلِلْجِيرَانِ قِطَطٌ وَكِلاَبٌ مُتَنَوِّعَةٌ وَطُيُورٌ نَادِرَةٌ وَسَلَاحِفُ وَأَسْمَاكٌ مُلَوَّنَةٌ، وَبَعْضُهُمْ يَمْتَلِكُ قِرْدًا صَغِيرًا، وَمِنْهُمْ مَنْ يَفْخَرُ بِتَرْبِيَةِ نَعَامَةٍ عِمْلَاقَةٍ، فَلِمَ لَا تُرَبِّي هِيَ بِدَوْرِهَا ذَنْبًا يَكُونُ زِينَةَ الدَّارِ ؟",
+            "time": "00:00:24",
+            "type": "جملة",
+            "index": 4,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 24,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَلَمْ تَطُلْ دَهْشَةُ الْحَيَوَانِ، فَقَدْ نَزَلَ الصَّيَّادُ بِحَذَرٍ وَاقْتَرَبَ مِنْهُ وَأَخَذَهُ بَيْنَ ذِرَاعَيْهِ وَأَدْخَلَهُ السَّيَّارَةَ وَانْطَلَقَ....",
+            "time": "00:00:44",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 44,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "شَعَرَتْ أُمُّ الْحَيَوَانِ بِأَنَّ الْقَطِيعَ يَنْقُصُهُ فَرْدٌ عَزِيزٌ عَلَيْهَا، فَأَخَذَتْ تَبْحَثُ عَنْ جَرُوهَا بَيْنَ الْأَشْجَارِ حَتَّى وَصَلَتْ إِلَى الطَّرِيق فرأتْ عَمَلَ الصَيَّادِ بِصَغِيرِهَا.",
+            "time": "00:00:56",
+            "type": "جملة",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 56,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَهَالَهَا أنْ تَنْطَلِقَ بِهِ السَّيَّارَةُ، فَلَحِقَتْ بِهَا ...",
+            "time": "00:01:08",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 68,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "زادَ السَّائِقُ فِي السُّرْعَةِ فَزَادَتْ فِي سُرْعَتِهَا واقْتَرَبَتْ مِنَ السَّيَّارَةِ.",
+            "time": "00:01:13",
+            "type": "جملة",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 73,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ضَاعَفَ السَّائِقُ السُّرْعَةَ، فَتَوَقَّفَتْ الْأُمُّ لَحْظَةً تَسْتَجْمِعُ قُوَاهَا، ثُمَّ اسْتَأَنْفَتِ الْعَدْوَ فَكَادَتْ تُلاَمِسُ الْحَدِيدَ ، فَرَفَعَ السَّائِقُ السُّرْعَةَ إِلَى أَقْصَاهَا.",
+            "time": "00:01:18",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 78,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَمْ تَيْأَسُ الْأُمُّ بَلْ انْدَفَعَتْ بِكَامِل طَاقَتِهَا وَرَاءَ السَّيَّارَةِ تَعْدُو وَتَعْدُو، لَكِنَّ الْحَدِيدَ يَبْتَعِدُ عَنْهَا ، فَضَاعَفَتْ الْمِسْكِينَةُ قُوَاهَا لَكِنَّ أَعْصَابَهَا أَنْهَارَتْ، بَيْنَمَا أَزْدَادَتْ السَّيَّارَةُ بُعْدًا عَنْ نَاظِرَيْهَا وَهْيَ تَحْمِلُ دَاخِلَهَا صَغِيرَهَا ، فَدَبَّ الضُّعْفُ فِي أَوْصَالِهَا.",
+            "time": "00:01:31",
+            "type": "جملة",
+            "index": 10,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 91,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "غَابَ الْحَدِيدُ بِمَنْ فِيهِ، فَدَبَّ الْيَأْسُ إِلَى قَلْبِهَا ، تَوقَّفَتْ تَتَنَفَّسُ بِقُوَّةٍ وَعَصَبِيَّةٍ ....",
+            "time": "00:01:51",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 111,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "حَوْلَهَا فَرَأَتْ الطَّرِيقَ أَمَامَهَا خَالِيًا وَالْغَابَةَ سَاكِنَةً، فَلَمْ تَتَحَمَّلْ الْمَوْقِفَ فَأَخَذَتْ تَضْرِبُ بِرَأْسِهَا أَرْضَ الطَّرِيقِ.",
+            "time": "00:01:56",
+            "type": "جملة",
+            "index": 12,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 116,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَيْقَنَتِ الزَّوْجَةُ أَنَّ أُمَّ الْحَيَوَانِ الصَّغِيرِ لَمْ تَعُدْ قَادِرَةً عَلَى اللِّحَاقِ بِهِمْ، فَطَلَبَتْ إِلَى زَوْجِهَا أَنْ يُخَفِّضَ مِنْ سُرْعَةِ السَّيَّارَةِ، ثُمَّ رَجَتْهُ أَنْ يَعُودَ أَدْرَاجَهُ.",
+            "time": "00:02:10",
+            "type": "جملة",
+            "index": 13,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 130,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "اسْتَجَابَ الرَّجُلُ لِطَلِبِهَا فِي شَيْءٍ مِنَ الدَّهْشَةِ، لَكِنَّ دَهْشَتَهُمَا كَانتْ أَشَدَّ لِمَرْأَى الْأُمِّ الْمُلْتَاعَةِ.",
+            "time": "00:02:24",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 144,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "اغْرَوْرَقَتْ عَيْنَا الزَّوجَةِ بِالدُّمُوعِ وَمَالَبِثَتْ أَنْ فَتَحَتْ بَابَ السَّيَّارَةِ لِتُطْلِقَ قَيْدَ الْحَيَوَانِ الصَّغِيرِ.",
+            "time": "00:02:30",
+            "type": "جملة",
+            "index": 15,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 150,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 6,
+        "name": "صراع",
+        "description": "صراع",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/صراع.wav",
+        "id": 6,
+        "file": "/media/audio/%D8%B5%D8%B1%D8%A7%D8%B9.wav",
+        "name": "صراع",
+        "description": "صراع",
+        "duration": "P0DT00H03M07S",
+        "type": 1,
+        "reference": "00c9a699-82d6-40ce-a444-f0053ad90d79"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 6,
+      "name": "صراع",
+      "description": "صراع",
+      "transcription": {
+        "type": "نص",
+        "title": "صراع",
+        "author": "عمر بن سالم",
+        "source": "الأسد والتمثال: الدار التونسية للنشر، ص ص 194 – 196",
+        "content": [
+          {
+            "text": "بَقِيتُ فَوْقَ عُدْوَةِ النَّهْرِ يَوْمَيْنِ وَلَيْلَتَيْنِ أَقَاوِمُ كُلَّ رَغْبَةٍ فِي الالْتِحَاقِ بِالتَّلال وَأَرْفُضُ حَتَّى النَّظَرَ إِلَى الْمِيَاهِ الْهَادِرَةِ مِنْ حَوْلِي ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وعندما بزغت شمس اليوم الثالث وَدَبَّ النَّشَاطُ فِي أَوْصَالِي مِنْ جَدِيدٍ نَهَضْتُ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 2,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "بَلَّلْتُ أَطْرَافِي وَأَنَا أَنْظُرُ إِلَى الضَّفَّةِ الْمُقَابِلَةِ فِي رَهْبَةٍ وَشَوْقٍ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ثُمَّ تَشَجَّعْتُ وَانْحَدِرْتُ وَخُضْتُ اللَّجَّةَ، وَفِي نِيَّتِي قَطْعُ الْمِنْطَقَةِ الْقَرِيبَةِ ذَهَابًا وَإِيَّابًا كَتَجْرِبَةٍ لِلْعُبُورِ، لَكِنَّ شَوْقِي إِلَى بُلُوغِ سَاحِلِ النَّجَاةِ كَانَ أَشدَّ وأَقْوَى.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 4,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَانْدَفَعْتُ نَحْوَ وَسَطِ الْمُجْرَى أُقَاوِمُ انْدِفَاعَ الْمَاءِ وَأَسْبَحُ دُونَ وَهَن أَوْ كَلَل.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "كُنْتُ لَا أَلْتَفِتُ إِلَى الْوَرَاءِ وَلَا أُبَالِي بِمَا حَوْلِي بَلْ أَحَاوِلُ دَائِمًا أَنْ أُحَافِظَ عَلَى نَفْسٍ الْإِنْجَاهِ كَأَنَّنِي قَدْ أَوْ تَقْتُ عَيْنَيَّ بِنُقْطَةٍ ثَابِتَةٍ رَسَمْتُهَا لِلْوُصُولِ ...",
+            "time": "00:00:00",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ثُمَّ أَخَذَ الْإِعْيَاءُ يَتَسَرَّبُ إِلَى أَطْرَافِي، وَبَدأَتْ أَنْفَاسِي تَضِيقُ وَتَتَتَابَعُ بِسُرْعَةٍ رَهِيبَةٍ، وَكِدْتُ أُشْرِفُ عَلَى الاخْتِنَاقِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "حَدَّدْتُ لَحْظَتَهَا مَوْقِعِي جَيِّدًا فَإِذَا السَّاحِلُ لَا يَزَالُ بَعِيدًا، وَإِذَا بِي أَنْجَرِفُ بِقُوَّةٍ وَأَنْحَرِفُ عَنْ هَدَفِي، وأَدْرَكْتُ أَنَّهُ لا سَبِيلَ إِلَى النَّجَاةِ مِنَ الْعَرَقِ إِذَا استمر انْجِرَافِي عَلَى تِلْكَ الْوَتِيرَةِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "جَمَعْتُ مَا تَبَقَّى لِي مِنْ جُهْدٍ وَصَعَدْتُ بَصَرِي فَوْقَ الْمَاءِ وَتَنَفَّسْتُ مِلْءَ رِئَتَيَّ مَرَّةً وَمَرَّتَيْنِ وَثَلاثًا.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 9,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ثُمَّ تَشَوَّقْتُ إِلَى الضَفَّةِ مِنْ جَدِيدٍ وَأَنَا أُحَدِّثُ نَفْسِي : «لَا تَفْشَلْ يَا هَذَا، لَا تَفْشَلْ. أَنْتَ قَادِرٌ عَلَى مُغَالَبَةِ التَّيَّارِ، أَنْتَ قَادِرٌ عَلَى قَطْعِ النَّهْرِ».",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 10,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَجَدَّفْتُ بِيَدَيَّ وَسَاقَيَّ وَصَعَدْتُ مَعَ اللُّجَّةِ وَنَزَلْتُ وَوَاصَلْتُ السِّبَاحَةَ وَأَنَا مُصَلِّمٌ عَلَى عَدَمِ الْإِسْتِسْلَامِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَكُنْتُ فِي الأَثْنَاءِ أَحَاوِلُ أَنْ أَنْغَمِسَ فِي الْمَاءِ أَكْثَرَ مِنَ اللازم.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 12,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَعْمَضْتُ عَيْنَيَّ لَحْظَةً بِسَبَبِ رَذَادٍ أَصَابَنِي.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 13,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَعِنْدَمَا فَتَحْتُهُمَا رَأَيْتُ جِذْعَ شَجَرَةٍ قَدْ دَفَعَهُ التَيَّارُ نَحْوِي وَكَادَ يَصْدِمُ رَأْسِي وَيَقْضِي عَلَيَّ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَبِسُرْعَةٍ غَطَسْتُ فِي الْمَاءِ وَمَرَقْتُ مِنْ تَحْتِ الْجِذْعِ فَمَرَّ بِسَلَامٍ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 15,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَلَمَّا أَخْرَجْتُ رَأْسِي ضَاعَفْتُ الْجُهْدَ كَيْ أَنْعَتِقَ مِنَ الْمِنْطَقَةِ الصَّعْبَةِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 16,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ومَا كِدْتُ أَشْعُرُ بالنَّجَاةِ مِنَ الْخَطَرِ حَتَّى هَدَأَتْ أَوْصَالِي فَجْأَةً مَعَ هُدُوءِ التَّيَّارِ ثُمَّ سَكَنَتْ وَتَوَقَّفَتْ عَنِ الْحَرَكَةِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 17,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَوَهَّمْتُ حِينَهَا أَنَّهَا قَدْ خَذَلَتْنِي وأَنَّهَا قَدْ شُلَّتْ نِهَائِيًّا مِنْ شِدَّةِ الْإِعْيَاءِ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "الْتَفَتْ وَرَائِي فَهَا لَتْنِي تَمَوُّجَاتُ اللُّجَّةِ الْهَادِرَةِ خَلْفِي وَخِفْتُ أَنْ يُعِيدَنِي النَّهْرُ إِلَى رَحَاهُ.",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 19,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "تَحَرَّكَتْ آنَذَاكَ أَعْضَائِي مِنْ تَلْقَاءِ نَفْسِهَا ، وَلَمْ أَدْرِ كَيْفَ وَاصَلْتُ مَا كُنْتُ فِيهِ مِنْ حَرَكَةٍ وَتَجْدِيفَ إِلَى أَنْ ارْتَطَمَتْ سَاقَايَ بِالْقَاعِ فَلَمْ أُصَدِّقْ، ثُمَّ وَقَفْتُ عَلَيْهِ وَلَمْ أُصَدِّق ...",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 20,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "لَمْ أُصَدِّقْ أَنِّي نَجَوْتُ إِلَّا عِنْدَمَا خَرَجْتُ مِنَ الْمَاءِ وَمَشَيْتُ خُطُوَاتِ عَلَى الْيَابِسَةِ عِنْدَئِذٍ فَقَطْ دَاخَلَنِي الْإِطْمِثْنَانُ وَاسْتَلْقَيْتُ عَلَى الْعَدْوَةِ....",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 21,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 0,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    },
+    {
+      "language": {
+        "id": 1,
+        "icon": "&#127481;&#127475;",
+        "name": "العربية",
+        "short_name": "ar"
+      },
+      "lesson_type": {
+        "id": 1,
+        "name": "Résumé de cours",
+        "description": "Résumé de cours"
+      },
+      "tags": [],
+      "module": {
+        "level": {
+          "id": 6,
+          "name": "6 ème Année Primaire",
+          "description": "6 ème Année Primaire"
+        },
+        "subject": {
+          "id": 1,
+          "name": "اللغة العربية",
+          "description": "اللغة العربية",
+          "color": "#9ae600"
+        },
+        "trimester_name": "First Trimester",
+        "id": 1,
+        "name": "أحدد بنية النص السردي و مكوّناته",
+        "description": "أحدد بنية النص السردي و مكوّناته",
+        "trimester": 0,
+        "color": "#00a6f4"
+      },
+      "created_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "approved_by": {
+        "user": {
+          "id": 2,
+          "username": "superuser",
+          "first_name": "superuser",
+          "last_name": "superuser",
+          "email": "superuser@gmail.com",
+          "date_joined": "2026-02-10T14:34:35.115Z"
+        },
+        "full_name": "superuser superuser",
+        "level": null,
+        "id": 1,
+        "avatar": "/media/avatars/avatar.svg",
+        "is_active": true,
+        "phone": "22222222",
+        "address": "Sfax",
+        "biography": "Super User"
+      },
+      "production_project": {
+        "status": {
+          "id": 1,
+          "name": "En Atteente"
+        },
+        "project_type": {
+          "id": 1,
+          "name": "Lesson",
+          "project_class": "Lesson"
+        },
+        "studio_leader": {
+          "user": {
+            "id": 5,
+            "username": "admin_studio",
+            "first_name": "Administrateur",
+            "last_name": "Studio",
+            "email": "admin.studio@gmail.com",
+            "date_joined": "2026-02-10T14:36:36.908Z"
+          },
+          "full_name": "Administrateur Studio",
+          "level": null,
+          "id": 4,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22334455",
+          "address": "Sfax",
+          "biography": "Sfax"
+        },
+        "created_by": {
+          "user": {
+            "id": 2,
+            "username": "superuser",
+            "first_name": "superuser",
+            "last_name": "superuser",
+            "email": "superuser@gmail.com",
+            "date_joined": "2026-02-10T14:34:35.115Z"
+          },
+          "full_name": "superuser superuser",
+          "level": null,
+          "id": 1,
+          "avatar": "/media/avatars/avatar.svg",
+          "is_active": true,
+          "phone": "22222222",
+          "address": "Sfax",
+          "biography": "Super User"
+        },
+        "id": 2,
+        "name": "الدراجة الصفراء",
+        "description": "الدراجة الصفراء",
+        "start_date": "2026-02-10",
+        "end_date": "2026-03-12",
+        "note": ""
+      },
+      "view_number": 0,
+      "hd_version": {
+        "format": {
+          "channel_label": "Stereo 2.0",
+          "id": 3,
+          "name": "Waveform Audio File Format",
+          "extension": "wav",
+          "bit_rates": "16",
+          "flow_rates": "384",
+          "frequency": "44.1",
+          "channel": 2
+        },
+        "type_label": "Hd",
+        "src": "https://radio.backend.ecocloud.tn/media/audio/الدراجة_الصفراء.wav",
+        "id": 2,
+        "file": "/media/audio/%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%AC%D8%A9_%D8%A7%D9%84%D8%B5%D9%81%D8%B1%D8%A7%D8%A1.wav",
+        "name": "الدراجة الصفراء",
+        "description": "الدراجة الصفراء",
+        "duration": "P0DT00H03M33S",
+        "type": 1,
+        "reference": "7046e174-d083-402d-b335-afede506abcc"
+      },
+      "streaming_version": null,
+      "teaser_version": null,
+      "id": 2,
+      "name": "الدراجة الصفراء",
+      "description": "الدراجة الصفراء",
+      "transcription": {
+        "type": "نص",
+        "title": "الدراجة الصفراء",
+        "author": "محمود بلعيد",
+        "source": "عصافير الجنة: الدار العربية للكتاب، 1994، ص ص 69-92",
+        "content": [
+          {
+            "text": "فَتَحَتْ أُمِّي عُقْدَةَ مِنْدِيلِهَا وَمَدَّتْ لَنَا الْقِطْعَةَ الْبَيْضَاءَ وَقَالَتْ لَنَا :",
+            "time": "00:00:00",
+            "type": "جملة",
+            "index": 1,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 0,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "اشْتَرِيَا كَعْكًا، فَالْكَعْكُ أَحْسَنُ مِنَ الْحَلْوَى .",
+            "time": "00:00:07",
+            "type": "حوار",
+            "index": 2,
+            "speaker": "الأُم",
+            "paragraph": 1,
+            "timestamp": 7,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَجَبْنَاهَا بِصَوْتٍ وَاحِدٍ :",
+            "time": "00:00:11",
+            "type": "جملة",
+            "index": 3,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 11,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "نَعَمْ ، نَعَمْ، سَنَشْرِي كَعْكًا. نَحْنُ نُحِبُّ الْكَعْكَ.",
+            "time": "00:00:13",
+            "type": "حوار",
+            "index": 4,
+            "speaker": "الراوي وَأَخِيِه",
+            "paragraph": 1,
+            "timestamp": 13,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أنَظَرَتْ إِلَيْنَا مَلِيًّا وَقَدِ احْمَرَّ وَجْهَانَا، ثُمَّ قَالَتْ فِي لَهْجَةٍ صَارِمَةٍ، وَهْيَ تَرْفَعُ سَبَّابَةَ يَدِهَا الْيُمْنَى :",
+            "time": "00:00:19",
+            "type": "جملة",
+            "index": 5,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 19,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَشْتَرِيَانِ الْكَعْكَ وَتَأْكُلَانِهِ فَذَلِكَ أَحْسَنُ مِنْ رُكُوبِ الدَّرَّاجَاتِ. أَلَيْسَ كَذَلِكَ ؟",
+            "time": "00:00:29",
+            "type": "حوار",
+            "index": 6,
+            "speaker": "الأُم",
+            "paragraph": 1,
+            "timestamp": 29,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "نَزَلَتْ عَلَيْنَا كَلِمَاتُهَا كَالصَّاعِقَةِ ، فَاضْطَرَبْنَا لَحْظَةً، ثُمَّ تَنَاوَلْنَا الدِّينَارَ وَخَرَجْنَا مِنَ الدَّارِ وَقَصَدْنَا دُكَّانَ عَمُ الْعَرُوسِي شَاهَدْنَا الدَّرَّاجَاتِ عَنْ بُعْدٍ، فَأَسْرَعْنَا نَرْكُضُ ونَعْدُو وَنَطِيرُ ، وَقَفْنَا أَمَامَهَا نَلْهَتُ وَنَبْحَثُ بِأَعْيُنِنَا الْأَرْبِعِ عَنِ الدَّرَّاجَةِ الصَّفْرَاءِ.",
+            "time": "00:00:37",
+            "type": "جملة",
+            "index": 7,
+            "speaker": "الراوي",
+            "paragraph": 1,
+            "timestamp": 37,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "انْتَبَهَ إِلَيْنَا عَمَّ الْعَرُوسِي، فَقَالَ :",
+            "time": "00:01:02",
+            "type": "جملة",
+            "index": 8,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 62,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "خَرَجَتِ الصَّفْرَاءُ مُنْذُ حِين. عُودًا بَعْدَ نِصْفِ سَاعَةٍ، سَوْفَ تَجِدَانِهَا رجعت",
+            "time": "00:01:06",
+            "type": "حوار",
+            "index": 9,
+            "speaker": "العَمَّ الْعَرُوسِي",
+            "paragraph": 2,
+            "timestamp": 66,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "نُفَصِّلُ الانْتِظَارَ . نَنْتَظِرُ الآنَ هُنا كَيْ لَا يَكْتَرِيَهَا طِفْلٌ آخَرُ. خُذِ الدِّينَارَ الْآنَ.",
+            "time": "00:01:15",
+            "type": "حوار",
+            "index": 10,
+            "speaker": "الراوي وَأَخِيِه",
+            "paragraph": 2,
+            "timestamp": 75,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "فَنَظَرَ إِلَيْنَا مُبْتَسِمًا ثُمَّ مَدَّ يَدَهُ الْغَلِيظَةَ فَوَضَعْنَا لَهُ الْقِطْعَةَ النَّقْدِيَّةَ فِي كَفِّهِ فَتَلَقَّاهَا في هدوء...",
+            "time": "00:01:23",
+            "type": "جملة",
+            "index": 11,
+            "speaker": "الراوي",
+            "paragraph": 2,
+            "timestamp": 83,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَعَادَتْ الدَّرَّاجَةُ الصَّفْرَاءُ فَأَخَذْنَاهَا وَتَابَعْنَا سَيْرَنَا رُوَيْدًا، أَنَا عَلَى يَمِينِهَا وَأَخِي عَلَى يَسَارِهَا، وَابْتَعَدْنَا عَنِ الدُّكَّانِ شَيْئًا فَشَيْئًا ، ثُمَّ انْعَرَجْنَا يَسْرَةً فَجَمَعَ أَخِي الْكَبِيرُ شَجَاعَتَهُ وَقَالَ لِي :",
+            "time": "00:01:33",
+            "type": "جملة",
+            "index": 12,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 93,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "شُدَّ بِيَ الْمِقْوَدَ . سَأَرْكَبُ أَنَا أَوَّلاً .َ",
+            "time": "00:01:52",
+            "type": "حوار",
+            "index": 13,
+            "speaker": "أَخ الراوي",
+            "paragraph": 3,
+            "timestamp": 112,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "وَامْتَطَى الدَّرَّاجَةَ وَكَأَنَّهُ يَتَسَلَّقُ جَبَلاً، وَأَنَا مَاسِكَ بِالْمِقْوَدِ بِكُلِّ قُوَايَ، ثُمَّ سِرْنَا بِصُعُوبَةٍ.",
+            "time": "00:01:58",
+            "type": "جملة",
+            "index": 14,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 118,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "سَارَتِ الدَّرَّاجَةُ بِبُطْءٍ وَأَخِي مُتَّكِى عَلَيَّ بِحِسْمِهِ كُلِّهِ يَكَادُ يُهَشِّمُنِي وَيَطْرَحُنِي أَرْضًا.",
+            "time": "00:02:08",
+            "type": "جملة",
+            "index": 15,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 128,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "جَعَلَ يُدِيرُ سَاقَيْهِ بِجِدٌ وَعَنَاءٍ.",
+            "time": "00:02:15",
+            "type": "جملة",
+            "index": 16,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 135,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "مِلْنَا يَمْنَةً فَكِدْنَا نَقْتَحِمُ الْحَوَانِيتَ.",
+            "time": "00:02:20",
+            "type": "جملة",
+            "index": 17,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 140,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "أَدارَ أَخِي الْمِقْوَدَ بِكُلِّ مَا لَدَيْهِ مِنْ قُوَّةٍ، فَمَالَتْ بِنَا الدَّرَّاجَةُ يَسْرَةً وَكِدْنَا نَصْطَدِمُ بِالْعَرَبَاتِ الْمَارَّةِ وَالْجُدْرَانِ وَكُلِّ مَا يَعْتَرِضُ طَرِيقَنَا.",
+            "time": "00:02:25",
+            "type": "جملة",
+            "index": 18,
+            "speaker": "الراوي",
+            "paragraph": 3,
+            "timestamp": 145,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَصَبَّبَ عَرَقْنَا وَتَابَعْنَا سَيْرَنَا بِجُهْدٍ جَهِيدٍ وَشَجَاعَةٍ نَادِرَةٍ، أَنَا مَاسِكَ بِالْمِقْوَدِ لَا أَتْرُكُهُ يَحِيدُ وَأَخِي يُدِيرُ سَاقَيْهِ بِصُعُوبَةٍ وَيَنْظُرُ إِلَى العَجَلَةِ الْأَمَامِيَّةِ مَاسِكًا الْمِقْوَدَ مُتَشَبِّئًا بِهِ عَاضًا شَفَتَيْهِ وَلِسَانَهُ ...",
+            "time": "00:02:37",
+            "type": "جملة",
+            "index": 19,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 157,
+            "is_new_paragraph": true
+          },
+          {
+            "text": "وَخَلَّيْتُ سَبِيلَهُ فَإِذَا هُوَ يَسْتَقِيمُ فَوْقَ الدَّرَّاجَةِ بِثِقَةٍ وَيَرْفَعُ رَأَسَهُ أَمَامَهُ فِي ثَبَاتٍ فَتَنْسَابُ الدَّرَّاجَةُ مُتَّزِنَةً أَنْسِيَابًا رَائِعًا ...",
+            "time": "00:02:59",
+            "type": "جملة",
+            "index": 20,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 179,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "ابْتَعَدَ عَنِّي أَخِي حَتَّى صَارَ صَغِيرًا جِدًّا لَا يَكَادُ يُرَى.",
+            "time": "00:03:13",
+            "type": "جملة",
+            "index": 21,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 193,
+            "is_new_paragraph": false
+          },
+          {
+            "text": "تَمَلَّكَنِي خَوْفٌ شَدِيدٌ فَالْتَصَقْتُ بِالْجِدَارِ وَكِدْتُ أَفْقِدُ صَوَابِي مَرَّتْ دَقَائِقُ كَأَنَّهَا سَاعَاتٌ وَإِذَا بِأَخِي يُقْبِلُ نَحْوِي مُشْرِقَ الْوَجْهِ مُنْشَرِحًا.",
+            "time": "00:03:19",
+            "type": "جملة",
+            "index": 22,
+            "speaker": "الراوي",
+            "paragraph": 4,
+            "timestamp": 199,
+            "is_new_paragraph": false
+          }
+        ],
+        "is_original": false,
+        "language_orientation": "RTL"
+      },
+      "is_approved_content": true,
+      "is_pubic_content": false,
+      "is_published": false,
+      "publishing_date": "2026-03-12"
+    }
+  ],
+  "count": 10
+}

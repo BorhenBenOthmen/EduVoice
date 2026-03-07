@@ -40,12 +40,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _handleLogin() async {
     if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-      _tts.speak("Erreur. L'e-mail et le mot de passe sont obligatoires.");
+      await _tts.speak("Erreur. L'e-mail et le mot de passe sont obligatoires.");
       return;
     }
 
     setState(() => _isLoading = true);
-    _tts.speak("Connexion en cours, veuillez patienter.");
+    await _tts.speak("Connexion en cours, veuillez patienter.");
 
     final success = await _authRepo.login(
       _emailController.text.trim(),
@@ -55,11 +55,10 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isLoading = false);
 
     if (success && mounted) {
-      _tts.speak("Connexion réussie. Chargement des leçons.");
-      
-      // ARCHITECTURAL OVERRIDE: 
-      // Rerouting the successful login directly to the Phase 5 LessonListScreen
-      // injected with the LessonCubit.
+      // Speak and wait for TTS to finish before navigating away,
+      // otherwise the screen transition cuts the audio off.
+      await _tts.speak("Connexion réussie. Bienvenue sur EduVoice.");
+      if (!mounted) return;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -70,7 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
     } else {
-      _tts.speak("Échec de la connexion. Veuillez vérifier vos identifiants.");
+      // Await so the blind user actually hears the error before anything else.
+      await _tts.speak(
+        "Échec de la connexion. L'e-mail ou le mot de passe est incorrect. Veuillez réessayer.",
+      );
     }
   }
 

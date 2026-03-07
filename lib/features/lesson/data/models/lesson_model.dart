@@ -1,4 +1,5 @@
 // lib/data/models/lesson_model.dart
+import 'package:flutter/foundation.dart';
 import '../../domain/entities/lesson.dart';
 
 class LessonModel extends Lesson {
@@ -11,17 +12,28 @@ class LessonModel extends Lesson {
   });
 
   factory LessonModel.fromJson(Map<String, dynamic> json) {
-    // Parse streaming_version.src — the URL used for audio streaming
+    // DEBUG: print audio fields to VS Code console to diagnose missing audio
+    debugPrint('=== LESSON: ${json['name']} ===');
+    debugPrint('  streaming_version: ${json['streaming_version']}');
+    debugPrint('  hd_version: ${json['hd_version']}');
+    debugPrint('  teaser_version: ${json['teaser_version']}');
+
+    // Use hd_version.src — streaming_version is null for all current lessons.
+    // hd_version contains the actual .wav audio file URL.
     String? parsedStreamUrl;
-    if (json['streaming_version'] != null && json['streaming_version']['src'] != null) {
-      parsedStreamUrl = json['streaming_version']['src'] as String;
+    if (json['hd_version'] != null &&
+        json['hd_version']['src'] != null) {
+      parsedStreamUrl = json['hd_version']['src'] as String;
     }
 
     // Defensively parse nested transcription
     List<TranscriptionLine> parsedTranscription = [];
-    if (json['transcription'] != null && json['transcription']['content'] != null) {
+    if (json['transcription'] != null &&
+        json['transcription']['content'] != null) {
       final contentList = json['transcription']['content'] as List;
-      parsedTranscription = contentList.map((item) => TranscriptionLineModel.fromJson(item)).toList();
+      parsedTranscription = contentList
+          .map((item) => TranscriptionLineModel.fromJson(item))
+          .toList();
     }
 
     return LessonModel(
