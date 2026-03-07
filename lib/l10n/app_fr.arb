@@ -1,0 +1,147 @@
+{
+  "@@locale": "fr",
+  "appTitle": "EduVoice",
+  "@appTitle": { "description": "Application title" },
+
+  "welcomeMessage": "Bienvenue sur EduVoice. Plateforme d'apprentissage pour tous.",
+
+  "loginTitle": "Connexion EduVoice",
+  "loginEmailLabel": "E-mail",
+  "loginPasswordLabel": "Mot de passe",
+  "loginButton": "Se connecter",
+  "loginLoading": "Connexion en cours, veuillez patienter.",
+  "loginSuccess": "Connexion réussie. Bienvenue sur EduVoice.",
+  "loginError": "Échec de la connexion. L'e-mail ou le mot de passe est incorrect. Veuillez réessayer.",
+  "loginEmptyFields": "Erreur. L'e-mail et le mot de passe sont obligatoires.",
+  "loginEmailSemantics": "Champ de saisie pour l'adresse e-mail",
+  "loginPasswordSemantics": "Champ de saisie pour le mot de passe",
+  "loginButtonSemantics": "Bouton de connexion. Appuyez deux fois pour valider.",
+
+  "homeCatalogueTitle": "EduVoice",
+  "homeWelcomeTts": "Bienvenue sur EduVoice. Choisissez une section : Leçons, Culture, Podcast ou Radio.",
+  "homeMenuLesson": "Leçons",
+  "homeMenuLessonDesc": "Cours audio interactifs",
+  "homeMenuCulture": "Culture",
+  "homeMenuCultureDesc": "Découvertes culturelles",
+  "homeMenuPodcast": "Podcast",
+  "homeMenuPodcastDesc": "Épisodes sélectionnés",
+  "homeMenuRadio": "Radio",
+  "homeMenuRadioDesc": "Flux en direct",
+  "homeMenuLessonSemantics": "Section Leçons. Appuyez deux fois pour ouvrir.",
+  "homeMenuCultureSemantics": "Section Culture. Appuyez deux fois pour ouvrir.",
+  "homeMenuPodcastSemantics": "Section Podcast. Appuyez deux fois pour ouvrir.",
+  "homeMenuRadioSemantics": "Section Radio. Appuyez deux fois pour ouvrir.",
+  "homeListeningButton": "Enregistrement en cours. Appuyez deux fois pour arrêter.",
+  "homeMicButton": "Assistant vocal. Appuyez deux fois pour poser une question.",
+  "homeVoiceDefault": "Utilisez le bouton micro pour parler.",
+  "homeSearching": "Recherche en cours",
+  "homeListening": "Je vous écoute",
+  "homeCourseSemantics": "Cours : {title}. {description}. Appuyez deux fois pour ouvrir.",
+  "@homeCourseSemantics": {
+    "placeholders": { "title": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "homeAboutSemantics": "À propos de l'application EduVoice",
+  "homeSettingsSemantics": "Paramètres de l'application",
+  "homeOpeningAbout": "Ouverture de la page à propos.",
+  "homeOpeningSettings": "Ouverture des paramètres.",
+  "homeOpeningSection": "Ouverture de la section : {title}.",
+  "@homeOpeningSection": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+
+  "lessonTitle": "Leçons",
+  "lessonSearchLabel": "Rechercher une leçon",
+  "lessonSearchHint": "Saisir le nom de la leçon",
+  "lessonSearchPlaceholder": "Recherche...",
+  "lessonEmpty": "Aucune leçon trouvée.",
+  "lessonLoading": "Chargement des leçons",
+  "lessonCountTts": "{count} leçons trouvées.",
+  "@lessonCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "lessonErrorTts": "Une erreur est survenue lors du chargement des leçons. Veuillez réessayer.",
+  "lessonTileSemantics": "Leçon : {name}. {description}. Appuyez deux fois pour écouter.",
+  "@lessonTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "lessonPlayerOpening": "Ouverture de la leçon : {name}.",
+  "@lessonPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "lessonPlayerDescription": "Description de la leçon : {desc}",
+  "@lessonPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "lessonPlayerTranscript": "Transcription",
+  "lessonPlayerNoAudio": "Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.",
+  "lessonPlayerPlay": "Lecture",
+  "lessonPlayerPause": "Pause",
+  "lessonPlayerStop": "Arrêter et revenir au début",
+  "lessonPlayerReplay": "Reculer de 10 secondes",
+  "lessonPlayerListen": "Écouter la leçon",
+  "lessonPlayerStopTts": "Arrêter l'écoute",
+  "lessonPlayerStopLabel": "Arrêter l'écoute. Appuyez deux fois pour arrêter.",
+  "lessonPlayerListenLabel": "Commencer l'écoute de la leçon. Appuyez deux fois pour lancer.",
+
+  "podcastTitle": "Podcast",
+  "podcastTts": "Section Podcast. Bientôt disponible — des épisodes sélectionnés pour enrichir votre apprentissage.",
+  "podcastComingSoon": "Bientôt disponible",
+  "podcastComingSoonDesc": "Des podcasts enrichissants seront proposés très prochainement.",
+
+  "radioTitle": "Radio",
+  "radioTts": "Section Radio. Bientôt disponible — flux éducatifs en direct.",
+  "radioComingSoon": "Bientôt disponible",
+  "radioComingSoonDesc": "Des flux radio éducatifs en direct seront disponibles très prochainement.",
+
+  "cultureTitle": "Culture",
+  "cultureTts": "Section Culture. Bientôt disponible — explorez le monde à travers des récits culturels.",
+  "cultureComingSoon": "Bientôt disponible",
+  "cultureComingSoonDesc": "Des contenus culturels enrichissants seront proposés très prochainement.",
+
+  "settingsTitle": "Paramètres",
+  "settingsTts": "Ouverture des paramètres de l'application.",
+  "settingsLanguageSection": "Langue",
+  "settingsLanguageAr": "العربية",
+  "settingsLanguageFr": "Français",
+  "settingsLanguageEn": "English",
+  "settingsLanguageChanged": "Langue changée en {lang}.",
+  "@settingsLanguageChanged": {
+    "placeholders": { "lang": { "type": "String" } }
+  },
+  "settingsTtsSection": "Voix et audio",
+  "settingsTtsSpeed": "Vitesse de lecture",
+  "settingsTtsSpeedSlow": "Lente",
+  "settingsTtsSpeedNormal": "Normale",
+  "settingsTtsSpeedFast": "Rapide",
+  "settingsTtsSpeedChanged": "Vitesse de lecture changée en {speed}.",
+  "@settingsTtsSpeedChanged": {
+    "placeholders": { "speed": { "type": "String" } }
+  },
+  "settingsTtsVolume": "Volume de la voix",
+  "settingsTtsVolumeChanged": "Volume réglé à {percent} pourcent.",
+  "@settingsTtsVolumeChanged": {
+    "placeholders": { "percent": { "type": "int" } }
+  },
+  "settingsTtsTest": "C'est ainsi que je lis le contenu pour vous.",
+  "settingsAboutButton": "À propos de l'application",
+  "settingsAboutSemantics": "Aller à la page À propos",
+
+  "aboutTitle": "À propos de EduVoice",
+  "aboutTts": "Page à propos. EduVoice est une plateforme d'apprentissage accessible pour les personnes malvoyantes. Version un point zéro. Notre mission est d'autonomiser tous les apprenants grâce à une éducation axée sur la voix.",
+  "aboutVersionLabel": "Version",
+  "aboutVersion": "1.0.0",
+  "aboutMissionTitle": "Notre Mission",
+  "aboutMissionBody": "Autonomiser les apprenants malvoyants grâce à une éducation axée sur la voix.",
+  "aboutFeaturesTitle": "Fonctionnalités",
+  "aboutFeature1": "📚  Leçons audio interactives",
+  "aboutFeature2": "📻  Radio éducative en direct",
+  "aboutFeature3": "🎙️  Podcasts sélectionnés",
+  "aboutFeature4": "🌍  Explorateur culturel",
+  "aboutFeature5": "🎤  Commandes vocales",
+  "aboutA11yTitle": "Accessibilité",
+  "aboutA11yBody": "EduVoice est conçu selon les critères WCAG 2.1 AA et les meilleures pratiques d'accessibilité pour les lecteurs d'écran. Chaque écran est entièrement navigable à la voix et au toucher.",
+  "aboutTeamTitle": "Équipe",
+  "aboutTeamBody": "Développé par l'équipe PFE — Projet de Fin d'Études en ingénierie logicielle.",
+  "aboutContactTitle": "Contact",
+  "aboutContactBody": "contact@eduvoice.app"
+}

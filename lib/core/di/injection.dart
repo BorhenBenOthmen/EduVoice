@@ -8,7 +8,6 @@ import '../../features/lesson/data/repositories/lesson_repository_impl.dart';
 
 // Core
 import '../network/auth_client.dart';
-import '../audio/tts_service.dart';
 import '../auth/token_manager.dart';
 
 // State Management
@@ -24,7 +23,6 @@ void initPhase5() {
   sl.registerLazySingleton<ILessonRepository>(
     () => LessonRepositoryImpl(
       sl<AuthClient>(),
-      sl<TtsService>(),
       sl<TokenManager>(),
     ),
   );

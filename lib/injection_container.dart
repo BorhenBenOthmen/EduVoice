@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'core/auth/token_manager.dart';
 import 'core/network/auth_client.dart';
+import 'core/locale/locale_service.dart';
 import 'features/auth/data/auth_repository.dart';
 import 'core/audio/tts_service.dart';
 import 'core/audio/stt_service.dart';
@@ -25,7 +26,12 @@ Future<void> setupDependencies() async {
   // 1. External Packages
   const secureStorage = FlutterSecureStorage();
   
-  // 2. Core Audio Services
+  // 2. Core Locale Service — must init first so locale is ready before UI
+  final localeService = LocaleService(secureStorage);
+  await localeService.init();
+  locator.registerSingleton<LocaleService>(localeService);
+
+  // 3. Core Audio Services
   locator.registerLazySingleton(() => TtsService());
   locator.registerLazySingleton(() => SttService());
   locator.registerLazySingleton(() => AudioSessionManager());
@@ -33,7 +39,7 @@ Future<void> setupDependencies() async {
   // Factory: each LessonPlayerScreen gets its own player instance (clean dispose).
   locator.registerFactory(() => LessonAudioPlayerService());
   
-  // 3. Core Auth & Network
+  // 4. Core Auth & Network
   locator.registerLazySingleton(() => TokenManager(secureStorage));
   
   // Register AuthClient under its own concrete type — no casts needed anywhere.
@@ -44,7 +50,7 @@ Future<void> setupDependencies() async {
   // http.Client resolves to the same AuthClient instance.
   locator.registerLazySingleton<http.Client>(() => locator<AuthClient>());
 
-  // 4. Existing Repositories
+  // 5. Existing Repositories
   locator.registerLazySingleton(() => AuthRepository(
     locator<TokenManager>(),
     locator<http.Client>(),
@@ -53,7 +59,7 @@ Future<void> setupDependencies() async {
   locator.registerLazySingleton(() => CourseRepository());
 
   // ==========================================
-  // 5. PHASE 5: LESSON DATA PIPELINE
+  // 6. PHASE 5: LESSON DATA PIPELINE
   // ==========================================
   
   // Register Repository First (Data Layer)
@@ -61,7 +67,6 @@ Future<void> setupDependencies() async {
   locator.registerLazySingleton<ILessonRepository>(
     () => LessonRepositoryImpl(
       locator<AuthClient>(),      // direct — no cast needed
-      locator<TtsService>(),
       locator<TokenManager>(),    // needed to resolve account_id for URL
     ),
   );

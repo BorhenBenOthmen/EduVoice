@@ -1,0 +1,145 @@
+{
+  "@@locale": "ar",
+  "appTitle": "EduVoice",
+  "welcomeMessage": "مرحباً بك في EduVoice. منصة التعلم للجميع.",
+
+  "loginTitle": "تسجيل الدخول إلى EduVoice",
+  "loginEmailLabel": "البريد الإلكتروني",
+  "loginPasswordLabel": "كلمة المرور",
+  "loginButton": "تسجيل الدخول",
+  "loginLoading": "جارٍ تسجيل الدخول، يرجى الانتظار.",
+  "loginSuccess": "تم تسجيل الدخول بنجاح. مرحباً بك في EduVoice.",
+  "loginError": "فشل تسجيل الدخول. البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.",
+  "loginEmptyFields": "خطأ. البريد الإلكتروني وكلمة المرور مطلوبان.",
+  "loginEmailSemantics": "حقل إدخال البريد الإلكتروني",
+  "loginPasswordSemantics": "حقل إدخال كلمة المرور",
+  "loginButtonSemantics": "زر تسجيل الدخول. انقر مرتين للتأكيد.",
+
+  "homeCatalogueTitle": "EduVoice",
+  "homeWelcomeTts": "مرحباً بك في EduVoice. اختر قسماً: الدروس، الثقافة، البودكاست، أو الراديو.",
+  "homeMenuLesson": "الدروس",
+  "homeMenuLessonDesc": "دروس صوتية تفاعلية",
+  "homeMenuCulture": "الثقافة",
+  "homeMenuCultureDesc": "اكتشافات ثقافية",
+  "homeMenuPodcast": "البودكاست",
+  "homeMenuPodcastDesc": "حلقات مختارة",
+  "homeMenuRadio": "الراديو",
+  "homeMenuRadioDesc": "بث مباشر",
+  "homeMenuLessonSemantics": "قسم الدروس. انقر مرتين للفتح.",
+  "homeMenuCultureSemantics": "قسم الثقافة. انقر مرتين للفتح.",
+  "homeMenuPodcastSemantics": "قسم البودكاست. انقر مرتين للفتح.",
+  "homeMenuRadioSemantics": "قسم الراديو. انقر مرتين للفتح.",
+  "homeListeningButton": "التسجيل جارٍ. انقر مرتين للإيقاف.",
+  "homeMicButton": "المساعد الصوتي. انقر مرتين لطرح سؤال.",
+  "homeVoiceDefault": "استخدم زر الميكروفون للتحدث.",
+  "homeSearching": "جارٍ البحث",
+  "homeListening": "أنا أستمع إليك",
+  "homeCourseSemantics": "دورة: {title}. {description}. انقر مرتين للفتح.",
+  "@homeCourseSemantics": {
+    "placeholders": { "title": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "homeAboutSemantics": "حول تطبيق EduVoice",
+  "homeSettingsSemantics": "إعدادات التطبيق",
+  "homeOpeningAbout": "فتح صفحة حول التطبيق.",
+  "homeOpeningSettings": "فتح الإعدادات.",
+  "homeOpeningSection": "فتح قسم: {title}.",
+  "@homeOpeningSection": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+
+  "lessonTitle": "الدروس",
+  "lessonSearchLabel": "البحث عن درس",
+  "lessonSearchHint": "أدخل اسم الدرس للبحث",
+  "lessonSearchPlaceholder": "بحث...",
+  "lessonEmpty": "لا توجد دروس مطابقة.",
+  "lessonLoading": "جارٍ تحميل الدروس",
+  "lessonCountTts": "تم العثور على {count} دروس.",
+  "@lessonCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "lessonErrorTts": "حدث خطأ أثناء تحميل الدروس. يرجى المحاولة مرة أخرى.",
+  "lessonTileSemantics": "درس: {name}. {description}. انقر مرتين للاستماع.",
+  "@lessonTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "lessonPlayerOpening": "فتح درس: {name}.",
+  "@lessonPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "lessonPlayerDescription": "وصف الدرس: {desc}",
+  "@lessonPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "lessonPlayerTranscript": "النص المكتوب",
+  "lessonPlayerNoAudio": "لا يوجد ملف صوتي متاح. يمكنك الاستماع للوصف بالنص المقروء.",
+  "lessonPlayerPlay": "تشغيل",
+  "lessonPlayerPause": "إيقاف مؤقت",
+  "lessonPlayerStop": "إيقاف التشغيل وإعادة للبداية",
+  "lessonPlayerReplay": "رجوع 10 ثوانٍ",
+  "lessonPlayerListen": "استمع للدرس",
+  "lessonPlayerStopTts": "إيقاف الاستماع",
+  "lessonPlayerStopLabel": "إيقاف الاستماع. انقر مرتين للإيقاف.",
+  "lessonPlayerListenLabel": "بدء الاستماع للدرس بصوت عالٍ. انقر مرتين للتشغيل.",
+
+  "podcastTitle": "البودكاست",
+  "podcastTts": "قسم البودكاست. قريباً — حلقات مختارة لتعزيز تعلمك.",
+  "podcastComingSoon": "قريباً",
+  "podcastComingSoonDesc": "ستتوفر بودكاست متنوعة ومفيدة قريباً جداً.",
+
+  "radioTitle": "الراديو",
+  "radioTts": "قسم الراديو. قريباً — بث تعليمي مباشر.",
+  "radioComingSoon": "قريباً",
+  "radioComingSoonDesc": "ستتوفر قنوات راديو تعليمية مباشرة قريباً جداً.",
+
+  "cultureTitle": "الثقافة",
+  "cultureTts": "قسم الثقافة. قريباً — استكشف العالم من خلال روايات ثقافية.",
+  "cultureComingSoon": "قريباً",
+  "cultureComingSoonDesc": "ستتوفر محتويات ثقافية ثرية قريباً جداً.",
+
+  "settingsTitle": "الإعدادات",
+  "settingsTts": "فتح إعدادات التطبيق.",
+  "settingsLanguageSection": "اللغة",
+  "settingsLanguageAr": "العربية",
+  "settingsLanguageFr": "Français",
+  "settingsLanguageEn": "English",
+  "settingsLanguageChanged": "تم تغيير اللغة إلى {lang}.",
+  "@settingsLanguageChanged": {
+    "placeholders": { "lang": { "type": "String" } }
+  },
+  "settingsTtsSection": "الصوت والصوت",
+  "settingsTtsSpeed": "سرعة القراءة",
+  "settingsTtsSpeedSlow": "بطيئة",
+  "settingsTtsSpeedNormal": "عادية",
+  "settingsTtsSpeedFast": "سريعة",
+  "settingsTtsSpeedChanged": "تم تغيير سرعة القراءة إلى {speed}.",
+  "@settingsTtsSpeedChanged": {
+    "placeholders": { "speed": { "type": "String" } }
+  },
+  "settingsTtsVolume": "مستوى الصوت",
+  "settingsTtsVolumeChanged": "تم ضبط مستوى الصوت على {percent} بالمئة.",
+  "@settingsTtsVolumeChanged": {
+    "placeholders": { "percent": { "type": "int" } }
+  },
+  "settingsTtsTest": "هكذا أقرأ المحتوى من أجلك.",
+  "settingsAboutButton": "حول التطبيق",
+  "settingsAboutSemantics": "الانتقال إلى صفحة حول التطبيق",
+
+  "aboutTitle": "حول EduVoice",
+  "aboutTts": "صفحة حول التطبيق. EduVoice هي منصة تعلم متاحة للمكففين. الإصدار واحد نقطة صفر. مهمتنا هي تمكين جميع المتعلمين من خلال التعليم الصوتي.",
+  "aboutVersionLabel": "الإصدار",
+  "aboutVersion": "1.0.0",
+  "aboutMissionTitle": "مهمتنا",
+  "aboutMissionBody": "تمكين المتعلمين ذوي الإعاقة البصرية من خلال التعليم الصوتي.",
+  "aboutFeaturesTitle": "المميزات",
+  "aboutFeature1": "📚  دروس صوتية تفاعلية",
+  "aboutFeature2": "📻  راديو تعليمي مباشر",
+  "aboutFeature3": "🎙️  بودكاست مختار",
+  "aboutFeature4": "🌍  المستكشف الثقافي",
+  "aboutFeature5": "🎤  أوامر صوتية",
+  "aboutA11yTitle": "الإتاحة",
+  "aboutA11yBody": "صُمّمت EduVoice وفق معايير WCAG 2.1 AA وأفضل ممارسات قارئات الشاشة. كل شاشة قابلة للتنقل الكامل بالصوت واللمس.",
+  "aboutTeamTitle": "الفريق",
+  "aboutTeamBody": "طوّره فريق PFE — مشروع التخرج في هندسة البرمجيات.",
+  "aboutContactTitle": "التواصل",
+  "aboutContactBody": "contact@eduvoice.app"
+}

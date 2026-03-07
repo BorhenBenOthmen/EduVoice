@@ -7,22 +7,17 @@ import '../../domain/repositories/i_lesson_repository.dart';
 import '../models/lesson_model.dart';
 import '../../../../core/network/auth_client.dart';
 import '../../../../core/network/api_constants.dart';
-import '../../../../core/audio/tts_service.dart';
 import '../../../../core/auth/token_manager.dart';
 
 class LessonRepositoryImpl implements ILessonRepository {
   final AuthClient _authClient;
-  final TtsService _ttsService;
   // ignore: unused_field — kept for future use when accountId is read from storage
   final TokenManager _tokenManager;
 
-  LessonRepositoryImpl(this._authClient, this._ttsService, this._tokenManager);
+  LessonRepositoryImpl(this._authClient, this._tokenManager);
 
   @override
   Future<List<Lesson>> fetchLessons() async {
-    // Accessibility hook: Announce network initialization
-    await _ttsService.speak("جاري تحميل الدروس، يرجى الانتظار.");
-
     try {
       // Hardcoded account ID for testing.
       const accountId = 1;
@@ -41,8 +36,6 @@ class LessonRepositoryImpl implements ILessonRepository {
             .map((json) => LessonModel.fromJson(json))
             .toList();
 
-        // Accessibility hook: Confirm success
-        await _ttsService.speak("تم العثور على ${lessons.length} دروس.");
         return lessons;
       } else {
         throw Exception(
@@ -56,10 +49,6 @@ class LessonRepositoryImpl implements ILessonRepository {
       debugPrint(stacktrace.toString());
       debugPrint("====================================");
 
-      // Accessibility hook: Graceful error announcement
-      await _ttsService.speak(
-        "حدث خطأ أثناء تحميل الدروس. يرجى المحاولة مرة أخرى.",
-      );
       throw Exception(e.toString());
     }
   }

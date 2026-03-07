@@ -1,0 +1,145 @@
+{
+  "@@locale": "en",
+  "appTitle": "EduVoice",
+  "welcomeMessage": "Welcome to EduVoice. The learning platform for everyone.",
+
+  "loginTitle": "EduVoice Login",
+  "loginEmailLabel": "E-mail",
+  "loginPasswordLabel": "Password",
+  "loginButton": "Log in",
+  "loginLoading": "Signing in, please wait.",
+  "loginSuccess": "Login successful. Welcome to EduVoice.",
+  "loginError": "Login failed. The e-mail or password is incorrect. Please try again.",
+  "loginEmptyFields": "Error. E-mail and password are required.",
+  "loginEmailSemantics": "E-mail input field",
+  "loginPasswordSemantics": "Password input field",
+  "loginButtonSemantics": "Log in button. Double-tap to confirm.",
+
+  "homeCatalogueTitle": "EduVoice",
+  "homeWelcomeTts": "Welcome to EduVoice. Choose a section: Lessons, Culture, Podcast, or Radio.",
+  "homeMenuLesson": "Lessons",
+  "homeMenuLessonDesc": "Interactive audio courses",
+  "homeMenuCulture": "Culture",
+  "homeMenuCultureDesc": "Cultural discoveries",
+  "homeMenuPodcast": "Podcast",
+  "homeMenuPodcastDesc": "Curated episodes",
+  "homeMenuRadio": "Radio",
+  "homeMenuRadioDesc": "Live streams",
+  "homeMenuLessonSemantics": "Lessons section. Double-tap to open.",
+  "homeMenuCultureSemantics": "Culture section. Double-tap to open.",
+  "homeMenuPodcastSemantics": "Podcast section. Double-tap to open.",
+  "homeMenuRadioSemantics": "Radio section. Double-tap to open.",
+  "homeListeningButton": "Recording in progress. Double-tap to stop.",
+  "homeMicButton": "Voice assistant. Double-tap to ask a question.",
+  "homeVoiceDefault": "Use the mic button to speak.",
+  "homeSearching": "Searching",
+  "homeListening": "I am listening",
+  "homeCourseSemantics": "Course: {title}. {description}. Double-tap to open.",
+  "@homeCourseSemantics": {
+    "placeholders": { "title": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "homeAboutSemantics": "About EduVoice application",
+  "homeSettingsSemantics": "Application settings",
+  "homeOpeningAbout": "Opening the about page.",
+  "homeOpeningSettings": "Opening settings.",
+  "homeOpeningSection": "Opening {title}.",
+  "@homeOpeningSection": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+
+  "lessonTitle": "Lessons",
+  "lessonSearchLabel": "Search for a lesson",
+  "lessonSearchHint": "Enter the lesson name",
+  "lessonSearchPlaceholder": "Search...",
+  "lessonEmpty": "No lessons found.",
+  "lessonLoading": "Loading lessons",
+  "lessonCountTts": "Found {count} lessons.",
+  "@lessonCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "lessonErrorTts": "An error occurred while loading lessons. Please try again.",
+  "lessonTileSemantics": "Lesson: {name}. {description}. Double-tap to listen.",
+  "@lessonTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "lessonPlayerOpening": "Opening lesson: {name}.",
+  "@lessonPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "lessonPlayerDescription": "Lesson description: {desc}",
+  "@lessonPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "lessonPlayerTranscript": "Transcript",
+  "lessonPlayerNoAudio": "No audio file available. You can listen to the description read aloud.",
+  "lessonPlayerPlay": "Play",
+  "lessonPlayerPause": "Pause",
+  "lessonPlayerStop": "Stop and return to beginning",
+  "lessonPlayerReplay": "Rewind 10 seconds",
+  "lessonPlayerListen": "Listen to lesson",
+  "lessonPlayerStopTts": "Stop listening",
+  "lessonPlayerStopLabel": "Stop listening. Double-tap to stop.",
+  "lessonPlayerListenLabel": "Start listening to the lesson aloud. Double-tap to play.",
+
+  "podcastTitle": "Podcast",
+  "podcastTts": "Podcast section. Coming soon — curated episodes to enrich your learning.",
+  "podcastComingSoon": "Coming Soon",
+  "podcastComingSoonDesc": "Enriching podcasts will be available very soon.",
+
+  "radioTitle": "Radio",
+  "radioTts": "Radio section. Coming soon — live educational streams.",
+  "radioComingSoon": "Coming Soon",
+  "radioComingSoonDesc": "Live educational radio streams will be available very soon.",
+
+  "cultureTitle": "Culture",
+  "cultureTts": "Culture section. Coming soon — explore the world through cultural stories.",
+  "cultureComingSoon": "Coming Soon",
+  "cultureComingSoonDesc": "Enriching cultural content will be available very soon.",
+
+  "settingsTitle": "Settings",
+  "settingsTts": "Opening application settings.",
+  "settingsLanguageSection": "Language",
+  "settingsLanguageAr": "العربية",
+  "settingsLanguageFr": "Français",
+  "settingsLanguageEn": "English",
+  "settingsLanguageChanged": "Language changed to {lang}.",
+  "@settingsLanguageChanged": {
+    "placeholders": { "lang": { "type": "String" } }
+  },
+  "settingsTtsSection": "Voice & Audio",
+  "settingsTtsSpeed": "Reading speed",
+  "settingsTtsSpeedSlow": "Slow",
+  "settingsTtsSpeedNormal": "Normal",
+  "settingsTtsSpeedFast": "Fast",
+  "settingsTtsSpeedChanged": "Reading speed changed to {speed}.",
+  "@settingsTtsSpeedChanged": {
+    "placeholders": { "speed": { "type": "String" } }
+  },
+  "settingsTtsVolume": "Voice volume",
+  "settingsTtsVolumeChanged": "Volume set to {percent} percent.",
+  "@settingsTtsVolumeChanged": {
+    "placeholders": { "percent": { "type": "int" } }
+  },
+  "settingsTtsTest": "This is how I read content for you.",
+  "settingsAboutButton": "About the application",
+  "settingsAboutSemantics": "Go to the About page",
+
+  "aboutTitle": "About EduVoice",
+  "aboutTts": "About page. EduVoice is an accessible learning platform for visually impaired users. Version one point zero. Our mission is to empower all learners through voice-first education.",
+  "aboutVersionLabel": "Version",
+  "aboutVersion": "1.0.0",
+  "aboutMissionTitle": "Our Mission",
+  "aboutMissionBody": "Empowering visually impaired learners through voice-first education.",
+  "aboutFeaturesTitle": "Features",
+  "aboutFeature1": "📚  Interactive audio lessons",
+  "aboutFeature2": "📻  Live educational radio",
+  "aboutFeature3": "🎙️  Curated podcasts",
+  "aboutFeature4": "🌍  Cultural explorer",
+  "aboutFeature5": "🎤  Voice commands",
+  "aboutA11yTitle": "Accessibility",
+  "aboutA11yBody": "EduVoice is designed to WCAG 2.1 AA standards and screen-reader best practices. Every screen is fully navigable by voice and touch.",
+  "aboutTeamTitle": "Team",
+  "aboutTeamBody": "Developed by the PFE Team — Final Year Software Engineering Project.",
+  "aboutContactTitle": "Contact",
+  "aboutContactBody": "contact@eduvoice.app"
+}

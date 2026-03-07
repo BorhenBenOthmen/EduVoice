@@ -5,6 +5,7 @@ import '../../lesson/domain/entities/lesson.dart';
 import '../../../../injection_container.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../core/audio/lesson_audio_player_service.dart';
+import '../../../../l10n/app_localizations.dart';
 
 /// Full-featured lesson player screen.
 ///
@@ -15,7 +16,7 @@ import '../../../../core/audio/lesson_audio_player_service.dart';
 class LessonPlayerScreen extends StatefulWidget {
   final Lesson lesson;
 
-  const LessonPlayerScreen({Key? key, required this.lesson}) : super(key: key);
+  const LessonPlayerScreen({super.key, required this.lesson});
 
   @override
   State<LessonPlayerScreen> createState() => _LessonPlayerScreenState();
@@ -38,8 +39,11 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     _audioService = locator<LessonAudioPlayerService>();
     _tts = locator<TtsService>();
 
-    // Accessibility: announce lesson name immediately
-    _tts.speak("فتح درس: ${widget.lesson.name}");
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final l = AppLocalizations.of(context)!;
+      // Accessibility: announce lesson name immediately
+      _tts.speak(l.lessonPlayerOpening(widget.lesson.name));
+    });
 
     _audioService.positionStream.listen((pos) {
       if (mounted) setState(() => _position = pos);
@@ -122,6 +126,8 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -149,7 +155,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
             Expanded(
               child: SingleChildScrollView(
                 child: Semantics(
-                  label: "وصف الدرس: ${widget.lesson.description}",
+                  label: l.lessonPlayerDescription(widget.lesson.description),
                   child: Text(
                     widget.lesson.description,
                     style: const TextStyle(
@@ -167,9 +173,9 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
             if (widget.lesson.transcription.isNotEmpty) ...[
               const Divider(color: Colors.yellow),
               const SizedBox(height: 8),
-              const Text(
-                "النص المكتوب",
-                style: TextStyle(
+              Text(
+                l.lessonPlayerTranscript,
+                style: const TextStyle(
                   color: Colors.yellow,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -223,13 +229,13 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: Colors.yellow, width: 1),
                 ),
-                child: const Text(
-                  "لا يوجد ملف صوتي متاح. يمكنك الاستماع للوصف بالنص المقروء.",
-                  style: TextStyle(color: Colors.yellow, fontSize: 16),
+                child: Text(
+                  l.lessonPlayerNoAudio,
+                  style: const TextStyle(color: Colors.yellow, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
               ),
-              _buildTtsButton(),
+              _buildTtsButton(l),
             ] else ...[
               // ── Seek bar ──────────────────────────────────────────────
               Row(
@@ -271,7 +277,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   // Stop button
                   Semantics(
                     button: true,
-                    label: "إيقاف التشغيل وإعادة للبداية",
+                    label: l.lessonPlayerStop,
                     child: _controlButton(
                       icon: Icons.stop_rounded,
                       onPressed: _stop,
@@ -282,7 +288,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   // Play / Pause button (large)
                   Semantics(
                     button: true,
-                    label: _isPlaying ? "إيقاف مؤقت" : "تشغيل",
+                    label: _isPlaying ? l.lessonPlayerPause : l.lessonPlayerPlay,
                     child: GestureDetector(
                       onTap: _togglePlayPause,
                       child: Container(
@@ -313,7 +319,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   // Replay 10s button
                   Semantics(
                     button: true,
-                    label: "رجوع 10 ثوانٍ",
+                    label: l.lessonPlayerReplay,
                     child: _controlButton(
                       icon: Icons.replay_10_rounded,
                       onPressed: () {
@@ -347,12 +353,10 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     );
   }
 
-  Widget _buildTtsButton() {
+  Widget _buildTtsButton(AppLocalizations l) {
     return Semantics(
       button: true,
-      label: _isTtsPlaying
-          ? "إيقاف الاستماع. انقر مرتين لإيقاف."
-          : "بدء الاستماع للدرس بصوت عالٍ. انقر مرتين للتشغيل.",
+      label: _isTtsPlaying ? l.lessonPlayerStopLabel : l.lessonPlayerListenLabel,
       child: SizedBox(
         width: double.infinity,
         height: 72,
@@ -370,7 +374,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
             size: 32,
           ),
           label: Text(
-            _isTtsPlaying ? "إيقاف" : "استمع للدرس",
+            _isTtsPlaying ? l.lessonPlayerStopTts : l.lessonPlayerListen,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 22,
@@ -382,3 +386,4 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     );
   }
 }
+

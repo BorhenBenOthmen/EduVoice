@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../features/course/domain/course.dart';
-import '../../../features/course/data/course_repository.dart';
 import '../../../core/audio/tts_service.dart';
 import '../../../core/audio/stt_service.dart';
 import '../../../core/audio/audio_session_manager.dart';
@@ -9,6 +7,13 @@ import '../../../core/audio/audio_feedback_service.dart';
 import '../../../injection_container.dart';
 import '../../../features/lesson/presentation/state/lesson_cubit.dart';
 import '../../../features/lesson/presentation/screens/lesson_list_screen.dart';
+import '../../../features/cultural_explorer/presentation/cultural_screen.dart';
+import '../../../features/podcast_hub/presentation/podcast_screen.dart';
+import '../../../features/podcast_hub/presentation/radio_screen.dart';
+import '../../../features/settings/presentation/settings_screen.dart';
+import '../../../features/about/presentation/about_screen.dart';
+import '../../../l10n/app_localizations.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -17,29 +22,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Course> _courses = [];
-  bool _isLoading = true;
   bool _isListening = false;
-  String _voiceCommandFeedback = "Utilisez le bouton micro pour parler.";
+  late String _voiceCommandFeedback;
 
   @override
   void initState() {
     super.initState();
-    _loadCourses();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final l = AppLocalizations.of(context)!;
+      locator<TtsService>().speak(l.homeWelcomeTts);
+    });
   }
 
-  Future<void> _loadCourses() async {
-    final repo = locator<CourseRepository>();
-    final fetchedCourses = await repo.fetchAvailableCourses();
-    
-    setState(() {
-      _courses = fetchedCourses;
-      _isLoading = false;
-    });
-
-    await locator<TtsService>().speak(
-      "Bienvenue. ${_courses.length} cours sont disponibles. Balayez l'écran pour les parcourir, ou utilisez le bouton micro en bas pour demander de l'aide."
-    );
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _voiceCommandFeedback = AppLocalizations.of(context)!.homeVoiceDefault;
   }
 
   Future<void> _handleVoiceInteraction() async {
@@ -47,25 +45,18 @@ class _HomeScreenState extends State<HomeScreen> {
     final audio = locator<AudioSessionManager>();
     final tts = locator<TtsService>();
     final earcons = locator<AudioFeedbackService>();
+    final l = AppLocalizations.of(context)!;
 
     if (_isListening) {
-      // 1. Stop listening
       await stt.stopListening();
       setState(() => _isListening = false);
-      
-      // 2. Play Earcon to indicate we are processing (Waiting for LLM)
       await earcons.playProcessingChime();
-      
-      // 3. TTS Feedback
-      await tts.speak("Recherche en cours"); 
+      await tts.speak(l.homeSearching);
       await audio.releaseFocus();
-      
     } else {
-      // 1. Start listening
       setState(() => _isListening = true);
       await audio.requestExclusiveFocus();
-      await tts.speak("Je vous écoute");
-      
+      await tts.speak(l.homeListening);
       await stt.startListening((text) {
         setState(() => _voiceCommandFeedback = text);
       });
@@ -74,98 +65,129 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Catalogue EduVoice'),
+        title: Text(l.homeCatalogueTitle),
         backgroundColor: Colors.black,
         elevation: 0,
         actions: [
-          // The new About App icon
           Semantics(
-            label: "À propos de l'application EduVoice",
+            label: l.homeSettingsSemantics,
+            button: true,
+            child: IconButton(
+              icon: const Icon(Icons.settings_outlined, color: Colors.amberAccent),
+              onPressed: () {
+                locator<TtsService>().speak(l.homeOpeningSettings);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                );
+              },
+            ),
+          ),
+          Semantics(
+            label: l.homeAboutSemantics,
             button: true,
             child: IconButton(
               icon: const Icon(Icons.info_outline, color: Colors.cyanAccent),
               onPressed: () {
-                // TODO: Navigate to About Screen
-                locator<TtsService>().speak("Ouverture de la page à propos.");
+                locator<TtsService>().speak(l.homeOpeningAbout);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const AboutScreen()),
+                );
               },
             ),
-          )
+          ),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(2.0),
           child: Container(color: Colors.cyanAccent, height: 2.0),
         ),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator(color: Colors.cyanAccent))
-          : Column(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              _voiceCommandFeedback,
+              style: const TextStyle(fontSize: 18, color: Colors.amberAccent),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    _voiceCommandFeedback,
-                    style: const TextStyle(fontSize: 18, color: Colors.amberAccent),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: _courses.length,
-                    itemBuilder: (context, index) {
-                      final course = _courses[index];
-                      return Semantics(
-                        // Explicitly declare this as an interactive list item
-                        label: "Cours : ${course.title}. ${course.description}. Appuyez deux fois pour ouvrir. Aucun téléchargement disponible.",
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => BlocProvider(
-                                  create: (_) => locator<LessonCubit>(),
-                                  child: const LessonListScreen(),
-                                ),
-                              ),
-                            );
-                          },
-                          child: Card(
-                          color: Colors.grey[900],
-                          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(color: Colors.cyanAccent, width: 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: ListTile(
-                            contentPadding: const EdgeInsets.all(16),
-                            title: Text(
-                              course.title,
-                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                            subtitle: Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
-                              child: Text(
-                                course.description,
-                                style: const TextStyle(fontSize: 16, color: Colors.white70),
-                              ),
-                            ),
-                            leading: const Icon(Icons.book, color: Colors.amberAccent, size: 40),
-                          ),
+                _MenuCard(
+                  title: l.homeMenuLesson,
+                  subtitle: l.homeMenuLessonDesc,
+                  icon: Icons.school,
+                  color: Colors.cyanAccent,
+                  semanticsLabel: l.homeMenuLessonSemantics,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider(
+                          create: (_) => locator<LessonCubit>(),
+                          child: const LessonListScreen(),
                         ),
-                        ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
+                _MenuCard(
+                  title: l.homeMenuCulture,
+                  subtitle: l.homeMenuCultureDesc,
+                  icon: Icons.public,
+                  color: Colors.lightGreenAccent,
+                  semanticsLabel: l.homeMenuCultureSemantics,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const CultureScreen()),
+                    );
+                  },
+                ),
+                _MenuCard(
+                  title: l.homeMenuPodcast,
+                  subtitle: l.homeMenuPodcastDesc,
+                  icon: Icons.podcasts,
+                  color: Colors.deepPurpleAccent,
+                  semanticsLabel: l.homeMenuPodcastSemantics,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const PodcastScreen()),
+                    );
+                  },
+                ),
+                _MenuCard(
+                  title: l.homeMenuRadio,
+                  subtitle: l.homeMenuRadioDesc,
+                  icon: Icons.radio,
+                  color: Colors.amberAccent,
+                  semanticsLabel: l.homeMenuRadioSemantics,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const RadioScreen()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 80), // Space for FAB
               ],
             ),
-      // The massive, accessible FAB replacing the invisible gesture
+          ),
+        ],
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Semantics(
-        label: _isListening 
-            ? "Enregistrement en cours. Appuyez deux fois pour arrêter." 
-            : "Assistant vocal. Appuyez deux fois pour poser une question.",
+        label: _isListening ? l.homeListeningButton : l.homeMicButton,
         button: true,
         child: FloatingActionButton.large(
           backgroundColor: _isListening ? Colors.redAccent : Colors.cyanAccent,
@@ -174,6 +196,79 @@ class _HomeScreenState extends State<HomeScreen> {
             _isListening ? Icons.stop : Icons.mic,
             color: Colors.black,
             size: 40,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _MenuCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Color color;
+  final String semanticsLabel;
+  final VoidCallback onTap;
+
+  const _MenuCard({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.color,
+    required this.semanticsLabel,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: semanticsLabel,
+      button: true,
+      child: InkWell(
+        onTap: () async {
+          // Look up localized string for "Opening {section}"
+          final l = AppLocalizations.of(context)!;
+          
+          // Play the opening section announcement in the correct language.
+          // By awaiting it, we ensure it finishes reading before the next screen loads,
+          // preventing TTS overlap bugs.
+          await locator<TtsService>().speak(l.homeOpeningSection(title));
+          
+          onTap();
+        },
+        child: Card(
+          color: Colors.grey[900],
+          margin: const EdgeInsets.only(bottom: 16),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(color: color, width: 2),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Row(
+              children: [
+                Icon(icon, size: 56, color: color),
+                const SizedBox(width: 24),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        subtitle,
+                        style: const TextStyle(fontSize: 18, color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.chevron_right, size: 36, color: Colors.white54),
+              ],
+            ),
           ),
         ),
       ),

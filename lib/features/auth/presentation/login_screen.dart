@@ -1,16 +1,13 @@
 // lib/features/auth/presentation/login_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import '../../../core/audio/tts_service.dart';
 import '../data/auth_repository.dart';
 
-// PHASE 5 IMPORTS (Replacing home_screen.dart)
-import '../../lesson/presentation/screens/lesson_list_screen.dart';
-import '../../lesson/presentation/state/lesson_cubit.dart';
+import '../../home/presentation/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -55,17 +52,11 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isLoading = false);
 
     if (success && mounted) {
-      // Speak and wait for TTS to finish before navigating away,
-      // otherwise the screen transition cuts the audio off.
-      await _tts.speak("Connexion réussie. Bienvenue sur EduVoice.");
-      if (!mounted) return;
+      // Navigate immediately to Home, letting HomeScreen's initState handle the Welcome TTS
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => GetIt.I<LessonCubit>(),
-            child: const LessonListScreen(),
-          ),
+          builder: (_) => const HomeScreen(),
         ),
       );
     } else {
@@ -73,6 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
       await _tts.speak(
         "Échec de la connexion. L'e-mail ou le mot de passe est incorrect. Veuillez réessayer.",
       );
+
     }
   }
 
