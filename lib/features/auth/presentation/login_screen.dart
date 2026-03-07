@@ -1,0 +1,172 @@
+// lib/features/auth/presentation/login_screen.dart
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import '../../../core/audio/tts_service.dart';
+import '../data/auth_repository.dart';
+
+// PHASE 5 IMPORTS (Replacing home_screen.dart)
+import '../../lesson/presentation/screens/lesson_list_screen.dart';
+import '../../lesson/presentation/state/lesson_cubit.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _authRepo = GetIt.I<AuthRepository>();
+  final _tts = GetIt.I<TtsService>(); 
+
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Greet the user with TTS on screen load.
+    _tts.speak("Bienvenue sur EduVoice. Veuillez entrer votre adresse e-mail et votre mot de passe pour vous connecter.");
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _handleLogin() async {
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+      _tts.speak("Erreur. L'e-mail et le mot de passe sont obligatoires.");
+      return;
+    }
+
+    setState(() => _isLoading = true);
+    _tts.speak("Connexion en cours, veuillez patienter.");
+
+    final success = await _authRepo.login(
+      _emailController.text.trim(),
+      _passwordController.text,
+    );
+
+    setState(() => _isLoading = false);
+
+    if (success && mounted) {
+      _tts.speak("Connexion réussie. Chargement des leçons.");
+      
+      // ARCHITECTURAL OVERRIDE: 
+      // Rerouting the successful login directly to the Phase 5 LessonListScreen
+      // injected with the LessonCubit.
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => GetIt.I<LessonCubit>(),
+            child: const LessonListScreen(),
+          ),
+        ),
+      );
+    } else {
+      _tts.speak("Échec de la connexion. Veuillez vérifier vos identifiants.");
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black, // High contrast background
+      appBar: AppBar(
+        title: const Text(
+          "Connexion EduVoice",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+        backgroundColor: Colors.black,
+        elevation: 0,
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Semantics(
+                label: "Champ de saisie pour l'adresse e-mail",
+                child: TextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
+                  style: const TextStyle(fontSize: 24, color: Colors.white),
+                  decoration: InputDecoration(
+                    labelText: "E-mail",
+                    labelStyle: const TextStyle(fontSize: 24, color: Colors.yellowAccent),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white, width: 2),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.yellowAccent, width: 3),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 32),
+              Semantics(
+                label: "Champ de saisie pour le mot de passe",
+                child: TextField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _handleLogin(),
+                  style: const TextStyle(fontSize: 24, color: Colors.white),
+                  decoration: InputDecoration(
+                    labelText: "Mot de passe",
+                    labelStyle: const TextStyle(fontSize: 24, color: Colors.yellowAccent),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white, width: 2),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.yellowAccent, width: 3),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Semantics(
+                button: true,
+                label: "Bouton de connexion. Appuyez deux fois pour valider.",
+                child: SizedBox(
+                  height: 80, // Massive touch target for visually impaired
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _handleLogin,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.yellowAccent, // High contrast button
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    child: _isLoading
+                        ? const CircularProgressIndicator(color: Colors.black)
+                        : const Text(
+                            "Se connecter",
+                            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                          ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
