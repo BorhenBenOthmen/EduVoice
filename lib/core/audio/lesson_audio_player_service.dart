@@ -21,6 +21,11 @@ class LessonAudioPlayerService {
   /// Returns the current [PlayerState] synchronously.
   PlayerState get state => _player.state;
 
+  double _playbackRate = 1.0;
+
+  /// Returns the current playback rate.
+  double get playbackRate => _playbackRate;
+
   /// Starts streaming audio from [url].
   /// If audio is already playing, it is stopped first.
   Future<void> play(String url) async {
@@ -40,6 +45,12 @@ class LessonAudioPlayerService {
   /// Stops playback and resets position to the beginning.
   Future<void> stop() async {
     await _player.stop();
+  }
+
+  /// Sets playback speed/rate.
+  Future<void> setPlaybackRate(double rate) async {
+    _playbackRate = rate;
+    await _player.setPlaybackRate(rate);
   }
 
   /// Seeks to a specific [position] in the audio.

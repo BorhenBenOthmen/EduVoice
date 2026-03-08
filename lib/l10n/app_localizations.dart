@@ -430,6 +430,36 @@ abstract class AppLocalizations {
   /// **'Reculer de 10 secondes'**
   String get lessonPlayerReplay;
 
+  /// No description provided for @lessonPlayerFastForward.
+  ///
+  /// In fr, this message translates to:
+  /// **'Avancer de 10 secondes'**
+  String get lessonPlayerFastForward;
+
+  /// No description provided for @lessonPlayerRewind.
+  ///
+  /// In fr, this message translates to:
+  /// **'Reculer de 10 secondes'**
+  String get lessonPlayerRewind;
+
+  /// No description provided for @lessonPlayerSpeedIncrease.
+  ///
+  /// In fr, this message translates to:
+  /// **'Augmenter la vitesse de lecture'**
+  String get lessonPlayerSpeedIncrease;
+
+  /// No description provided for @lessonPlayerSpeedDecrease.
+  ///
+  /// In fr, this message translates to:
+  /// **'Diminuer la vitesse de lecture'**
+  String get lessonPlayerSpeedDecrease;
+
+  /// No description provided for @lessonPlayerCurrentSpeed.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vitesse {speed}x'**
+  String lessonPlayerCurrentSpeed(String speed);
+
   /// No description provided for @lessonPlayerListen.
   ///
   /// In fr, this message translates to:

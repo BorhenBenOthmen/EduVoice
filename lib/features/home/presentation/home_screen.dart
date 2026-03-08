@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/audio/tts_service.dart';
-import '../../../core/audio/stt_service.dart';
-import '../../../core/audio/audio_session_manager.dart';
-import '../../../core/audio/audio_feedback_service.dart';
+import '../../../core/widgets/voice_search_fab.dart';
 import '../../../injection_container.dart';
 import '../../../features/lesson/presentation/state/lesson_cubit.dart';
 import '../../../features/lesson/presentation/screens/lesson_list_screen.dart';
@@ -22,7 +20,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isListening = false;
   late String _voiceCommandFeedback;
 
   @override
@@ -38,29 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _voiceCommandFeedback = AppLocalizations.of(context)!.homeVoiceDefault;
-  }
-
-  Future<void> _handleVoiceInteraction() async {
-    final stt = locator<SttService>();
-    final audio = locator<AudioSessionManager>();
-    final tts = locator<TtsService>();
-    final earcons = locator<AudioFeedbackService>();
-    final l = AppLocalizations.of(context)!;
-
-    if (_isListening) {
-      await stt.stopListening();
-      setState(() => _isListening = false);
-      await earcons.playProcessingChime();
-      await tts.speak(l.homeSearching);
-      await audio.releaseFocus();
-    } else {
-      setState(() => _isListening = true);
-      await audio.requestExclusiveFocus();
-      await tts.speak(l.homeListening);
-      await stt.startListening((text) {
-        setState(() => _voiceCommandFeedback = text);
-      });
-    }
   }
 
   @override
@@ -186,18 +160,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Semantics(
-        label: _isListening ? l.homeListeningButton : l.homeMicButton,
-        button: true,
-        child: FloatingActionButton.large(
-          backgroundColor: _isListening ? Colors.redAccent : Colors.cyanAccent,
-          onPressed: _handleVoiceInteraction,
-          child: Icon(
-            _isListening ? Icons.stop : Icons.mic,
-            color: Colors.black,
-            size: 40,
-          ),
-        ),
+      floatingActionButton: VoiceSearchFab(
+        onCommandRecognized: (text) {
+          setState(() => _voiceCommandFeedback = text);
+        },
       ),
     );
   }

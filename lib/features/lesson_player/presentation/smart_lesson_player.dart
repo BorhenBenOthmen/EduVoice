@@ -6,6 +6,7 @@ import '../../../../injection_container.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../core/audio/lesson_audio_player_service.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../../core/widgets/voice_search_fab.dart';
 
 /// Full-featured lesson player screen.
 ///
@@ -40,9 +41,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     _tts = locator<TtsService>();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final l = AppLocalizations.of(context)!;
-      // Accessibility: announce lesson name immediately
-      _tts.speak(l.lessonPlayerOpening(widget.lesson.name));
+      _initPlayer();
     });
 
     _audioService.positionStream.listen((pos) {
@@ -54,13 +53,23 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     _audioService.playerStateStream.listen((state) {
       if (mounted) setState(() => _playerState = state);
     });
+  }
 
-    // Auto-start if there is a stream URL
+  Future<void> _initPlayer() async {
+    if (!mounted) return;
+    final l = AppLocalizations.of(context)!;
+    
+    // Accessibility: announce lesson name immediately, await completion before playing
+    await _tts.speak(l.lessonPlayerOpening(widget.lesson.name));
+    
+    if (!mounted) return;
+
+    // Auto-start if there is a stream URL after the intro completes
     if (widget.lesson.streamUrl != null) {
-      _audioService.play(widget.lesson.streamUrl!);
+      await _audioService.play(widget.lesson.streamUrl!);
     } else {
       // No stream URL — fall back to TTS
-      _isTtsFallback = true;
+      setState(() => _isTtsFallback = true);
     }
   }
 
@@ -83,15 +92,6 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
       if (widget.lesson.streamUrl != null) {
         await _audioService.play(widget.lesson.streamUrl!);
       }
-    }
-  }
-
-  Future<void> _stop() async {
-    await _audioService.stop();
-    if (mounted) {
-      setState(() {
-        _position = Duration.zero;
-      });
     }
   }
 
@@ -274,14 +274,19 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // Stop button
+                  // Rewind 10s button
                   Semantics(
                     button: true,
-                    label: l.lessonPlayerStop,
+                    label: l.lessonPlayerRewind,
                     child: _controlButton(
-                      icon: Icons.stop_rounded,
-                      onPressed: _stop,
-                      color: Colors.redAccent,
+                      icon: Icons.replay_10_rounded,
+                      onPressed: () {
+                        final newPos = _position - const Duration(seconds: 10);
+                        _audioService.seek(
+                          newPos < Duration.zero ? Duration.zero : newPos,
+                        );
+                      },
+                      color: Colors.white70,
                     ),
                   ),
 
@@ -316,16 +321,16 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                     ),
                   ),
 
-                  // Replay 10s button
+                  // Fast Forward 10s button
                   Semantics(
                     button: true,
-                    label: l.lessonPlayerReplay,
+                    label: l.lessonPlayerFastForward,
                     child: _controlButton(
-                      icon: Icons.replay_10_rounded,
+                      icon: Icons.forward_10_rounded,
                       onPressed: () {
-                        final newPos = _position - const Duration(seconds: 10);
+                        final newPos = _position + const Duration(seconds: 10);
                         _audioService.seek(
-                          newPos < Duration.zero ? Duration.zero : newPos,
+                          newPos > _duration ? _duration : newPos,
                         );
                       },
                       color: Colors.white70,
@@ -333,10 +338,94 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   ),
                 ],
               ),
+              const SizedBox(height: 24),
+              // ── Speed Controls ───────────────────────────────────────────
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                   Semantics(
+                    button: true,
+                    label: l.lessonPlayerSpeedDecrease,
+                    child: IconButton(
+                      icon: const Icon(Icons.remove_circle_outline, color: Colors.yellow),
+                      iconSize: 36,
+                      onPressed: () async {
+                        final current = _audioService.playbackRate;
+                        if (current > 0.75) {
+                          final newRate = current - 0.25;
+                          final wasPlaying = _isPlaying;
+                          
+                          if (wasPlaying) {
+                            await _audioService.pause();
+                          }
+                          
+                          await _audioService.setPlaybackRate(newRate);
+                          if (mounted) setState(() {});
+                          
+                          await locator<TtsService>().speak(l.lessonPlayerCurrentSpeed(newRate.toString()));
+                          
+                          if (wasPlaying && mounted) {
+                            await _audioService.resume();
+                          }
+                        }
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 24),
+                  Semantics(
+                    label: l.lessonPlayerCurrentSpeed(_audioService.playbackRate.toString()),
+                    child: Text(
+                      "${_audioService.playbackRate}x",
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 24),
+                  Semantics(
+                    button: true,
+                    label: l.lessonPlayerSpeedIncrease,
+                    child: IconButton(
+                      icon: const Icon(Icons.add_circle_outline, color: Colors.yellow),
+                      iconSize: 36,
+                      onPressed: () async {
+                        final current = _audioService.playbackRate;
+                        if (current < 1.5) {
+                          final newRate = current + 0.25;
+                          final wasPlaying = _isPlaying;
+                          
+                          if (wasPlaying) {
+                            await _audioService.pause();
+                          }
+                          
+                          await _audioService.setPlaybackRate(newRate);
+                          if (mounted) setState(() {});
+                          
+                          await locator<TtsService>().speak(l.lessonPlayerCurrentSpeed(newRate.toString()));
+                          
+                          if (wasPlaying && mounted) {
+                            await _audioService.resume();
+                          }
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
-            const SizedBox(height: 16),
+            const SizedBox(height: 80), // Prevent FAB overlap
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: VoiceSearchFab(
+        onInteractionStarted: () async {
+          if (_isPlaying) {
+            await _audioService.pause();
+          }
+        },
       ),
     );
   }

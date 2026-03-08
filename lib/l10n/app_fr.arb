@@ -78,6 +78,14 @@
   "lessonPlayerPause": "Pause",
   "lessonPlayerStop": "Arrêter et revenir au début",
   "lessonPlayerReplay": "Reculer de 10 secondes",
+  "lessonPlayerFastForward": "Avancer de 10 secondes",
+  "lessonPlayerRewind": "Reculer de 10 secondes",
+  "lessonPlayerSpeedIncrease": "Augmenter la vitesse de lecture",
+  "lessonPlayerSpeedDecrease": "Diminuer la vitesse de lecture",
+  "lessonPlayerCurrentSpeed": "Vitesse {speed}x",
+  "@lessonPlayerCurrentSpeed": {
+    "placeholders": { "speed": { "type": "String" } }
+  },
   "lessonPlayerListen": "Écouter la leçon",
   "lessonPlayerStopTts": "Arrêter l'écoute",
   "lessonPlayerStopLabel": "Arrêter l'écoute. Appuyez deux fois pour arrêter.",

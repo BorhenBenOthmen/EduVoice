@@ -190,6 +190,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonPlayerReplay => 'رجوع 10 ثوانٍ';
 
   @override
+  String get lessonPlayerFastForward => 'تقديم 10 ثوانٍ';
+
+  @override
+  String get lessonPlayerRewind => 'رجوع 10 ثوانٍ';
+
+  @override
+  String get lessonPlayerSpeedIncrease => 'زيادة سرعة التشغيل';
+
+  @override
+  String get lessonPlayerSpeedDecrease => 'تقليل سرعة التشغيل';
+
+  @override
+  String lessonPlayerCurrentSpeed(String speed) {
+    return 'السرعة ${speed}x';
+  }
+
+  @override
   String get lessonPlayerListen => 'استمع للدرس';
 
   @override

@@ -199,6 +199,23 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lessonPlayerReplay => 'Reculer de 10 secondes';
 
   @override
+  String get lessonPlayerFastForward => 'Avancer de 10 secondes';
+
+  @override
+  String get lessonPlayerRewind => 'Reculer de 10 secondes';
+
+  @override
+  String get lessonPlayerSpeedIncrease => 'Augmenter la vitesse de lecture';
+
+  @override
+  String get lessonPlayerSpeedDecrease => 'Diminuer la vitesse de lecture';
+
+  @override
+  String lessonPlayerCurrentSpeed(String speed) {
+    return 'Vitesse ${speed}x';
+  }
+
+  @override
   String get lessonPlayerListen => 'Écouter la leçon';
 
   @override

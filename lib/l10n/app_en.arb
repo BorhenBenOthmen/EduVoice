@@ -76,6 +76,14 @@
   "lessonPlayerPause": "Pause",
   "lessonPlayerStop": "Stop and return to beginning",
   "lessonPlayerReplay": "Rewind 10 seconds",
+  "lessonPlayerFastForward": "Fast forward 10 seconds",
+  "lessonPlayerRewind": "Rewind 10 seconds",
+  "lessonPlayerSpeedIncrease": "Increase playback speed",
+  "lessonPlayerSpeedDecrease": "Decrease playback speed",
+  "lessonPlayerCurrentSpeed": "Speed {speed}x",
+  "@lessonPlayerCurrentSpeed": {
+    "placeholders": { "speed": { "type": "String" } }
+  },
   "lessonPlayerListen": "Listen to lesson",
   "lessonPlayerStopTts": "Stop listening",
   "lessonPlayerStopLabel": "Stop listening. Double-tap to stop.",

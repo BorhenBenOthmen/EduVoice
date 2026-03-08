@@ -25,15 +25,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final _locale = locator<LocaleService>();
   final _tts = locator<TtsService>();
 
-  // TTS speed state: 0 = slow, 1 = normal, 2 = fast
-  int _speedIndex = 1;
-  double _volume = 1.0;
+  late int _speedIndex;
+  late double _volume;
 
-  static const _speeds = [0.4, 0.6, 0.9];
+  // Speeds roughly match: slow (0.4), normal (0.5), fast (0.9)
+  // Our new default from TTS is 0.5 for normal, so let's adjust the array
+  // Or handle matching carefully
+  static const _speeds = [0.4, 0.5, 0.9];
 
   @override
   void initState() {
     super.initState();
+    _volume = _tts.currentVolume;
+    _speedIndex = _speeds.indexOf(_tts.currentRate);
+    if (_speedIndex == -1) {
+      if (_tts.currentRate < 0.5) _speedIndex = 0;
+      else if (_tts.currentRate > 0.5) _speedIndex = 2;
+      else _speedIndex = 1;
+    }
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final l = AppLocalizations.of(context)!;
       _tts.speak(l.settingsTts);
@@ -244,15 +254,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       const SizedBox(width: 20),
                       const Icon(Icons.info_outline, color: Colors.cyanAccent, size: 32),
                       const SizedBox(width: 16),
-                      Text(
-                        l.settingsAboutButton,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
+                      Expanded(
+                        child: Text(
+                          l.settingsAboutButton,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                      const Spacer(),
                       const Icon(Icons.chevron_right, color: Colors.white54, size: 28),
                       const SizedBox(width: 16),
                     ],
