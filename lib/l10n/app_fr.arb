@@ -92,6 +92,31 @@
   "lessonPlayerListenLabel": "Commencer l'écoute de la leçon. Appuyez deux fois pour lancer.",
 
   "podcastTitle": "Podcast",
+  "podcastSearchLabel": "Rechercher un podcast",
+  "podcastSearchHint": "Saisir le nom du podcast",
+  "podcastSearchPlaceholder": "Recherche...",
+  "podcastEmpty": "Aucun podcast trouvé.",
+  "podcastLoading": "Chargement des podcasts",
+  "podcastCountTts": "{count} podcasts trouvés.",
+  "@podcastCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "podcastErrorTts": "Une erreur est survenue lors du chargement des podcasts. Veuillez réessayer.",
+  "podcastTileSemantics": "Podcast : {name}. {description}. Appuyez deux fois pour écouter.",
+  "@podcastTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "podcastPlayerOpening": "Ouverture du podcast : {name}.",
+  "@podcastPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "podcastPlayerDescription": "Description du podcast : {desc}",
+  "@podcastPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "podcastPlayerTranscript": "Transcription",
+  "podcastPlayerNoAudio": "Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.",
+  "podcastPlayerListen": "Écouter le podcast",
   "podcastTts": "Section Podcast. Bientôt disponible — des épisodes sélectionnés pour enrichir votre apprentissage.",
   "podcastComingSoon": "Bientôt disponible",
   "podcastComingSoonDesc": "Des podcasts enrichissants seront proposés très prochainement.",
@@ -102,7 +127,32 @@
   "radioComingSoonDesc": "Des flux radio éducatifs en direct seront disponibles très prochainement.",
 
   "cultureTitle": "Culture",
-  "cultureTts": "Section Culture. Bientôt disponible — explorez le monde à travers des récits culturels.",
+  "cultureSearchLabel": "Rechercher un enregistrement culturel",
+  "cultureSearchHint": "Entrez le nom de l'enregistrement",
+  "cultureSearchPlaceholder": "Recherche...",
+  "cultureEmpty": "Aucun enregistrement culturel trouvé.",
+  "cultureLoading": "Chargement des enregistrements culturels",
+  "cultureCountTts": "Trouvé {count} enregistrements culturels.",
+  "@cultureCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "cultureErrorTts": "Une erreur s'est produite lors du chargement des enregistrements culturels. Veuillez réessayer.",
+  "cultureTileSemantics": "Enregistrement Culturel : {name}. {description}. Touchez deux fois pour écouter.",
+  "@cultureTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "culturePlayerOpening": "Ouverture de l'enregistrement culturel : {name}.",
+  "@culturePlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "culturePlayerDescription": "Description de l'enregistrement : {desc}",
+  "@culturePlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "culturePlayerTranscript": "Transcription",
+  "culturePlayerNoAudio": "Aucun fichier audio disponible. Vous pouvez écouter la description lue à haute voix.",
+  "culturePlayerListen": "Écouter l'enregistrement",
+  "cultureTts": "Section Culture. Bientôt disponible — explorez le monde à travers des histoires culturelles.",
   "cultureComingSoon": "Bientôt disponible",
   "cultureComingSoonDesc": "Des contenus culturels enrichissants seront proposés très prochainement.",
 
@@ -151,5 +201,31 @@
   "aboutTeamTitle": "Équipe",
   "aboutTeamBody": "Développé par l'équipe PFE — Projet de Fin d'Études en ingénierie logicielle.",
   "aboutContactTitle": "Contact",
-  "aboutContactBody": "contact@eduvoice.app"
+  "aboutContactBody": "contact@eduvoice.app",
+
+  "radioSearchLabel": "Rechercher un flux radio",
+  "radioSearchHint": "Saisir le nom du flux",
+  "radioSearchPlaceholder": "Recherche...",
+  "radioEmpty": "Aucun flux radio trouvé.",
+  "radioLoading": "Chargement des flux radio",
+  "radioCountTts": "{count} flux radio trouvés.",
+  "@radioCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "radioErrorTts": "Une erreur est survenue lors du chargement des flux radio. Veuillez réessayer.",
+  "radioTileSemantics": "Flux Radio : {name}. {description}. Appuyez deux fois pour écouter.",
+  "@radioTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "radioPlayerOpening": "Ouverture du flux radio : {name}.",
+  "@radioPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "radioPlayerDescription": "Description du flux : {desc}",
+  "@radioPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "radioPlayerTranscript": "Transcription",
+  "radioPlayerNoAudio": "Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.",
+  "radioPlayerListen": "Écouter le flux"
 }

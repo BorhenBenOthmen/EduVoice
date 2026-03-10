@@ -1,22 +1,22 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import '../domain/entities/culture_record.dart';
+import '../domain/entities/radio_emission.dart';
 import '../../../../injection_container.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../core/audio/lesson_audio_player_service.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/widgets/voice_search_fab.dart';
 
-class CulturePlayerScreen extends StatefulWidget {
-  final CultureRecord record;
+class SmartRadioPlayer extends StatefulWidget {
+  final RadioEmission emission;
 
-  const CulturePlayerScreen({super.key, required this.record});
+  const SmartRadioPlayer({super.key, required this.emission});
 
   @override
-  State<CulturePlayerScreen> createState() => _CulturePlayerScreenState();
+  State<SmartRadioPlayer> createState() => _SmartRadioPlayerState();
 }
 
-class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
+class _SmartRadioPlayerState extends State<SmartRadioPlayer> {
   late final LessonAudioPlayerService _audioService;
   late final TtsService _tts;
 
@@ -52,12 +52,12 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
     if (!mounted) return;
     final l = AppLocalizations.of(context)!;
     
-    await _tts.speak(l.culturePlayerOpening(widget.record.name));
+    await _tts.speak(l.radioPlayerOpening(widget.emission.title));
     
     if (!mounted) return;
 
-    if (widget.record.streamUrl != null) {
-      await _audioService.play(widget.record.streamUrl!);
+    if (widget.emission.audioUrl != null) {
+      await _audioService.play(widget.emission.audioUrl!);
     } else {
       setState(() => _isTtsFallback = true);
     }
@@ -76,8 +76,8 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
     } else if (_playerState == PlayerState.paused) {
       await _audioService.resume();
     } else {
-      if (widget.record.streamUrl != null) {
-        await _audioService.play(widget.record.streamUrl!);
+      if (widget.emission.audioUrl != null) {
+        await _audioService.play(widget.emission.audioUrl!);
       }
     }
   }
@@ -88,10 +88,10 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
       if (mounted) setState(() => _isTtsPlaying = false);
     } else {
       if (mounted) setState(() => _isTtsPlaying = true);
-      await _tts.speak(widget.record.description);
-      for (final line in widget.record.transcription) {
+      await _tts.speak(widget.emission.description);
+      for (final line in widget.emission.transcription) {
         if (!mounted || !_isTtsPlaying) break;
-        await _tts.speak("${line.speaker}: ${line.text}");
+        await _tts.speak(line.text);
       }
       if (mounted) setState(() => _isTtsPlaying = false);
     }
@@ -117,7 +117,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
         title: Semantics(
           header: true,
           child: Text(
-            widget.record.name,
+            widget.emission.title,
             style: const TextStyle(
               color: Colors.lightGreenAccent,
               fontSize: 22,
@@ -135,9 +135,9 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
             Expanded(
               child: SingleChildScrollView(
                 child: Semantics(
-                  label: l.culturePlayerDescription(widget.record.description),
+                  label: l.radioPlayerDescription(widget.emission.description),
                   child: Text(
-                    widget.record.description,
+                    widget.emission.description,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -149,11 +149,11 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
             ),
             const SizedBox(height: 24),
 
-            if (widget.record.transcription.isNotEmpty) ...[
+            if (widget.emission.transcription.isNotEmpty) ...[
               const Divider(color: Colors.lightGreenAccent),
               const SizedBox(height: 8),
               Text(
-                l.culturePlayerTranscript,
+                l.radioPlayerTranscript,
                 style: const TextStyle(
                   color: Colors.lightGreenAccent,
                   fontSize: 18,
@@ -164,16 +164,16 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
               SizedBox(
                 height: 160,
                 child: ListView.builder(
-                  itemCount: widget.record.transcription.length,
+                  itemCount: widget.emission.transcription.length,
                   itemBuilder: (context, index) {
-                    final line = widget.record.transcription[index];
+                    final line = widget.emission.transcription[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: RichText(
                         text: TextSpan(
                           children: [
                             TextSpan(
-                              text: "${line.speaker}: ",
+                              text: "${_formatDuration(Duration(seconds: line.startTime.toInt()))} - ",
                               style: const TextStyle(
                                 color: Colors.lightGreenAccent,
                                 fontWeight: FontWeight.bold,
@@ -207,7 +207,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
                   border: Border.all(color: Colors.lightGreenAccent, width: 1),
                 ),
                 child: Text(
-                  l.culturePlayerNoAudio,
+                  l.radioPlayerNoAudio,
                   style: const TextStyle(color: Colors.lightGreenAccent, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
@@ -432,7 +432,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
             size: 32,
           ),
           label: Text(
-            _isTtsPlaying ? l.lessonPlayerStopTts : l.culturePlayerListen,
+            _isTtsPlaying ? l.lessonPlayerStopTts : l.radioPlayerListen,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 22,

@@ -90,6 +90,31 @@
   "lessonPlayerListenLabel": "Start listening to the lesson aloud. Double-tap to play.",
 
   "podcastTitle": "Podcast",
+  "podcastSearchLabel": "Search for a podcast",
+  "podcastSearchHint": "Enter the podcast name",
+  "podcastSearchPlaceholder": "Search...",
+  "podcastEmpty": "No podcasts found.",
+  "podcastLoading": "Loading podcasts",
+  "podcastCountTts": "Found {count} podcasts.",
+  "@podcastCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "podcastErrorTts": "An error occurred while loading podcasts. Please try again.",
+  "podcastTileSemantics": "Podcast: {name}. {description}. Double-tap to listen.",
+  "@podcastTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "podcastPlayerOpening": "Opening podcast: {name}.",
+  "@podcastPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "podcastPlayerDescription": "Podcast description: {desc}",
+  "@podcastPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "podcastPlayerTranscript": "Transcript",
+  "podcastPlayerNoAudio": "No audio file available. You can listen to the description read aloud.",
+  "podcastPlayerListen": "Listen to podcast",
   "podcastTts": "Podcast section. Coming soon — curated episodes to enrich your learning.",
   "podcastComingSoon": "Coming Soon",
   "podcastComingSoonDesc": "Enriching podcasts will be available very soon.",
@@ -100,6 +125,31 @@
   "radioComingSoonDesc": "Live educational radio streams will be available very soon.",
 
   "cultureTitle": "Culture",
+  "cultureSearchLabel": "Search for a culture record",
+  "cultureSearchHint": "Enter the record name",
+  "cultureSearchPlaceholder": "Search...",
+  "cultureEmpty": "No culture records found.",
+  "cultureLoading": "Loading culture records",
+  "cultureCountTts": "Found {count} culture records.",
+  "@cultureCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "cultureErrorTts": "An error occurred while loading culture records. Please try again.",
+  "cultureTileSemantics": "Culture Record: {name}. {description}. Double-tap to listen.",
+  "@cultureTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "culturePlayerOpening": "Opening culture record: {name}.",
+  "@culturePlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "culturePlayerDescription": "Record description: {desc}",
+  "@culturePlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "culturePlayerTranscript": "Transcript",
+  "culturePlayerNoAudio": "No audio file available. You can listen to the description read aloud.",
+  "culturePlayerListen": "Listen to record",
   "cultureTts": "Culture section. Coming soon — explore the world through cultural stories.",
   "cultureComingSoon": "Coming Soon",
   "cultureComingSoonDesc": "Enriching cultural content will be available very soon.",
@@ -149,5 +199,31 @@
   "aboutTeamTitle": "Team",
   "aboutTeamBody": "Developed by the PFE Team — Final Year Software Engineering Project.",
   "aboutContactTitle": "Contact",
-  "aboutContactBody": "contact@eduvoice.app"
+  "aboutContactBody": "contact@eduvoice.app",
+
+  "radioSearchLabel": "Search for a radio stream",
+  "radioSearchHint": "Enter the stream name",
+  "radioSearchPlaceholder": "Search...",
+  "radioEmpty": "No radio streams found.",
+  "radioLoading": "Loading radio streams",
+  "radioCountTts": "Found {count} radio streams.",
+  "@radioCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "radioErrorTts": "An error occurred while loading radio streams. Please try again.",
+  "radioTileSemantics": "Radio Stream: {name}. {description}. Double-tap to listen.",
+  "@radioTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "radioPlayerOpening": "Opening radio stream: {name}.",
+  "@radioPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "radioPlayerDescription": "Stream description: {desc}",
+  "@radioPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "radioPlayerTranscript": "Transcript",
+  "radioPlayerNoAudio": "No audio stream available. You can listen to the description read aloud.",
+  "radioPlayerListen": "Listen to stream"
 }

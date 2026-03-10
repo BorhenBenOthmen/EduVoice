@@ -90,6 +90,31 @@
   "lessonPlayerListenLabel": "بدء الاستماع للدرس بصوت عالٍ. انقر مرتين للتشغيل.",
 
   "podcastTitle": "البودكاست",
+  "podcastSearchLabel": "البحث عن بودكاست",
+  "podcastSearchHint": "أدخل اسم البودكاست",
+  "podcastSearchPlaceholder": "بحث...",
+  "podcastEmpty": "لا يوجد بودكاست مطابق.",
+  "podcastLoading": "جارٍ تحميل البودكاست",
+  "podcastCountTts": "تم العثور على {count} بودكاست.",
+  "@podcastCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "podcastErrorTts": "حدث خطأ أثناء تحميل البودكاست. يرجى المحاولة مرة أخرى.",
+  "podcastTileSemantics": "بودكاست: {name}. {description}. انقر مرتين للاستماع.",
+  "@podcastTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "podcastPlayerOpening": "فتح بودكاست: {name}.",
+  "@podcastPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "podcastPlayerDescription": "وصف البودكاست: {desc}",
+  "@podcastPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "podcastPlayerTranscript": "النص المكتوب",
+  "podcastPlayerNoAudio": "لا يوجد ملف صوتي متاح. يمكنك الاستماع للوصف بالنص المقروء.",
+  "podcastPlayerListen": "استمع للبودكاست",
   "podcastTts": "قسم البودكاست. قريباً — حلقات مختارة لتعزيز تعلمك.",
   "podcastComingSoon": "قريباً",
   "podcastComingSoonDesc": "ستتوفر بودكاست متنوعة ومفيدة قريباً جداً.",
@@ -100,6 +125,31 @@
   "radioComingSoonDesc": "ستتوفر قنوات راديو تعليمية مباشرة قريباً جداً.",
 
   "cultureTitle": "الثقافة",
+  "cultureSearchLabel": "البحث عن سجل ثقافي",
+  "cultureSearchHint": "أدخل اسم السجل",
+  "cultureSearchPlaceholder": "بحث...",
+  "cultureEmpty": "لم يتم العثور على سجلات ثقافية.",
+  "cultureLoading": "جاري تحميل السجلات الثقافية",
+  "cultureCountTts": "تم العثور على {count} سجل ثقافي.",
+  "@cultureCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "cultureErrorTts": "حدث خطأ أثناء تحميل السجلات الثقافية. يرجى المحاولة مرة أخرى.",
+  "cultureTileSemantics": "سجل ثقافي: {name}. {description}. انقر مرتين للاستماع.",
+  "@cultureTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "culturePlayerOpening": "فتح السجل الثقافي: {name}.",
+  "@culturePlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "culturePlayerDescription": "وصف السجل: {desc}",
+  "@culturePlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "culturePlayerTranscript": "النص",
+  "culturePlayerNoAudio": "لا يتوفر ملف صوتي. يمكنك الاستماع إلى الوصف.",
+  "culturePlayerListen": "استمع إلى السجل",
   "cultureTts": "قسم الثقافة. قريباً — استكشف العالم من خلال روايات ثقافية.",
   "cultureComingSoon": "قريباً",
   "cultureComingSoonDesc": "ستتوفر محتويات ثقافية ثرية قريباً جداً.",
@@ -149,5 +199,31 @@
   "aboutTeamTitle": "الفريق",
   "aboutTeamBody": "طوّره فريق PFE — مشروع التخرج في هندسة البرمجيات.",
   "aboutContactTitle": "التواصل",
-  "aboutContactBody": "contact@eduvoice.app"
+  "aboutContactBody": "contact@eduvoice.app",
+
+  "radioSearchLabel": "البحث عن بث راديو",
+  "radioSearchHint": "أدخل اسم البث",
+  "radioSearchPlaceholder": "بحث...",
+  "radioEmpty": "لم يتم العثور على بث راديو.",
+  "radioLoading": "جاري تحميل بث الراديو",
+  "radioCountTts": "تم العثور على {count} بث راديو.",
+  "@radioCountTts": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "radioErrorTts": "حدث خطأ أثناء تحميل بث الراديو. يرجى المحاولة مرة أخرى.",
+  "radioTileSemantics": "بث راديو: {name}. {description}. انقر مرتين للاستماع.",
+  "@radioTileSemantics": {
+    "placeholders": { "name": { "type": "String" }, "description": { "type": "String" } }
+  },
+  "radioPlayerOpening": "فتح بث راديو: {name}.",
+  "@radioPlayerOpening": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "radioPlayerDescription": "وصف البث: {desc}",
+  "@radioPlayerDescription": {
+    "placeholders": { "desc": { "type": "String" } }
+  },
+  "radioPlayerTranscript": "النص",
+  "radioPlayerNoAudio": "لا يتوفر ملف صوتي. يمكنك الاستماع إلى الوصف.",
+  "radioPlayerListen": "استمع إلى البث"
 }

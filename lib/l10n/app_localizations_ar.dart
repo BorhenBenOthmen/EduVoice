@@ -223,6 +223,55 @@ class AppLocalizationsAr extends AppLocalizations {
   String get podcastTitle => 'البودكاست';
 
   @override
+  String get podcastSearchLabel => 'البحث عن بودكاست';
+
+  @override
+  String get podcastSearchHint => 'أدخل اسم البودكاست';
+
+  @override
+  String get podcastSearchPlaceholder => 'بحث...';
+
+  @override
+  String get podcastEmpty => 'لا يوجد بودكاست مطابق.';
+
+  @override
+  String get podcastLoading => 'جارٍ تحميل البودكاست';
+
+  @override
+  String podcastCountTts(int count) {
+    return 'تم العثور على $count بودكاست.';
+  }
+
+  @override
+  String get podcastErrorTts =>
+      'حدث خطأ أثناء تحميل البودكاست. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String podcastTileSemantics(String name, String description) {
+    return 'بودكاست: $name. $description. انقر مرتين للاستماع.';
+  }
+
+  @override
+  String podcastPlayerOpening(String name) {
+    return 'فتح بودكاست: $name.';
+  }
+
+  @override
+  String podcastPlayerDescription(String desc) {
+    return 'وصف البودكاست: $desc';
+  }
+
+  @override
+  String get podcastPlayerTranscript => 'النص المكتوب';
+
+  @override
+  String get podcastPlayerNoAudio =>
+      'لا يوجد ملف صوتي متاح. يمكنك الاستماع للوصف بالنص المقروء.';
+
+  @override
+  String get podcastPlayerListen => 'استمع للبودكاست';
+
+  @override
   String get podcastTts => 'قسم البودكاست. قريباً — حلقات مختارة لتعزيز تعلمك.';
 
   @override
@@ -247,6 +296,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cultureTitle => 'الثقافة';
+
+  @override
+  String get cultureSearchLabel => 'البحث عن سجل ثقافي';
+
+  @override
+  String get cultureSearchHint => 'أدخل اسم السجل';
+
+  @override
+  String get cultureSearchPlaceholder => 'بحث...';
+
+  @override
+  String get cultureEmpty => 'لم يتم العثور على سجلات ثقافية.';
+
+  @override
+  String get cultureLoading => 'جاري تحميل السجلات الثقافية';
+
+  @override
+  String cultureCountTts(int count) {
+    return 'تم العثور على $count سجل ثقافي.';
+  }
+
+  @override
+  String get cultureErrorTts =>
+      'حدث خطأ أثناء تحميل السجلات الثقافية. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String cultureTileSemantics(String name, String description) {
+    return 'سجل ثقافي: $name. $description. انقر مرتين للاستماع.';
+  }
+
+  @override
+  String culturePlayerOpening(String name) {
+    return 'فتح السجل الثقافي: $name.';
+  }
+
+  @override
+  String culturePlayerDescription(String desc) {
+    return 'وصف السجل: $desc';
+  }
+
+  @override
+  String get culturePlayerTranscript => 'النص';
+
+  @override
+  String get culturePlayerNoAudio =>
+      'لا يتوفر ملف صوتي. يمكنك الاستماع إلى الوصف.';
+
+  @override
+  String get culturePlayerListen => 'استمع إلى السجل';
 
   @override
   String get cultureTts =>
@@ -375,4 +473,53 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutContactBody => 'contact@eduvoice.app';
+
+  @override
+  String get radioSearchLabel => 'البحث عن بث راديو';
+
+  @override
+  String get radioSearchHint => 'أدخل اسم البث';
+
+  @override
+  String get radioSearchPlaceholder => 'بحث...';
+
+  @override
+  String get radioEmpty => 'لم يتم العثور على بث راديو.';
+
+  @override
+  String get radioLoading => 'جاري تحميل بث الراديو';
+
+  @override
+  String radioCountTts(int count) {
+    return 'تم العثور على $count بث راديو.';
+  }
+
+  @override
+  String get radioErrorTts =>
+      'حدث خطأ أثناء تحميل بث الراديو. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String radioTileSemantics(String name, String description) {
+    return 'بث راديو: $name. $description. انقر مرتين للاستماع.';
+  }
+
+  @override
+  String radioPlayerOpening(String name) {
+    return 'فتح بث راديو: $name.';
+  }
+
+  @override
+  String radioPlayerDescription(String desc) {
+    return 'وصف البث: $desc';
+  }
+
+  @override
+  String get radioPlayerTranscript => 'النص';
+
+  @override
+  String get radioPlayerNoAudio =>
+      'لا يتوفر ملف صوتي. يمكنك الاستماع إلى الوصف.';
+
+  @override
+  String get radioPlayerListen => 'استمع إلى البث';
 }

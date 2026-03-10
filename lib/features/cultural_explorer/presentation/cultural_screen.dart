@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../domain/entities/culture_record.dart';
+import 'state/culture_cubit.dart';
+import 'state/culture_state.dart';
+import 'cultural_player.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
-import '../../../../l10n/app_localizations.dart';
 
 class CultureScreen extends StatefulWidget {
   const CultureScreen({super.key});
@@ -11,15 +16,19 @@ class CultureScreen extends StatefulWidget {
 }
 
 class _CultureScreenState extends State<CultureScreen> {
-  final _tts = locator<TtsService>();
+  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final l = AppLocalizations.of(context)!;
-      _tts.speak(l.cultureTts);
-    });
+    context.read<CultureCubit>().loadCultureRecords();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -27,39 +36,163 @@ class _CultureScreenState extends State<CultureScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black, // Strict Accessibility: High Contrast
       appBar: AppBar(
-        title: Text(l.cultureTitle, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.black,
+        title: Semantics(
+          header: true,
+          child: Text(
+            l.cultureTitle,
+            style: const TextStyle(
+              color: Colors.lightGreenAccent,
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
         iconTheme: const IconThemeData(color: Colors.lightGreenAccent),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(2.0),
-          child: Container(color: Colors.lightGreenAccent, height: 2.0),
+      ),
+      body: Column(
+        children: [
+          _buildAccessibleSearchBar(l),
+          Expanded(
+            child: BlocConsumer<CultureCubit, CultureState>(
+              listener: (context, state) {
+                final tts = locator<TtsService>();
+                if (state is CultureLoading) {
+                  tts.speak(l.cultureLoading);
+                } else if (state is CultureLoaded) {
+                  tts.speak(l.cultureCountTts(state.records.length));
+                } else if (state is CultureError) {
+                  tts.speak(l.cultureErrorTts);
+                }
+              },
+              builder: (context, state) {
+                if (state is CultureLoading || state is CultureInitial) {
+                  return Center(
+                    child: Semantics(
+                      label: l.cultureLoading,
+                      child: const CircularProgressIndicator(
+                        color: Colors.lightGreenAccent,
+                      ),
+                    ),
+                  );
+                } else if (state is CultureError) {
+                  return Center(
+                    child: Text(
+                      "Error: ${state.message}",
+                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  );
+                } else if (state is CultureLoaded) {
+                  return _buildRecordList(state.records, l);
+                }
+                return const SizedBox.shrink();
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAccessibleSearchBar(AppLocalizations l) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Semantics(
+        label: l.cultureSearchLabel,
+        hint: l.cultureSearchHint,
+        textField: true,
+        child: TextField(
+          controller: _searchController,
+          style: const TextStyle(color: Colors.black, fontSize: 22),
+          textInputAction: TextInputAction.search,
+          onChanged: (value) {
+            setState(() {
+              _searchQuery = value.toLowerCase();
+            });
+          },
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.lightGreenAccent,
+            hintText: l.cultureSearchPlaceholder,
+            hintStyle: const TextStyle(color: Colors.black54),
+            prefixIcon: const Icon(Icons.search, color: Colors.black, size: 32),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide.none,
+            ),
+          ),
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.public, size: 80, color: Colors.lightGreenAccent),
-              const SizedBox(height: 24),
-              Semantics(
-                header: true,
-                child: Text(
-                  l.cultureComingSoon,
-                  style: const TextStyle(fontSize: 32, color: Colors.lightGreenAccent, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+    );
+  }
+
+  Widget _buildRecordList(List<CultureRecord> allRecords, AppLocalizations l) {
+    final filteredRecords = allRecords.where((record) {
+      return record.name.toLowerCase().contains(_searchQuery);
+    }).toList();
+
+    if (filteredRecords.isEmpty) {
+      return Center(
+        child: Text(
+          l.cultureEmpty,
+          style: const TextStyle(color: Colors.white, fontSize: 24),
+        ),
+      );
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      itemCount: filteredRecords.length,
+      itemBuilder: (context, index) {
+        final record = filteredRecords[index];
+        return _buildRecordTile(record, l);
+      },
+    );
+  }
+
+  Widget _buildRecordTile(CultureRecord record, AppLocalizations l) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Semantics(
+        button: true,
+        label: l.cultureTileSemantics(record.name, record.description),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CulturePlayerScreen(record: record),
+              ),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.lightGreenAccent, // High contrast touch target
+              borderRadius: BorderRadius.circular(16),
+            ),
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  record.name,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                l.cultureComingSoonDesc,
-                style: const TextStyle(fontSize: 20, color: Colors.white70),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                const SizedBox(height: 8),
+                Text(
+                  record.description,
+                  style: const TextStyle(color: Colors.black87, fontSize: 20),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
         ),
       ),

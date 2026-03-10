@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../domain/entities/podcast.dart';
-import 'state/podcast_cubit.dart';
-import 'state/podcast_state.dart';
-import 'smart_podcast_player.dart';
+import '../domain/entities/radio_emission.dart';
+import 'state/radio_cubit.dart';
+import 'state/radio_state.dart';
+import 'smart_radio_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
 
-class PodcastScreen extends StatefulWidget {
-  const PodcastScreen({super.key});
+class RadioScreen extends StatefulWidget {
+  const RadioScreen({super.key});
 
   @override
-  State<PodcastScreen> createState() => _PodcastScreenState();
+  State<RadioScreen> createState() => _RadioScreenState();
 }
 
-class _PodcastScreenState extends State<PodcastScreen> {
+class _RadioScreenState extends State<RadioScreen> {
   final TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
 
   @override
   void initState() {
     super.initState();
-    context.read<PodcastCubit>().loadPodcasts();
+    context.read<RadioCubit>().loadEmissions();
   }
 
   @override
@@ -42,50 +42,44 @@ class _PodcastScreenState extends State<PodcastScreen> {
         title: Semantics(
           header: true,
           child: Text(
-            l.podcastTitle,
-            style: const TextStyle(
-              color: Colors.cyanAccent,
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-            ),
+            l.radioTitle,
+            style: const TextStyle(color: Colors.amberAccent, fontSize: 28, fontWeight: FontWeight.bold),
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.cyanAccent),
+        iconTheme: const IconThemeData(color: Colors.amberAccent),
       ),
       body: Column(
         children: [
           _buildAccessibleSearchBar(l),
           Expanded(
-            child: BlocConsumer<PodcastCubit, PodcastState>(
+            child: BlocConsumer<RadioCubit, RadioState>(
               listener: (context, state) {
                 final tts = locator<TtsService>();
-                if (state is PodcastLoading) {
-                  tts.speak(l.podcastLoading);
-                } else if (state is PodcastLoaded) {
-                  tts.speak(l.podcastCountTts(state.podcasts.length));
-                } else if (state is PodcastError) {
-                  tts.speak(l.podcastErrorTts);
+                if (state is RadioLoading) {
+                  tts.speak(l.radioLoading);
+                } else if (state is RadioLoaded) {
+                  tts.speak(l.radioCountTts(state.emissions.length));
+                } else if (state is RadioError) {
+                  tts.speak(l.radioErrorTts);
                 }
               },
               builder: (context, state) {
-                if (state is PodcastLoading || state is PodcastInitial) {
+                if (state is RadioLoading || state is RadioInitial) {
                   return Center(
                     child: Semantics(
-                      label: l.podcastLoading,
-                      child: const CircularProgressIndicator(
-                        color: Colors.cyanAccent,
-                      ),
+                      label: l.radioLoading,
+                      child: const CircularProgressIndicator(color: Colors.amberAccent),
                     ),
                   );
-                } else if (state is PodcastError) {
+                } else if (state is RadioError) {
                   return Center(
                     child: Text(
                       "Error: ${state.message}",
                       style: const TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   );
-                } else if (state is PodcastLoaded) {
-                  return _buildPodcastList(state.podcasts, l);
+                } else if (state is RadioLoaded) {
+                  return _buildEmissionList(state.emissions, l);
                 }
                 return const SizedBox.shrink();
               },
@@ -100,8 +94,8 @@ class _PodcastScreenState extends State<PodcastScreen> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Semantics(
-        label: l.podcastSearchLabel,
-        hint: l.podcastSearchHint,
+        label: l.radioSearchLabel,
+        hint: l.radioSearchHint,
         textField: true,
         child: TextField(
           controller: _searchController,
@@ -114,8 +108,8 @@ class _PodcastScreenState extends State<PodcastScreen> {
           },
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.cyanAccent,
-            hintText: l.podcastSearchPlaceholder,
+            fillColor: Colors.amberAccent,
+            hintText: l.radioSearchPlaceholder,
             hintStyle: const TextStyle(color: Colors.black54),
             prefixIcon: const Icon(Icons.search, color: Colors.black, size: 32),
             border: OutlineInputBorder(
@@ -128,15 +122,15 @@ class _PodcastScreenState extends State<PodcastScreen> {
     );
   }
 
-  Widget _buildPodcastList(List<Podcast> allPodcasts, AppLocalizations l) {
-    final filteredPodcasts = allPodcasts.where((podcast) {
-      return podcast.name.toLowerCase().contains(_searchQuery);
+  Widget _buildEmissionList(List<RadioEmission> allEmissions, AppLocalizations l) {
+    final filteredEmissions = allEmissions.where((emission) {
+      return emission.title.toLowerCase().contains(_searchQuery);
     }).toList();
 
-    if (filteredPodcasts.isEmpty) {
+    if (filteredEmissions.isEmpty) {
       return Center(
         child: Text(
-          l.podcastEmpty,
+          l.radioEmpty,
           style: const TextStyle(color: Colors.white, fontSize: 24),
         ),
       );
@@ -144,32 +138,32 @@ class _PodcastScreenState extends State<PodcastScreen> {
 
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      itemCount: filteredPodcasts.length,
+      itemCount: filteredEmissions.length,
       itemBuilder: (context, index) {
-        final podcast = filteredPodcasts[index];
-        return _buildPodcastTile(podcast, l);
+        final emission = filteredEmissions[index];
+        return _buildEmissionTile(emission, l);
       },
     );
   }
 
-  Widget _buildPodcastTile(Podcast podcast, AppLocalizations l) {
+  Widget _buildEmissionTile(RadioEmission emission, AppLocalizations l) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Semantics(
         button: true,
-        label: l.podcastTileSemantics(podcast.name, podcast.description),
+        label: l.radioTileSemantics(emission.title, emission.description),
         child: InkWell(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => SmartPodcastPlayer(podcast: podcast),
+                builder: (_) => SmartRadioPlayer(emission: emission),
               ),
             );
           },
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.cyanAccent,
+              color: Colors.amberAccent,
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(24.0),
@@ -177,7 +171,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  podcast.name,
+                  emission.title,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 26,
@@ -186,8 +180,11 @@ class _PodcastScreenState extends State<PodcastScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  podcast.description,
-                  style: const TextStyle(color: Colors.black87, fontSize: 20),
+                  emission.description,
+                  style: const TextStyle(
+                    color: Colors.black87,
+                    fontSize: 20,
+                  ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

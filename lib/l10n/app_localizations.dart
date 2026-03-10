@@ -490,6 +490,84 @@ abstract class AppLocalizations {
   /// **'Podcast'**
   String get podcastTitle;
 
+  /// No description provided for @podcastSearchLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Rechercher un podcast'**
+  String get podcastSearchLabel;
+
+  /// No description provided for @podcastSearchHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Saisir le nom du podcast'**
+  String get podcastSearchHint;
+
+  /// No description provided for @podcastSearchPlaceholder.
+  ///
+  /// In fr, this message translates to:
+  /// **'Recherche...'**
+  String get podcastSearchPlaceholder;
+
+  /// No description provided for @podcastEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun podcast trouvé.'**
+  String get podcastEmpty;
+
+  /// No description provided for @podcastLoading.
+  ///
+  /// In fr, this message translates to:
+  /// **'Chargement des podcasts'**
+  String get podcastLoading;
+
+  /// No description provided for @podcastCountTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'{count} podcasts trouvés.'**
+  String podcastCountTts(int count);
+
+  /// No description provided for @podcastErrorTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une erreur est survenue lors du chargement des podcasts. Veuillez réessayer.'**
+  String get podcastErrorTts;
+
+  /// No description provided for @podcastTileSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Podcast : {name}. {description}. Appuyez deux fois pour écouter.'**
+  String podcastTileSemantics(String name, String description);
+
+  /// No description provided for @podcastPlayerOpening.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouverture du podcast : {name}.'**
+  String podcastPlayerOpening(String name);
+
+  /// No description provided for @podcastPlayerDescription.
+  ///
+  /// In fr, this message translates to:
+  /// **'Description du podcast : {desc}'**
+  String podcastPlayerDescription(String desc);
+
+  /// No description provided for @podcastPlayerTranscript.
+  ///
+  /// In fr, this message translates to:
+  /// **'Transcription'**
+  String get podcastPlayerTranscript;
+
+  /// No description provided for @podcastPlayerNoAudio.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.'**
+  String get podcastPlayerNoAudio;
+
+  /// No description provided for @podcastPlayerListen.
+  ///
+  /// In fr, this message translates to:
+  /// **'Écouter le podcast'**
+  String get podcastPlayerListen;
+
   /// No description provided for @podcastTts.
   ///
   /// In fr, this message translates to:
@@ -538,10 +616,88 @@ abstract class AppLocalizations {
   /// **'Culture'**
   String get cultureTitle;
 
+  /// No description provided for @cultureSearchLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Rechercher un enregistrement culturel'**
+  String get cultureSearchLabel;
+
+  /// No description provided for @cultureSearchHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Entrez le nom de l\'enregistrement'**
+  String get cultureSearchHint;
+
+  /// No description provided for @cultureSearchPlaceholder.
+  ///
+  /// In fr, this message translates to:
+  /// **'Recherche...'**
+  String get cultureSearchPlaceholder;
+
+  /// No description provided for @cultureEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun enregistrement culturel trouvé.'**
+  String get cultureEmpty;
+
+  /// No description provided for @cultureLoading.
+  ///
+  /// In fr, this message translates to:
+  /// **'Chargement des enregistrements culturels'**
+  String get cultureLoading;
+
+  /// No description provided for @cultureCountTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Trouvé {count} enregistrements culturels.'**
+  String cultureCountTts(int count);
+
+  /// No description provided for @cultureErrorTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une erreur s\'est produite lors du chargement des enregistrements culturels. Veuillez réessayer.'**
+  String get cultureErrorTts;
+
+  /// No description provided for @cultureTileSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Enregistrement Culturel : {name}. {description}. Touchez deux fois pour écouter.'**
+  String cultureTileSemantics(String name, String description);
+
+  /// No description provided for @culturePlayerOpening.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouverture de l\'enregistrement culturel : {name}.'**
+  String culturePlayerOpening(String name);
+
+  /// No description provided for @culturePlayerDescription.
+  ///
+  /// In fr, this message translates to:
+  /// **'Description de l\'enregistrement : {desc}'**
+  String culturePlayerDescription(String desc);
+
+  /// No description provided for @culturePlayerTranscript.
+  ///
+  /// In fr, this message translates to:
+  /// **'Transcription'**
+  String get culturePlayerTranscript;
+
+  /// No description provided for @culturePlayerNoAudio.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun fichier audio disponible. Vous pouvez écouter la description lue à haute voix.'**
+  String get culturePlayerNoAudio;
+
+  /// No description provided for @culturePlayerListen.
+  ///
+  /// In fr, this message translates to:
+  /// **'Écouter l\'enregistrement'**
+  String get culturePlayerListen;
+
   /// No description provided for @cultureTts.
   ///
   /// In fr, this message translates to:
-  /// **'Section Culture. Bientôt disponible — explorez le monde à travers des récits culturels.'**
+  /// **'Section Culture. Bientôt disponible — explorez le monde à travers des histoires culturelles.'**
   String get cultureTts;
 
   /// No description provided for @cultureComingSoon.
@@ -771,6 +927,84 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'contact@eduvoice.app'**
   String get aboutContactBody;
+
+  /// No description provided for @radioSearchLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Rechercher un flux radio'**
+  String get radioSearchLabel;
+
+  /// No description provided for @radioSearchHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Saisir le nom du flux'**
+  String get radioSearchHint;
+
+  /// No description provided for @radioSearchPlaceholder.
+  ///
+  /// In fr, this message translates to:
+  /// **'Recherche...'**
+  String get radioSearchPlaceholder;
+
+  /// No description provided for @radioEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun flux radio trouvé.'**
+  String get radioEmpty;
+
+  /// No description provided for @radioLoading.
+  ///
+  /// In fr, this message translates to:
+  /// **'Chargement des flux radio'**
+  String get radioLoading;
+
+  /// No description provided for @radioCountTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'{count} flux radio trouvés.'**
+  String radioCountTts(int count);
+
+  /// No description provided for @radioErrorTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une erreur est survenue lors du chargement des flux radio. Veuillez réessayer.'**
+  String get radioErrorTts;
+
+  /// No description provided for @radioTileSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Flux Radio : {name}. {description}. Appuyez deux fois pour écouter.'**
+  String radioTileSemantics(String name, String description);
+
+  /// No description provided for @radioPlayerOpening.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouverture du flux radio : {name}.'**
+  String radioPlayerOpening(String name);
+
+  /// No description provided for @radioPlayerDescription.
+  ///
+  /// In fr, this message translates to:
+  /// **'Description du flux : {desc}'**
+  String radioPlayerDescription(String desc);
+
+  /// No description provided for @radioPlayerTranscript.
+  ///
+  /// In fr, this message translates to:
+  /// **'Transcription'**
+  String get radioPlayerTranscript;
+
+  /// No description provided for @radioPlayerNoAudio.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.'**
+  String get radioPlayerNoAudio;
+
+  /// No description provided for @radioPlayerListen.
+  ///
+  /// In fr, this message translates to:
+  /// **'Écouter le flux'**
+  String get radioPlayerListen;
 }
 
 class _AppLocalizationsDelegate

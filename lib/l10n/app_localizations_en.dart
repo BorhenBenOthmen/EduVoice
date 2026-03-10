@@ -225,6 +225,55 @@ class AppLocalizationsEn extends AppLocalizations {
   String get podcastTitle => 'Podcast';
 
   @override
+  String get podcastSearchLabel => 'Search for a podcast';
+
+  @override
+  String get podcastSearchHint => 'Enter the podcast name';
+
+  @override
+  String get podcastSearchPlaceholder => 'Search...';
+
+  @override
+  String get podcastEmpty => 'No podcasts found.';
+
+  @override
+  String get podcastLoading => 'Loading podcasts';
+
+  @override
+  String podcastCountTts(int count) {
+    return 'Found $count podcasts.';
+  }
+
+  @override
+  String get podcastErrorTts =>
+      'An error occurred while loading podcasts. Please try again.';
+
+  @override
+  String podcastTileSemantics(String name, String description) {
+    return 'Podcast: $name. $description. Double-tap to listen.';
+  }
+
+  @override
+  String podcastPlayerOpening(String name) {
+    return 'Opening podcast: $name.';
+  }
+
+  @override
+  String podcastPlayerDescription(String desc) {
+    return 'Podcast description: $desc';
+  }
+
+  @override
+  String get podcastPlayerTranscript => 'Transcript';
+
+  @override
+  String get podcastPlayerNoAudio =>
+      'No audio file available. You can listen to the description read aloud.';
+
+  @override
+  String get podcastPlayerListen => 'Listen to podcast';
+
+  @override
   String get podcastTts =>
       'Podcast section. Coming soon — curated episodes to enrich your learning.';
 
@@ -251,6 +300,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cultureTitle => 'Culture';
+
+  @override
+  String get cultureSearchLabel => 'Search for a culture record';
+
+  @override
+  String get cultureSearchHint => 'Enter the record name';
+
+  @override
+  String get cultureSearchPlaceholder => 'Search...';
+
+  @override
+  String get cultureEmpty => 'No culture records found.';
+
+  @override
+  String get cultureLoading => 'Loading culture records';
+
+  @override
+  String cultureCountTts(int count) {
+    return 'Found $count culture records.';
+  }
+
+  @override
+  String get cultureErrorTts =>
+      'An error occurred while loading culture records. Please try again.';
+
+  @override
+  String cultureTileSemantics(String name, String description) {
+    return 'Culture Record: $name. $description. Double-tap to listen.';
+  }
+
+  @override
+  String culturePlayerOpening(String name) {
+    return 'Opening culture record: $name.';
+  }
+
+  @override
+  String culturePlayerDescription(String desc) {
+    return 'Record description: $desc';
+  }
+
+  @override
+  String get culturePlayerTranscript => 'Transcript';
+
+  @override
+  String get culturePlayerNoAudio =>
+      'No audio file available. You can listen to the description read aloud.';
+
+  @override
+  String get culturePlayerListen => 'Listen to record';
 
   @override
   String get cultureTts =>
@@ -380,4 +478,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutContactBody => 'contact@eduvoice.app';
+
+  @override
+  String get radioSearchLabel => 'Search for a radio stream';
+
+  @override
+  String get radioSearchHint => 'Enter the stream name';
+
+  @override
+  String get radioSearchPlaceholder => 'Search...';
+
+  @override
+  String get radioEmpty => 'No radio streams found.';
+
+  @override
+  String get radioLoading => 'Loading radio streams';
+
+  @override
+  String radioCountTts(int count) {
+    return 'Found $count radio streams.';
+  }
+
+  @override
+  String get radioErrorTts =>
+      'An error occurred while loading radio streams. Please try again.';
+
+  @override
+  String radioTileSemantics(String name, String description) {
+    return 'Radio Stream: $name. $description. Double-tap to listen.';
+  }
+
+  @override
+  String radioPlayerOpening(String name) {
+    return 'Opening radio stream: $name.';
+  }
+
+  @override
+  String radioPlayerDescription(String desc) {
+    return 'Stream description: $desc';
+  }
+
+  @override
+  String get radioPlayerTranscript => 'Transcript';
+
+  @override
+  String get radioPlayerNoAudio =>
+      'No audio stream available. You can listen to the description read aloud.';
+
+  @override
+  String get radioPlayerListen => 'Listen to stream';
 }

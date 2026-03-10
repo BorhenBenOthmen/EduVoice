@@ -20,6 +20,18 @@ import 'features/lesson/domain/repositories/i_lesson_repository.dart';
 import 'features/lesson/data/repositories/lesson_repository_impl.dart';
 import 'features/lesson/presentation/state/lesson_cubit.dart';
 
+import 'features/cultural_explorer/domain/repositories/i_culture_repository.dart';
+import 'features/cultural_explorer/data/repositories/culture_repository_impl.dart';
+import 'features/cultural_explorer/presentation/state/culture_cubit.dart';
+
+import 'features/podcast_hub/domain/repositories/i_podcast_repository.dart';
+import 'features/podcast_hub/data/repositories/podcast_repository_impl.dart';
+import 'features/podcast_hub/presentation/state/podcast_cubit.dart';
+
+import 'features/radio/domain/repositories/i_radio_repository.dart';
+import 'features/radio/data/repositories/radio_repository_impl.dart';
+import 'features/radio/presentation/state/radio_cubit.dart';
+
 final locator = GetIt.instance;
 
 Future<void> setupDependencies() async {
@@ -81,5 +93,47 @@ Future<void> setupDependencies() async {
   // Register Cubit Second (Presentation Layer) - Depends on ILessonRepository
   locator.registerFactory<LessonCubit>(
     () => LessonCubit(locator<ILessonRepository>()),
+  );
+
+  // ==========================================
+  // CULTURE MODULE PIPELINE
+  // ==========================================
+  locator.registerLazySingleton<ICultureRepository>(
+    () => CultureRepositoryImpl(
+      locator<AuthClient>(),
+      locator<TokenManager>(),
+    ),
+  );
+
+  locator.registerFactory<CultureCubit>(
+    () => CultureCubit(locator<ICultureRepository>()),
+  );
+
+  // ==========================================
+  // PODCAST MODULE PIPELINE
+  // ==========================================
+  locator.registerLazySingleton<IPodcastRepository>(
+    () => PodcastRepositoryImpl(
+      locator<AuthClient>(),
+      locator<TokenManager>(),
+    ),
+  );
+
+  locator.registerFactory<PodcastCubit>(
+    () => PodcastCubit(locator<IPodcastRepository>()),
+  );
+
+  // ==========================================
+  // RADIO MODULE PIPELINE
+  // ==========================================
+  locator.registerLazySingleton<IRadioRepository>(
+    () => RadioRepositoryImpl(
+      locator<AuthClient>(),
+      locator<TokenManager>(),
+    ),
+  );
+
+  locator.registerFactory<RadioCubit>(
+    () => RadioCubit(locator<IRadioRepository>()),
   );
 }

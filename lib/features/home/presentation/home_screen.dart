@@ -6,8 +6,11 @@ import '../../../injection_container.dart';
 import '../../../features/lesson/presentation/state/lesson_cubit.dart';
 import '../../../features/lesson/presentation/screens/lesson_list_screen.dart';
 import '../../../features/cultural_explorer/presentation/cultural_screen.dart';
+import '../../../features/cultural_explorer/presentation/state/culture_cubit.dart';
 import '../../../features/podcast_hub/presentation/podcast_screen.dart';
-import '../../../features/podcast_hub/presentation/radio_screen.dart';
+import '../../../features/podcast_hub/presentation/state/podcast_cubit.dart';
+import '../../../features/radio/presentation/radio_screen.dart';
+import '../../../features/radio/presentation/state/radio_cubit.dart';
 import '../../../features/settings/presentation/settings_screen.dart';
 import '../../../features/about/presentation/about_screen.dart';
 import '../../../l10n/app_localizations.dart';
@@ -123,7 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const CultureScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider(
+                          create: (_) => locator<CultureCubit>(),
+                          child: const CultureScreen(),
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -136,7 +144,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const PodcastScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider(
+                          create: (_) => locator<PodcastCubit>(),
+                          child: const PodcastScreen(),
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -149,7 +162,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const RadioScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider(
+                          create: (_) => locator<RadioCubit>(),
+                          child: const RadioScreen(),
+                        ),
+                      ),
                     );
                   },
                 ),

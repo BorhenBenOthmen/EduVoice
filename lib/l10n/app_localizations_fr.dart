@@ -233,6 +233,55 @@ class AppLocalizationsFr extends AppLocalizations {
   String get podcastTitle => 'Podcast';
 
   @override
+  String get podcastSearchLabel => 'Rechercher un podcast';
+
+  @override
+  String get podcastSearchHint => 'Saisir le nom du podcast';
+
+  @override
+  String get podcastSearchPlaceholder => 'Recherche...';
+
+  @override
+  String get podcastEmpty => 'Aucun podcast trouvé.';
+
+  @override
+  String get podcastLoading => 'Chargement des podcasts';
+
+  @override
+  String podcastCountTts(int count) {
+    return '$count podcasts trouvés.';
+  }
+
+  @override
+  String get podcastErrorTts =>
+      'Une erreur est survenue lors du chargement des podcasts. Veuillez réessayer.';
+
+  @override
+  String podcastTileSemantics(String name, String description) {
+    return 'Podcast : $name. $description. Appuyez deux fois pour écouter.';
+  }
+
+  @override
+  String podcastPlayerOpening(String name) {
+    return 'Ouverture du podcast : $name.';
+  }
+
+  @override
+  String podcastPlayerDescription(String desc) {
+    return 'Description du podcast : $desc';
+  }
+
+  @override
+  String get podcastPlayerTranscript => 'Transcription';
+
+  @override
+  String get podcastPlayerNoAudio =>
+      'Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.';
+
+  @override
+  String get podcastPlayerListen => 'Écouter le podcast';
+
+  @override
   String get podcastTts =>
       'Section Podcast. Bientôt disponible — des épisodes sélectionnés pour enrichir votre apprentissage.';
 
@@ -261,8 +310,57 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cultureTitle => 'Culture';
 
   @override
+  String get cultureSearchLabel => 'Rechercher un enregistrement culturel';
+
+  @override
+  String get cultureSearchHint => 'Entrez le nom de l\'enregistrement';
+
+  @override
+  String get cultureSearchPlaceholder => 'Recherche...';
+
+  @override
+  String get cultureEmpty => 'Aucun enregistrement culturel trouvé.';
+
+  @override
+  String get cultureLoading => 'Chargement des enregistrements culturels';
+
+  @override
+  String cultureCountTts(int count) {
+    return 'Trouvé $count enregistrements culturels.';
+  }
+
+  @override
+  String get cultureErrorTts =>
+      'Une erreur s\'est produite lors du chargement des enregistrements culturels. Veuillez réessayer.';
+
+  @override
+  String cultureTileSemantics(String name, String description) {
+    return 'Enregistrement Culturel : $name. $description. Touchez deux fois pour écouter.';
+  }
+
+  @override
+  String culturePlayerOpening(String name) {
+    return 'Ouverture de l\'enregistrement culturel : $name.';
+  }
+
+  @override
+  String culturePlayerDescription(String desc) {
+    return 'Description de l\'enregistrement : $desc';
+  }
+
+  @override
+  String get culturePlayerTranscript => 'Transcription';
+
+  @override
+  String get culturePlayerNoAudio =>
+      'Aucun fichier audio disponible. Vous pouvez écouter la description lue à haute voix.';
+
+  @override
+  String get culturePlayerListen => 'Écouter l\'enregistrement';
+
+  @override
   String get cultureTts =>
-      'Section Culture. Bientôt disponible — explorez le monde à travers des récits culturels.';
+      'Section Culture. Bientôt disponible — explorez le monde à travers des histoires culturelles.';
 
   @override
   String get cultureComingSoon => 'Bientôt disponible';
@@ -388,4 +486,53 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get aboutContactBody => 'contact@eduvoice.app';
+
+  @override
+  String get radioSearchLabel => 'Rechercher un flux radio';
+
+  @override
+  String get radioSearchHint => 'Saisir le nom du flux';
+
+  @override
+  String get radioSearchPlaceholder => 'Recherche...';
+
+  @override
+  String get radioEmpty => 'Aucun flux radio trouvé.';
+
+  @override
+  String get radioLoading => 'Chargement des flux radio';
+
+  @override
+  String radioCountTts(int count) {
+    return '$count flux radio trouvés.';
+  }
+
+  @override
+  String get radioErrorTts =>
+      'Une erreur est survenue lors du chargement des flux radio. Veuillez réessayer.';
+
+  @override
+  String radioTileSemantics(String name, String description) {
+    return 'Flux Radio : $name. $description. Appuyez deux fois pour écouter.';
+  }
+
+  @override
+  String radioPlayerOpening(String name) {
+    return 'Ouverture du flux radio : $name.';
+  }
+
+  @override
+  String radioPlayerDescription(String desc) {
+    return 'Description du flux : $desc';
+  }
+
+  @override
+  String get radioPlayerTranscript => 'Transcription';
+
+  @override
+  String get radioPlayerNoAudio =>
+      'Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.';
+
+  @override
+  String get radioPlayerListen => 'Écouter le flux';
 }
