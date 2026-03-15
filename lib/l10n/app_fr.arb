@@ -132,7 +132,7 @@
   "cultureSearchPlaceholder": "Recherche...",
   "cultureEmpty": "Aucun enregistrement culturel trouvé.",
   "cultureLoading": "Chargement des enregistrements culturels",
-  "cultureCountTts": "Trouvé {count} enregistrements culturels.",
+  "cultureCountTts": "{count} enregistrements culturels trouvés.",
   "@cultureCountTts": {
     "placeholders": { "count": { "type": "int" } }
   },

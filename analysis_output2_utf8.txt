@@ -1,0 +1,14 @@
+﻿Analyzing edu_voice...                                          
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\cultural_explorer\presentation\cultural_player.dart:205:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\cultural_explorer\presentation\cultural_player.dart:279:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\lesson_player\presentation\smart_lesson_player.dart:228:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\lesson_player\presentation\smart_lesson_player.dart:307:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\podcast_hub\presentation\smart_podcast_player.dart:205:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\podcast_hub\presentation\smart_podcast_player.dart:279:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\radio\presentation\smart_radio_player.dart:205:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\radio\presentation\smart_radio_player.dart:279:62 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\settings\presentation\settings_screen.dart:42:35 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\settings\presentation\settings_screen.dart:43:40 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\settings\presentation\settings_screen.dart:44:12 - curly_braces_in_flow_control_structures
+

@@ -326,7 +326,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cultureCountTts(int count) {
-    return 'Trouvé $count enregistrements culturels.';
+    return '$count enregistrements culturels trouvés.';
   }
 
   @override

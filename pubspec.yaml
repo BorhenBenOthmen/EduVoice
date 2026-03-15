@@ -46,6 +46,8 @@ dependencies:
   audioplayers: ^6.6.0
   equatable: ^2.0.8
   intl: ^0.20.2
+  record: ^6.2.0
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:

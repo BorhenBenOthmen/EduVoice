@@ -30,8 +30,10 @@ class TokenManager {
     return value != null ? int.tryParse(value) : null;
   }
 
-  Future<String?> getAccessToken() async => await _storage.read(key: _accessKey);
-  Future<String?> getRefreshToken() async => await _storage.read(key: _refreshKey);
+  Future<String?> getAccessToken() async =>
+      await _storage.read(key: _accessKey);
+  Future<String?> getRefreshToken() async =>
+      await _storage.read(key: _refreshKey);
 
   Future<void> clearTokens() async {
     await _storage.delete(key: _accessKey);
@@ -42,11 +44,51 @@ class TokenManager {
 
   Future<bool> hasValidSession() async {
     final token = await getAccessToken();
-    if (token != null) {
-      _startRefreshTimer();
+    if (token == null) return false;
+
+    if (_isTokenExpired(token)) {
+      // Access token is expired, attempt to refresh
+      final refreshed = await refreshToken();
+      if (refreshed) {
+        // _startRefreshTimer is called inside saveTokens which is called inside refreshToken
+        return true;
+      }
+      return false; // Refresh failed, session is invalid
+    }
+
+    // Token is valid and not expired
+    _startRefreshTimer();
+    return true;
+  }
+
+  bool _isTokenExpired(String token) {
+    try {
+      final parts = token.split('.');
+      if (parts.length != 3) {
+        return true; // Invalid token format
+      }
+
+      final payload = parts[1];
+      final normalizedPayload = base64Url.normalize(payload);
+      final String decodedPayload = utf8.decode(
+        base64Url.decode(normalizedPayload),
+      );
+      final Map<String, dynamic> payloadMap = jsonDecode(decodedPayload);
+
+      final exp = payloadMap['exp'];
+      if (exp == null) return true;
+
+      // exp is typically in seconds since epoch
+      final expirationDate = DateTime.fromMillisecondsSinceEpoch(exp * 1000);
+
+      // Consider token expired if it expires within the next minute (safety margin)
+      return DateTime.now()
+          .add(const Duration(minutes: 1))
+          .isAfter(expirationDate);
+    } catch (e) {
+      // If any error occurs during parsing, consider the token invalid
       return true;
     }
-    return false;
   }
 
   /// Refreshes the token proactively
@@ -68,7 +110,7 @@ class TokenManager {
         final newRefresh = data['refresh'] ?? refresh;
         // Preserve the existing account ID — the refresh endpoint doesn't change it.
         final existingAccountId = await getAccountId() ?? 0;
-        
+
         await saveTokens(
           access: newAccess,
           refresh: newRefresh,

@@ -649,7 +649,7 @@ abstract class AppLocalizations {
   /// No description provided for @cultureCountTts.
   ///
   /// In fr, this message translates to:
-  /// **'Trouvé {count} enregistrements culturels.'**
+  /// **'{count} enregistrements culturels trouvés.'**
   String cultureCountTts(int count);
 
   /// No description provided for @cultureErrorTts.
