@@ -7,6 +7,7 @@ import '../../../../features/lesson/presentation/state/lesson_state.dart';
 import '../../../../features/lesson_player/presentation/smart_lesson_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
+import '../../../../core/audio/audio_session_manager.dart';
 import '../../../../injection_container.dart';
 
 class LessonListScreen extends StatefulWidget {
@@ -55,15 +56,21 @@ class _LessonListScreenState extends State<LessonListScreen> {
           _buildAccessibleSearchBar(l),
           Expanded(
             child: BlocConsumer<LessonCubit, LessonState>(
-              listener: (context, state) {
-                // Ensure the exact localized strings are announced as soon as state changes!
+              listener: (context, state) async {
                 final tts = locator<TtsService>();
+                final audio = locator<AudioSessionManager>();
                 if (state is LessonLoading) {
-                  tts.speak(l.lessonLoading);
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.lessonLoading);
+                  await audio.releaseFocus();
                 } else if (state is LessonLoaded) {
-                  tts.speak(l.lessonCountTts(state.lessons.length));
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.lessonCountTts(state.lessons.length));
+                  await audio.releaseFocus();
                 } else if (state is LessonError) {
-                  tts.speak(l.lessonErrorTts);
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.lessonErrorTts);
+                  await audio.releaseFocus();
                 }
               },
               builder: (context, state) {

@@ -6,6 +6,7 @@ import 'state/podcast_state.dart';
 import 'smart_podcast_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
+import '../../../../core/audio/audio_session_manager.dart';
 import '../../../../injection_container.dart';
 
 class PodcastScreen extends StatefulWidget {
@@ -57,14 +58,21 @@ class _PodcastScreenState extends State<PodcastScreen> {
           _buildAccessibleSearchBar(l),
           Expanded(
             child: BlocConsumer<PodcastCubit, PodcastState>(
-              listener: (context, state) {
+              listener: (context, state) async {
                 final tts = locator<TtsService>();
+                final audio = locator<AudioSessionManager>();
                 if (state is PodcastLoading) {
-                  tts.speak(l.podcastLoading);
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.podcastLoading);
+                  await audio.releaseFocus();
                 } else if (state is PodcastLoaded) {
-                  tts.speak(l.podcastCountTts(state.podcasts.length));
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.podcastCountTts(state.podcasts.length));
+                  await audio.releaseFocus();
                 } else if (state is PodcastError) {
-                  tts.speak(l.podcastErrorTts);
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.podcastErrorTts);
+                  await audio.releaseFocus();
                 }
               },
               builder: (context, state) {

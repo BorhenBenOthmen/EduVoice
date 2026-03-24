@@ -108,7 +108,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     subtitle: l.homeMenuLessonDesc,
                     icon: Icons.school,
                     color: Colors.cyanAccent,
-                    semanticsLabel: l.homeMenuLessonSemantics,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -126,7 +125,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     subtitle: l.homeMenuCultureDesc,
                     icon: Icons.public,
                     color: Colors.lightGreenAccent,
-                    semanticsLabel: l.homeMenuCultureSemantics,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -144,7 +142,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     subtitle: l.homeMenuPodcastDesc,
                     icon: Icons.podcasts,
                     color: Colors.deepPurpleAccent,
-                    semanticsLabel: l.homeMenuPodcastSemantics,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -162,7 +159,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     subtitle: l.homeMenuRadioDesc,
                     icon: Icons.radio,
                     color: Colors.amberAccent,
-                    semanticsLabel: l.homeMenuRadioSemantics,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -191,7 +187,6 @@ class _MenuCard extends StatelessWidget {
   final String subtitle;
   final IconData icon;
   final Color color;
-  final String semanticsLabel;
   final VoidCallback onTap;
 
   const _MenuCard({
@@ -199,14 +194,12 @@ class _MenuCard extends StatelessWidget {
     required this.subtitle,
     required this.icon,
     required this.color,
-    required this.semanticsLabel,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      label: semanticsLabel,
       button: true,
       child: InkWell(
         onTap: () async {

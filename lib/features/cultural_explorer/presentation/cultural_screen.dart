@@ -6,6 +6,7 @@ import 'state/culture_state.dart';
 import 'cultural_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
+import '../../../../core/audio/audio_session_manager.dart';
 import '../../../../injection_container.dart';
 
 class CultureScreen extends StatefulWidget {
@@ -57,14 +58,21 @@ class _CultureScreenState extends State<CultureScreen> {
           _buildAccessibleSearchBar(l),
           Expanded(
             child: BlocConsumer<CultureCubit, CultureState>(
-              listener: (context, state) {
+              listener: (context, state) async {
                 final tts = locator<TtsService>();
+                final audio = locator<AudioSessionManager>();
                 if (state is CultureLoading) {
-                  tts.speak(l.cultureLoading);
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.cultureLoading);
+                  await audio.releaseFocus();
                 } else if (state is CultureLoaded) {
-                  tts.speak(l.cultureCountTts(state.records.length));
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.cultureCountTts(state.records.length));
+                  await audio.releaseFocus();
                 } else if (state is CultureError) {
-                  tts.speak(l.cultureErrorTts);
+                  await audio.requestExclusiveFocus();
+                  await tts.speak(l.cultureErrorTts);
+                  await audio.releaseFocus();
                 }
               },
               builder: (context, state) {
