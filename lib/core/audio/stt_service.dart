@@ -1,67 +1,58 @@
-import 'package:speech_to_text/speech_to_text.dart';
 import 'package:flutter/foundation.dart';
+import 'package:record/record.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 import '../../injection_container.dart';
-import '../locale/locale_service.dart';
+import '../network/api_client.dart';
 
 class SttService {
-  final SpeechToText _speechToText = SpeechToText();
-  bool _isInitialized = false;
+  final AudioRecorder _audioRecorder = AudioRecorder();
+  String? _audioFilePath;
+  Function(String text)? _onResult;
+  bool _isListening = false;
 
-  // Explicit async initialization
   Future<void> initStt() async {
-    if (_isInitialized) return;
-
-    _isInitialized = await _speechToText.initialize(
-      onError: (error) => debugPrint('STT Error: ${error.errorMsg}'),
-      onStatus: (status) => debugPrint('STT Status: $status'),
-    );
-
-    if (!_isInitialized) {
-      debugPrint("Failed to initialize Speech-to-Text. Check permissions.");
+    if (await _audioRecorder.hasPermission()) {
+      debugPrint("Audio recorder initialized properly.");
+    } else {
+      debugPrint("Failed to get audio recording permissions.");
     }
   }
 
   Future<void> startListening(Function(String text) onResult) async {
-    // If it's already initialized during boot, this instantly passes
-    if (!_isInitialized) await initStt();
-
-    // Determine the user's active language
-    String localeId = 'fr-FR'; // fallback
-    try {
-      final localeService = locator<LocaleService>();
-      final langCode = localeService.current.languageCode;
-
-      switch (langCode) {
-        case 'ar':
-          localeId = 'ar-SA';
-          break;
-        case 'en':
-          localeId = 'en-US';
-          break;
-        case 'fr':
-        default:
-          localeId = 'fr-FR';
-          break;
-      }
-    } catch (e) {
-      debugPrint("Error fetching locale for STT: $e");
+    if (await _audioRecorder.hasPermission()) {
+      _onResult = onResult;
+      
+      final tempDir = await getTemporaryDirectory();
+      _audioFilePath = '${tempDir.path}/voice_command.m4a';
+      
+      await _audioRecorder.start(
+        const RecordConfig(encoder: AudioEncoder.aacLc),
+        path: _audioFilePath!,
+      );
+      _isListening = true;
     }
-
-    await _speechToText.listen(
-      onResult: (result) {
-        onResult(result.recognizedWords);
-      },
-      localeId: localeId,
-      listenOptions: SpeechListenOptions(
-        cancelOnError: true,
-        partialResults: true,
-      ),
-    );
   }
 
   Future<void> stopListening() async {
-    await _speechToText.stop();
+    if (!_isListening) return;
+
+    final path = await _audioRecorder.stop();
+    _isListening = false;
+
+    if (path != null && _onResult != null) {
+      final file = File(path);
+      if (await file.exists()) {
+        final apiClient = locator<ApiClient>();
+        debugPrint("Sending audio command to backend: $path");
+        final replyText = await apiClient.sendVoiceCommandAudio(file);
+        
+        if (replyText.isNotEmpty) {
+          _onResult!(replyText);
+        }
+      }
+    }
   }
 
-  bool get isListening => _speechToText.isListening;
+  bool get isListening => _isListening;
 }

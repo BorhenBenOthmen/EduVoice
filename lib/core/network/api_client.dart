@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 
@@ -23,6 +24,34 @@ class ApiClient {
       } else {
         debugPrint("Server Error: ${response.statusCode} - ${response.body}");
         return "Erreur du serveur. Le code est ${response.statusCode}.";
+      }
+    } catch (e) {
+      debugPrint("Network Error: $e");
+      return "Impossible de joindre le serveur Edu Voice. Vérifiez votre connexion.";
+    }
+  }
+
+  Future<String> sendVoiceCommandAudio(File audioFile) async {
+    try {
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('$baseUrl/voice-command-audio/'),
+      );
+      request.files.add(await http.MultipartFile.fromPath(
+        'audio',
+        audioFile.path,
+      ));
+
+      final streamedResponse = await request.send().timeout(const Duration(seconds: 20));
+      final response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        // Fallback to "Commande traitée" if 'reply' key is missing
+        return data['reply'] ?? "Commande traitée."; 
+      } else {
+        debugPrint("Server Error: ${response.statusCode} - ${response.body}");
+        return "Erreur du serveur lors du traitement vocal. Code: ${response.statusCode}.";
       }
     } catch (e) {
       debugPrint("Network Error: $e");

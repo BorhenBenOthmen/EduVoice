@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/audio/tts_service.dart';
-import '../../../core/widgets/voice_search_fab.dart';
+import '../../../core/widgets/voice_search_fab.dart'; // ShakeVoiceDetector
 import '../../../injection_container.dart';
 import '../../../features/lesson/presentation/state/lesson_cubit.dart';
 import '../../../features/lesson/presentation/screens/lesson_list_screen.dart';
@@ -44,18 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: Text(l.homeCatalogueTitle),
+    return ShakeVoiceDetector(
+      onCommandRecognized: (text) {
+        setState(() => _voiceCommandFeedback = text);
+      },
+      child: Scaffold(
         backgroundColor: Colors.black,
-        elevation: 0,
-        actions: [
-          Semantics(
-            label: l.homeSettingsSemantics,
-            button: true,
-            child: IconButton(
-              icon: const Icon(Icons.settings_outlined, color: Colors.amberAccent),
+        appBar: AppBar(
+          title: Text(l.homeCatalogueTitle),
+          backgroundColor: Colors.black,
+          elevation: 0,
+          actions: [
+            IconButton(
+              tooltip: l.homeSettingsSemantics,
+              icon: const Icon(
+                Icons.settings_outlined,
+                color: Colors.amberAccent,
+              ),
               onPressed: () {
                 locator<TtsService>().speak(l.homeOpeningSettings);
                 Navigator.push(
@@ -64,11 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-          ),
-          Semantics(
-            label: l.homeAboutSemantics,
-            button: true,
-            child: IconButton(
+            IconButton(
+              tooltip: l.homeAboutSemantics,
               icon: const Icon(Icons.info_outline, color: Colors.cyanAccent),
               onPressed: () {
                 locator<TtsService>().speak(l.homeOpeningAbout);
@@ -78,110 +80,107 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
+          ],
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(2.0),
+            child: Container(color: Colors.cyanAccent, height: 2.0),
           ),
-        ],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(2.0),
-          child: Container(color: Colors.cyanAccent, height: 2.0),
         ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              _voiceCommandFeedback,
-              style: const TextStyle(fontSize: 18, color: Colors.amberAccent),
-              textAlign: TextAlign.center,
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                _voiceCommandFeedback,
+                style: const TextStyle(fontSize: 18, color: Colors.amberAccent),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              children: [
-                _MenuCard(
-                  title: l.homeMenuLesson,
-                  subtitle: l.homeMenuLessonDesc,
-                  icon: Icons.school,
-                  color: Colors.cyanAccent,
-                  semanticsLabel: l.homeMenuLessonSemantics,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => BlocProvider(
-                          create: (_) => locator<LessonCubit>(),
-                          child: const LessonListScreen(),
-                        ),
-                      ),
-                    );
-                  },
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
                 ),
-                _MenuCard(
-                  title: l.homeMenuCulture,
-                  subtitle: l.homeMenuCultureDesc,
-                  icon: Icons.public,
-                  color: Colors.lightGreenAccent,
-                  semanticsLabel: l.homeMenuCultureSemantics,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => BlocProvider(
-                          create: (_) => locator<CultureCubit>(),
-                          child: const CultureScreen(),
+                children: [
+                  _MenuCard(
+                    title: l.homeMenuLesson,
+                    subtitle: l.homeMenuLessonDesc,
+                    icon: Icons.school,
+                    color: Colors.cyanAccent,
+                    semanticsLabel: l.homeMenuLessonSemantics,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => BlocProvider(
+                            create: (_) => locator<LessonCubit>(),
+                            child: const LessonListScreen(),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                _MenuCard(
-                  title: l.homeMenuPodcast,
-                  subtitle: l.homeMenuPodcastDesc,
-                  icon: Icons.podcasts,
-                  color: Colors.deepPurpleAccent,
-                  semanticsLabel: l.homeMenuPodcastSemantics,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => BlocProvider(
-                          create: (_) => locator<PodcastCubit>(),
-                          child: const PodcastScreen(),
+                      );
+                    },
+                  ),
+                  _MenuCard(
+                    title: l.homeMenuCulture,
+                    subtitle: l.homeMenuCultureDesc,
+                    icon: Icons.public,
+                    color: Colors.lightGreenAccent,
+                    semanticsLabel: l.homeMenuCultureSemantics,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => BlocProvider(
+                            create: (_) => locator<CultureCubit>(),
+                            child: const CultureScreen(),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                _MenuCard(
-                  title: l.homeMenuRadio,
-                  subtitle: l.homeMenuRadioDesc,
-                  icon: Icons.radio,
-                  color: Colors.amberAccent,
-                  semanticsLabel: l.homeMenuRadioSemantics,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => BlocProvider(
-                          create: (_) => locator<RadioCubit>(),
-                          child: const RadioScreen(),
+                      );
+                    },
+                  ),
+                  _MenuCard(
+                    title: l.homeMenuPodcast,
+                    subtitle: l.homeMenuPodcastDesc,
+                    icon: Icons.podcasts,
+                    color: Colors.deepPurpleAccent,
+                    semanticsLabel: l.homeMenuPodcastSemantics,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => BlocProvider(
+                            create: (_) => locator<PodcastCubit>(),
+                            child: const PodcastScreen(),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 80), // Space for FAB
-              ],
+                      );
+                    },
+                  ),
+                  _MenuCard(
+                    title: l.homeMenuRadio,
+                    subtitle: l.homeMenuRadioDesc,
+                    icon: Icons.radio,
+                    color: Colors.amberAccent,
+                    semanticsLabel: l.homeMenuRadioSemantics,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => BlocProvider(
+                            create: (_) => locator<RadioCubit>(),
+                            child: const RadioScreen(),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: VoiceSearchFab(
-        onCommandRecognized: (text) {
-          setState(() => _voiceCommandFeedback = text);
-        },
+          ],
+        ),
       ),
     );
   }
@@ -213,12 +212,12 @@ class _MenuCard extends StatelessWidget {
         onTap: () async {
           // Look up localized string for "Opening {section}"
           final l = AppLocalizations.of(context)!;
-          
+
           // Play the opening section announcement in the correct language.
           // By awaiting it, we ensure it finishes reading before the next screen loads,
           // preventing TTS overlap bugs.
           await locator<TtsService>().speak(l.homeOpeningSection(title));
-          
+
           onTap();
         },
         child: Card(
@@ -240,17 +239,28 @@ class _MenuCard extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         subtitle,
-                        style: const TextStyle(fontSize: 18, color: Colors.white70),
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.white70,
+                        ),
                       ),
                     ],
                   ),
                 ),
-                const Icon(Icons.chevron_right, size: 36, color: Colors.white54),
+                const Icon(
+                  Icons.chevron_right,
+                  size: 36,
+                  color: Colors.white54,
+                ),
               ],
             ),
           ),
