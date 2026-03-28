@@ -44,7 +44,10 @@ Future<void> setupDependencies() async {
   locator.registerSingleton<LocaleService>(localeService);
 
   // 3. Core Audio Services
-  final ttsService = TtsService(secureStorage);
+  final audioSessionManager = AudioSessionManager();
+  locator.registerSingleton<AudioSessionManager>(audioSessionManager);
+
+  final ttsService = TtsService(secureStorage, audioSessionManager);
   // Do NOT await initTts here completely to prevent blocking the startup for too long,
   // but since we want the preferences loaded early, we just let it be called during splash or home.
   // Actually, localeService is initialized here. we can initialize tts with that locale.
@@ -54,7 +57,6 @@ Future<void> setupDependencies() async {
   // which is handled downstream during app boot or home screen load.
   
   locator.registerLazySingleton(() => SttService());
-  locator.registerLazySingleton(() => AudioSessionManager());
   locator.registerLazySingleton(() => AudioFeedbackService());
   // Factory: each LessonPlayerScreen gets its own player instance (clean dispose).
   locator.registerFactory(() => LessonAudioPlayerService());

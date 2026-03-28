@@ -5,6 +5,7 @@ import 'injection_container.dart';
 import 'core/auth/token_manager.dart';
 import 'core/locale/locale_service.dart';
 import 'core/audio/tts_service.dart';
+import 'core/audio/audio_session_manager.dart';
 import 'features/auth/presentation/login_screen.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'l10n/app_localizations.dart';
@@ -14,6 +15,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   await setupDependencies(); 
+  
+  // Initialize audio session so focus management works from the start
+  final audioSession = locator<AudioSessionManager>();
+  await audioSession.initSession();
   
   // Initialise TTS with the user's persisted language
   final localeService = locator<LocaleService>();
@@ -36,40 +41,55 @@ class EduVoiceApp extends StatelessWidget {
 
   const EduVoiceApp({super.key, required this.hasSession});
 
+  /// Controls whether the accessibility tree is active.
+  /// Set to `false` before a locale change (LTR↔RTL) to prevent TalkBack
+  /// from crashing when accessibility nodes are rebuilt.
+  static final ValueNotifier<bool> semanticsEnabled = ValueNotifier<bool>(true);
+
   @override
   Widget build(BuildContext context) {
     final localeService = locator<LocaleService>();
 
-    return ValueListenableBuilder<Locale>(
-      valueListenable: localeService.currentLocaleNotifier,
-      builder: (context, currentLocale, _) {
-        return MaterialApp(
-          title: 'EduVoice',
-          debugShowCheckedModeBanner: false,
+    return ValueListenableBuilder<bool>(
+      valueListenable: semanticsEnabled,
+      builder: (context, isSemanticsEnabled, _) {
+        return ExcludeSemantics(
+          // When false → all accessibility nodes are removed from tree,
+          // TalkBack has nothing to reference, so locale rebuild is safe.
+          excluding: !isSemanticsEnabled,
+          child: ValueListenableBuilder<Locale>(
+            valueListenable: localeService.currentLocaleNotifier,
+            builder: (context, currentLocale, _) {
+              return MaterialApp(
+                title: 'EduVoice',
+                debugShowCheckedModeBanner: false,
 
-          // ── Localisation ──────────────────────────────────────────
-          locale: currentLocale,
-          supportedLocales: LocaleService.supportedLocales,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
+                // ── Localisation ──────────────────────────────────────────
+                locale: currentLocale,
+                supportedLocales: LocaleService.supportedLocales,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
 
-          // ── Theme ─────────────────────────────────────────────────
-          theme: ThemeData(
-            // High Contrast Theme Standard
-            primarySwatch: Colors.blue,
-            scaffoldBackgroundColor: Colors.black,
-            brightness: Brightness.dark,
-            useMaterial3: true,
+                // ── Theme ─────────────────────────────────────────────────
+                theme: ThemeData(
+                  // High Contrast Theme Standard
+                  primarySwatch: Colors.blue,
+                  scaffoldBackgroundColor: Colors.black,
+                  brightness: Brightness.dark,
+                  useMaterial3: true,
+                ),
+
+                // Authenticated users always start at HomeScreen.
+                home: hasSession
+                    ? const HomeScreen()
+                    : const LoginScreen(),
+              );
+            },
           ),
-
-          // Authenticated users always start at HomeScreen.
-          home: hasSession
-              ? const HomeScreen()
-              : const LoginScreen(),
         );
       },
     );

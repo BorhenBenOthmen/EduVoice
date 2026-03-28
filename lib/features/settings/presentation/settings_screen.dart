@@ -3,6 +3,7 @@ import '../../../core/locale/locale_service.dart';
 import '../../../core/audio/tts_service.dart';
 import '../../../injection_container.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../main.dart';
 import '../../about/presentation/about_screen.dart';
 
 
@@ -51,19 +52,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _changeLanguage(String code, String langName) async {
-    // 1. Change the app's locale via the service (this rebuilds the UI eventually)
-    await _locale.setLocale(code);
-    
-    // 2. Change the TTS engine's language immediately
-    await _tts.setLanguage(code);
+    try {
+      // 1. Stop any in-progress TTS so the native engine is idle.
+      await _tts.stop();
 
-    // 3. Look up the localized strings for the *new* language code directly.
-    // If we use AppLocalizations.of(context) here, it might still have the *old* language
-    // because the UI hasn't finished rebuilding yet.
-    final newLocalizations = await AppLocalizations.delegate.load(Locale(code));
-    
-    // 4. Announce the change using the correct string from the new language
-    await _tts.speak(newLocalizations.settingsLanguageChanged(langName));
+      // 2. Pre-load localization strings BEFORE the locale change.
+      final newLocalizations = await AppLocalizations.delegate.load(Locale(code));
+
+      // 3. Set TTS language while everything is calm.
+      final langSet = await _tts.setLanguage(code);
+      if (!langSet) {
+        debugPrint('SettingsScreen: TTS voice for $code not available');
+      }
+
+      if (!mounted) return;
+
+      // 4. CRITICAL: Temporarily disable the accessibility tree so TalkBack
+      //    releases all native references to accessibility nodes.
+      //    Without this, TalkBack crashes when the LTR↔RTL Directionality
+      //    rebuild destroys and recreates all Semantics nodes.
+      EduVoiceApp.semanticsEnabled.value = false;
+
+      // Give TalkBack a moment to release its node references.
+      await Future.delayed(const Duration(milliseconds: 150));
+
+      // 5. NOW change the locale — the rebuild is safe because TalkBack
+      //    has no accessibility nodes to reference.
+      await _locale.setLocale(code);
+
+      // 6. Wait for the widget tree rebuild to fully settle.
+      await Future.delayed(const Duration(milliseconds: 400));
+
+      // 7. Re-enable the accessibility tree with the fresh nodes.
+      EduVoiceApp.semanticsEnabled.value = true;
+
+      // 8. Give TalkBack time to pick up the new nodes.
+      await Future.delayed(const Duration(milliseconds: 300));
+      if (!mounted) return;
+
+      await _tts.speak(newLocalizations.settingsLanguageChanged(langName));
+    } catch (e) {
+      debugPrint('SettingsScreen: Error changing language: $e');
+      // Ensure semantics are always re-enabled even on error.
+      EduVoiceApp.semanticsEnabled.value = true;
+    }
   }
 
   Future<void> _changeSpeed(int index) async {
