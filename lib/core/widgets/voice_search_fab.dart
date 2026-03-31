@@ -38,6 +38,7 @@ class ShakeVoiceDetector extends StatefulWidget {
 class _ShakeVoiceDetectorState extends State<ShakeVoiceDetector> {
   StreamSubscription<AccelerometerEvent>? _accelerometerSub;
   bool _isListening = false;
+  bool _isBusy = false; // Re-entrancy guard: prevents concurrent shake handling
 
   // Shake detection parameters
   static const double _shakeThreshold = 15.0; // m/s²
@@ -68,34 +69,47 @@ class _ShakeVoiceDetectorState extends State<ShakeVoiceDetector> {
       final now = DateTime.now();
       if (now.difference(_lastShakeTime) > _shakeCooldown) {
         _lastShakeTime = now;
-        _handleVoiceInteraction();
+        // Only trigger if the previous interaction has fully completed
+        if (!_isBusy) {
+          _handleVoiceInteraction();
+        }
       }
     }
   }
 
   Future<void> _handleVoiceInteraction() async {
-    final stt = locator<SttService>();
-    final audio = locator<AudioSessionManager>();
-    final tts = locator<TtsService>();
-    final earcons = locator<AudioFeedbackService>();
-    final l = AppLocalizations.of(context)!;
+    // Prevent concurrent execution — this is the core race condition fix
+    if (_isBusy) return;
+    _isBusy = true;
 
-    if (_isListening) {
-      await stt.stopListening();
-      if (mounted) setState(() => _isListening = false);
-      await earcons.playProcessingChime();
-      await tts.speak(l.homeSearching);
-      await audio.releaseFocus();
-    } else {
-      if (mounted) setState(() => _isListening = true);
-      widget.onInteractionStarted?.call();
-      await audio.requestExclusiveFocus();
-      await tts.speak(l.homeListening);
-      await stt.startListening((text) {
-        if (widget.onCommandRecognized != null) {
-          widget.onCommandRecognized!(text);
-        }
-      });
+    try {
+      final stt = locator<SttService>();
+      final audio = locator<AudioSessionManager>();
+      final tts = locator<TtsService>();
+      final earcons = locator<AudioFeedbackService>();
+      final l = AppLocalizations.of(context)!;
+
+      if (_isListening) {
+        // Stop recording and process
+        if (mounted) setState(() => _isListening = false);
+        await stt.stopListening();
+        await earcons.playProcessingChime();
+        await tts.speak(l.homeSearching);
+        await audio.releaseFocus();
+      } else {
+        // Start recording
+        if (mounted) setState(() => _isListening = true);
+        widget.onInteractionStarted?.call();
+        await audio.requestExclusiveFocus();
+        await tts.speak(l.homeListening);
+        await stt.startListening((text) {
+          if (widget.onCommandRecognized != null) {
+            widget.onCommandRecognized!(text);
+          }
+        });
+      }
+    } finally {
+      _isBusy = false;
     }
   }
 

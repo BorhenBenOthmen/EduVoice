@@ -43,12 +43,17 @@ class SttService {
     if (path != null && _onResult != null) {
       final file = File(path);
       if (await file.exists()) {
-        final apiClient = locator<ApiClient>();
-        debugPrint("Sending audio command to backend: $path");
-        final replyText = await apiClient.sendVoiceCommandAudio(file);
-        
-        if (replyText.isNotEmpty) {
-          _onResult!(replyText);
+        try {
+          final apiClient = locator<ApiClient>();
+          debugPrint("Sending audio command to backend: $path");
+          final replyText = await apiClient.sendVoiceCommandAudio(file);
+          
+          if (replyText.isNotEmpty) {
+            _onResult!(replyText);
+          }
+        } catch (e) {
+          debugPrint("SttService: Backend call failed: $e");
+          _onResult!("Erreur de connexion au serveur.");
         }
       }
     }
