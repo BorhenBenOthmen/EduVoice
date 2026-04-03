@@ -55,30 +55,38 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.black,
           elevation: 0,
           actions: [
-            IconButton(
-              tooltip: l.homeSettingsSemantics,
-              icon: const Icon(
-                Icons.settings_outlined,
-                color: Colors.amberAccent,
+            Semantics(
+              label: l.homeSettingsSemantics,
+              button: true,
+              excludeSemantics: true,
+              child: IconButton(
+                onPressed: () {
+                  locator<TtsService>().speak(l.homeOpeningSettings);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                  );
+                },
+                icon: const Icon(
+                  Icons.settings_outlined,
+                  color: Colors.amberAccent,
+                ),
               ),
-              onPressed: () {
-                locator<TtsService>().speak(l.homeOpeningSettings);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const SettingsScreen()),
-                );
-              },
             ),
-            IconButton(
-              tooltip: l.homeAboutSemantics,
-              icon: const Icon(Icons.info_outline, color: Colors.cyanAccent),
-              onPressed: () {
-                locator<TtsService>().speak(l.homeOpeningAbout);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const AboutScreen()),
-                );
-              },
+            Semantics(
+              label: l.homeAboutSemantics,
+              button: true,
+              excludeSemantics: true,
+              child: IconButton(
+                onPressed: () {
+                  locator<TtsService>().speak(l.homeOpeningAbout);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const AboutScreen()),
+                  );
+                },
+                icon: const Icon(Icons.info_outline, color: Colors.cyanAccent),
+              ),
             ),
           ],
           bottom: PreferredSize(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import '../../../core/audio/tts_service.dart';
 import '../data/auth_repository.dart';
+import '../../../l10n/app_localizations.dart';
 
 import '../../home/presentation/home_screen.dart';
 
@@ -24,8 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    // Greet the user with TTS on screen load.
-    _tts.speak("Bienvenue sur EduVoice. Veuillez entrer votre adresse e-mail et votre mot de passe pour vous connecter.");
+    // Greet the user with TTS on screen load — uses localized string.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final l = AppLocalizations.of(context)!;
+      _tts.speak(l.welcomeMessage);
+    });
   }
 
   @override
@@ -36,13 +40,15 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
+    final l = AppLocalizations.of(context)!;
+
     if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-      await _tts.speak("Erreur. L'e-mail et le mot de passe sont obligatoires.");
+      await _tts.speak(l.loginEmptyFields);
       return;
     }
 
     setState(() => _isLoading = true);
-    await _tts.speak("Connexion en cours, veuillez patienter.");
+    await _tts.speak(l.loginLoading);
 
     final success = await _authRepo.login(
       _emailController.text.trim(),
@@ -61,21 +67,20 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } else {
       // Await so the blind user actually hears the error before anything else.
-      await _tts.speak(
-        "Échec de la connexion. L'e-mail ou le mot de passe est incorrect. Veuillez réessayer.",
-      );
-
+      await _tts.speak(l.loginError);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Colors.black, // High contrast background
       appBar: AppBar(
-        title: const Text(
-          "Connexion EduVoice",
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+        title: Text(
+          l.loginTitle,
+          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: Colors.black,
         elevation: 0,
@@ -89,14 +94,14 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Semantics(
-                label: "Champ de saisie pour l'adresse e-mail",
+                label: l.loginEmailSemantics,
                 child: TextField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   style: const TextStyle(fontSize: 24, color: Colors.white),
                   decoration: InputDecoration(
-                    labelText: "E-mail",
+                    labelText: l.loginEmailLabel,
                     labelStyle: const TextStyle(fontSize: 24, color: Colors.yellowAccent),
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white, width: 2),
@@ -111,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 32),
               Semantics(
-                label: "Champ de saisie pour le mot de passe",
+                label: l.loginPasswordSemantics,
                 child: TextField(
                   controller: _passwordController,
                   obscureText: true,
@@ -119,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onSubmitted: (_) => _handleLogin(),
                   style: const TextStyle(fontSize: 24, color: Colors.white),
                   decoration: InputDecoration(
-                    labelText: "Mot de passe",
+                    labelText: l.loginPasswordLabel,
                     labelStyle: const TextStyle(fontSize: 24, color: Colors.yellowAccent),
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white, width: 2),
@@ -135,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const Spacer(),
               Semantics(
                 button: true,
-                label: "Bouton de connexion. Appuyez deux fois pour valider.",
+                label: l.loginButtonSemantics,
                 child: SizedBox(
                   height: 80, // Massive touch target for visually impaired
                   child: ElevatedButton(
@@ -149,9 +154,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: _isLoading
                         ? const CircularProgressIndicator(color: Colors.black)
-                        : const Text(
-                            "Se connecter",
-                            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                        : Text(
+                            l.loginButton,
+                            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                           ),
                   ),
                 ),

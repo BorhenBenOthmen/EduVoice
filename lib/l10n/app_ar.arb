@@ -38,7 +38,7 @@
   "@homeCourseSemantics": {
     "placeholders": { "title": { "type": "String" }, "description": { "type": "String" } }
   },
-  "homeAboutSemantics": "حول تطبيق EduVoice",
+  "homeAboutSemantics": "حول التطبيق",
   "homeSettingsSemantics": "إعدادات التطبيق",
   "homeOpeningAbout": "فتح صفحة حول التطبيق.",
   "homeOpeningSettings": "فتح الإعدادات.",
@@ -160,6 +160,10 @@
   "settingsLanguageAr": "العربية",
   "settingsLanguageFr": "Français",
   "settingsLanguageEn": "English",
+  "settingsLanguageArSemantics": "العربية",
+  "settingsLanguageFrSemantics": "الفرنسية",
+  "settingsLanguageEnSemantics": "الإنجليزية",
+  "settingsLanguageSelected": "محدد",
   "settingsLanguageChanged": "تم تغيير اللغة إلى {lang}.",
   "@settingsLanguageChanged": {
     "placeholders": { "lang": { "type": "String" } }
@@ -189,11 +193,11 @@
   "aboutMissionTitle": "مهمتنا",
   "aboutMissionBody": "تمكين المتعلمين ذوي الإعاقة البصرية من خلال التعليم الصوتي.",
   "aboutFeaturesTitle": "المميزات",
-  "aboutFeature1": "📚  دروس صوتية تفاعلية",
-  "aboutFeature2": "📻  راديو تعليمي مباشر",
-  "aboutFeature3": "🎙️  بودكاست مختار",
-  "aboutFeature4": "🌍  المستكشف الثقافي",
-  "aboutFeature5": "🎤  أوامر صوتية",
+  "aboutFeature1": "دروس صوتية تفاعلية",
+  "aboutFeature2": "راديو تعليمي مباشر",
+  "aboutFeature3": "بودكاست مختار",
+  "aboutFeature4": "المستكشف الثقافي",
+  "aboutFeature5": "أوامر صوتية",
   "aboutA11yTitle": "الإتاحة",
   "aboutA11yBody": "صُمّمت EduVoice وفق معايير WCAG 2.1 AA وأفضل ممارسات قارئات الشاشة. كل شاشة قابلة للتنقل الكامل بالصوت واللمس.",
   "aboutTeamTitle": "الفريق",

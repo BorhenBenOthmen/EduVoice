@@ -38,7 +38,7 @@
   "@homeCourseSemantics": {
     "placeholders": { "title": { "type": "String" }, "description": { "type": "String" } }
   },
-  "homeAboutSemantics": "About EduVoice application",
+  "homeAboutSemantics": "About the application",
   "homeSettingsSemantics": "Application settings",
   "homeOpeningAbout": "Opening the about page.",
   "homeOpeningSettings": "Opening settings.",
@@ -160,6 +160,10 @@
   "settingsLanguageAr": "العربية",
   "settingsLanguageFr": "Français",
   "settingsLanguageEn": "English",
+  "settingsLanguageArSemantics": "Arabic",
+  "settingsLanguageFrSemantics": "French",
+  "settingsLanguageEnSemantics": "English",
+  "settingsLanguageSelected": "selected",
   "settingsLanguageChanged": "Language changed to {lang}.",
   "@settingsLanguageChanged": {
     "placeholders": { "lang": { "type": "String" } }
@@ -189,11 +193,11 @@
   "aboutMissionTitle": "Our Mission",
   "aboutMissionBody": "Empowering visually impaired learners through voice-first education.",
   "aboutFeaturesTitle": "Features",
-  "aboutFeature1": "📚  Interactive audio lessons",
-  "aboutFeature2": "📻  Live educational radio",
-  "aboutFeature3": "🎙️  Curated podcasts",
-  "aboutFeature4": "🌍  Cultural explorer",
-  "aboutFeature5": "🎤  Voice commands",
+  "aboutFeature1": "Interactive audio lessons",
+  "aboutFeature2": "Live educational radio",
+  "aboutFeature3": "Curated podcasts",
+  "aboutFeature4": "Cultural explorer",
+  "aboutFeature5": "Voice commands",
   "aboutA11yTitle": "Accessibility",
   "aboutA11yBody": "EduVoice is designed to WCAG 2.1 AA standards and screen-reader best practices. Every screen is fully navigable by voice and touch.",
   "aboutTeamTitle": "Team",

@@ -40,7 +40,7 @@
   "@homeCourseSemantics": {
     "placeholders": { "title": { "type": "String" }, "description": { "type": "String" } }
   },
-  "homeAboutSemantics": "À propos de l'application EduVoice",
+  "homeAboutSemantics": "À propos de l'application",
   "homeSettingsSemantics": "Paramètres de l'application",
   "homeOpeningAbout": "Ouverture de la page à propos.",
   "homeOpeningSettings": "Ouverture des paramètres.",
@@ -162,6 +162,10 @@
   "settingsLanguageAr": "العربية",
   "settingsLanguageFr": "Français",
   "settingsLanguageEn": "English",
+  "settingsLanguageArSemantics": "Arabe",
+  "settingsLanguageFrSemantics": "Français",
+  "settingsLanguageEnSemantics": "Anglais",
+  "settingsLanguageSelected": "sélectionné",
   "settingsLanguageChanged": "Langue changée en {lang}.",
   "@settingsLanguageChanged": {
     "placeholders": { "lang": { "type": "String" } }
@@ -191,11 +195,11 @@
   "aboutMissionTitle": "Notre Mission",
   "aboutMissionBody": "Autonomiser les apprenants malvoyants grâce à une éducation axée sur la voix.",
   "aboutFeaturesTitle": "Fonctionnalités",
-  "aboutFeature1": "📚  Leçons audio interactives",
-  "aboutFeature2": "📻  Radio éducative en direct",
-  "aboutFeature3": "🎙️  Podcasts sélectionnés",
-  "aboutFeature4": "🌍  Explorateur culturel",
-  "aboutFeature5": "🎤  Commandes vocales",
+  "aboutFeature1": "Leçons audio interactives",
+  "aboutFeature2": "Radio éducative en direct",
+  "aboutFeature3": "Podcasts sélectionnés",
+  "aboutFeature4": "Explorateur culturel",
+  "aboutFeature5": "Commandes vocales",
   "aboutA11yTitle": "Accessibilité",
   "aboutA11yBody": "EduVoice est conçu selon les critères WCAG 2.1 AA et les meilleures pratiques d'accessibilité pour les lecteurs d'écran. Chaque écran est entièrement navigable à la voix et au toucher.",
   "aboutTeamTitle": "Équipe",

@@ -155,6 +155,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 _LanguageTile(
                   label: l.settingsLanguageAr,
+                  semanticsLabel: l.settingsLanguageArSemantics,
+                  selectedLabel: l.settingsLanguageSelected,
                   code: 'ar',
                   isActive: currentCode == 'ar',
                   onTap: () => _changeLanguage('ar', l.settingsLanguageAr),
@@ -162,6 +164,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(width: 8),
                 _LanguageTile(
                   label: l.settingsLanguageFr,
+                  semanticsLabel: l.settingsLanguageFrSemantics,
+                  selectedLabel: l.settingsLanguageSelected,
                   code: 'fr',
                   isActive: currentCode == 'fr',
                   onTap: () => _changeLanguage('fr', l.settingsLanguageFr),
@@ -169,6 +173,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(width: 8),
                 _LanguageTile(
                   label: l.settingsLanguageEn,
+                  semanticsLabel: l.settingsLanguageEnSemantics,
+                  selectedLabel: l.settingsLanguageSelected,
                   code: 'en',
                   isActive: currentCode == 'en',
                   onTap: () => _changeLanguage('en', l.settingsLanguageEn),
@@ -182,15 +188,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 16),
 
             // TTS Speed
-            Semantics(
-              label: l.settingsTtsSpeed,
-              child: Text(
-                l.settingsTtsSpeed,
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.amberAccent,
-                  fontWeight: FontWeight.w600,
-                ),
+            Text(
+              l.settingsTtsSpeed,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.amberAccent,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),
@@ -218,15 +221,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 24),
 
             // TTS Volume
-            Semantics(
-              label: '${l.settingsTtsVolume}: ${(_volume * 100).round()}%',
-              child: Text(
-                l.settingsTtsVolume,
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.amberAccent,
-                  fontWeight: FontWeight.w600,
-                ),
+            Text(
+              l.settingsTtsVolume,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.amberAccent,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),
@@ -266,6 +266,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Semantics(
               label: l.settingsAboutSemantics,
               button: true,
+              excludeSemantics: true,
               child: InkWell(
                 onTap: () {
                   Navigator.push(
@@ -338,12 +339,16 @@ class _SectionHeader extends StatelessWidget {
 
 class _LanguageTile extends StatelessWidget {
   final String label;
+  final String semanticsLabel;
+  final String selectedLabel;
   final String code;
   final bool isActive;
   final VoidCallback onTap;
 
   const _LanguageTile({
     required this.label,
+    required this.semanticsLabel,
+    required this.selectedLabel,
     required this.code,
     required this.isActive,
     required this.onTap,
@@ -353,31 +358,33 @@ class _LanguageTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Semantics(
-        label: '$label ${isActive ? "(sélectionné / selected / محدد)" : ""}',
+        label: '$semanticsLabel ${isActive ? "($selectedLabel)" : ""}',
         button: true,
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(12),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            height: 80,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: isActive ? Colors.cyanAccent : Colors.grey[700]!,
-                width: isActive ? 3 : 1.5,
+          child: ExcludeSemantics(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              height: 80,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: isActive ? Colors.cyanAccent : Colors.grey[700]!,
+                  width: isActive ? 3 : 1.5,
+                ),
+                borderRadius: BorderRadius.circular(12),
+                color: isActive ? Colors.cyanAccent.withAlpha(25) : Colors.grey[900],
               ),
-              borderRadius: BorderRadius.circular(12),
-              color: isActive ? Colors.cyanAccent.withAlpha(25) : Colors.grey[900],
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              label,
-              style: TextStyle(
-                fontSize: code == 'ar' ? 18 : 16,
-                fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-                color: isActive ? Colors.cyanAccent : Colors.white70,
+              alignment: Alignment.center,
+              child: Text(
+                label,
+                style: TextStyle(
+                  fontSize: code == 'ar' ? 18 : 16,
+                  fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+                  color: isActive ? Colors.cyanAccent : Colors.white70,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -401,7 +408,6 @@ class _SpeedTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Semantics(
-        label: label,
         button: true,
         child: InkWell(
           onTap: onTap,

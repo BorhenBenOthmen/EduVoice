@@ -60,7 +60,6 @@ class _AboutScreenState extends State<AboutScreen> {
             // ─── HERO BANNER ──────────────────────────────────────────
             Semantics(
               header: true,
-              label: 'EduVoice — ${l.aboutVersionLabel} ${l.aboutVersion}',
               child: Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
@@ -107,7 +106,6 @@ class _AboutScreenState extends State<AboutScreen> {
             // ─── FEATURES ─────────────────────────────────────────────
             Semantics(
               header: true,
-              label: l.aboutFeaturesTitle,
               child: _SectionTitle(l.aboutFeaturesTitle),
             ),
             const SizedBox(height: 12),
@@ -140,7 +138,6 @@ class _AboutScreenState extends State<AboutScreen> {
             // ─── CONTACT ──────────────────────────────────────────────
             Semantics(
               header: true,
-              label: '${l.aboutContactTitle}: ${l.aboutContactBody}',
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -165,13 +162,11 @@ class _AboutScreenState extends State<AboutScreen> {
                             ),
                           ),
                           const SizedBox(height: 4),
-                          ExcludeSemantics(
-                            child: Text(
-                              l.aboutContactBody,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              ),
+                          Text(
+                            l.aboutContactBody,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
                             ),
                           ),
                         ],
@@ -229,9 +224,7 @@ class _AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      label: '$title. $body',
-      child: Container(
+    return Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.grey[900],
@@ -266,7 +259,6 @@ class _AboutSection extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }
@@ -277,9 +269,7 @@ class _FeatureTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      label: text,
-      child: Padding(
+    return Padding(
         padding: const EdgeInsets.only(bottom: 12),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -301,7 +291,6 @@ class _FeatureTile extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

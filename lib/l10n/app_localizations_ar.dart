@@ -112,7 +112,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get homeAboutSemantics => 'حول تطبيق EduVoice';
+  String get homeAboutSemantics => 'حول التطبيق';
 
   @override
   String get homeSettingsSemantics => 'إعدادات التطبيق';
@@ -375,6 +375,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settingsLanguageEn => 'English';
 
   @override
+  String get settingsLanguageArSemantics => 'العربية';
+
+  @override
+  String get settingsLanguageFrSemantics => 'الفرنسية';
+
+  @override
+  String get settingsLanguageEnSemantics => 'الإنجليزية';
+
+  @override
+  String get settingsLanguageSelected => 'محدد';
+
+  @override
   String settingsLanguageChanged(String lang) {
     return 'تم تغيير اللغة إلى $lang.';
   }
@@ -440,19 +452,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutFeaturesTitle => 'المميزات';
 
   @override
-  String get aboutFeature1 => '📚  دروس صوتية تفاعلية';
+  String get aboutFeature1 => 'دروس صوتية تفاعلية';
 
   @override
-  String get aboutFeature2 => '📻  راديو تعليمي مباشر';
+  String get aboutFeature2 => 'راديو تعليمي مباشر';
 
   @override
-  String get aboutFeature3 => '🎙️  بودكاست مختار';
+  String get aboutFeature3 => 'بودكاست مختار';
 
   @override
-  String get aboutFeature4 => '🌍  المستكشف الثقافي';
+  String get aboutFeature4 => 'المستكشف الثقافي';
 
   @override
-  String get aboutFeature5 => '🎤  أوامر صوتية';
+  String get aboutFeature5 => 'أوامر صوتية';
 
   @override
   String get aboutA11yTitle => 'الإتاحة';

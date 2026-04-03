@@ -121,7 +121,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get homeAboutSemantics => 'À propos de l\'application EduVoice';
+  String get homeAboutSemantics => 'À propos de l\'application';
 
   @override
   String get homeSettingsSemantics => 'Paramètres de l\'application';
@@ -388,6 +388,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settingsLanguageEn => 'English';
 
   @override
+  String get settingsLanguageArSemantics => 'Arabe';
+
+  @override
+  String get settingsLanguageFrSemantics => 'Français';
+
+  @override
+  String get settingsLanguageEnSemantics => 'Anglais';
+
+  @override
+  String get settingsLanguageSelected => 'sélectionné';
+
+  @override
   String settingsLanguageChanged(String lang) {
     return 'Langue changée en $lang.';
   }
@@ -453,19 +465,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get aboutFeaturesTitle => 'Fonctionnalités';
 
   @override
-  String get aboutFeature1 => '📚  Leçons audio interactives';
+  String get aboutFeature1 => 'Leçons audio interactives';
 
   @override
-  String get aboutFeature2 => '📻  Radio éducative en direct';
+  String get aboutFeature2 => 'Radio éducative en direct';
 
   @override
-  String get aboutFeature3 => '🎙️  Podcasts sélectionnés';
+  String get aboutFeature3 => 'Podcasts sélectionnés';
 
   @override
-  String get aboutFeature4 => '🌍  Explorateur culturel';
+  String get aboutFeature4 => 'Explorateur culturel';
 
   @override
-  String get aboutFeature5 => '🎤  Commandes vocales';
+  String get aboutFeature5 => 'Commandes vocales';
 
   @override
   String get aboutA11yTitle => 'Accessibilité';

@@ -301,7 +301,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeAboutSemantics.
   ///
   /// In fr, this message translates to:
-  /// **'À propos de l\'application EduVoice'**
+  /// **'À propos de l\'application'**
   String get homeAboutSemantics;
 
   /// No description provided for @homeSettingsSemantics.
@@ -748,6 +748,30 @@ abstract class AppLocalizations {
   /// **'English'**
   String get settingsLanguageEn;
 
+  /// No description provided for @settingsLanguageArSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Arabe'**
+  String get settingsLanguageArSemantics;
+
+  /// No description provided for @settingsLanguageFrSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Français'**
+  String get settingsLanguageFrSemantics;
+
+  /// No description provided for @settingsLanguageEnSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Anglais'**
+  String get settingsLanguageEnSemantics;
+
+  /// No description provided for @settingsLanguageSelected.
+  ///
+  /// In fr, this message translates to:
+  /// **'sélectionné'**
+  String get settingsLanguageSelected;
+
   /// No description provided for @settingsLanguageChanged.
   ///
   /// In fr, this message translates to:
@@ -865,31 +889,31 @@ abstract class AppLocalizations {
   /// No description provided for @aboutFeature1.
   ///
   /// In fr, this message translates to:
-  /// **'📚  Leçons audio interactives'**
+  /// **'Leçons audio interactives'**
   String get aboutFeature1;
 
   /// No description provided for @aboutFeature2.
   ///
   /// In fr, this message translates to:
-  /// **'📻  Radio éducative en direct'**
+  /// **'Radio éducative en direct'**
   String get aboutFeature2;
 
   /// No description provided for @aboutFeature3.
   ///
   /// In fr, this message translates to:
-  /// **'🎙️  Podcasts sélectionnés'**
+  /// **'Podcasts sélectionnés'**
   String get aboutFeature3;
 
   /// No description provided for @aboutFeature4.
   ///
   /// In fr, this message translates to:
-  /// **'🌍  Explorateur culturel'**
+  /// **'Explorateur culturel'**
   String get aboutFeature4;
 
   /// No description provided for @aboutFeature5.
   ///
   /// In fr, this message translates to:
-  /// **'🎤  Commandes vocales'**
+  /// **'Commandes vocales'**
   String get aboutFeature5;
 
   /// No description provided for @aboutA11yTitle.
