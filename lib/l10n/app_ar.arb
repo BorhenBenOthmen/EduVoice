@@ -229,5 +229,7 @@
   },
   "radioPlayerTranscript": "النص",
   "radioPlayerNoAudio": "لا يتوفر ملف صوتي. يمكنك الاستماع إلى الوصف.",
-  "radioPlayerListen": "استمع إلى البث"
+  "radioPlayerListen": "استمع إلى البث",
+  "voiceErrorTts": "حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.",
+  "voiceGoodbyeTts": "تم إنهاء الجلسة."
 }

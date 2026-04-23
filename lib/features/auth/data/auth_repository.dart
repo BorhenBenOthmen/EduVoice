@@ -28,10 +28,28 @@ class AuthRepository {
           // The backend returned no account ID — cannot proceed safely.
           throw Exception("Login response missing account 'id' field.");
         }
+        
+        // Extract user info based on the schema
+        String? firstName;
+        String? levelName;
+        
+        // Handle variations of JSON schema (AuthAccountSchema / AccountSchema)
+        if (data.containsKey('first_name')) {
+          firstName = data['first_name'] as String?;
+        } else if (data.containsKey('user') && data['user'] is Map) {
+          firstName = data['user']['first_name'] as String?;
+        }
+        
+        if (data.containsKey('level') && data['level'] is Map) {
+          levelName = data['level']['name'] as String?;
+        }
+
         await _tokenManager.saveTokens(
-          access: data['access'],
-          refresh: data['refresh'],
+          access: data['access'] ?? '', // Fallback to empty string if missing
+          refresh: data['refresh'] ?? '',
           accountId: accountId,
+          firstName: firstName,
+          levelName: levelName,
         );
         return true;
       }

@@ -8,6 +8,7 @@ import 'core/audio/tts_service.dart';
 import 'core/audio/audio_session_manager.dart';
 import 'features/auth/presentation/login_screen.dart';
 import 'features/home/presentation/home_screen.dart';
+import 'features/voice_commander/presentation/widgets/wake_gesture_detector.dart';
 import 'l10n/app_localizations.dart';
 
 
@@ -82,6 +83,10 @@ class EduVoiceApp extends StatelessWidget {
                   brightness: Brightness.dark,
                   useMaterial3: true,
                 ),
+
+                builder: (context, child) {
+                  return WakeGestureDetector(child: child!);
+                },
 
                 // Authenticated users always start at HomeScreen.
                 home: hasSession

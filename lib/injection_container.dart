@@ -12,6 +12,7 @@ import 'core/audio/audio_session_manager.dart';
 import 'core/audio/audio_feedback_service.dart';
 import 'core/audio/lesson_audio_player_service.dart';
 import 'features/course/data/course_repository.dart';
+import 'features/voice_commander/data/gemini_routing_service.dart';
 
 // ==========================================
 // PHASE 5 IMPORTS
@@ -137,5 +138,12 @@ Future<void> setupDependencies() async {
 
   locator.registerFactory<RadioCubit>(
     () => RadioCubit(locator<IRadioRepository>()),
+  );
+
+  // ==========================================
+  // VOICE COMMANDER PIPELINE
+  // ==========================================
+  locator.registerLazySingleton<GeminiRoutingService>(
+    () => GeminiRoutingService(locator<TokenManager>()),
   );
 }

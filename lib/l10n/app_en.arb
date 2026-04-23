@@ -229,5 +229,7 @@
   },
   "radioPlayerTranscript": "Transcript",
   "radioPlayerNoAudio": "No audio stream available. You can listen to the description read aloud.",
-  "radioPlayerListen": "Listen to stream"
+  "radioPlayerListen": "Listen to stream",
+  "voiceErrorTts": "A connection error occurred. Please try again.",
+  "voiceGoodbyeTts": "Session closed."
 }

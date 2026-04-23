@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/audio/tts_service.dart';
-import '../../../core/widgets/voice_search_fab.dart'; // ShakeVoiceDetector
 import '../../../injection_container.dart';
 import '../../../features/lesson/presentation/state/lesson_cubit.dart';
 import '../../../features/lesson/presentation/screens/lesson_list_screen.dart';
@@ -44,11 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
 
-    return ShakeVoiceDetector(
-      onCommandRecognized: (text) {
-        setState(() => _voiceCommandFeedback = text);
-      },
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
           title: Text(l.homeCatalogueTitle),
@@ -185,8 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
 

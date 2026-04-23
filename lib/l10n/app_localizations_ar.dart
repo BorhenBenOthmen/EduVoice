@@ -534,4 +534,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get radioPlayerListen => 'استمع إلى البث';
+
+  @override
+  String get voiceErrorTts => 'حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get voiceGoodbyeTts => 'تم إنهاء الجلسة.';
 }

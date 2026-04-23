@@ -6,7 +6,6 @@ import '../../../../injection_container.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../core/audio/lesson_audio_player_service.dart';
 import '../../../../l10n/app_localizations.dart';
-import '../../../../core/widgets/voice_search_fab.dart';
 
 /// Full-featured lesson player screen.
 ///
@@ -160,13 +159,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
 
-    return ShakeVoiceDetector(
-      onInteractionStarted: () async {
-        if (_isPlaying) {
-          await _audioService.pause();
-        }
-      },
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -410,8 +403,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildTtsButton(AppLocalizations l) {

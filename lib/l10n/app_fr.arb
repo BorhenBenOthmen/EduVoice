@@ -231,5 +231,7 @@
   },
   "radioPlayerTranscript": "Transcription",
   "radioPlayerNoAudio": "Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.",
-  "radioPlayerListen": "Écouter le flux"
+  "radioPlayerListen": "Écouter le flux",
+  "voiceErrorTts": "Une erreur de connexion s'est produite. Veuillez réessayer.",
+  "voiceGoodbyeTts": "Session terminée."
 }

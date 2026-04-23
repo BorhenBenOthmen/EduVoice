@@ -11,6 +11,8 @@ class TokenManager {
   static const String _accessKey = 'access_token';
   static const String _refreshKey = 'refresh_token';
   static const String _accountIdKey = 'account_id';
+  static const String _firstNameKey = 'first_name';
+  static const String _levelNameKey = 'level_name';
 
   TokenManager(this._storage);
 
@@ -18,10 +20,18 @@ class TokenManager {
     required String access,
     required String refresh,
     required int accountId,
+    String? firstName,
+    String? levelName,
   }) async {
     await _storage.write(key: _accessKey, value: access);
     await _storage.write(key: _refreshKey, value: refresh);
     await _storage.write(key: _accountIdKey, value: accountId.toString());
+    if (firstName != null) {
+      await _storage.write(key: _firstNameKey, value: firstName);
+    }
+    if (levelName != null) {
+      await _storage.write(key: _levelNameKey, value: levelName);
+    }
     _startRefreshTimer();
   }
 
@@ -29,6 +39,9 @@ class TokenManager {
     final value = await _storage.read(key: _accountIdKey);
     return value != null ? int.tryParse(value) : null;
   }
+
+  Future<String?> getFirstName() async => await _storage.read(key: _firstNameKey);
+  Future<String?> getLevelName() async => await _storage.read(key: _levelNameKey);
 
   Future<String?> getAccessToken() async =>
       await _storage.read(key: _accessKey);
@@ -39,6 +52,8 @@ class TokenManager {
     await _storage.delete(key: _accessKey);
     await _storage.delete(key: _refreshKey);
     await _storage.delete(key: _accountIdKey);
+    await _storage.delete(key: _firstNameKey);
+    await _storage.delete(key: _levelNameKey);
     _refreshTimer?.cancel();
   }
 

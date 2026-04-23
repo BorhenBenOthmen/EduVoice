@@ -1029,6 +1029,18 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'Écouter le flux'**
   String get radioPlayerListen;
+
+  /// No description provided for @voiceErrorTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une erreur de connexion s\'est produite. Veuillez réessayer.'**
+  String get voiceErrorTts;
+
+  /// No description provided for @voiceGoodbyeTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Session terminée.'**
+  String get voiceGoodbyeTts;
 }
 
 class _AppLocalizationsDelegate

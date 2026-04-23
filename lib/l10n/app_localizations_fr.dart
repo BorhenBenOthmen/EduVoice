@@ -547,4 +547,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get radioPlayerListen => 'Écouter le flux';
+
+  @override
+  String get voiceErrorTts =>
+      'Une erreur de connexion s\'est produite. Veuillez réessayer.';
+
+  @override
+  String get voiceGoodbyeTts => 'Session terminée.';
 }

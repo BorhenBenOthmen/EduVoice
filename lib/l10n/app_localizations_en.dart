@@ -539,4 +539,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get radioPlayerListen => 'Listen to stream';
+
+  @override
+  String get voiceErrorTts => 'A connection error occurred. Please try again.';
+
+  @override
+  String get voiceGoodbyeTts => 'Session closed.';
 }
