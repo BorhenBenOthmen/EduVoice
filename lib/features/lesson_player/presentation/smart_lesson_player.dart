@@ -59,7 +59,12 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     final l = AppLocalizations.of(context)!;
 
     // Accessibility: announce lesson name immediately, await completion before playing
-    await _tts.speak(l.lessonPlayerOpening(widget.lesson.name));
+    final isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.lesson.name);
+    if (isArabic) {
+      await _tts.speakNotification(l.lessonTitle, widget.lesson.name);
+    } else {
+      await _tts.speak(l.lessonPlayerOpening(widget.lesson.name));
+    }
 
     if (!mounted) return;
 
@@ -158,6 +163,8 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.lesson.name);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.lesson.description);
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -168,6 +175,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
             header: true,
             child: Text(
               widget.lesson.name,
+              locale: isArabicName ? const Locale('ar') : null,
               style: const TextStyle(
                 color: Colors.yellow,
                 fontSize: 22,
@@ -185,15 +193,13 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
               // ── Description ────────────────────────────────────────────────
               Expanded(
                 child: SingleChildScrollView(
-                  child: Semantics(
-                    label: l.lessonPlayerDescription(widget.lesson.description),
-                    child: Text(
-                      widget.lesson.description,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        height: 1.6,
-                      ),
+                  child: Text(
+                    widget.lesson.description,
+                    locale: isArabicDesc ? const Locale('ar') : null,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      height: 1.6,
                     ),
                   ),
                 ),

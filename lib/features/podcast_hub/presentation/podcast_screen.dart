@@ -161,11 +161,13 @@ class _PodcastScreenState extends State<PodcastScreen> {
   }
 
   Widget _buildPodcastTile(Podcast podcast, AppLocalizations l) {
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(podcast.name);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(podcast.description);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Semantics(
         button: true,
-        label: l.podcastTileSemantics(podcast.name, podcast.description),
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -186,6 +188,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
               children: [
                 Text(
                   podcast.name,
+                  locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 26,
@@ -195,6 +198,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                 const SizedBox(height: 8),
                 Text(
                   podcast.description,
+                  locale: isArabicDesc ? const Locale('ar') : null,
                   style: const TextStyle(color: Colors.black87, fontSize: 20),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

@@ -158,11 +158,13 @@ class _LessonListScreenState extends State<LessonListScreen> {
   }
 
   Widget _buildLessonTile(Lesson lesson, AppLocalizations l) {
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(lesson.name);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(lesson.description);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Semantics(
         button: true,
-        label: l.lessonTileSemantics(lesson.name, lesson.description),
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -183,6 +185,7 @@ class _LessonListScreenState extends State<LessonListScreen> {
               children: [
                 Text(
                   lesson.name,
+                  locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 26,
@@ -192,6 +195,7 @@ class _LessonListScreenState extends State<LessonListScreen> {
                 const SizedBox(height: 8),
                 Text(
                   lesson.description,
+                  locale: isArabicDesc ? const Locale('ar') : null,
                   style: const TextStyle(
                     color: Colors.black87,
                     fontSize: 20,

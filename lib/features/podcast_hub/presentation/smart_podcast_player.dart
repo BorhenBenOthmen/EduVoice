@@ -51,7 +51,12 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
     if (!mounted) return;
     final l = AppLocalizations.of(context)!;
 
-    await _tts.speak(l.podcastPlayerOpening(widget.podcast.name));
+    final isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.podcast.name);
+    if (isArabic) {
+      await _tts.speakNotification(l.podcastTitle, widget.podcast.name);
+    } else {
+      await _tts.speak(l.podcastPlayerOpening(widget.podcast.name));
+    }
 
     if (!mounted) return;
 
@@ -138,6 +143,8 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.podcast.name);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.podcast.description);
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -148,6 +155,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
             header: true,
             child: Text(
               widget.podcast.name,
+              locale: isArabicName ? const Locale('ar') : null,
               style: const TextStyle(
                 color: Colors.lightGreenAccent,
                 fontSize: 22,
@@ -164,17 +172,13 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
             children: [
               Expanded(
                 child: SingleChildScrollView(
-                  child: Semantics(
-                    label: l.podcastPlayerDescription(
-                      widget.podcast.description,
-                    ),
-                    child: Text(
-                      widget.podcast.description,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        height: 1.6,
-                      ),
+                  child: Text(
+                    widget.podcast.description,
+                    locale: isArabicDesc ? const Locale('ar') : null,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      height: 1.6,
                     ),
                   ),
                 ),

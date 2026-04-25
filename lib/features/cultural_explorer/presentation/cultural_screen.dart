@@ -161,11 +161,13 @@ class _CultureScreenState extends State<CultureScreen> {
   }
 
   Widget _buildRecordTile(CultureRecord record, AppLocalizations l) {
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(record.name);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(record.description);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Semantics(
         button: true,
-        label: l.cultureTileSemantics(record.name, record.description),
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -186,6 +188,7 @@ class _CultureScreenState extends State<CultureScreen> {
               children: [
                 Text(
                   record.name,
+                  locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 26,
@@ -195,6 +198,7 @@ class _CultureScreenState extends State<CultureScreen> {
                 const SizedBox(height: 8),
                 Text(
                   record.description,
+                  locale: isArabicDesc ? const Locale('ar') : null,
                   style: const TextStyle(color: Colors.black87, fontSize: 20),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

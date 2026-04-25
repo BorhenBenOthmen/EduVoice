@@ -51,7 +51,12 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
     if (!mounted) return;
     final l = AppLocalizations.of(context)!;
 
-    await _tts.speak(l.culturePlayerOpening(widget.record.name));
+    final isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.record.name);
+    if (isArabic) {
+      await _tts.speakNotification(l.cultureTitle, widget.record.name);
+    } else {
+      await _tts.speak(l.culturePlayerOpening(widget.record.name));
+    }
 
     if (!mounted) return;
 
@@ -138,6 +143,8 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.record.name);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.record.description);
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -148,6 +155,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
             header: true,
             child: Text(
               widget.record.name,
+              locale: isArabicName ? const Locale('ar') : null,
               style: const TextStyle(
                 color: Colors.lightGreenAccent,
                 fontSize: 22,
@@ -164,17 +172,13 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
             children: [
               Expanded(
                 child: SingleChildScrollView(
-                  child: Semantics(
-                    label: l.culturePlayerDescription(
-                      widget.record.description,
-                    ),
-                    child: Text(
-                      widget.record.description,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        height: 1.6,
-                      ),
+                  child: Text(
+                    widget.record.description,
+                    locale: isArabicDesc ? const Locale('ar') : null,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      height: 1.6,
                     ),
                   ),
                 ),

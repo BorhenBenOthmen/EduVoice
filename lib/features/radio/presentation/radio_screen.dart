@@ -155,11 +155,13 @@ class _RadioScreenState extends State<RadioScreen> {
   }
 
   Widget _buildEmissionTile(RadioEmission emission, AppLocalizations l) {
+    final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(emission.title);
+    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(emission.description);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Semantics(
         button: true,
-        label: l.radioTileSemantics(emission.title, emission.description),
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -180,6 +182,7 @@ class _RadioScreenState extends State<RadioScreen> {
               children: [
                 Text(
                   emission.title,
+                  locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 26,
@@ -189,6 +192,7 @@ class _RadioScreenState extends State<RadioScreen> {
                 const SizedBox(height: 8),
                 Text(
                   emission.description,
+                  locale: isArabicDesc ? const Locale('ar') : null,
                   style: const TextStyle(
                     color: Colors.black87,
                     fontSize: 20,
