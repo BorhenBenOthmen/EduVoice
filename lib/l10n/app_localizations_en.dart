@@ -93,19 +93,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeMenuRadioSemantics => 'Radio section. Double-tap to open.';
 
   @override
-  String get homeListeningButton =>
-      'Recording in progress. Double-tap to stop.';
-
-  @override
-  String get homeMicButton => 'Voice assistant. Double-tap to ask a question.';
-
-  @override
-  String get homeVoiceDefault => 'Use the mic button to speak.';
-
-  @override
-  String get homeSearching => 'Searching';
-
-  @override
   String get homeListening => 'I am listening';
 
   @override
@@ -545,4 +532,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get voiceGoodbyeTts => 'Session closed.';
+
+  @override
+  String get notificationArrived => 'A new notification has arrived.';
+
+  @override
+  String get homeNotificationSemantics => 'Open notifications';
+
+  @override
+  String get notificationTitle => 'Notifications';
+
+  @override
+  String get notificationEmpty => 'No notifications yet.';
+
+  @override
+  String get notificationDeleteSemantics => 'Delete notification';
+
+  @override
+  String get notificationOpening => 'Opening notifications';
 }

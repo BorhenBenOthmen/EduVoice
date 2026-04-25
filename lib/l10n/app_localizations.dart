@@ -262,30 +262,6 @@ abstract class AppLocalizations {
   /// **'Section Radio. Appuyez deux fois pour ouvrir.'**
   String get homeMenuRadioSemantics;
 
-  /// No description provided for @homeListeningButton.
-  ///
-  /// In fr, this message translates to:
-  /// **'Enregistrement en cours. Appuyez deux fois pour arrêter.'**
-  String get homeListeningButton;
-
-  /// No description provided for @homeMicButton.
-  ///
-  /// In fr, this message translates to:
-  /// **'Assistant vocal. Appuyez deux fois pour poser une question.'**
-  String get homeMicButton;
-
-  /// No description provided for @homeVoiceDefault.
-  ///
-  /// In fr, this message translates to:
-  /// **'Utilisez le bouton micro pour parler.'**
-  String get homeVoiceDefault;
-
-  /// No description provided for @homeSearching.
-  ///
-  /// In fr, this message translates to:
-  /// **'Recherche en cours'**
-  String get homeSearching;
-
   /// No description provided for @homeListening.
   ///
   /// In fr, this message translates to:
@@ -1041,6 +1017,42 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'Session terminée.'**
   String get voiceGoodbyeTts;
+
+  /// No description provided for @notificationArrived.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une nouvelle notification est survenue.'**
+  String get notificationArrived;
+
+  /// No description provided for @homeNotificationSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouvrir les notifications'**
+  String get homeNotificationSemantics;
+
+  /// No description provided for @notificationTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Notifications'**
+  String get notificationTitle;
+
+  /// No description provided for @notificationEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucune notification pour le moment.'**
+  String get notificationEmpty;
+
+  /// No description provided for @notificationDeleteSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer la notification'**
+  String get notificationDeleteSemantics;
+
+  /// No description provided for @notificationOpening.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouverture des notifications'**
+  String get notificationOpening;
 }
 
 class _AppLocalizationsDelegate

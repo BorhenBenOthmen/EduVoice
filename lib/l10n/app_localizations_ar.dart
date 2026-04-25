@@ -92,18 +92,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeMenuRadioSemantics => 'قسم الراديو. انقر مرتين للفتح.';
 
   @override
-  String get homeListeningButton => 'التسجيل جارٍ. انقر مرتين للإيقاف.';
-
-  @override
-  String get homeMicButton => 'المساعد الصوتي. انقر مرتين لطرح سؤال.';
-
-  @override
-  String get homeVoiceDefault => 'استخدم زر الميكروفون للتحدث.';
-
-  @override
-  String get homeSearching => 'جارٍ البحث';
-
-  @override
   String get homeListening => 'أنا أستمع إليك';
 
   @override
@@ -540,4 +528,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get voiceGoodbyeTts => 'تم إنهاء الجلسة.';
+
+  @override
+  String get notificationArrived => 'إشعار جديد.';
+
+  @override
+  String get homeNotificationSemantics => 'فتح الإشعارات';
+
+  @override
+  String get notificationTitle => 'الإشعارات';
+
+  @override
+  String get notificationEmpty => 'لا توجد إشعارات بعد.';
+
+  @override
+  String get notificationDeleteSemantics => 'حذف الإشعار';
+
+  @override
+  String get notificationOpening => 'فتح الإشعارات';
 }

@@ -19,7 +19,10 @@ class CultureRepositoryImpl implements ICultureRepository {
   @override
   Future<List<CultureRecord>> fetchCultureRecords() async {
     try {
-      const accountId = 1;
+      final accountId = await _tokenManager.getAccountId();
+      if (accountId == null) {
+        throw Exception("User not authenticated.");
+      }
 
       final uri = Uri.parse(
         '${ApiConstants.baseUrl}/culture/record/list/$accountId/',

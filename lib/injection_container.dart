@@ -7,7 +7,7 @@ import 'core/network/auth_client.dart';
 import 'core/locale/locale_service.dart';
 import 'features/auth/data/auth_repository.dart';
 import 'core/audio/tts_service.dart';
-import 'core/audio/stt_service.dart';
+
 import 'core/audio/audio_session_manager.dart';
 import 'core/audio/audio_feedback_service.dart';
 import 'core/audio/lesson_audio_player_service.dart';
@@ -33,6 +33,12 @@ import 'features/radio/domain/repositories/i_radio_repository.dart';
 import 'features/radio/data/repositories/radio_repository_impl.dart';
 import 'features/radio/presentation/state/radio_cubit.dart';
 
+import 'features/notification/domain/repositories/i_notification_repository.dart';
+import 'features/notification/data/repositories/notification_repository_impl.dart';
+import 'features/notification/presentation/state/notification_cubit.dart';
+import 'features/notification/data/datasources/local_notification_storage.dart';
+import 'features/notification/presentation/state/notification_list_cubit.dart';
+
 final locator = GetIt.instance;
 
 Future<void> setupDependencies() async {
@@ -54,10 +60,7 @@ Future<void> setupDependencies() async {
   // Actually, localeService is initialized here. we can initialize tts with that locale.
   locator.registerSingleton<TtsService>(ttsService);
   
-  // NOTE: We do not call initTts() here because it requires speech rate / language matching
-  // which is handled downstream during app boot or home screen load.
-  
-  locator.registerLazySingleton(() => SttService());
+  // TTS initialization is deferred — handled during app boot / home screen load.
   locator.registerLazySingleton(() => AudioFeedbackService());
   // Factory: each LessonPlayerScreen gets its own player instance (clean dispose).
   locator.registerFactory(() => LessonAudioPlayerService());
@@ -145,5 +148,27 @@ Future<void> setupDependencies() async {
   // ==========================================
   locator.registerLazySingleton<GeminiRoutingService>(
     () => GeminiRoutingService(locator<TokenManager>()),
+  );
+
+  // ==========================================
+  // NOTIFICATION MODULE PIPELINE
+  // ==========================================
+  locator.registerLazySingleton<INotificationRepository>(
+    () => NotificationRepositoryImpl(
+      locator<AuthClient>(),
+      locator<TokenManager>(),
+    ),
+  );
+
+  locator.registerLazySingleton<LocalNotificationStorage>(
+    () => LocalNotificationStorage(secureStorage),
+  );
+
+  locator.registerLazySingleton<NotificationCubit>(
+    () => NotificationCubit(locator<INotificationRepository>(), locator<LocalNotificationStorage>()),
+  );
+
+  locator.registerFactory<NotificationListCubit>(
+    () => NotificationListCubit(locator<LocalNotificationStorage>()),
   );
 }

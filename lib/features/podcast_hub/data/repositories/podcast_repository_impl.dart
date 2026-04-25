@@ -19,7 +19,10 @@ class PodcastRepositoryImpl implements IPodcastRepository {
   @override
   Future<List<Podcast>> fetchPodcasts() async {
     try {
-      const accountId = 1;
+      final accountId = await _tokenManager.getAccountId();
+      if (accountId == null) {
+        throw Exception("User not authenticated.");
+      }
 
       final uri = Uri.parse('${ApiConstants.baseUrl}/podcast/list/$accountId/');
 

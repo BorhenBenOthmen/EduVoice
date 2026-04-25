@@ -5,6 +5,8 @@ import '../../../core/audio/tts_service.dart';
 import '../data/auth_repository.dart';
 import '../../../l10n/app_localizations.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../notification/presentation/state/notification_cubit.dart';
 import '../../home/presentation/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -58,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isLoading = false);
 
     if (success && mounted) {
+      context.read<NotificationCubit>().startPolling();
       // Navigate immediately to Home, letting HomeScreen's initState handle the Welcome TTS
       Navigator.pushReplacement(
         context,

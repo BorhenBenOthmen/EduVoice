@@ -12,6 +12,8 @@ import '../../../features/radio/presentation/radio_screen.dart';
 import '../../../features/radio/presentation/state/radio_cubit.dart';
 import '../../../features/settings/presentation/settings_screen.dart';
 import '../../../features/about/presentation/about_screen.dart';
+import '../../../features/notification/presentation/screens/notification_screen.dart';
+import '../../../features/notification/presentation/state/notification_list_cubit.dart';
 import '../../../l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,22 +24,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late String _voiceCommandFeedback;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final l = AppLocalizations.of(context)!;
-      locator<TtsService>().speak(l.homeWelcomeTts);
-    });
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _voiceCommandFeedback = AppLocalizations.of(context)!.homeVoiceDefault;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +36,29 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.black,
           elevation: 0,
           actions: [
+            Semantics(
+              label: l.homeNotificationSemantics,
+              button: true,
+              excludeSemantics: true,
+              child: IconButton(
+                onPressed: () {
+                  locator<TtsService>().speak(l.notificationOpening);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => BlocProvider(
+                        create: (_) => locator<NotificationListCubit>(),
+                        child: const NotificationScreen(),
+                      ),
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.notifications_none,
+                  color: Colors.lightGreenAccent,
+                ),
+              ),
+            ),
             Semantics(
               label: l.homeSettingsSemantics,
               button: true,
@@ -91,14 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                _voiceCommandFeedback,
-                style: const TextStyle(fontSize: 18, color: Colors.amberAccent),
-                textAlign: TextAlign.center,
-              ),
-            ),
+
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.symmetric(

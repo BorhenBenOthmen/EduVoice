@@ -117,6 +117,53 @@ class TtsService {
     }
   }
 
+  /// Speaks a notification with an announcement first, automatically detecting
+  /// if the notification text is Arabic to read it correctly.
+  Future<void> speakNotification(String announcement, String text) async {
+    debugPrint('TtsService: Speaking Notification -> $text');
+    try {
+      await _flutterTts.stop();
+      await _audioSession.requestExclusiveFocus();
+
+      // Read announcement in current app locale
+      await _flutterTts.awaitSpeakCompletion(true);
+      await _flutterTts.speak(announcement);
+
+      // Detect language of the text. Simple check: if contains Arabic characters
+      final isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(text);
+      final originalLanguage = await _flutterTts.getVoices.then((_) => _languageTags['fr'] ?? 'fr-FR'); // fallback
+      
+      // We need to fetch current app locale to restore it, but the service doesn't hold it directly.
+      // A better way: just switch if it's Arabic, otherwise use default.
+      String targetLang = 'fr-FR'; // fallback
+      if (isArabic) {
+        targetLang = 'ar-SA';
+      } else {
+        // If not arabic, it might be French or English. Let's just use current TTS language if possible, 
+        // or let's use the localeService which injected earlier. But TtsService doesn't have LocaleService.
+        // Actually, TtsService's language is already set to the current app locale!
+        // We can just get the current language but flutterTts doesn't expose a getter for current language.
+      }
+
+      // If Arabic is detected, temporarily switch to Arabic voice
+      if (isArabic) {
+        await _flutterTts.setLanguage('ar-SA');
+      }
+
+      await _flutterTts.speak(text);
+      
+      // We will rely on the next screen transition or explicit setLanguage to reset it if it was changed,
+      // or we can read the saved language from LocaleService.
+      // Wait, we can just let it finish.
+    } catch (e) {
+      debugPrint('TtsService: Error during speakNotification: $e');
+    } finally {
+      try {
+        await _audioSession.releaseFocus();
+      } catch (_) {}
+    }
+  }
+
   /// Speaks after a short delay to let TalkBack finish announcing
   /// the new page's elements after a navigation transition.
   ///

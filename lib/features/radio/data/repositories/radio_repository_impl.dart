@@ -13,8 +13,10 @@ class RadioRepositoryImpl implements IRadioRepository {
 
   @override
   Future<List<RadioEmission>> getRadioEmissions({String? query}) async {
-    // Hardcoded account_id for now as in other modules
-    const int accountId = 1;
+    final accountId = await tokenManager.getAccountId();
+    if (accountId == null) {
+      throw Exception("User not authenticated.");
+    }
 
     final uri = query != null && query.isNotEmpty
         ? Uri.parse(

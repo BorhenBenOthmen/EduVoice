@@ -29,10 +29,6 @@
   "homeMenuCultureSemantics": "Culture section. Double-tap to open.",
   "homeMenuPodcastSemantics": "Podcast section. Double-tap to open.",
   "homeMenuRadioSemantics": "Radio section. Double-tap to open.",
-  "homeListeningButton": "Recording in progress. Double-tap to stop.",
-  "homeMicButton": "Voice assistant. Double-tap to ask a question.",
-  "homeVoiceDefault": "Use the mic button to speak.",
-  "homeSearching": "Searching",
   "homeListening": "I am listening",
   "homeCourseSemantics": "Course: {title}. {description}. Double-tap to open.",
   "@homeCourseSemantics": {
@@ -231,5 +227,11 @@
   "radioPlayerNoAudio": "No audio stream available. You can listen to the description read aloud.",
   "radioPlayerListen": "Listen to stream",
   "voiceErrorTts": "A connection error occurred. Please try again.",
-  "voiceGoodbyeTts": "Session closed."
+  "voiceGoodbyeTts": "Session closed.",
+  "notificationArrived": "A new notification has arrived.",
+  "homeNotificationSemantics": "Open notifications",
+  "notificationTitle": "Notifications",
+  "notificationEmpty": "No notifications yet.",
+  "notificationDeleteSemantics": "Delete notification",
+  "notificationOpening": "Opening notifications"
 }

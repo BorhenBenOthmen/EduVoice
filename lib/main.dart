@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'injection_container.dart';
@@ -11,6 +12,10 @@ import 'features/home/presentation/home_screen.dart';
 import 'features/voice_commander/presentation/widgets/wake_gesture_detector.dart';
 import 'l10n/app_localizations.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'features/notification/presentation/state/notification_cubit.dart';
+import 'features/notification/presentation/state/notification_state.dart';
+import 'features/notification/presentation/widgets/notification_overlay.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +47,8 @@ class EduVoiceApp extends StatelessWidget {
 
   const EduVoiceApp({super.key, required this.hasSession});
 
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   /// Controls whether the accessibility tree is active.
   /// Set to `false` before a locale change (LTR↔RTL) to prevent TalkBack
   /// from crashing when accessibility nodes are rebuilt.
@@ -62,6 +69,7 @@ class EduVoiceApp extends StatelessWidget {
             valueListenable: localeService.currentLocaleNotifier,
             builder: (context, currentLocale, _) {
               return MaterialApp(
+                navigatorKey: navigatorKey,
                 title: 'EduVoice',
                 debugShowCheckedModeBanner: false,
 
@@ -85,7 +93,37 @@ class EduVoiceApp extends StatelessWidget {
                 ),
 
                 builder: (context, child) {
-                  return WakeGestureDetector(child: child!);
+                  return BlocProvider(
+                    create: (_) {
+                      final cubit = locator<NotificationCubit>();
+                      if (hasSession) {
+                        cubit.startPolling();
+                      }
+                      return cubit;
+                    },
+                    child: BlocListener<NotificationCubit, NotificationState>(
+                      listener: (context, state) async {
+                        if (state is NotificationNewReceived) {
+                          final overlayState = navigatorKey.currentState?.overlay;
+                          if (overlayState != null) {
+                            NotificationOverlay.show(overlayState, state.notification.note);
+                          } else {
+                            debugPrint('Failed to get overlay context for notification banner');
+                          }
+
+                          final lContext = navigatorKey.currentState?.context;
+                          final announcement = lContext != null 
+                              ? AppLocalizations.of(lContext)?.notificationArrived ?? "Une notification est survenue" 
+                              : "Une notification est survenue";
+
+                          // Delay briefly so TalkBack doesn't overlap immediately
+                          await Future.delayed(const Duration(milliseconds: 300));
+                          locator<TtsService>().speakNotification(announcement, state.notification.note);
+                        }
+                      },
+                      child: WakeGestureDetector(child: child!),
+                    ),
+                  );
                 },
 
                 // Authenticated users always start at HomeScreen.

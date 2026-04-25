@@ -29,10 +29,6 @@
   "homeMenuCultureSemantics": "قسم الثقافة. انقر مرتين للفتح.",
   "homeMenuPodcastSemantics": "قسم البودكاست. انقر مرتين للفتح.",
   "homeMenuRadioSemantics": "قسم الراديو. انقر مرتين للفتح.",
-  "homeListeningButton": "التسجيل جارٍ. انقر مرتين للإيقاف.",
-  "homeMicButton": "المساعد الصوتي. انقر مرتين لطرح سؤال.",
-  "homeVoiceDefault": "استخدم زر الميكروفون للتحدث.",
-  "homeSearching": "جارٍ البحث",
   "homeListening": "أنا أستمع إليك",
   "homeCourseSemantics": "دورة: {title}. {description}. انقر مرتين للفتح.",
   "@homeCourseSemantics": {
@@ -231,5 +227,11 @@
   "radioPlayerNoAudio": "لا يتوفر ملف صوتي. يمكنك الاستماع إلى الوصف.",
   "radioPlayerListen": "استمع إلى البث",
   "voiceErrorTts": "حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.",
-  "voiceGoodbyeTts": "تم إنهاء الجلسة."
+  "voiceGoodbyeTts": "تم إنهاء الجلسة.",
+  "notificationArrived": "إشعار جديد.",
+  "homeNotificationSemantics": "فتح الإشعارات",
+  "notificationTitle": "الإشعارات",
+  "notificationEmpty": "لا توجد إشعارات بعد.",
+  "notificationDeleteSemantics": "حذف الإشعار",
+  "notificationOpening": "فتح الإشعارات"
 }

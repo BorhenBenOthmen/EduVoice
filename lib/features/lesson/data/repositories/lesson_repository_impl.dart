@@ -19,8 +19,10 @@ class LessonRepositoryImpl implements ILessonRepository {
   @override
   Future<List<Lesson>> fetchLessons() async {
     try {
-      // Hardcoded account ID for testing.
-      const accountId = 1;
+      final accountId = await _tokenManager.getAccountId();
+      if (accountId == null) {
+        throw Exception("User not authenticated.");
+      }
 
       // Correct endpoint: /lesson/list/{current_account_id}/
       final uri = Uri.parse('${ApiConstants.baseUrl}/lesson/list/$accountId/');

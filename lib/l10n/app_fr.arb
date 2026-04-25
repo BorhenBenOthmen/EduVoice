@@ -31,10 +31,6 @@
   "homeMenuCultureSemantics": "Section Culture. Appuyez deux fois pour ouvrir.",
   "homeMenuPodcastSemantics": "Section Podcast. Appuyez deux fois pour ouvrir.",
   "homeMenuRadioSemantics": "Section Radio. Appuyez deux fois pour ouvrir.",
-  "homeListeningButton": "Enregistrement en cours. Appuyez deux fois pour arrêter.",
-  "homeMicButton": "Assistant vocal. Appuyez deux fois pour poser une question.",
-  "homeVoiceDefault": "Utilisez le bouton micro pour parler.",
-  "homeSearching": "Recherche en cours",
   "homeListening": "Je vous écoute",
   "homeCourseSemantics": "Cours : {title}. {description}. Appuyez deux fois pour ouvrir.",
   "@homeCourseSemantics": {
@@ -233,5 +229,11 @@
   "radioPlayerNoAudio": "Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.",
   "radioPlayerListen": "Écouter le flux",
   "voiceErrorTts": "Une erreur de connexion s'est produite. Veuillez réessayer.",
-  "voiceGoodbyeTts": "Session terminée."
+  "voiceGoodbyeTts": "Session terminée.",
+  "notificationArrived": "Une nouvelle notification est survenue.",
+  "homeNotificationSemantics": "Ouvrir les notifications",
+  "notificationTitle": "Notifications",
+  "notificationEmpty": "Aucune notification pour le moment.",
+  "notificationDeleteSemantics": "Supprimer la notification",
+  "notificationOpening": "Ouverture des notifications"
 }

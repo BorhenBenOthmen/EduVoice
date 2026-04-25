@@ -14,7 +14,7 @@ class GeminiRoutingService {
 
   // AI backend WebSocket URL.
   // Using the user's specific IP provided: 10.165.155.12
-  final String _baseWsUrl = 'ws://192.168.100.25:8000/ws';
+  final String _baseWsUrl = 'ws://192.168.0.212:8000/ws';
 
   bool _isConnected = false;
   bool get isConnected => _isConnected;

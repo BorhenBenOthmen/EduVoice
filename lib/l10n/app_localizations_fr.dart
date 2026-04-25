@@ -99,20 +99,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Section Radio. Appuyez deux fois pour ouvrir.';
 
   @override
-  String get homeListeningButton =>
-      'Enregistrement en cours. Appuyez deux fois pour arrêter.';
-
-  @override
-  String get homeMicButton =>
-      'Assistant vocal. Appuyez deux fois pour poser une question.';
-
-  @override
-  String get homeVoiceDefault => 'Utilisez le bouton micro pour parler.';
-
-  @override
-  String get homeSearching => 'Recherche en cours';
-
-  @override
   String get homeListening => 'Je vous écoute';
 
   @override
@@ -554,4 +540,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get voiceGoodbyeTts => 'Session terminée.';
+
+  @override
+  String get notificationArrived => 'Une nouvelle notification est survenue.';
+
+  @override
+  String get homeNotificationSemantics => 'Ouvrir les notifications';
+
+  @override
+  String get notificationTitle => 'Notifications';
+
+  @override
+  String get notificationEmpty => 'Aucune notification pour le moment.';
+
+  @override
+  String get notificationDeleteSemantics => 'Supprimer la notification';
+
+  @override
+  String get notificationOpening => 'Ouverture des notifications';
 }
