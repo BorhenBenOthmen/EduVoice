@@ -1,6 +1,6 @@
 {
-    "name": "edu_voice",
-    "short_name": "edu_voice",
+    "name": "EduVoice",
+    "short_name": "EduVoice",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

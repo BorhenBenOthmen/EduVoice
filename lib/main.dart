@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'injection_container.dart';
 import 'core/auth/token_manager.dart';
 import 'core/locale/locale_service.dart';
 import 'core/audio/tts_service.dart';
-import 'core/audio/audio_session_manager.dart';
 import 'features/auth/presentation/login_screen.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'features/voice_commander/presentation/widgets/wake_gesture_detector.dart';
@@ -21,10 +19,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   await setupDependencies(); 
-  
-  // Initialize audio session so focus management works from the start
-  final audioSession = locator<AudioSessionManager>();
-  await audioSession.initSession();
   
   // Initialise TTS with the user's persisted language
   final localeService = locator<LocaleService>();

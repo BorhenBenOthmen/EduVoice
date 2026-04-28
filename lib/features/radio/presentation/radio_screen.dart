@@ -6,7 +6,6 @@ import 'state/radio_state.dart';
 import 'smart_radio_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
-import '../../../../core/audio/audio_session_manager.dart';
 import '../../../../injection_container.dart';
 
 class RadioScreen extends StatefulWidget {
@@ -56,19 +55,12 @@ class _RadioScreenState extends State<RadioScreen> {
             child: BlocConsumer<RadioCubit, RadioState>(
               listener: (context, state) async {
                 final tts = locator<TtsService>();
-                final audio = locator<AudioSessionManager>();
                 if (state is RadioLoading) {
-                  await audio.requestExclusiveFocus();
                   await tts.speak(l.radioLoading);
-                  await audio.releaseFocus();
                 } else if (state is RadioLoaded) {
-                  await audio.requestExclusiveFocus();
                   await tts.speak(l.radioCountTts(state.emissions.length));
-                  await audio.releaseFocus();
                 } else if (state is RadioError) {
-                  await audio.requestExclusiveFocus();
                   await tts.speak(l.radioErrorTts);
-                  await audio.releaseFocus();
                 }
               },
               builder: (context, state) {

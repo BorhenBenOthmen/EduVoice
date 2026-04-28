@@ -1,19 +1,38 @@
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
-import 'audio_session_manager.dart';
+import 'package:audio_session/audio_session.dart';
 
 /// Text-to-Speech service with locale-aware language switching.
 ///
-/// Automatically manages audio focus via [AudioSessionManager] so that
-/// TalkBack is paused while our TTS speaks, preventing overlap.
+/// Requests exclusive OS audio focus before speaking so that TalkBack
+/// is ducked/paused, then releases focus when done.
 class TtsService {
   final FlutterTts _flutterTts = FlutterTts();
   final FlutterSecureStorage _storage;
-  final AudioSessionManager _audioSession;
+  AudioSession? _audioSession;
 
-  TtsService(this._storage, this._audioSession);
+  TtsService(this._storage);
+
+  /// Call once at app startup (after [setupDependencies]) to configure the
+  /// audio session for speech use. Safe to call multiple times.
+  Future<void> _ensureSession() async {
+    _audioSession ??= await AudioSession.instance;
+    await _audioSession!.configure(const AudioSessionConfiguration(
+      avAudioSessionCategory: AVAudioSessionCategory.playback,
+      avAudioSessionCategoryOptions: AVAudioSessionCategoryOptions.duckOthers,
+      avAudioSessionMode: AVAudioSessionMode.spokenAudio,
+      avAudioSessionRouteSharingPolicy: AVAudioSessionRouteSharingPolicy.defaultPolicy,
+      avAudioSessionSetActiveOptions: AVAudioSessionSetActiveOptions.none,
+      androidAudioAttributes: AndroidAudioAttributes(
+        contentType: AndroidAudioContentType.speech,
+        flags: AndroidAudioFlags.audibilityEnforced,
+        usage: AndroidAudioUsage.assistanceAccessibility,
+      ),
+      androidAudioFocusGainType: AndroidAudioFocusGainType.gainTransientMayDuck,
+      androidWillPauseWhenDucked: true,
+    ));
+  }
 
   static const _rateKey = 'tts_rate';
   static const _volumeKey = 'tts_volume';
@@ -89,78 +108,43 @@ class TtsService {
     await _flutterTts.setVolume(_currentVolume);
   }
 
-  /// Speaks the given [text] with automatic audio focus management.
-  ///
-  /// 1. Stops any in-progress speech
-  /// 2. Requests exclusive audio focus (pauses TalkBack)
-  /// 3. Speaks the text and waits for completion
-  /// 4. Releases audio focus (resumes TalkBack)
+  /// Speaks the given [text], ducking TalkBack for the duration.
   Future<void> speak(String text) async {
     debugPrint('TtsService: Speaking -> $text');
-    
     try {
-      // Stop any in-progress speech to prevent queue pile-up
+      await _ensureSession();
       await _flutterTts.stop();
-      
-      // Request exclusive focus — this pauses TalkBack
-      await _audioSession.requestExclusiveFocus();
-      
+      await _audioSession!.setActive(true);
       await _flutterTts.awaitSpeakCompletion(true);
       await _flutterTts.speak(text);
     } catch (e) {
       debugPrint('TtsService: Error during speak: $e');
     } finally {
-      // Always release focus, even if speak throws
-      try {
-        await _audioSession.releaseFocus();
-      } catch (_) {}
+      try { await _audioSession?.setActive(false); } catch (_) {}
     }
   }
 
-  /// Speaks a notification with an announcement first, automatically detecting
-  /// if the notification text is Arabic to read it correctly.
+  /// Speaks a notification: reads [announcement] first, then [text].
+  /// Ducks TalkBack for the full sequence.
+  /// Automatically switches to Arabic TTS voice if [text] contains Arabic characters.
   Future<void> speakNotification(String announcement, String text) async {
     debugPrint('TtsService: Speaking Notification -> $text');
     try {
+      await _ensureSession();
       await _flutterTts.stop();
-      await _audioSession.requestExclusiveFocus();
-
-      // Read announcement in current app locale
+      await _audioSession!.setActive(true);
       await _flutterTts.awaitSpeakCompletion(true);
       await _flutterTts.speak(announcement);
 
-      // Detect language of the text. Simple check: if contains Arabic characters
       final isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(text);
-      final originalLanguage = await _flutterTts.getVoices.then((_) => _languageTags['fr'] ?? 'fr-FR'); // fallback
-      
-      // We need to fetch current app locale to restore it, but the service doesn't hold it directly.
-      // A better way: just switch if it's Arabic, otherwise use default.
-      String targetLang = 'fr-FR'; // fallback
-      if (isArabic) {
-        targetLang = 'ar-SA';
-      } else {
-        // If not arabic, it might be French or English. Let's just use current TTS language if possible, 
-        // or let's use the localeService which injected earlier. But TtsService doesn't have LocaleService.
-        // Actually, TtsService's language is already set to the current app locale!
-        // We can just get the current language but flutterTts doesn't expose a getter for current language.
-      }
-
-      // If Arabic is detected, temporarily switch to Arabic voice
       if (isArabic) {
         await _flutterTts.setLanguage('ar-SA');
       }
-
       await _flutterTts.speak(text);
-      
-      // We will rely on the next screen transition or explicit setLanguage to reset it if it was changed,
-      // or we can read the saved language from LocaleService.
-      // Wait, we can just let it finish.
     } catch (e) {
       debugPrint('TtsService: Error during speakNotification: $e');
     } finally {
-      try {
-        await _audioSession.releaseFocus();
-      } catch (_) {}
+      try { await _audioSession?.setActive(false); } catch (_) {}
     }
   }
 

@@ -138,6 +138,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
   }
 
   Future<void> _cycleSpeed() async {
+    final l = AppLocalizations.of(context)!;
     final currentRate = _audioService.playbackRate;
     int currentIndex = _speedOptions.indexOf(currentRate);
     if (currentIndex == -1) currentIndex = 2; // default to 1.0x
@@ -150,7 +151,6 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     await _audioService.setPlaybackRate(newRate);
     if (mounted) setState(() {});
 
-    final l = AppLocalizations.of(context)!;
     await _tts.speak(l.lessonPlayerCurrentSpeed(newRate.toString()));
 
     if (wasPlaying && mounted) await _audioService.resume();
@@ -262,7 +262,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   padding: const EdgeInsets.all(12),
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: Colors.yellow.withOpacity(0.15),
+                    color: Colors.yellow.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: Colors.yellow, width: 1),
                   ),
@@ -348,7 +348,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.yellow.withOpacity(0.4),
+                                color: Colors.yellow.withValues(alpha: 0.4),
                                 blurRadius: 20,
                                 spreadRadius: 4,
                               ),

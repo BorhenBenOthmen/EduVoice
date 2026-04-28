@@ -4,7 +4,6 @@ import 'package:sensors_plus/sensors_plus.dart';
 import 'package:get_it/get_it.dart';
 import '../../data/gemini_routing_service.dart';
 import '../../../../core/audio/tts_service.dart';
-import '../../../../core/audio/audio_feedback_service.dart';
 import '../../../../l10n/app_localizations.dart';
 
 /// specialized version of shake detector that specifically triggers
@@ -21,8 +20,6 @@ class WakeGestureDetector extends StatefulWidget {
 class _WakeGestureDetectorState extends State<WakeGestureDetector> {
   final _gemini = GetIt.I<GeminiRoutingService>();
   final _tts = GetIt.I<TtsService>();
-  final _earcons = GetIt.I<AudioFeedbackService>();
-  
   bool _isBusy = false;
 
   // Shake detection thresholds (increased to prevent accidental disconnects)
@@ -56,12 +53,10 @@ class _WakeGestureDetectorState extends State<WakeGestureDetector> {
       if (_gemini.isConnected) {
         // Disconnect immediately to prevent mic from picking up closing sounds
         _gemini.disconnect();
-        await _earcons.playProcessingChime();
         await _tts.speak(l.voiceGoodbyeTts);
       } else {
         // Connect
         await _tts.speak(l.homeListening); // "I'm listening..."
-        await _earcons.playSuccessChime();
         await _gemini.connect(
           onErrorCallback: () => _tts.speak(l.voiceErrorTts),
         );

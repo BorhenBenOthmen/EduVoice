@@ -7,7 +7,6 @@ import '../../../../features/lesson/presentation/state/lesson_state.dart';
 import '../../../../features/lesson_player/presentation/smart_lesson_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
-import '../../../../core/audio/audio_session_manager.dart';
 import '../../../../injection_container.dart';
 
 class LessonListScreen extends StatefulWidget {
@@ -58,19 +57,12 @@ class _LessonListScreenState extends State<LessonListScreen> {
             child: BlocConsumer<LessonCubit, LessonState>(
               listener: (context, state) async {
                 final tts = locator<TtsService>();
-                final audio = locator<AudioSessionManager>();
                 if (state is LessonLoading) {
-                  await audio.requestExclusiveFocus();
                   await tts.speak(l.lessonLoading);
-                  await audio.releaseFocus();
                 } else if (state is LessonLoaded) {
-                  await audio.requestExclusiveFocus();
                   await tts.speak(l.lessonCountTts(state.lessons.length));
-                  await audio.releaseFocus();
                 } else if (state is LessonError) {
-                  await audio.requestExclusiveFocus();
                   await tts.speak(l.lessonErrorTts);
-                  await audio.releaseFocus();
                 }
               },
               builder: (context, state) {

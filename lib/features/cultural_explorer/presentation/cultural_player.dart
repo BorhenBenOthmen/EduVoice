@@ -120,6 +120,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
   }
 
   Future<void> _cycleSpeed() async {
+    final l = AppLocalizations.of(context)!;
     final currentRate = _audioService.playbackRate;
     int currentIndex = _speedOptions.indexOf(currentRate);
     if (currentIndex == -1) currentIndex = 2;
@@ -132,7 +133,6 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
     await _audioService.setPlaybackRate(newRate);
     if (mounted) setState(() {});
 
-    final l = AppLocalizations.of(context)!;
     await _tts.speak(l.lessonPlayerCurrentSpeed(newRate.toString()));
 
     if (wasPlaying && mounted) await _audioService.resume();
@@ -238,7 +238,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
                   padding: const EdgeInsets.all(12),
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: Colors.lightGreenAccent.withOpacity(0.15),
+                    color: Colors.lightGreenAccent.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: Colors.lightGreenAccent,
@@ -327,7 +327,7 @@ class _CulturePlayerScreenState extends State<CulturePlayerScreen> {
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.lightGreenAccent.withOpacity(0.4),
+                                color: Colors.lightGreenAccent.withValues(alpha: 0.4),
                                 blurRadius: 20,
                                 spreadRadius: 4,
                               ),

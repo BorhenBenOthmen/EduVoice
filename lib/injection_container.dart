@@ -8,8 +8,6 @@ import 'core/locale/locale_service.dart';
 import 'features/auth/data/auth_repository.dart';
 import 'core/audio/tts_service.dart';
 
-import 'core/audio/audio_session_manager.dart';
-import 'core/audio/audio_feedback_service.dart';
 import 'core/audio/lesson_audio_player_service.dart';
 import 'features/course/data/course_repository.dart';
 import 'features/voice_commander/data/gemini_routing_service.dart';
@@ -51,17 +49,9 @@ Future<void> setupDependencies() async {
   locator.registerSingleton<LocaleService>(localeService);
 
   // 3. Core Audio Services
-  final audioSessionManager = AudioSessionManager();
-  locator.registerSingleton<AudioSessionManager>(audioSessionManager);
-
-  final ttsService = TtsService(secureStorage, audioSessionManager);
-  // Do NOT await initTts here completely to prevent blocking the startup for too long,
-  // but since we want the preferences loaded early, we just let it be called during splash or home.
-  // Actually, localeService is initialized here. we can initialize tts with that locale.
+  final ttsService = TtsService(secureStorage);
   locator.registerSingleton<TtsService>(ttsService);
   
-  // TTS initialization is deferred — handled during app boot / home screen load.
-  locator.registerLazySingleton(() => AudioFeedbackService());
   // Factory: each LessonPlayerScreen gets its own player instance (clean dispose).
   locator.registerFactory(() => LessonAudioPlayerService());
 

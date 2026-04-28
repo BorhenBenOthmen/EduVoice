@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:record/record.dart';
@@ -13,8 +12,7 @@ class GeminiRoutingService {
   StreamSubscription<Uint8List>? _recordSubscription;
 
   // AI backend WebSocket URL.
-  // Using the user's specific IP provided: 10.165.155.12
-  final String _baseWsUrl = 'ws://192.168.0.212:8000/ws';
+  final String _baseWsUrl = 'ws://10.165.155.12:8000/ws';
 
   bool _isConnected = false;
   bool get isConnected => _isConnected;
@@ -37,7 +35,19 @@ class GeminiRoutingService {
 
       debugPrint('Connecting to Voice Commander AI WebSocket at $wsUrl');
       _channel = WebSocketChannel.connect(wsUrl);
+
+      // Wait for the actual TCP+WS handshake to complete before proceeding.
+      // Without this, the channel object exists but the connection may have
+      // silently failed (e.g. cleartext blocked, host unreachable).
+      await _channel!.ready.timeout(
+        const Duration(seconds: 8),
+        onTimeout: () {
+          throw TimeoutException('WebSocket handshake timed out after 8s');
+        },
+      );
+
       _isConnected = true;
+      debugPrint('Voice Commander AI WebSocket connected successfully.');
 
       // Handle output from Gemini (Audio bytes)
       _setupPlayback();
@@ -79,9 +89,12 @@ class GeminiRoutingService {
 
       // Start Recording
       await _startRecording();
-    } catch (e) {
+    } catch (e, stackTrace) {
       debugPrint('Voice Commander AI Connection exception: $e');
+      debugPrint('Stack trace: $stackTrace');
       _isConnected = false;
+      _channel?.sink.close();
+      _channel = null;
       onErrorCallback?.call();
     }
   }

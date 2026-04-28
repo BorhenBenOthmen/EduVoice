@@ -40,9 +40,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _volume = _tts.currentVolume;
     _speedIndex = _speeds.indexOf(_tts.currentRate);
     if (_speedIndex == -1) {
-      if (_tts.currentRate < 0.5) _speedIndex = 0;
-      else if (_tts.currentRate > 0.5) _speedIndex = 2;
-      else _speedIndex = 1;
+      if (_tts.currentRate < 0.5) {
+        _speedIndex = 0;
+      } else if (_tts.currentRate > 0.5) {
+        _speedIndex = 2;
+      } else {
+        _speedIndex = 1;
+      }
     }
     
     WidgetsBinding.instance.addPostFrameCallback((_) {
