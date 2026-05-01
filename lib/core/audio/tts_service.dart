@@ -39,6 +39,7 @@ class TtsService {
 
   double _currentRate = 0.5;
   double _currentVolume = 1.0;
+  String _currentLanguageCode = 'fr';
 
   double get currentRate => _currentRate;
   double get currentVolume => _currentVolume;
@@ -53,6 +54,7 @@ class TtsService {
   /// Initialises the TTS engine with the given [languageCode] and saved preferences.
   /// Defaults to French if not provided or unsupported.
   Future<void> initTts({String languageCode = 'fr'}) async {
+    _currentLanguageCode = languageCode;
     final tag = _languageTags[languageCode] ?? 'fr-FR';
     
     // Load saved preferences
@@ -82,6 +84,7 @@ class TtsService {
       final available = await _flutterTts.isLanguageAvailable(tag);
       if (available == true) {
         await _flutterTts.setLanguage(tag);
+        _currentLanguageCode = languageCode;
         debugPrint('TtsService: Language set to $tag');
         return true;
       } else {
@@ -126,7 +129,8 @@ class TtsService {
 
   /// Speaks a notification: reads [announcement] first, then [text].
   /// Ducks TalkBack for the full sequence.
-  /// Automatically switches to Arabic TTS voice if [text] contains Arabic characters.
+  /// Automatically switches to Arabic TTS voice if [text] contains Arabic characters,
+  /// then reverts to the UI language afterward so subsequent reads are correct.
   Future<void> speakNotification(String announcement, String text) async {
     debugPrint('TtsService: Speaking Notification -> $text');
     try {
@@ -141,6 +145,13 @@ class TtsService {
         await _flutterTts.setLanguage('ar-SA');
       }
       await _flutterTts.speak(text);
+
+      // Revert TTS language to the UI locale so subsequent reads
+      // (e.g. "Back", "Settings", list counts) use the correct voice.
+      if (isArabic) {
+        final uiTag = _languageTags[_currentLanguageCode] ?? 'fr-FR';
+        await _flutterTts.setLanguage(uiTag);
+      }
     } catch (e) {
       debugPrint('TtsService: Error during speakNotification: $e');
     } finally {

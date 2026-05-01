@@ -32,15 +32,14 @@ class AudioModel {
       id: json['id'] as int?,
       name: json['name'] as String?,
       description: json['description'] as String?,
-      // TODO: [Omni-Architect Placeholder] - The backend returns an ISO 8601 string like "P3D" for duration. We parse it as a raw string here. A custom parser to convert this into a Dart Duration object should be implemented in the Presentation layer if playback UI needs exact seconds.
       duration: json['duration'] as String?,
       type: json['type'] as int?,
       typeLabel: json['type_label'] as String?,
       src: json['src'] as String?,
       file: json['file'] as String?,
       reference: json['reference'] as String?,
-      format: json['format'] != null 
-          ? AudioFormatModel.fromJson(json['format'] as Map<String, dynamic>) 
+      format: json['format'] != null
+          ? AudioFormatModel.fromJson(json['format'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -66,15 +65,13 @@ class PagedAudioModel {
   final int count;
   final List<AudioModel> items;
 
-  const PagedAudioModel({
-    required this.count,
-    required this.items,
-  });
+  const PagedAudioModel({required this.count, required this.items});
 
   factory PagedAudioModel.fromJson(Map<String, dynamic> json) {
     return PagedAudioModel(
       count: json['count'] as int? ?? 0,
-      items: (json['items'] as List<dynamic>?)
+      items:
+          (json['items'] as List<dynamic>?)
               ?.map((e) => AudioModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],

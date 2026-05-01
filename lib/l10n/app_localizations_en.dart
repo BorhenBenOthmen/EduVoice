@@ -163,6 +163,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lessonPlayerTranscript => 'Transcript';
 
   @override
+  String get lessonPlayerTranscriptHint => 'Double-tap to expand transcription';
+
+  @override
+  String get lessonPlayerTranscriptClose => 'Close transcription';
+
+  @override
   String get lessonPlayerNoAudio =>
       'No audio file available. You can listen to the description read aloud.';
 
@@ -550,4 +556,88 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationOpening => 'Opening notifications';
+
+  @override
+  String get profileTitle => 'My Profile';
+
+  @override
+  String get profileTts =>
+      'Profile page. View your information and manage your account.';
+
+  @override
+  String get profileFirstName => 'First Name';
+
+  @override
+  String get profileLastName => 'Last Name';
+
+  @override
+  String get profileLevel => 'Level';
+
+  @override
+  String get profileCurrentPassword => 'Current Password';
+
+  @override
+  String get profileNewPassword => 'New Password';
+
+  @override
+  String get profileConfirmPassword => 'Confirm New Password';
+
+  @override
+  String get profileChangePassword => 'Change Password';
+
+  @override
+  String get profileLogout => 'Log Out';
+
+  @override
+  String get profilePasswordSuccess => 'Password changed successfully.';
+
+  @override
+  String get profilePasswordMismatch =>
+      'Passwords do not match. Please try again.';
+
+  @override
+  String get profileNetworkError =>
+      'A network error occurred. Please try again.';
+
+  @override
+  String get profilePasswordLoading => 'Changing password, please wait.';
+
+  @override
+  String get profileLogoutConfirm => 'Logging out. Goodbye.';
+
+  @override
+  String get profileSectionInfo => 'Account Information';
+
+  @override
+  String get profileSectionSecurity => 'Change Password';
+
+  @override
+  String get profileFirstNameSemantics => 'First name field';
+
+  @override
+  String get profileLastNameSemantics => 'Last name field';
+
+  @override
+  String get profileLevelSemantics => 'Your current level';
+
+  @override
+  String get profileCurrentPasswordSemantics => 'Current password input field';
+
+  @override
+  String get profileNewPasswordSemantics => 'New password input field';
+
+  @override
+  String get profileConfirmPasswordSemantics =>
+      'Confirm new password input field';
+
+  @override
+  String get profileChangePasswordSemantics =>
+      'Change password button. Double-tap to confirm.';
+
+  @override
+  String get profileLogoutSemantics =>
+      'Log out button. Double-tap to log out of the application.';
+
+  @override
+  String get profileOldPasswordError => 'Current password is incorrect.';
 }

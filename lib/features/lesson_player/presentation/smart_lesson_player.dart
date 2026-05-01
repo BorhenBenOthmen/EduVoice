@@ -29,6 +29,10 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
   bool _isTtsFallback = false;
   bool _isTtsPlaying = false;
 
+  /// Controls whether the transcription block is expanded for TalkBack.
+  /// Collapsed by default so blind users can swipe past all lines with one gesture.
+  bool _transcriptionExpanded = false;
+
   Duration _position = Duration.zero;
   Duration _duration = Duration.zero;
   PlayerState _playerState = PlayerState.stopped;
@@ -206,54 +210,101 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
               ),
               const SizedBox(height: 24),
 
-              // ── Transcription ──────────────────────────────────────────────
-              if (widget.lesson.transcription.isNotEmpty) ...[
-                const Divider(color: Colors.yellow),
-                const SizedBox(height: 8),
-                Text(
-                  l.lessonPlayerTranscript,
-                  style: const TextStyle(
-                    color: Colors.yellow,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  height: 160,
-                  child: ListView.builder(
-                    itemCount: widget.lesson.transcription.length,
-                    itemBuilder: (context, index) {
-                      final line = widget.lesson.transcription[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4.0),
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "${line.speaker}: ",
-                                style: const TextStyle(
-                                  color: Colors.yellow,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
+              // ── Transcription (TalkBack-friendly block) ────────────────────
+              if (widget.lesson.transcription.isNotEmpty)
+                Semantics(
+                  label: _transcriptionExpanded
+                      ? null
+                      : l.lessonPlayerTranscript,
+                  hint: _transcriptionExpanded
+                      ? null
+                      : l.lessonPlayerTranscriptHint,
+                  button: !_transcriptionExpanded,
+                  excludeSemantics: !_transcriptionExpanded,
+                  onTap: _transcriptionExpanded
+                      ? null
+                      : () => setState(() => _transcriptionExpanded = true),
+                  child: AnimatedSize(
+                    duration: const Duration(milliseconds: 250),
+                    curve: Curves.easeInOut,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Divider(color: Colors.yellow),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            Text(
+                              l.lessonPlayerTranscript,
+                              style: const TextStyle(
+                                color: Colors.yellow,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const Spacer(),
+                            if (_transcriptionExpanded)
+                              Semantics(
+                                button: true,
+                                label: l.lessonPlayerTranscriptClose,
+                                child: GestureDetector(
+                                  onTap: () => setState(
+                                      () => _transcriptionExpanded = false),
+                                  child: const Icon(
+                                    Icons.keyboard_arrow_up,
+                                    color: Colors.yellow,
+                                    size: 28,
+                                  ),
                                 ),
                               ),
-                              TextSpan(
-                                text: line.text,
-                                style: const TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 17,
-                                ),
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
-                      );
-                    },
+                        const SizedBox(height: 8),
+                        if (_transcriptionExpanded)
+                          SizedBox(
+                            height: 160,
+                            child: ListView.builder(
+                              itemCount: widget.lesson.transcription.length,
+                              itemBuilder: (context, index) {
+                                final line =
+                                    widget.lesson.transcription[index];
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 4.0),
+                                  child: Semantics(
+                                    label:
+                                        '${line.speaker}: ${line.text}',
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '${line.speaker}: ',
+                                            style: const TextStyle(
+                                              color: Colors.yellow,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: line.text,
+                                            style: const TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        const SizedBox(height: 16),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 16),
-              ],
 
               // ── Player section ─────────────────────────────────────────────
               if (_isTtsFallback) ...[

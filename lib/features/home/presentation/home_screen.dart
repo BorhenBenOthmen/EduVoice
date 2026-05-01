@@ -14,6 +14,7 @@ import '../../../features/settings/presentation/settings_screen.dart';
 import '../../../features/about/presentation/about_screen.dart';
 import '../../../features/notification/presentation/screens/notification_screen.dart';
 import '../../../features/notification/presentation/state/notification_list_cubit.dart';
+import '../../../features/profile/presentation/profile_screen.dart';
 import '../../../l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -56,6 +57,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: const Icon(
                   Icons.notifications_none,
                   color: Colors.lightGreenAccent,
+                ),
+              ),
+            ),
+            Semantics(
+              label: l.profileTitle,
+              button: true,
+              excludeSemantics: true,
+              child: IconButton(
+                onPressed: () {
+                  locator<TtsService>().speak(l.profileTitle);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ProfilePage(),
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.purpleAccent,
                 ),
               ),
             ),

@@ -9,7 +9,10 @@ import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
 
 class CultureScreen extends StatefulWidget {
-  const CultureScreen({super.key});
+  /// Optional pre-filtered data from the AI voice command.
+  final dynamic initialPayload;
+
+  const CultureScreen({super.key, this.initialPayload});
 
   @override
   State<CultureScreen> createState() => _CultureScreenState();
@@ -22,7 +25,27 @@ class _CultureScreenState extends State<CultureScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<CultureCubit>().loadCultureRecords();
+    final cubit = context.read<CultureCubit>();
+    final payload = widget.initialPayload;
+    List<dynamic>? targetList;
+
+    if (payload != null) {
+      if (payload is List) {
+        targetList = payload;
+      } else if (payload is Map<String, dynamic>) {
+        if (payload.containsKey('results') && payload['results'] is List) {
+          targetList = payload['results'];
+        } else if (payload.containsKey('data') && payload['data'] is List) {
+          targetList = payload['data'];
+        }
+      }
+    }
+
+    if (targetList != null && targetList.isNotEmpty) {
+      cubit.loadFromPayload(targetList);
+    } else {
+      cubit.loadCultureRecords();
+    }
   }
 
   @override
@@ -154,7 +177,9 @@ class _CultureScreenState extends State<CultureScreen> {
 
   Widget _buildRecordTile(CultureRecord record, AppLocalizations l) {
     final isArabicName = RegExp(r'[\u0600-\u06FF]').hasMatch(record.name);
-    final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(record.description);
+    final isArabicDesc = RegExp(
+      r'[\u0600-\u06FF]',
+    ).hasMatch(record.description);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),

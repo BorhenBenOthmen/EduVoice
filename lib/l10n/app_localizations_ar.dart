@@ -162,6 +162,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonPlayerTranscript => 'النص المكتوب';
 
   @override
+  String get lessonPlayerTranscriptHint => 'انقر مرتين لعرض النص المكتوب';
+
+  @override
+  String get lessonPlayerTranscriptClose => 'إغلاق النص المكتوب';
+
+  @override
   String get lessonPlayerNoAudio =>
       'لا يوجد ملف صوتي متاح. يمكنك الاستماع للوصف بالنص المقروء.';
 
@@ -546,4 +552,86 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notificationOpening => 'فتح الإشعارات';
+
+  @override
+  String get profileTitle => 'ملفي الشخصي';
+
+  @override
+  String get profileTts => 'صفحة الملف الشخصي. اعرض معلوماتك وأدر حسابك.';
+
+  @override
+  String get profileFirstName => 'الاسم الأول';
+
+  @override
+  String get profileLastName => 'اللقب';
+
+  @override
+  String get profileLevel => 'المستوى';
+
+  @override
+  String get profileCurrentPassword => 'كلمة المرور الحالية';
+
+  @override
+  String get profileNewPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get profileConfirmPassword => 'تأكيد كلمة المرور الجديدة';
+
+  @override
+  String get profileChangePassword => 'تغيير كلمة المرور';
+
+  @override
+  String get profileLogout => 'تسجيل الخروج';
+
+  @override
+  String get profilePasswordSuccess => 'تم تغيير كلمة المرور بنجاح.';
+
+  @override
+  String get profilePasswordMismatch =>
+      'كلمتا المرور غير متطابقتين. يرجى المحاولة مجددا.';
+
+  @override
+  String get profileNetworkError =>
+      'حدث خطأ في الشبكة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get profilePasswordLoading => 'جارٍ تغيير كلمة المرور، يرجى الانتظار.';
+
+  @override
+  String get profileLogoutConfirm => 'جارٍ تسجيل الخروج. مع السلامة.';
+
+  @override
+  String get profileSectionInfo => 'معلومات الحساب';
+
+  @override
+  String get profileSectionSecurity => 'تغيير كلمة المرور';
+
+  @override
+  String get profileFirstNameSemantics => 'حقل الاسم الأول';
+
+  @override
+  String get profileLastNameSemantics => 'حقل اللقب';
+
+  @override
+  String get profileLevelSemantics => 'مستواك الحالي';
+
+  @override
+  String get profileCurrentPasswordSemantics => 'حقل إدخال كلمة المرور الحالية';
+
+  @override
+  String get profileNewPasswordSemantics => 'حقل إدخال كلمة المرور الجديدة';
+
+  @override
+  String get profileConfirmPasswordSemantics => 'حقل تأكيد كلمة المرور الجديدة';
+
+  @override
+  String get profileChangePasswordSemantics =>
+      'زر تغيير كلمة المرور. انقر مرتين للتأكيد.';
+
+  @override
+  String get profileLogoutSemantics =>
+      'زر تسجيل الخروج. انقر مرتين للخروج من التطبيق.';
+
+  @override
+  String get profileOldPasswordError => 'كلمة المرور الحالية غير صحيحة.';
 }

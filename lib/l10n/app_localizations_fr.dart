@@ -169,6 +169,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lessonPlayerTranscript => 'Transcription';
 
   @override
+  String get lessonPlayerTranscriptHint =>
+      'Appuyez deux fois pour afficher la transcription';
+
+  @override
+  String get lessonPlayerTranscriptClose => 'Fermer la transcription';
+
+  @override
   String get lessonPlayerNoAudio =>
       'Aucun fichier audio disponible. Vous pouvez écouter la description lue par la synthèse vocale.';
 
@@ -558,4 +565,89 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get notificationOpening => 'Ouverture des notifications';
+
+  @override
+  String get profileTitle => 'Mon Profil';
+
+  @override
+  String get profileTts =>
+      'Page profil. Consultez vos informations et gérez votre compte.';
+
+  @override
+  String get profileFirstName => 'Prénom';
+
+  @override
+  String get profileLastName => 'Nom';
+
+  @override
+  String get profileLevel => 'Niveau';
+
+  @override
+  String get profileCurrentPassword => 'Mot de passe actuel';
+
+  @override
+  String get profileNewPassword => 'Nouveau mot de passe';
+
+  @override
+  String get profileConfirmPassword => 'Confirmer le nouveau mot de passe';
+
+  @override
+  String get profileChangePassword => 'Changer le mot de passe';
+
+  @override
+  String get profileLogout => 'Se déconnecter';
+
+  @override
+  String get profilePasswordSuccess => 'Mot de passe modifié avec succès.';
+
+  @override
+  String get profilePasswordMismatch =>
+      'Les mots de passe ne correspondent pas. Veuillez réessayer.';
+
+  @override
+  String get profileNetworkError =>
+      'Une erreur réseau s\'est produite. Veuillez réessayer.';
+
+  @override
+  String get profilePasswordLoading =>
+      'Modification du mot de passe en cours, veuillez patienter.';
+
+  @override
+  String get profileLogoutConfirm => 'Déconnexion en cours. Au revoir.';
+
+  @override
+  String get profileSectionInfo => 'Informations du compte';
+
+  @override
+  String get profileSectionSecurity => 'Changer le mot de passe';
+
+  @override
+  String get profileFirstNameSemantics => 'Champ prénom';
+
+  @override
+  String get profileLastNameSemantics => 'Champ nom';
+
+  @override
+  String get profileLevelSemantics => 'Votre niveau actuel';
+
+  @override
+  String get profileCurrentPasswordSemantics => 'Champ mot de passe actuel';
+
+  @override
+  String get profileNewPasswordSemantics => 'Champ nouveau mot de passe';
+
+  @override
+  String get profileConfirmPasswordSemantics =>
+      'Champ confirmer le nouveau mot de passe';
+
+  @override
+  String get profileChangePasswordSemantics =>
+      'Bouton changer le mot de passe. Appuyez deux fois pour confirmer.';
+
+  @override
+  String get profileLogoutSemantics =>
+      'Bouton se déconnecter. Appuyez deux fois pour quitter l\'application.';
+
+  @override
+  String get profileOldPasswordError => 'Le mot de passe actuel est incorrect.';
 }

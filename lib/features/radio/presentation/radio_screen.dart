@@ -9,7 +9,10 @@ import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
 
 class RadioScreen extends StatefulWidget {
-  const RadioScreen({super.key});
+  /// Optional pre-filtered data from the AI voice command.
+  final dynamic initialPayload;
+
+  const RadioScreen({super.key, this.initialPayload});
 
   @override
   State<RadioScreen> createState() => _RadioScreenState();
@@ -22,7 +25,27 @@ class _RadioScreenState extends State<RadioScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<RadioCubit>().loadEmissions();
+    final cubit = context.read<RadioCubit>();
+    final payload = widget.initialPayload;
+    List<dynamic>? targetList;
+
+    if (payload != null) {
+      if (payload is List) {
+        targetList = payload;
+      } else if (payload is Map<String, dynamic>) {
+        if (payload.containsKey('results') && payload['results'] is List) {
+          targetList = payload['results'];
+        } else if (payload.containsKey('data') && payload['data'] is List) {
+          targetList = payload['data'];
+        }
+      }
+    }
+
+    if (targetList != null && targetList.isNotEmpty) {
+      cubit.loadFromPayload(targetList);
+    } else {
+      cubit.loadEmissions();
+    }
   }
 
   @override

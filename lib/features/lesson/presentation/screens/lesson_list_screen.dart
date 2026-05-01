@@ -10,7 +10,11 @@ import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
 
 class LessonListScreen extends StatefulWidget {
-  const LessonListScreen({super.key});
+  /// Optional pre-filtered data from the AI voice command.
+  /// When non-null, the screen displays this data directly without a network call.
+  final dynamic initialPayload;
+
+  const LessonListScreen({super.key, this.initialPayload});
 
   @override
   State<LessonListScreen> createState() => _LessonListScreenState();
@@ -23,8 +27,28 @@ class _LessonListScreenState extends State<LessonListScreen> {
   @override
   void initState() {
     super.initState();
-    // Dispatch the fetch event immediately upon screen load
-    context.read<LessonCubit>().loadLessons();
+    final cubit = context.read<LessonCubit>();
+    final payload = widget.initialPayload;
+    List<dynamic>? targetList;
+
+    if (payload != null) {
+      if (payload is List) {
+        targetList = payload;
+      } else if (payload is Map<String, dynamic>) {
+        // Handle Django DRF standard pagination/wrapper formats
+        if (payload.containsKey('results') && payload['results'] is List) {
+          targetList = payload['results'];
+        } else if (payload.containsKey('data') && payload['data'] is List) {
+          targetList = payload['data'];
+        }
+      }
+    }
+
+    if (targetList != null && targetList.isNotEmpty) {
+      cubit.loadFromPayload(targetList);
+    } else {
+      cubit.loadLessons();
+    }
   }
 
   @override

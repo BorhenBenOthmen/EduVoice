@@ -376,6 +376,18 @@ abstract class AppLocalizations {
   /// **'Transcription'**
   String get lessonPlayerTranscript;
 
+  /// No description provided for @lessonPlayerTranscriptHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Appuyez deux fois pour afficher la transcription'**
+  String get lessonPlayerTranscriptHint;
+
+  /// No description provided for @lessonPlayerTranscriptClose.
+  ///
+  /// In fr, this message translates to:
+  /// **'Fermer la transcription'**
+  String get lessonPlayerTranscriptClose;
+
   /// No description provided for @lessonPlayerNoAudio.
   ///
   /// In fr, this message translates to:
@@ -1053,6 +1065,162 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'Ouverture des notifications'**
   String get notificationOpening;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mon Profil'**
+  String get profileTitle;
+
+  /// No description provided for @profileTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'Page profil. Consultez vos informations et gérez votre compte.'**
+  String get profileTts;
+
+  /// No description provided for @profileFirstName.
+  ///
+  /// In fr, this message translates to:
+  /// **'Prénom'**
+  String get profileFirstName;
+
+  /// No description provided for @profileLastName.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nom'**
+  String get profileLastName;
+
+  /// No description provided for @profileLevel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Niveau'**
+  String get profileLevel;
+
+  /// No description provided for @profileCurrentPassword.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mot de passe actuel'**
+  String get profileCurrentPassword;
+
+  /// No description provided for @profileNewPassword.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nouveau mot de passe'**
+  String get profileNewPassword;
+
+  /// No description provided for @profileConfirmPassword.
+  ///
+  /// In fr, this message translates to:
+  /// **'Confirmer le nouveau mot de passe'**
+  String get profileConfirmPassword;
+
+  /// No description provided for @profileChangePassword.
+  ///
+  /// In fr, this message translates to:
+  /// **'Changer le mot de passe'**
+  String get profileChangePassword;
+
+  /// No description provided for @profileLogout.
+  ///
+  /// In fr, this message translates to:
+  /// **'Se déconnecter'**
+  String get profileLogout;
+
+  /// No description provided for @profilePasswordSuccess.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mot de passe modifié avec succès.'**
+  String get profilePasswordSuccess;
+
+  /// No description provided for @profilePasswordMismatch.
+  ///
+  /// In fr, this message translates to:
+  /// **'Les mots de passe ne correspondent pas. Veuillez réessayer.'**
+  String get profilePasswordMismatch;
+
+  /// No description provided for @profileNetworkError.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une erreur réseau s\'est produite. Veuillez réessayer.'**
+  String get profileNetworkError;
+
+  /// No description provided for @profilePasswordLoading.
+  ///
+  /// In fr, this message translates to:
+  /// **'Modification du mot de passe en cours, veuillez patienter.'**
+  String get profilePasswordLoading;
+
+  /// No description provided for @profileLogoutConfirm.
+  ///
+  /// In fr, this message translates to:
+  /// **'Déconnexion en cours. Au revoir.'**
+  String get profileLogoutConfirm;
+
+  /// No description provided for @profileSectionInfo.
+  ///
+  /// In fr, this message translates to:
+  /// **'Informations du compte'**
+  String get profileSectionInfo;
+
+  /// No description provided for @profileSectionSecurity.
+  ///
+  /// In fr, this message translates to:
+  /// **'Changer le mot de passe'**
+  String get profileSectionSecurity;
+
+  /// No description provided for @profileFirstNameSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Champ prénom'**
+  String get profileFirstNameSemantics;
+
+  /// No description provided for @profileLastNameSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Champ nom'**
+  String get profileLastNameSemantics;
+
+  /// No description provided for @profileLevelSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre niveau actuel'**
+  String get profileLevelSemantics;
+
+  /// No description provided for @profileCurrentPasswordSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Champ mot de passe actuel'**
+  String get profileCurrentPasswordSemantics;
+
+  /// No description provided for @profileNewPasswordSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Champ nouveau mot de passe'**
+  String get profileNewPasswordSemantics;
+
+  /// No description provided for @profileConfirmPasswordSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Champ confirmer le nouveau mot de passe'**
+  String get profileConfirmPasswordSemantics;
+
+  /// No description provided for @profileChangePasswordSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Bouton changer le mot de passe. Appuyez deux fois pour confirmer.'**
+  String get profileChangePasswordSemantics;
+
+  /// No description provided for @profileLogoutSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Bouton se déconnecter. Appuyez deux fois pour quitter l\'application.'**
+  String get profileLogoutSemantics;
+
+  /// No description provided for @profileOldPasswordError.
+  ///
+  /// In fr, this message translates to:
+  /// **'Le mot de passe actuel est incorrect.'**
+  String get profileOldPasswordError;
 }
 
 class _AppLocalizationsDelegate

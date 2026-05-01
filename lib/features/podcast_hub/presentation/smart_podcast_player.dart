@@ -22,6 +22,9 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
   bool _isTtsFallback = false;
   bool _isTtsPlaying = false;
 
+  /// Collapsed by default so TalkBack users can swipe past all lines.
+  bool _transcriptionExpanded = false;
+
   Duration _position = Duration.zero;
   Duration _duration = Duration.zero;
   PlayerState _playerState = PlayerState.stopped;
@@ -185,53 +188,100 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
               ),
               const SizedBox(height: 24),
 
-              if (widget.podcast.transcription.isNotEmpty) ...[
-                const Divider(color: Colors.lightGreenAccent),
-                const SizedBox(height: 8),
-                Text(
-                  l.podcastPlayerTranscript,
-                  style: const TextStyle(
-                    color: Colors.lightGreenAccent,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  height: 160,
-                  child: ListView.builder(
-                    itemCount: widget.podcast.transcription.length,
-                    itemBuilder: (context, index) {
-                      final line = widget.podcast.transcription[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4.0),
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "${line.speaker}: ",
-                                style: const TextStyle(
-                                  color: Colors.lightGreenAccent,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
+              if (widget.podcast.transcription.isNotEmpty)
+                Semantics(
+                  label: _transcriptionExpanded
+                      ? null
+                      : l.podcastPlayerTranscript,
+                  hint: _transcriptionExpanded
+                      ? null
+                      : l.lessonPlayerTranscriptHint,
+                  button: !_transcriptionExpanded,
+                  excludeSemantics: !_transcriptionExpanded,
+                  onTap: _transcriptionExpanded
+                      ? null
+                      : () => setState(() => _transcriptionExpanded = true),
+                  child: AnimatedSize(
+                    duration: const Duration(milliseconds: 250),
+                    curve: Curves.easeInOut,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Divider(color: Colors.lightGreenAccent),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            Text(
+                              l.podcastPlayerTranscript,
+                              style: const TextStyle(
+                                color: Colors.lightGreenAccent,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const Spacer(),
+                            if (_transcriptionExpanded)
+                              Semantics(
+                                button: true,
+                                label: l.lessonPlayerTranscriptClose,
+                                child: GestureDetector(
+                                  onTap: () => setState(
+                                      () => _transcriptionExpanded = false),
+                                  child: const Icon(
+                                    Icons.keyboard_arrow_up,
+                                    color: Colors.lightGreenAccent,
+                                    size: 28,
+                                  ),
                                 ),
                               ),
-                              TextSpan(
-                                text: line.text,
-                                style: const TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 17,
-                                ),
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
-                      );
-                    },
+                        const SizedBox(height: 8),
+                        if (_transcriptionExpanded)
+                          SizedBox(
+                            height: 160,
+                            child: ListView.builder(
+                              itemCount: widget.podcast.transcription.length,
+                              itemBuilder: (context, index) {
+                                final line =
+                                    widget.podcast.transcription[index];
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 4.0),
+                                  child: Semantics(
+                                    label:
+                                        '${line.speaker}: ${line.text}',
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '${line.speaker}: ',
+                                            style: const TextStyle(
+                                              color: Colors.lightGreenAccent,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: line.text,
+                                            style: const TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        const SizedBox(height: 16),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 16),
-              ],
 
               if (_isTtsFallback) ...[
                 Container(

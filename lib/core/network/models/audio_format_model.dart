@@ -47,23 +47,19 @@ class AudioFormatModel {
       'channel_label': channelLabel,
     };
   }
-
-  // TODO: [Omni-Architect Placeholder] - If we need to implement domain-level equality (e.g., Equatable package), we will add it here later to compare formats efficiently without rebuilding UI.
 }
 
 class PagedFormatModel {
   final int count;
   final List<AudioFormatModel> items;
 
-  const PagedFormatModel({
-    required this.count,
-    required this.items,
-  });
+  const PagedFormatModel({required this.count, required this.items});
 
   factory PagedFormatModel.fromJson(Map<String, dynamic> json) {
     return PagedFormatModel(
       count: json['count'] as int? ?? 0,
-      items: (json['items'] as List<dynamic>?)
+      items:
+          (json['items'] as List<dynamic>?)
               ?.map((e) => AudioFormatModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],

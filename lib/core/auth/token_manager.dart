@@ -12,7 +12,22 @@ class TokenManager {
   static const String _refreshKey = 'refresh_token';
   static const String _accountIdKey = 'account_id';
   static const String _firstNameKey = 'first_name';
+  static const String _lastNameKey = 'last_name';
   static const String _levelNameKey = 'level_name';
+  static const String _levelCodeKey = 'level_code';
+
+  /// Maps Django display names to internal grade codes used by the WebSocket.
+  static const Map<String, String> _levelCodeMap = {
+    '4 ème Année Primaire': 'primary_4',
+    '5 ème Année Primaire': 'primary_5',
+    '6 ème Année Primaire': 'primary_6',
+    '7ème Année de Base': 'middle_7',
+    '8ème Année de Base': 'middle_8',
+    '9ème Année de Base': 'middle_9',
+    '1ère Année Secondaire': 'secondary_1',
+    '3 ème Année secondaire Lettres': 'secondary_3',
+    '4 ème Année secondaire Lettres': 'secondary_4_lettre',
+  };
 
   TokenManager(this._storage);
 
@@ -21,6 +36,7 @@ class TokenManager {
     required String refresh,
     required int accountId,
     String? firstName,
+    String? lastName,
     String? levelName,
   }) async {
     await _storage.write(key: _accessKey, value: access);
@@ -29,8 +45,16 @@ class TokenManager {
     if (firstName != null) {
       await _storage.write(key: _firstNameKey, value: firstName);
     }
+    if (lastName != null) {
+      await _storage.write(key: _lastNameKey, value: lastName);
+    }
     if (levelName != null) {
       await _storage.write(key: _levelNameKey, value: levelName);
+      // Also compute and store the internal level code for the WebSocket
+      final code = _levelCodeMap[levelName];
+      if (code != null) {
+        await _storage.write(key: _levelCodeKey, value: code);
+      }
     }
     _startRefreshTimer();
   }
@@ -40,8 +64,16 @@ class TokenManager {
     return value != null ? int.tryParse(value) : null;
   }
 
-  Future<String?> getFirstName() async => await _storage.read(key: _firstNameKey);
-  Future<String?> getLevelName() async => await _storage.read(key: _levelNameKey);
+  Future<String?> getFirstName() async =>
+      await _storage.read(key: _firstNameKey);
+  Future<String?> getLastName() async =>
+      await _storage.read(key: _lastNameKey);
+  Future<String?> getLevelName() async =>
+      await _storage.read(key: _levelNameKey);
+
+  /// Returns the internal grade code (e.g. 'primary_6') used by the WebSocket.
+  Future<String?> getLevelCode() async =>
+      await _storage.read(key: _levelCodeKey);
 
   Future<String?> getAccessToken() async =>
       await _storage.read(key: _accessKey);
@@ -53,7 +85,9 @@ class TokenManager {
     await _storage.delete(key: _refreshKey);
     await _storage.delete(key: _accountIdKey);
     await _storage.delete(key: _firstNameKey);
+    await _storage.delete(key: _lastNameKey);
     await _storage.delete(key: _levelNameKey);
+    await _storage.delete(key: _levelCodeKey);
     _refreshTimer?.cancel();
   }
 

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:record/record.dart';
 import 'package:flutter_pcm_sound/flutter_pcm_sound.dart';
@@ -15,40 +14,27 @@ class GeminiRoutingService {
   final AudioRecorder _recorder = AudioRecorder();
   StreamSubscription<Uint8List>? _recordSubscription;
 
-  // AI backend WebSocket URL.
-  // Uses adb reverse tunnel (adb reverse tcp:8000 tcp:8000) so the phone
-  // reaches the PC's FastAPI server over USB — no Wi-Fi IP needed.
   final String _baseWsUrl = 'ws://127.0.0.1:8000/ws';
 
   bool _isConnected = false;
   bool get isConnected => _isConnected;
 
-  bool _isGeminiSpeaking = false;
-  Timer? _speechTimer;
+  // -------------------------------------------------------------
+  // STRICT SOFTWARE MUTING STATE
+  // -------------------------------------------------------------
+  bool _isAiSpeaking = false;
+  Timer? _safetyUnmuteTimer;
 
   GeminiRoutingService(this._tokenManager);
 
   Future<void> connect({VoidCallback? onErrorCallback}) async {
     if (_isConnected) return;
 
-    // ── FIX 1: Always clean up any previous session before starting a new one.
-    // This prevents a stale recorder stream / subscription from a previous
-    // session that didn't clean up properly (e.g. background kill, crash).
     await _cleanup();
-
-    // ── FIX 2: Always reset speaking flag so mic is never silently muted
-    // at the start of a fresh session.
-    _isGeminiSpeaking = false;
-    _speechTimer?.cancel();
-    _speechTimer = null;
 
     try {
       final firstName = await _tokenManager.getFirstName() ?? 'Student';
       final levelName = await _tokenManager.getLevelCode() ?? 'primary_6';
-
-      debugPrint(
-        '[GeminiRoutingService] Connecting as: name=$firstName, grade_level=$levelName',
-      );
 
       final token = await _tokenManager.getAccessToken() ?? '';
 
@@ -59,7 +45,6 @@ class GeminiRoutingService {
       debugPrint('Connecting to Voice Commander AI WebSocket at $wsUrl');
       _channel = WebSocketChannel.connect(wsUrl);
 
-      // Wait for the actual TCP+WS handshake to complete before proceeding.
       await _channel!.ready.timeout(
         const Duration(seconds: 8),
         onTimeout: () {
@@ -70,60 +55,56 @@ class GeminiRoutingService {
       _isConnected = true;
       debugPrint('Voice Commander AI WebSocket connected successfully.');
 
-      // Handle output from Gemini (Audio bytes)
       _setupPlayback();
 
       _channel?.stream.listen(
         (data) {
           if (data is Uint8List) {
-            // The backend prepends a 4-byte big-endian generation_id header to
-            // every audio chunk for barge-in tracking. We must skip those bytes
-            // before feeding raw PCM to the speaker.
             const int headerBytes = 4;
-            if (data.lengthInBytes <= headerBytes) return; // safety guard
+            if (data.lengthInBytes <= headerBytes) return;
 
+            // 1. The AI sent audio. MUTE THE MIC IMMEDIATELY.
+            _isAiSpeaking = true;
+
+            // Safety fallback: If turn_complete gets lost, unmute after 3 seconds of silence.
+            _safetyUnmuteTimer?.cancel();
+            _safetyUnmuteTimer = Timer(const Duration(seconds: 3), () {
+              _isAiSpeaking = false;
+              debugPrint('[GeminiRoutingService] Safety unmute triggered.');
+            });
+
+            // 2. Play the audio
             FlutterPcmSound.feed(
               PcmArrayInt16(
                 bytes: ByteData.view(
                   data.buffer,
-                  data.offsetInBytes + headerBytes, // skip header
-                  data.lengthInBytes - headerBytes, // trim length
+                  data.offsetInBytes + headerBytes,
+                  data.lengthInBytes - headerBytes,
                 ),
               ),
             );
-
-            // Software Echo Cancellation: Mute mic while playing
-            _isGeminiSpeaking = true;
-            _speechTimer?.cancel();
-            _speechTimer = Timer(const Duration(milliseconds: 1000), () {
-              _isGeminiSpeaking = false;
-            });
           } else if (data is String) {
-            // ── JSON control messages from backend ──
             try {
               final Map<String, dynamic> json = jsonDecode(data);
               final String? type = json['type'] as String?;
 
-              if (type == 'interrupt') {
-                // Barge-in: clear the playback buffer immediately.
+              if (type == 'turn_complete') {
+                // 3. The AI finished its entire thought! UNMUTE THE MIC.
+                debugPrint(
+                  '[GeminiRoutingService] AI finished speaking. Mic Unmuted.',
+                );
+                _isAiSpeaking = false;
+                _safetyUnmuteTimer?.cancel();
+              } else if (type == 'interrupt') {
                 debugPrint(
                   '[GeminiRoutingService] Interrupt received — flushing audio buffer.',
                 );
-                // ── FIX 3: Also reset the speaking flag on interrupt so the
-                // mic is unmuted immediately after barge-in is detected.
-                _isGeminiSpeaking = false;
-                _speechTimer?.cancel();
                 FlutterPcmSound.feed(PcmArrayInt16.zeros(count: 0));
               } else if (type == 'ui_navigation') {
                 final String? route = json['route'] as String?;
                 final dynamic payload = json['payload'];
 
-                debugPrint(
-                  '[GeminiRoutingService] Navigation command → $route',
-                );
-
                 if (route != null && route.isNotEmpty) {
-                  // Future.microtask executes instantly! No swiping down required.
                   Future.microtask(() {
                     final navState = EduVoiceApp.navigatorKey.currentState;
                     if (navState != null) {
@@ -133,32 +114,14 @@ class GeminiRoutingService {
                       );
                       if (resolvedRoute != null) {
                         navState.push(resolvedRoute);
-                      } else {
-                        debugPrint(
-                          '[GeminiRoutingService] Unknown route: $route — ignoring.',
-                        );
                       }
-                    } else {
-                      debugPrint(
-                        '[GeminiRoutingService] Navigator not mounted — cannot navigate.',
-                      );
                     }
                   });
                 }
-              } else if (type == 'turn_complete') {
-                // Silently ignore turn_complete to stop log spamming
-              } else {
-                debugPrint('[GeminiRoutingService] Unhandled JSON type: $type');
               }
             } catch (e) {
-              debugPrint(
-                '[GeminiRoutingService] Failed to parse JSON message: $e',
-              );
+              debugPrint('[GeminiRoutingService] Failed to parse JSON: $e');
             }
-          } else {
-            debugPrint(
-              '[GeminiRoutingService] Received unexpected data type: ${data.runtimeType}',
-            );
           }
         },
         onError: (error) {
@@ -172,11 +135,9 @@ class GeminiRoutingService {
         },
       );
 
-      // Start Recording
       await _startRecording();
-    } catch (e, stackTrace) {
+    } catch (e) {
       debugPrint('Voice Commander AI Connection exception: $e');
-      debugPrint('Stack trace: $stackTrace');
       _isConnected = false;
       _channel?.sink.close();
       _channel = null;
@@ -185,38 +146,41 @@ class GeminiRoutingService {
   }
 
   Future<void> _setupPlayback() async {
-    // Gemini Live API returns audio at 24000Hz PCM
-    await FlutterPcmSound.setup(sampleRate: 24000, channelCount: 1); // 1 = mono
+    await FlutterPcmSound.setup(sampleRate: 24000, channelCount: 1);
   }
 
   Future<void> _startRecording() async {
-    // ── FIX 4: Always cancel any existing subscription before starting a new
-    // stream. Ensures no two subscriptions ever feed the same or different
-    // channels simultaneously.
     await _recordSubscription?.cancel();
     _recordSubscription = null;
-    if (await _recorder.isRecording()) {
-      await _recorder.stop();
-    }
+
+    try {
+      if (await _recorder.isRecording()) {
+        await _recorder.stop();
+      }
+    } catch (_) {}
 
     if (await _recorder.hasPermission()) {
       const config = RecordConfig(
         encoder: AudioEncoder.pcm16bits,
         sampleRate: 16000,
         numChannels: 1,
-        echoCancel: false,
-        noiseSuppress: false,
+        echoCancel: true,
+        noiseSuppress: true,
       );
 
       final recordStream = await _recorder.startStream(config);
 
       _recordSubscription = recordStream.listen((data) {
-        // Guard: only send if channel is still alive and mic is not muted
-        if (_channel != null && _isConnected && !_isGeminiSpeaking) {
-          _channel!.sink.add(data);
+        if (_channel != null && _isConnected) {
+          // -------------------------------------------------------------
+          // STRICT MIC GATE: Only send data if the AI is totally silent!
+          // -------------------------------------------------------------
+          if (!_isAiSpeaking) {
+            _channel!.sink.add(data);
+          }
         }
       });
-      debugPrint('Recording started and streaming to Gemini...');
+      debugPrint('Recording started. Strict Mute Gate active.');
     } else {
       debugPrint('[GeminiRoutingService] Microphone permission denied!');
     }
@@ -234,9 +198,7 @@ class GeminiRoutingService {
   }
 
   Future<void> _cleanup() async {
-    _speechTimer?.cancel();
-    _speechTimer = null;
-    _isGeminiSpeaking = false;
+    _safetyUnmuteTimer?.cancel();
     await _recordSubscription?.cancel();
     _recordSubscription = null;
     try {
@@ -252,8 +214,6 @@ class GeminiRoutingService {
   void sendMessage(String message) {
     if (_channel != null && _isConnected) {
       _channel!.sink.add(message);
-    } else {
-      debugPrint('Cannot send message: WebSocket is not connected');
     }
   }
 }

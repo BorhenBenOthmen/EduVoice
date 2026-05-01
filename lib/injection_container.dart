@@ -9,7 +9,6 @@ import 'features/auth/data/auth_repository.dart';
 import 'core/audio/tts_service.dart';
 
 import 'core/audio/lesson_audio_player_service.dart';
-import 'features/course/data/course_repository.dart';
 import 'features/voice_commander/data/gemini_routing_service.dart';
 
 // ==========================================
@@ -71,7 +70,6 @@ Future<void> setupDependencies() async {
     () => AuthRepository(locator<TokenManager>(), locator<http.Client>()),
   );
 
-  locator.registerLazySingleton(() => CourseRepository());
 
   // ==========================================
   // 6. PHASE 5: LESSON DATA PIPELINE
