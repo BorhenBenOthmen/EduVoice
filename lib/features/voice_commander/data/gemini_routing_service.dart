@@ -65,12 +65,12 @@ class GeminiRoutingService {
 
             // 1. The AI sent audio. MUTE THE MIC IMMEDIATELY.
             _isAiSpeaking = true;
-
+            
             // Safety fallback: If turn_complete gets lost, unmute after 3 seconds of silence.
             _safetyUnmuteTimer?.cancel();
             _safetyUnmuteTimer = Timer(const Duration(seconds: 3), () {
-              _isAiSpeaking = false;
-              debugPrint('[GeminiRoutingService] Safety unmute triggered.');
+               _isAiSpeaking = false;
+               debugPrint('[GeminiRoutingService] Safety unmute triggered.');
             });
 
             // 2. Play the audio
@@ -83,6 +83,7 @@ class GeminiRoutingService {
                 ),
               ),
             );
+
           } else if (data is String) {
             try {
               final Map<String, dynamic> json = jsonDecode(data);
@@ -90,16 +91,14 @@ class GeminiRoutingService {
 
               if (type == 'turn_complete') {
                 // 3. The AI finished its entire thought! UNMUTE THE MIC.
-                debugPrint(
-                  '[GeminiRoutingService] AI finished speaking. Mic Unmuted.',
-                );
+                debugPrint('[GeminiRoutingService] AI finished speaking. Mic Unmuted.');
                 _isAiSpeaking = false;
                 _safetyUnmuteTimer?.cancel();
+
               } else if (type == 'interrupt') {
-                debugPrint(
-                  '[GeminiRoutingService] Interrupt received — flushing audio buffer.',
-                );
+                debugPrint('[GeminiRoutingService] Interrupt received — flushing audio buffer.');
                 FlutterPcmSound.feed(PcmArrayInt16.zeros(count: 0));
+                
               } else if (type == 'ui_navigation') {
                 final String? route = json['route'] as String?;
                 final dynamic payload = json['payload'];
@@ -108,10 +107,7 @@ class GeminiRoutingService {
                   Future.microtask(() {
                     final navState = EduVoiceApp.navigatorKey.currentState;
                     if (navState != null) {
-                      final resolvedRoute = AppRouteResolver.resolve(
-                        route,
-                        payload,
-                      );
+                      final resolvedRoute = AppRouteResolver.resolve(route, payload);
                       if (resolvedRoute != null) {
                         navState.push(resolvedRoute);
                       }
@@ -146,13 +142,13 @@ class GeminiRoutingService {
   }
 
   Future<void> _setupPlayback() async {
-    await FlutterPcmSound.setup(sampleRate: 24000, channelCount: 1);
+    await FlutterPcmSound.setup(sampleRate: 24000, channelCount: 1); 
   }
 
   Future<void> _startRecording() async {
     await _recordSubscription?.cancel();
     _recordSubscription = null;
-
+    
     try {
       if (await _recorder.isRecording()) {
         await _recorder.stop();
@@ -164,8 +160,8 @@ class GeminiRoutingService {
         encoder: AudioEncoder.pcm16bits,
         sampleRate: 16000,
         numChannels: 1,
-        echoCancel: true,
-        noiseSuppress: true,
+        echoCancel: true,      
+        noiseSuppress: true,   
       );
 
       final recordStream = await _recorder.startStream(config);
