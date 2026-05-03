@@ -6,7 +6,6 @@ import 'package:get_it/get_it.dart';
 import '../core/auth/token_manager.dart';
 import '../features/auth/presentation/login_screen.dart';
 import '../features/home/presentation/home_screen.dart';
-import '../l10n/app_localizations.dart';
 
 /// Splash screen displayed on cold start.
 ///
@@ -49,8 +48,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final l = AppLocalizations.of(context);
-
     return Scaffold(
       backgroundColor: const Color(0xFFEAE6DA), // Beige background to match logo
       body: Center(

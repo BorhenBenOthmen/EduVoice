@@ -262,6 +262,5 @@
   "profileConfirmPasswordSemantics": "حقل تأكيد كلمة المرور الجديدة",
   "profileChangePasswordSemantics": "زر تغيير كلمة المرور. انقر مرتين للتأكيد.",
   "profileLogoutSemantics": "زر تسجيل الخروج. انقر مرتين للخروج من التطبيق.",
-  "profileOldPasswordError": "كلمة المرور الحالية غير صحيحة.",
-
+  "profileOldPasswordError": "كلمة المرور الحالية غير صحيحة."
 }
