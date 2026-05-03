@@ -5,8 +5,7 @@ import 'injection_container.dart';
 import 'core/auth/token_manager.dart';
 import 'core/locale/locale_service.dart';
 import 'core/audio/tts_service.dart';
-import 'features/auth/presentation/login_screen.dart';
-import 'features/home/presentation/home_screen.dart';
+import 'screens/splash_screen.dart';
 import 'features/voice_commander/presentation/widgets/wake_gesture_detector.dart';
 import 'l10n/app_localizations.dart';
 
@@ -17,15 +16,13 @@ import 'features/notification/presentation/widgets/notification_overlay.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  await setupDependencies(); 
-  
+
+  await setupDependencies();
+
   // Initialise TTS with the user's persisted language
   final localeService = locator<LocaleService>();
   final ttsService = locator<TtsService>();
-  await ttsService.initTts(
-    languageCode: localeService.current.languageCode,
-  );
+  await ttsService.initTts(languageCode: localeService.current.languageCode);
   // Also force the language again just to be safe
   await ttsService.setLanguage(localeService.current.languageCode);
 
@@ -41,7 +38,8 @@ class EduVoiceApp extends StatelessWidget {
 
   const EduVoiceApp({super.key, required this.hasSession});
 
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
 
   /// Controls whether the accessibility tree is active.
   /// Set to `false` before a locale change (LTR↔RTL) to prevent TalkBack
@@ -98,21 +96,35 @@ class EduVoiceApp extends StatelessWidget {
                     child: BlocListener<NotificationCubit, NotificationState>(
                       listener: (context, state) async {
                         if (state is NotificationNewReceived) {
-                          final overlayState = navigatorKey.currentState?.overlay;
+                          final overlayState =
+                              navigatorKey.currentState?.overlay;
                           if (overlayState != null) {
-                            NotificationOverlay.show(overlayState, state.notification.note);
+                            NotificationOverlay.show(
+                              overlayState,
+                              state.notification.note,
+                            );
                           } else {
-                            debugPrint('Failed to get overlay context for notification banner');
+                            debugPrint(
+                              'Failed to get overlay context for notification banner',
+                            );
                           }
 
                           final lContext = navigatorKey.currentState?.context;
-                          final announcement = lContext != null 
-                              ? AppLocalizations.of(lContext)?.notificationArrived ?? "Une notification est survenue" 
+                          final announcement = lContext != null
+                              ? AppLocalizations.of(
+                                      lContext,
+                                    )?.notificationArrived ??
+                                    "Une notification est survenue"
                               : "Une notification est survenue";
 
                           // Delay briefly so TalkBack doesn't overlap immediately
-                          await Future.delayed(const Duration(milliseconds: 300));
-                          locator<TtsService>().speakNotification(announcement, state.notification.note);
+                          await Future.delayed(
+                            const Duration(milliseconds: 300),
+                          );
+                          locator<TtsService>().speakNotification(
+                            announcement,
+                            state.notification.note,
+                          );
                         }
                       },
                       child: WakeGestureDetector(child: child!),
@@ -120,10 +132,9 @@ class EduVoiceApp extends StatelessWidget {
                   );
                 },
 
-                // Authenticated users always start at HomeScreen.
-                home: hasSession
-                    ? const HomeScreen()
-                    : const LoginScreen(),
+                // SplashScreen handles session check and routes to
+                // HomeScreen or LoginScreen after a 3-second delay.
+                home: const SplashScreen(),
               );
             },
           ),

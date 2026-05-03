@@ -1221,6 +1221,18 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'Le mot de passe actuel est incorrect.'**
   String get profileOldPasswordError;
+
+  /// No description provided for @splashSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'EduVoice. Chargement de l\'application.'**
+  String get splashSemantics;
+
+  /// No description provided for @splashTts.
+  ///
+  /// In fr, this message translates to:
+  /// **'EduVoice est en cours de chargement. Veuillez patienter.'**
+  String get splashTts;
 }
 
 class _AppLocalizationsDelegate

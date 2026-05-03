@@ -634,4 +634,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get profileOldPasswordError => 'كلمة المرور الحالية غير صحيحة.';
+
+  @override
+  String get splashSemantics => 'EduVoice. جارٍ تحميل التطبيق.';
+
+  @override
+  String get splashTts => 'EduVoice في طور التحميل. يرجى الانتظار.';
 }

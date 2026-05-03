@@ -640,4 +640,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileOldPasswordError => 'Current password is incorrect.';
+
+  @override
+  String get splashSemantics => 'EduVoice. Loading the application.';
+
+  @override
+  String get splashTts => 'EduVoice is loading. Please wait.';
 }

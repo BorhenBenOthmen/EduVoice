@@ -50,6 +50,7 @@ dependencies:
   sensors_plus: ^6.1.1
   web_socket_channel: ^3.0.3
   flutter_pcm_sound: ^3.3.3
+  flutter_svg: ^2.2.4
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,7 @@ flutter:
   generate: true
 
   assets:
+    - assets/icon/
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -105,3 +107,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+ 
