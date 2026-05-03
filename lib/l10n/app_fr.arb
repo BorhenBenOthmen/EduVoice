@@ -266,6 +266,4 @@
   "profileLogoutSemantics": "Bouton se déconnecter. Appuyez deux fois pour quitter l'application.",
   "profileOldPasswordError": "Le mot de passe actuel est incorrect.",
 
-  "splashSemantics": "EduVoice. Chargement de l'application.",
-  "splashTts": "EduVoice est en cours de chargement. Veuillez patienter."
 }

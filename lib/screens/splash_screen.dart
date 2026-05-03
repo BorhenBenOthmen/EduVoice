@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: const Color(0xFFEAE6DA), // Beige background to match logo
       body: Center(
         child: Semantics(
-          label: l?.splashSemantics ?? 'EduVoice',
+          label: 'EduVoice',
           child: ExcludeSemantics(
             child: Image.asset(
               'assets/images/logo.png',

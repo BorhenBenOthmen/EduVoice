@@ -264,6 +264,4 @@
   "profileLogoutSemantics": "Log out button. Double-tap to log out of the application.",
   "profileOldPasswordError": "Current password is incorrect.",
 
-  "splashSemantics": "EduVoice. Loading the application.",
-  "splashTts": "EduVoice is loading. Please wait."
 }
