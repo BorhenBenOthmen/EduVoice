@@ -1,11 +1,13 @@
 // lib/screens/splash_screen.dart
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../core/auth/token_manager.dart';
 import '../features/auth/presentation/login_screen.dart';
 import '../features/home/presentation/home_screen.dart';
+import 'offline_screen.dart';
 
 /// Splash screen displayed on cold start.
 ///
@@ -26,13 +28,33 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-
     // Navigate after 1 second based on session state.
     Timer(const Duration(seconds: 1), _navigateToNextScreen);
   }
 
+  Future<bool> _hasInternet() async {
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+    } on SocketException catch (_) {
+      return false;
+    }
+  }
+
   Future<void> _navigateToNextScreen() async {
     if (!mounted) return;
+
+    final isOnline = await _hasInternet();
+
+    if (!mounted) return;
+
+    if (!isOnline) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const OfflineScreen()),
+      );
+      return;
+    }
 
     final hasSession = await GetIt.I<TokenManager>().hasValidSession();
 
@@ -49,7 +71,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEAE6DA), // Beige background to match logo
+      backgroundColor: const Color(
+        0xFFEAE6DA,
+      ), // Beige background to match logo
       body: Center(
         child: Semantics(
           label: 'EduVoice',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/audio/tts_service.dart';
 import '../../../injection_container.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../core/theme/app_theme.dart';
 
 /// About screen for EduVoice — blind-accessible, fully TTS-narrated on load.
 ///
@@ -35,22 +36,20 @@ class _AboutScreenState extends State<AboutScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         elevation: 0,
         title: Text(
           l.aboutTitle,
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppTheme.navy,
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.cyanAccent),
+        iconTheme: const IconThemeData(color: AppTheme.cream),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(2.0),
-          child: Container(color: Colors.cyanAccent, height: 2.0),
+          child: Container(color: AppTheme.darkTeal, height: 2.0),
         ),
       ),
       body: SafeArea(
@@ -69,25 +68,25 @@ class _AboutScreenState extends State<AboutScreen> {
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.cyanAccent, width: 2),
+                  border: Border.all(color: AppTheme.darkTeal, width: 2),
                 ),
                 child: Column(
                   children: [
-                    const Icon(Icons.headphones, size: 64, color: Colors.cyanAccent),
+                    const Icon(Icons.headphones, size: 64, color: AppTheme.cream),
                     const SizedBox(height: 16),
                     const Text(
                       'EduVoice',
                       style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppTheme.cream,
                         letterSpacing: 1.4,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       '${l.aboutVersionLabel} ${l.aboutVersion}',
-                      style: const TextStyle(fontSize: 18, color: Colors.cyanAccent),
+                      style: const TextStyle(fontSize: 18, color: AppTheme.cream),
                     ),
                   ],
                 ),
@@ -141,13 +140,13 @@ class _AboutScreenState extends State<AboutScreen> {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.amberAccent, width: 2),
+                  border: Border.all(color: AppTheme.darkTeal, width: 2),
                   borderRadius: BorderRadius.circular(16),
-                  color: Colors.amberAccent.withAlpha(15),
+                  color: AppTheme.teal.withAlpha(25),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.mail_outline, color: Colors.amberAccent, size: 32),
+                    const Icon(Icons.mail_outline, color: AppTheme.navy, size: 32),
                     const SizedBox(width: 16),
                     Expanded(
                       child: Column(
@@ -157,7 +156,7 @@ class _AboutScreenState extends State<AboutScreen> {
                             l.aboutContactTitle,
                             style: const TextStyle(
                               fontSize: 16,
-                              color: Colors.amberAccent,
+                              color: AppTheme.darkTeal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -166,7 +165,7 @@ class _AboutScreenState extends State<AboutScreen> {
                             l.aboutContactBody,
                             style: const TextStyle(
                               fontSize: 18,
-                              color: Colors.white,
+                              color: AppTheme.navy,
                             ),
                           ),
                         ],
@@ -196,14 +195,14 @@ class _SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(width: 4, height: 24, color: Colors.cyanAccent),
+        Container(width: 4, height: 24, color: AppTheme.darkTeal),
         const SizedBox(width: 12),
         Text(
           title,
           style: const TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppTheme.navy,
           ),
         ),
       ],
@@ -227,23 +226,23 @@ class _AboutSection extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.grey[900],
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.grey[800]!, width: 1.5),
+          border: Border.all(color: AppTheme.darkTeal, width: 1.5),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                Icon(icon, color: Colors.cyanAccent, size: 28),
+                Icon(icon, color: AppTheme.navy, size: 28),
                 const SizedBox(width: 12),
                 Text(
                   title,
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.cyanAccent,
+                    color: AppTheme.navy,
                   ),
                 ),
               ],
@@ -253,7 +252,7 @@ class _AboutSection extends StatelessWidget {
               body,
               style: const TextStyle(
                 fontSize: 17,
-                color: Colors.white70,
+                color: AppTheme.darkTeal,
                 height: 1.5,
               ),
             ),
@@ -278,7 +277,7 @@ class _FeatureTile extends StatelessWidget {
               width: 6,
               height: 6,
               decoration: const BoxDecoration(
-                color: Colors.cyanAccent,
+                color: AppTheme.darkTeal,
                 shape: BoxShape.circle,
               ),
             ),
@@ -286,7 +285,7 @@ class _FeatureTile extends StatelessWidget {
             Expanded(
               child: Text(
                 text,
-                style: const TextStyle(fontSize: 18, color: Colors.white),
+                style: const TextStyle(fontSize: 18, color: AppTheme.navy),
               ),
             ),
           ],

@@ -262,5 +262,11 @@
   "profileConfirmPasswordSemantics": "حقل تأكيد كلمة المرور الجديدة",
   "profileChangePasswordSemantics": "زر تغيير كلمة المرور. انقر مرتين للتأكيد.",
   "profileLogoutSemantics": "زر تسجيل الخروج. انقر مرتين للخروج من التطبيق.",
-  "profileOldPasswordError": "كلمة المرور الحالية غير صحيحة."
+  "profileOldPasswordError": "كلمة المرور الحالية غير صحيحة.",
+
+  "offlineSemanticsAnnouncement": "لا يوجد اتصال بالإنترنت. يرجى النقر نقرًا مزدوجًا على زر إعادة المحاولة في أسفل الشاشة للمحاولة مرة أخرى.",
+  "offlineTitle": "لا يوجد اتصال",
+  "offlineMessage": "يرجى التحقق من اتصال الإنترنت أو بيانات الهاتف.",
+  "offlineRetryButton": "إعادة المحاولة",
+  "offlineRetryHint": "انقر نقرًا مزدوجًا للتحقق من اتصال الإنترنت مرة أخرى"
 }

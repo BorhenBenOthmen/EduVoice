@@ -8,6 +8,7 @@ import 'core/audio/tts_service.dart';
 import 'screens/splash_screen.dart';
 import 'features/voice_commander/presentation/widgets/wake_gesture_detector.dart';
 import 'l10n/app_localizations.dart';
+import 'core/theme/app_theme.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/notification/presentation/state/notification_cubit.dart';
@@ -76,13 +77,7 @@ class EduVoiceApp extends StatelessWidget {
                 ],
 
                 // ── Theme ─────────────────────────────────────────────────
-                theme: ThemeData(
-                  // High Contrast Theme Standard
-                  primarySwatch: Colors.blue,
-                  scaffoldBackgroundColor: Colors.black,
-                  brightness: Brightness.dark,
-                  useMaterial3: true,
-                ),
+                theme: AppTheme.lightTheme,
 
                 builder: (context, child) {
                   return BlocProvider(

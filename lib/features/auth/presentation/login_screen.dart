@@ -8,6 +8,7 @@ import '../../../l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../notification/presentation/state/notification_cubit.dart';
 import '../../home/presentation/home_screen.dart';
+import '../../../core/theme/app_theme.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -79,13 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.black, // High contrast background
       appBar: AppBar(
         title: Text(
           l.loginTitle,
-          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.black,
         elevation: 0,
         centerTitle: true,
       ),
@@ -102,16 +100,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
-                  style: const TextStyle(fontSize: 24, color: Colors.white),
+                  style: const TextStyle(fontSize: 24, color: AppTheme.navy),
                   decoration: InputDecoration(
                     labelText: l.loginEmailLabel,
-                    labelStyle: const TextStyle(fontSize: 24, color: Colors.yellowAccent),
+                    labelStyle: const TextStyle(fontSize: 24, color: AppTheme.darkTeal),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white, width: 2),
+                      borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.yellowAccent, width: 3),
+                      borderSide: const BorderSide(color: AppTheme.navy, width: 3),
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
@@ -125,16 +123,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: true,
                   textInputAction: TextInputAction.done,
                   onSubmitted: (_) => _handleLogin(),
-                  style: const TextStyle(fontSize: 24, color: Colors.white),
+                  style: const TextStyle(fontSize: 24, color: AppTheme.navy),
                   decoration: InputDecoration(
                     labelText: l.loginPasswordLabel,
-                    labelStyle: const TextStyle(fontSize: 24, color: Colors.yellowAccent),
+                    labelStyle: const TextStyle(fontSize: 24, color: AppTheme.darkTeal),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white, width: 2),
+                      borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.yellowAccent, width: 3),
+                      borderSide: const BorderSide(color: AppTheme.navy, width: 3),
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
@@ -149,14 +147,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                     onPressed: _isLoading ? null : _handleLogin,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.yellowAccent, // High contrast button
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppTheme.darkTeal, // High contrast button
+                      foregroundColor: AppTheme.cream,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
                     child: _isLoading
-                        ? const CircularProgressIndicator(color: Colors.black)
+                        ? const CircularProgressIndicator(color: AppTheme.cream)
                         : Text(
                             l.loginButton,
                             style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),

@@ -5,6 +5,7 @@ import '../../../../injection_container.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../core/audio/lesson_audio_player_service.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class SmartPodcastPlayer extends StatefulWidget {
   final Podcast podcast;
@@ -150,17 +151,15 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
     final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.podcast.description);
 
     return Scaffold(
-        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.lightGreenAccent),
+          iconTheme: const IconThemeData(color: AppTheme.cream),
           title: Semantics(
             header: true,
             child: Text(
               widget.podcast.name,
               locale: isArabicName ? const Locale('ar') : null,
               style: const TextStyle(
-                color: Colors.lightGreenAccent,
+                color: AppTheme.cream,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
@@ -179,7 +178,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                     widget.podcast.description,
                     locale: isArabicDesc ? const Locale('ar') : null,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: AppTheme.navy,
                       fontSize: 20,
                       height: 1.6,
                     ),
@@ -207,14 +206,14 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Divider(color: Colors.lightGreenAccent),
+                        const Divider(color: AppTheme.darkTeal),
                         const SizedBox(height: 8),
                         Row(
                           children: [
                             Text(
                               l.podcastPlayerTranscript,
                               style: const TextStyle(
-                                color: Colors.lightGreenAccent,
+                                color: AppTheme.darkTeal,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -229,7 +228,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                                       () => _transcriptionExpanded = false),
                                   child: const Icon(
                                     Icons.keyboard_arrow_up,
-                                    color: Colors.lightGreenAccent,
+                                    color: AppTheme.darkTeal,
                                     size: 28,
                                   ),
                                 ),
@@ -257,7 +256,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                                           TextSpan(
                                             text: '${line.speaker}: ',
                                             style: const TextStyle(
-                                              color: Colors.lightGreenAccent,
+                                              color: AppTheme.darkTeal,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 17,
                                             ),
@@ -265,7 +264,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                                           TextSpan(
                                             text: line.text,
                                             style: const TextStyle(
-                                              color: Colors.white70,
+                                              color: AppTheme.navy,
                                               fontSize: 17,
                                             ),
                                           ),
@@ -288,17 +287,17 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                   padding: const EdgeInsets.all(12),
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: Colors.lightGreenAccent.withValues(alpha: 0.15),
+                    color: AppTheme.teal.withAlpha(25),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: Colors.lightGreenAccent,
+                      color: AppTheme.darkTeal,
                       width: 1,
                     ),
                   ),
                   child: Text(
                     l.podcastPlayerNoAudio,
                     style: const TextStyle(
-                      color: Colors.lightGreenAccent,
+                      color: AppTheme.darkTeal,
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
@@ -311,7 +310,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                     Text(
                       _formatDuration(_position),
                       style: const TextStyle(
-                        color: Colors.white70,
+                        color: AppTheme.navy,
                         fontSize: 14,
                       ),
                     ),
@@ -330,8 +329,8 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                         divisions: _duration.inSeconds > 0
                             ? (_duration.inSeconds ~/ 10).clamp(1, 10000)
                             : null,
-                        activeColor: Colors.lightGreenAccent,
-                        inactiveColor: Colors.white24,
+                        activeColor: AppTheme.darkTeal,
+                        inactiveColor: AppTheme.navy.withAlpha(50),
                         semanticFormatterCallback: (value) {
                           final pos = Duration(seconds: value.toInt());
                           return '${_formatSemanticDuration(pos)} / ${_formatSemanticDuration(_duration)}';
@@ -351,7 +350,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                     Text(
                       _formatDuration(_duration),
                       style: const TextStyle(
-                        color: Colors.white70,
+                        color: AppTheme.navy,
                         fontSize: 14,
                       ),
                     ),
@@ -373,11 +372,11 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                           width: 80,
                           height: 80,
                           decoration: BoxDecoration(
-                            color: Colors.lightGreenAccent,
+                            color: AppTheme.darkTeal,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.lightGreenAccent.withValues(alpha: 0.4),
+                                color: AppTheme.darkTeal.withValues(alpha: 0.4),
                                 blurRadius: 20,
                                 spreadRadius: 4,
                               ),
@@ -387,7 +386,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                             _isPlaying
                                 ? Icons.pause_rounded
                                 : Icons.play_arrow_rounded,
-                            color: Colors.black,
+                            color: AppTheme.cream,
                             size: 48,
                           ),
                         ),
@@ -408,7 +407,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                     child: OutlinedButton.icon(
                       style: OutlinedButton.styleFrom(
                         side: const BorderSide(
-                          color: Colors.lightGreenAccent,
+                          color: AppTheme.darkTeal,
                           width: 1.5,
                         ),
                         shape: RoundedRectangleBorder(
@@ -418,13 +417,13 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
                       onPressed: _cycleSpeed,
                       icon: const Icon(
                         Icons.speed_rounded,
-                        color: Colors.lightGreenAccent,
+                        color: AppTheme.darkTeal,
                         size: 28,
                       ),
                       label: Text(
                         '${_audioService.playbackRate}x',
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.darkTeal,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
@@ -453,7 +452,7 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
           style: ElevatedButton.styleFrom(
             backgroundColor: _isTtsPlaying
                 ? Colors.redAccent
-                : Colors.lightGreenAccent,
+                : AppTheme.darkTeal,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -461,13 +460,13 @@ class _SmartPodcastPlayerState extends State<SmartPodcastPlayer> {
           onPressed: _toggleTts,
           icon: Icon(
             _isTtsPlaying ? Icons.stop_rounded : Icons.volume_up_rounded,
-            color: Colors.black,
+            color: AppTheme.cream,
             size: 32,
           ),
           label: Text(
             _isTtsPlaying ? l.lessonPlayerStopTts : l.podcastPlayerListen,
             style: const TextStyle(
-              color: Colors.black,
+              color: AppTheme.cream,
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),

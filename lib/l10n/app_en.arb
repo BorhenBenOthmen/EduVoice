@@ -262,5 +262,11 @@
   "profileConfirmPasswordSemantics": "Confirm new password input field",
   "profileChangePasswordSemantics": "Change password button. Double-tap to confirm.",
   "profileLogoutSemantics": "Log out button. Double-tap to log out of the application.",
-  "profileOldPasswordError": "Current password is incorrect."
+  "profileOldPasswordError": "Current password is incorrect.",
+
+  "offlineSemanticsAnnouncement": "No internet connection. Please double tap the retry button at the bottom of the screen to try again.",
+  "offlineTitle": "No Connection",
+  "offlineMessage": "Please check your internet or mobile data.",
+  "offlineRetryButton": "Retry Connection",
+  "offlineRetryHint": "Double tap to check the internet connection again"
 }

@@ -5,7 +5,7 @@ import '../../../injection_container.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../main.dart';
 import '../../about/presentation/about_screen.dart';
-
+import '../../../core/theme/app_theme.dart';
 
 
 /// Full-featured Settings screen for EduVoice — designed for blind users.
@@ -130,22 +130,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final currentCode = _locale.current.languageCode;
 
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         elevation: 0,
         title: Text(
           l.settingsTitle,
-          style: const TextStyle(
-            fontSize: 26,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
         ),
-        iconTheme: const IconThemeData(color: Colors.cyanAccent),
+        iconTheme: const IconThemeData(color: AppTheme.cream),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(2.0),
-          child: Container(color: Colors.cyanAccent, height: 2.0),
+          child: Container(color: AppTheme.darkTeal, height: 2.0),
         ),
       ),
       body: SafeArea(
@@ -196,7 +189,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               l.settingsTtsSpeed,
               style: const TextStyle(
                 fontSize: 20,
-                color: Colors.amberAccent,
+                color: AppTheme.navy,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -229,7 +222,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               l.settingsTtsVolume,
               style: const TextStyle(
                 fontSize: 20,
-                color: Colors.amberAccent,
+                color: AppTheme.navy,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -240,10 +233,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               value: '${(_volume * 100).round()}%',
               child: SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: Colors.cyanAccent,
-                  inactiveTrackColor: Colors.grey[800],
-                  thumbColor: Colors.cyanAccent,
-                  overlayColor: Colors.cyanAccent.withAlpha(30),
+                  activeTrackColor: AppTheme.darkTeal,
+                  inactiveTrackColor: AppTheme.darkTeal.withAlpha(50),
+                  thumbColor: AppTheme.darkTeal,
+                  overlayColor: AppTheme.darkTeal.withAlpha(30),
                   thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 14),
                   trackHeight: 6,
                 ),
@@ -261,7 +254,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Text(
                 '${(_volume * 100).round()}%',
-                style: const TextStyle(fontSize: 18, color: Colors.white70),
+                style: const TextStyle(fontSize: 18, color: AppTheme.navy),
               ),
             ),
             const SizedBox(height: 40),
@@ -282,26 +275,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: Container(
                   height: 80,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.cyanAccent, width: 2),
+                    border: Border.all(color: AppTheme.darkTeal, width: 2),
                     borderRadius: BorderRadius.circular(16),
-                    color: Colors.grey[900],
+                    color: Colors.white,
                   ),
                   child: Row(
                     children: [
                       const SizedBox(width: 20),
-                      const Icon(Icons.info_outline, color: Colors.cyanAccent, size: 32),
+                      const Icon(Icons.info_outline, color: AppTheme.darkTeal, size: 32),
                       const SizedBox(width: 16),
                       Expanded(
                         child: Text(
                           l.settingsAboutButton,
                           style: const TextStyle(
                             fontSize: 22,
-                            color: Colors.white,
+                            color: AppTheme.navy,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      const Icon(Icons.chevron_right, color: Colors.white54, size: 28),
+                      const Icon(Icons.chevron_right, color: AppTheme.navy, size: 28),
                       const SizedBox(width: 16),
                     ],
                   ),
@@ -333,7 +326,7 @@ class _SectionHeader extends StatelessWidget {
         style: const TextStyle(
           fontSize: 13,
           letterSpacing: 1.8,
-          color: Colors.cyanAccent,
+          color: AppTheme.darkTeal,
           fontWeight: FontWeight.w700,
         ),
       ),
@@ -373,11 +366,11 @@ class _LanguageTile extends StatelessWidget {
               height: 80,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: isActive ? Colors.cyanAccent : Colors.grey[700]!,
+                  color: isActive ? AppTheme.navy : AppTheme.darkTeal,
                   width: isActive ? 3 : 1.5,
                 ),
                 borderRadius: BorderRadius.circular(12),
-                color: isActive ? Colors.cyanAccent.withAlpha(25) : Colors.grey[900],
+                color: isActive ? AppTheme.teal.withAlpha(25) : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
@@ -385,7 +378,7 @@ class _LanguageTile extends StatelessWidget {
                 style: TextStyle(
                   fontSize: code == 'ar' ? 18 : 16,
                   fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-                  color: isActive ? Colors.cyanAccent : Colors.white70,
+                  color: isActive ? AppTheme.navy : AppTheme.darkTeal,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -421,11 +414,11 @@ class _SpeedTile extends StatelessWidget {
             height: 72,
             decoration: BoxDecoration(
               border: Border.all(
-                color: isActive ? Colors.amberAccent : Colors.grey[700]!,
+                color: isActive ? AppTheme.navy : AppTheme.darkTeal,
                 width: isActive ? 3 : 1.5,
               ),
               borderRadius: BorderRadius.circular(12),
-              color: isActive ? Colors.amberAccent.withAlpha(25) : Colors.grey[900],
+              color: isActive ? AppTheme.teal.withAlpha(25) : Colors.white,
             ),
             alignment: Alignment.center,
             child: Text(
@@ -433,7 +426,7 @@ class _SpeedTile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-                color: isActive ? Colors.amberAccent : Colors.white70,
+                color: isActive ? AppTheme.navy : AppTheme.darkTeal,
               ),
             ),
           ),

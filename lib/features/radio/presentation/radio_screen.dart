@@ -7,6 +7,7 @@ import 'smart_radio_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class RadioScreen extends StatefulWidget {
   /// Optional pre-filtered data from the AI voice command.
@@ -59,17 +60,14 @@ class _RadioScreenState extends State<RadioScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         title: Semantics(
           header: true,
           child: Text(
             l.radioTitle,
-            style: const TextStyle(color: Colors.amberAccent, fontSize: 28, fontWeight: FontWeight.bold),
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.amberAccent),
+        iconTheme: const IconThemeData(color: AppTheme.cream),
       ),
       body: Column(
         children: [
@@ -91,14 +89,14 @@ class _RadioScreenState extends State<RadioScreen> {
                   return Center(
                     child: Semantics(
                       label: l.radioLoading,
-                      child: const CircularProgressIndicator(color: Colors.amberAccent),
+                      child: const CircularProgressIndicator(color: AppTheme.darkTeal),
                     ),
                   );
                 } else if (state is RadioError) {
                   return Center(
                     child: Text(
                       "Error: ${state.message}",
-                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                      style: const TextStyle(color: AppTheme.navy, fontSize: 20),
                     ),
                   );
                 } else if (state is RadioLoaded) {
@@ -122,7 +120,7 @@ class _RadioScreenState extends State<RadioScreen> {
         textField: true,
         child: TextField(
           controller: _searchController,
-          style: const TextStyle(color: Colors.black, fontSize: 22),
+          style: const TextStyle(color: AppTheme.navy, fontSize: 22),
           textInputAction: TextInputAction.search,
           onChanged: (value) {
             setState(() {
@@ -131,13 +129,21 @@ class _RadioScreenState extends State<RadioScreen> {
           },
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.amberAccent,
+            fillColor: AppTheme.cream,
             hintText: l.radioSearchPlaceholder,
-            hintStyle: const TextStyle(color: Colors.black54),
-            prefixIcon: const Icon(Icons.search, color: Colors.black, size: 32),
+            hintStyle: const TextStyle(color: AppTheme.darkTeal),
+            prefixIcon: const Icon(Icons.search, color: AppTheme.darkTeal, size: 32),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
+              borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.navy, width: 3),
             ),
           ),
         ),
@@ -154,7 +160,7 @@ class _RadioScreenState extends State<RadioScreen> {
       return Center(
         child: Text(
           l.radioEmpty,
-          style: const TextStyle(color: Colors.white, fontSize: 24),
+          style: const TextStyle(color: AppTheme.navy, fontSize: 24),
         ),
       );
     }
@@ -188,7 +194,8 @@ class _RadioScreenState extends State<RadioScreen> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.amberAccent,
+              color: AppTheme.cream,
+              border: Border.all(color: AppTheme.darkTeal, width: 2),
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(24.0),
@@ -199,7 +206,7 @@ class _RadioScreenState extends State<RadioScreen> {
                   emission.title,
                   locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: AppTheme.navy,
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                   ),
@@ -209,7 +216,7 @@ class _RadioScreenState extends State<RadioScreen> {
                   emission.description,
                   locale: isArabicDesc ? const Locale('ar') : null,
                   style: const TextStyle(
-                    color: Colors.black87,
+                    color: AppTheme.darkTeal,
                     fontSize: 20,
                   ),
                   maxLines: 2,

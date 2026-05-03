@@ -4,6 +4,7 @@ import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
 import '../state/notification_list_cubit.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -25,20 +26,18 @@ class _NotificationScreenState extends State<NotificationScreen> {
     final tts = locator<TtsService>();
 
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(l.notificationTitle),
-        backgroundColor: Colors.black,
         elevation: 0,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(2.0),
-          child: Container(color: Colors.cyanAccent, height: 2.0),
+          child: Container(color: AppTheme.darkTeal, height: 2.0),
         ),
       ),
       body: BlocBuilder<NotificationListCubit, NotificationListState>(
         builder: (context, state) {
           if (state is NotificationListLoading) {
-            return const Center(child: CircularProgressIndicator(color: Colors.cyanAccent));
+            return const Center(child: CircularProgressIndicator(color: AppTheme.darkTeal));
           } else if (state is NotificationListLoaded) {
             final notifications = state.notifications;
             
@@ -46,7 +45,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               return Center(
                 child: Text(
                   l.notificationEmpty,
-                  style: const TextStyle(color: Colors.white54, fontSize: 18),
+                  style: const TextStyle(color: AppTheme.darkTeal, fontSize: 18),
                 ),
               );
             }
@@ -60,18 +59,18 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   button: true,
                   onTapHint: l.notificationDeleteSemantics,
                   child: Card(
-                    color: Colors.grey[900],
+                    color: Colors.white,
                     margin: const EdgeInsets.only(bottom: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      side: const BorderSide(color: Colors.cyanAccent, width: 1),
+                      side: const BorderSide(color: AppTheme.darkTeal, width: 1),
                     ),
                     child: ListTile(
                       contentPadding: const EdgeInsets.all(16),
-                      leading: const Icon(Icons.notifications, color: Colors.cyanAccent, size: 32),
+                      leading: const Icon(Icons.notifications, color: AppTheme.navy, size: 32),
                       title: Text(
                         notif.note,
-                        style: const TextStyle(color: Colors.white, fontSize: 18),
+                        style: const TextStyle(color: AppTheme.navy, fontSize: 18),
                       ),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete_outline, color: Colors.redAccent),

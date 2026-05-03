@@ -264,5 +264,11 @@
   "profileConfirmPasswordSemantics": "Champ confirmer le nouveau mot de passe",
   "profileChangePasswordSemantics": "Bouton changer le mot de passe. Appuyez deux fois pour confirmer.",
   "profileLogoutSemantics": "Bouton se déconnecter. Appuyez deux fois pour quitter l'application.",
-  "profileOldPasswordError": "Le mot de passe actuel est incorrect."
+  "profileOldPasswordError": "Le mot de passe actuel est incorrect.",
+
+  "offlineSemanticsAnnouncement": "Pas de connexion internet. Veuillez appuyer deux fois sur le bouton réessayer au bas de l'écran pour tenter à nouveau.",
+  "offlineTitle": "Pas de connexion",
+  "offlineMessage": "Veuillez vérifier votre connexion internet ou vos données mobiles.",
+  "offlineRetryButton": "Réessayer",
+  "offlineRetryHint": "Appuyez deux fois pour vérifier à nouveau la connexion internet"
 }

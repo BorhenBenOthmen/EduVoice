@@ -636,8 +636,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileOldPasswordError => 'كلمة المرور الحالية غير صحيحة.';
 
   @override
-  String get splashSemantics => 'EduVoice. جارٍ تحميل التطبيق.';
+  String get offlineSemanticsAnnouncement =>
+      'لا يوجد اتصال بالإنترنت. يرجى النقر نقرًا مزدوجًا على زر إعادة المحاولة في أسفل الشاشة للمحاولة مرة أخرى.';
 
   @override
-  String get splashTts => 'EduVoice في طور التحميل. يرجى الانتظار.';
+  String get offlineTitle => 'لا يوجد اتصال';
+
+  @override
+  String get offlineMessage =>
+      'يرجى التحقق من اتصال الإنترنت أو بيانات الهاتف.';
+
+  @override
+  String get offlineRetryButton => 'إعادة المحاولة';
+
+  @override
+  String get offlineRetryHint =>
+      'انقر نقرًا مزدوجًا للتحقق من اتصال الإنترنت مرة أخرى';
 }

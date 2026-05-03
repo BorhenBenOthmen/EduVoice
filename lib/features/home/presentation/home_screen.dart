@@ -12,6 +12,7 @@ import '../../../features/radio/presentation/radio_screen.dart';
 import '../../../features/radio/presentation/state/radio_cubit.dart';
 import '../../../features/settings/presentation/settings_screen.dart';
 import '../../../features/about/presentation/about_screen.dart';
+import '../../../core/theme/app_theme.dart';
 import '../../../features/notification/presentation/screens/notification_screen.dart';
 import '../../../features/notification/presentation/state/notification_list_cubit.dart';
 import '../../../features/profile/presentation/profile_screen.dart';
@@ -31,10 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-        backgroundColor: Colors.black,
         appBar: AppBar(
           title: Text(l.homeCatalogueTitle),
-          backgroundColor: Colors.black,
           elevation: 0,
           actions: [
             Semantics(
@@ -56,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 icon: const Icon(
                   Icons.notifications_none,
-                  color: Colors.lightGreenAccent,
+                  color: AppTheme.cream,
                 ),
               ),
             ),
@@ -76,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 icon: const Icon(
                   Icons.account_circle_outlined,
-                  color: Colors.purpleAccent,
+                  color: AppTheme.cream,
                 ),
               ),
             ),
@@ -94,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 icon: const Icon(
                   Icons.settings_outlined,
-                  color: Colors.amberAccent,
+                  color: AppTheme.cream,
                 ),
               ),
             ),
@@ -110,13 +109,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     MaterialPageRoute(builder: (_) => const AboutScreen()),
                   );
                 },
-                icon: const Icon(Icons.info_outline, color: Colors.cyanAccent),
+                icon: const Icon(Icons.info_outline, color: AppTheme.cream),
               ),
             ),
           ],
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(2.0),
-            child: Container(color: Colors.cyanAccent, height: 2.0),
+            child: Container(color: AppTheme.darkTeal, height: 2.0),
           ),
         ),
         body: Column(
@@ -133,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: l.homeMenuLesson,
                     subtitle: l.homeMenuLessonDesc,
                     icon: Icons.school,
-                    color: Colors.cyanAccent,
+                    color: AppTheme.darkTeal,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -150,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: l.homeMenuCulture,
                     subtitle: l.homeMenuCultureDesc,
                     icon: Icons.public,
-                    color: Colors.lightGreenAccent,
+                    color: AppTheme.darkTeal,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -167,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: l.homeMenuPodcast,
                     subtitle: l.homeMenuPodcastDesc,
                     icon: Icons.podcasts,
-                    color: Colors.deepPurpleAccent,
+                    color: AppTheme.darkTeal,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -184,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: l.homeMenuRadio,
                     subtitle: l.homeMenuRadioDesc,
                     icon: Icons.radio,
-                    color: Colors.amberAccent,
+                    color: AppTheme.darkTeal,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -239,7 +238,7 @@ class _MenuCard extends StatelessWidget {
           onTap();
         },
         child: Card(
-          color: Colors.grey[900],
+          color: Colors.white,
           margin: const EdgeInsets.only(bottom: 16),
           shape: RoundedRectangleBorder(
             side: BorderSide(color: color, width: 2),
@@ -260,7 +259,7 @@ class _MenuCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: AppTheme.navy,
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -268,7 +267,7 @@ class _MenuCard extends StatelessWidget {
                         subtitle,
                         style: const TextStyle(
                           fontSize: 18,
-                          color: Colors.white70,
+                          color: AppTheme.darkTeal,
                         ),
                       ),
                     ],
@@ -277,7 +276,7 @@ class _MenuCard extends StatelessWidget {
                 const Icon(
                   Icons.chevron_right,
                   size: 36,
-                  color: Colors.white54,
+                  color: AppTheme.navy,
                 ),
               ],
             ),

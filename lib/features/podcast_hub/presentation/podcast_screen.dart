@@ -7,6 +7,7 @@ import 'smart_podcast_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class PodcastScreen extends StatefulWidget {
   /// Optional pre-filtered data from the AI voice command.
@@ -59,21 +60,14 @@ class _PodcastScreenState extends State<PodcastScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         title: Semantics(
           header: true,
           child: Text(
             l.podcastTitle,
-            style: const TextStyle(
-              color: Colors.cyanAccent,
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-            ),
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.cyanAccent),
+        iconTheme: const IconThemeData(color: AppTheme.cream),
       ),
       body: Column(
         children: [
@@ -96,7 +90,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                     child: Semantics(
                       label: l.podcastLoading,
                       child: const CircularProgressIndicator(
-                        color: Colors.cyanAccent,
+                        color: AppTheme.darkTeal,
                       ),
                     ),
                   );
@@ -104,7 +98,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                   return Center(
                     child: Text(
                       "Error: ${state.message}",
-                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                      style: const TextStyle(color: AppTheme.navy, fontSize: 20),
                     ),
                   );
                 } else if (state is PodcastLoaded) {
@@ -128,7 +122,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
         textField: true,
         child: TextField(
           controller: _searchController,
-          style: const TextStyle(color: Colors.black, fontSize: 22),
+          style: const TextStyle(color: AppTheme.navy, fontSize: 22),
           textInputAction: TextInputAction.search,
           onChanged: (value) {
             setState(() {
@@ -137,13 +131,21 @@ class _PodcastScreenState extends State<PodcastScreen> {
           },
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.cyanAccent,
+            fillColor: AppTheme.cream,
             hintText: l.podcastSearchPlaceholder,
-            hintStyle: const TextStyle(color: Colors.black54),
-            prefixIcon: const Icon(Icons.search, color: Colors.black, size: 32),
+            hintStyle: const TextStyle(color: AppTheme.darkTeal),
+            prefixIcon: const Icon(Icons.search, color: AppTheme.darkTeal, size: 32),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
+              borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.navy, width: 3),
             ),
           ),
         ),
@@ -160,7 +162,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
       return Center(
         child: Text(
           l.podcastEmpty,
-          style: const TextStyle(color: Colors.white, fontSize: 24),
+          style: const TextStyle(color: AppTheme.navy, fontSize: 24),
         ),
       );
     }
@@ -194,7 +196,8 @@ class _PodcastScreenState extends State<PodcastScreen> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.cyanAccent,
+              color: AppTheme.cream,
+              border: Border.all(color: AppTheme.darkTeal, width: 2),
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(24.0),
@@ -205,7 +208,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                   podcast.name,
                   locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: AppTheme.navy,
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                   ),
@@ -214,7 +217,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                 Text(
                   podcast.description,
                   locale: isArabicDesc ? const Locale('ar') : null,
-                  style: const TextStyle(color: Colors.black87, fontSize: 20),
+                  style: const TextStyle(color: AppTheme.darkTeal, fontSize: 20),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

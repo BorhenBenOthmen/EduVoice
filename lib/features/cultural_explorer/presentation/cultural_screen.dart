@@ -7,6 +7,7 @@ import 'cultural_player.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../injection_container.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class CultureScreen extends StatefulWidget {
   /// Optional pre-filtered data from the AI voice command.
@@ -59,21 +60,14 @@ class _CultureScreenState extends State<CultureScreen> {
     final l = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: Colors.black, // Strict Accessibility: High Contrast
       appBar: AppBar(
-        backgroundColor: Colors.black,
         title: Semantics(
           header: true,
           child: Text(
             l.cultureTitle,
-            style: const TextStyle(
-              color: Colors.lightGreenAccent,
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-            ),
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.lightGreenAccent),
+        iconTheme: const IconThemeData(color: AppTheme.cream),
       ),
       body: Column(
         children: [
@@ -96,7 +90,7 @@ class _CultureScreenState extends State<CultureScreen> {
                     child: Semantics(
                       label: l.cultureLoading,
                       child: const CircularProgressIndicator(
-                        color: Colors.lightGreenAccent,
+                        color: AppTheme.darkTeal,
                       ),
                     ),
                   );
@@ -104,7 +98,7 @@ class _CultureScreenState extends State<CultureScreen> {
                   return Center(
                     child: Text(
                       "Error: ${state.message}",
-                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                      style: const TextStyle(color: AppTheme.navy, fontSize: 20),
                     ),
                   );
                 } else if (state is CultureLoaded) {
@@ -128,7 +122,7 @@ class _CultureScreenState extends State<CultureScreen> {
         textField: true,
         child: TextField(
           controller: _searchController,
-          style: const TextStyle(color: Colors.black, fontSize: 22),
+          style: const TextStyle(color: AppTheme.navy, fontSize: 22),
           textInputAction: TextInputAction.search,
           onChanged: (value) {
             setState(() {
@@ -137,13 +131,21 @@ class _CultureScreenState extends State<CultureScreen> {
           },
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.lightGreenAccent,
+            fillColor: AppTheme.cream,
             hintText: l.cultureSearchPlaceholder,
-            hintStyle: const TextStyle(color: Colors.black54),
-            prefixIcon: const Icon(Icons.search, color: Colors.black, size: 32),
+            hintStyle: const TextStyle(color: AppTheme.darkTeal),
+            prefixIcon: const Icon(Icons.search, color: AppTheme.darkTeal, size: 32),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
+              borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppTheme.navy, width: 3),
             ),
           ),
         ),
@@ -160,7 +162,7 @@ class _CultureScreenState extends State<CultureScreen> {
       return Center(
         child: Text(
           l.cultureEmpty,
-          style: const TextStyle(color: Colors.white, fontSize: 24),
+          style: const TextStyle(color: AppTheme.navy, fontSize: 24),
         ),
       );
     }
@@ -196,7 +198,8 @@ class _CultureScreenState extends State<CultureScreen> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.lightGreenAccent, // High contrast touch target
+              color: AppTheme.cream, // High contrast touch target
+              border: Border.all(color: AppTheme.darkTeal, width: 2),
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(24.0),
@@ -207,7 +210,7 @@ class _CultureScreenState extends State<CultureScreen> {
                   record.name,
                   locale: isArabicName ? const Locale('ar') : null,
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: AppTheme.navy,
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                   ),
@@ -216,7 +219,7 @@ class _CultureScreenState extends State<CultureScreen> {
                 Text(
                   record.description,
                   locale: isArabicDesc ? const Locale('ar') : null,
-                  style: const TextStyle(color: Colors.black87, fontSize: 20),
+                  style: const TextStyle(color: AppTheme.darkTeal, fontSize: 20),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

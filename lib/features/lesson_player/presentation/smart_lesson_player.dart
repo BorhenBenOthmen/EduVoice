@@ -6,6 +6,7 @@ import '../../../../injection_container.dart';
 import '../../../../core/audio/tts_service.dart';
 import '../../../../core/audio/lesson_audio_player_service.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../../core/theme/app_theme.dart';
 
 /// Full-featured lesson player screen.
 ///
@@ -171,17 +172,15 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
     final isArabicDesc = RegExp(r'[\u0600-\u06FF]').hasMatch(widget.lesson.description);
 
     return Scaffold(
-        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.yellow),
+          iconTheme: const IconThemeData(color: AppTheme.cream),
           title: Semantics(
             header: true,
             child: Text(
               widget.lesson.name,
               locale: isArabicName ? const Locale('ar') : null,
               style: const TextStyle(
-                color: Colors.yellow,
+                color: AppTheme.cream,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
@@ -201,7 +200,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                     widget.lesson.description,
                     locale: isArabicDesc ? const Locale('ar') : null,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: AppTheme.navy,
                       fontSize: 20,
                       height: 1.6,
                     ),
@@ -230,14 +229,14 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Divider(color: Colors.yellow),
+                        const Divider(color: AppTheme.darkTeal),
                         const SizedBox(height: 8),
                         Row(
                           children: [
                             Text(
                               l.lessonPlayerTranscript,
                               style: const TextStyle(
-                                color: Colors.yellow,
+                                color: AppTheme.darkTeal,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -252,7 +251,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                                       () => _transcriptionExpanded = false),
                                   child: const Icon(
                                     Icons.keyboard_arrow_up,
-                                    color: Colors.yellow,
+                                    color: AppTheme.darkTeal,
                                     size: 28,
                                   ),
                                 ),
@@ -280,7 +279,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                                           TextSpan(
                                             text: '${line.speaker}: ',
                                             style: const TextStyle(
-                                              color: Colors.yellow,
+                                              color: AppTheme.darkTeal,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 17,
                                             ),
@@ -288,7 +287,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                                           TextSpan(
                                             text: line.text,
                                             style: const TextStyle(
-                                              color: Colors.white70,
+                                              color: AppTheme.navy,
                                               fontSize: 17,
                                             ),
                                           ),
@@ -313,13 +312,13 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                   padding: const EdgeInsets.all(12),
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: Colors.yellow.withValues(alpha: 0.15),
+                    color: AppTheme.teal.withAlpha(25),
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.yellow, width: 1),
+                    border: Border.all(color: AppTheme.darkTeal, width: 1),
                   ),
                   child: Text(
                     l.lessonPlayerNoAudio,
-                    style: const TextStyle(color: Colors.yellow, fontSize: 16),
+                    style: const TextStyle(color: AppTheme.darkTeal, fontSize: 16),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -331,7 +330,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                     Text(
                       _formatDuration(_position),
                       style: const TextStyle(
-                        color: Colors.white70,
+                        color: AppTheme.navy,
                         fontSize: 14,
                       ),
                     ),
@@ -350,8 +349,8 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                         divisions: _duration.inSeconds > 0
                             ? (_duration.inSeconds ~/ 10).clamp(1, 10000)
                             : null,
-                        activeColor: Colors.yellow,
-                        inactiveColor: Colors.white24,
+                        activeColor: AppTheme.darkTeal,
+                        inactiveColor: AppTheme.navy.withAlpha(50),
                         semanticFormatterCallback: (value) {
                           final pos = Duration(seconds: value.toInt());
                           return '${_formatSemanticDuration(pos)} / ${_formatSemanticDuration(_duration)}';
@@ -371,7 +370,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                     Text(
                       _formatDuration(_duration),
                       style: const TextStyle(
-                        color: Colors.white70,
+                        color: AppTheme.navy,
                         fontSize: 14,
                       ),
                     ),
@@ -395,11 +394,11 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                           width: 80,
                           height: 80,
                           decoration: BoxDecoration(
-                            color: Colors.yellow,
+                            color: AppTheme.darkTeal,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.yellow.withValues(alpha: 0.4),
+                                color: AppTheme.darkTeal.withValues(alpha: 0.4),
                                 blurRadius: 20,
                                 spreadRadius: 4,
                               ),
@@ -409,7 +408,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                             _isPlaying
                                 ? Icons.pause_rounded
                                 : Icons.play_arrow_rounded,
-                            color: Colors.black,
+                            color: AppTheme.cream,
                             size: 48,
                           ),
                         ),
@@ -431,7 +430,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                     child: OutlinedButton.icon(
                       style: OutlinedButton.styleFrom(
                         side: const BorderSide(
-                          color: Colors.yellow,
+                          color: AppTheme.darkTeal,
                           width: 1.5,
                         ),
                         shape: RoundedRectangleBorder(
@@ -441,13 +440,13 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
                       onPressed: _cycleSpeed,
                       icon: const Icon(
                         Icons.speed_rounded,
-                        color: Colors.yellow,
+                        color: AppTheme.darkTeal,
                         size: 28,
                       ),
                       label: Text(
                         '${_audioService.playbackRate}x',
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.darkTeal,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
@@ -474,7 +473,7 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
         height: 72,
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
-            backgroundColor: _isTtsPlaying ? Colors.redAccent : Colors.yellow,
+            backgroundColor: _isTtsPlaying ? Colors.redAccent : AppTheme.darkTeal,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -482,13 +481,13 @@ class _LessonPlayerScreenState extends State<LessonPlayerScreen> {
           onPressed: _toggleTts,
           icon: Icon(
             _isTtsPlaying ? Icons.stop_rounded : Icons.volume_up_rounded,
-            color: Colors.black,
+            color: AppTheme.cream,
             size: 32,
           ),
           label: Text(
             _isTtsPlaying ? l.lessonPlayerStopTts : l.lessonPlayerListen,
             style: const TextStyle(
-              color: Colors.black,
+              color: AppTheme.cream,
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),

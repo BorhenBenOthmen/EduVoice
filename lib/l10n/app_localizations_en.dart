@@ -642,8 +642,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileOldPasswordError => 'Current password is incorrect.';
 
   @override
-  String get splashSemantics => 'EduVoice. Loading the application.';
+  String get offlineSemanticsAnnouncement =>
+      'No internet connection. Please double tap the retry button at the bottom of the screen to try again.';
 
   @override
-  String get splashTts => 'EduVoice is loading. Please wait.';
+  String get offlineTitle => 'No Connection';
+
+  @override
+  String get offlineMessage => 'Please check your internet or mobile data.';
+
+  @override
+  String get offlineRetryButton => 'Retry Connection';
+
+  @override
+  String get offlineRetryHint =>
+      'Double tap to check the internet connection again';
 }

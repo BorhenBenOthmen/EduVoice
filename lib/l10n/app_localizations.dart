@@ -1222,17 +1222,35 @@ abstract class AppLocalizations {
   /// **'Le mot de passe actuel est incorrect.'**
   String get profileOldPasswordError;
 
-  /// No description provided for @splashSemantics.
+  /// No description provided for @offlineSemanticsAnnouncement.
   ///
   /// In fr, this message translates to:
-  /// **'EduVoice. Chargement de l\'application.'**
-  String get splashSemantics;
+  /// **'Pas de connexion internet. Veuillez appuyer deux fois sur le bouton réessayer au bas de l\'écran pour tenter à nouveau.'**
+  String get offlineSemanticsAnnouncement;
 
-  /// No description provided for @splashTts.
+  /// No description provided for @offlineTitle.
   ///
   /// In fr, this message translates to:
-  /// **'EduVoice est en cours de chargement. Veuillez patienter.'**
-  String get splashTts;
+  /// **'Pas de connexion'**
+  String get offlineTitle;
+
+  /// No description provided for @offlineMessage.
+  ///
+  /// In fr, this message translates to:
+  /// **'Veuillez vérifier votre connexion internet ou vos données mobiles.'**
+  String get offlineMessage;
+
+  /// No description provided for @offlineRetryButton.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réessayer'**
+  String get offlineRetryButton;
+
+  /// No description provided for @offlineRetryHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Appuyez deux fois pour vérifier à nouveau la connexion internet'**
+  String get offlineRetryHint;
 }
 
 class _AppLocalizationsDelegate

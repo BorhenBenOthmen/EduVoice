@@ -652,9 +652,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get profileOldPasswordError => 'Le mot de passe actuel est incorrect.';
 
   @override
-  String get splashSemantics => 'EduVoice. Chargement de l\'application.';
+  String get offlineSemanticsAnnouncement =>
+      'Pas de connexion internet. Veuillez appuyer deux fois sur le bouton réessayer au bas de l\'écran pour tenter à nouveau.';
 
   @override
-  String get splashTts =>
-      'EduVoice est en cours de chargement. Veuillez patienter.';
+  String get offlineTitle => 'Pas de connexion';
+
+  @override
+  String get offlineMessage =>
+      'Veuillez vérifier votre connexion internet ou vos données mobiles.';
+
+  @override
+  String get offlineRetryButton => 'Réessayer';
+
+  @override
+  String get offlineRetryHint =>
+      'Appuyez deux fois pour vérifier à nouveau la connexion internet';
 }

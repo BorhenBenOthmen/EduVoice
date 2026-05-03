@@ -11,6 +11,7 @@ import '../../../features/voice_commander/data/gemini_routing_service.dart';
 import '../../../injection_container.dart';
 import '../../../l10n/app_localizations.dart';
 import 'state/profile_cubit.dart';
+import '../../../core/theme/app_theme.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Entry-point helper: wraps the screen with its own Cubit
@@ -184,9 +185,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         }
 
         return Scaffold(
-          backgroundColor: Colors.black,
           appBar: AppBar(
-            backgroundColor: Colors.black,
             elevation: 0,
             // Back button — auto-generated, fully accessible via TalkBack
             title: Semantics(
@@ -196,18 +195,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: const TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppTheme.navy,
                 ),
               ),
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(2.0),
-              child: Container(color: Colors.yellowAccent, height: 2.0),
+              child: Container(color: AppTheme.darkTeal, height: 2.0),
             ),
           ),
           body: isLoading && state is ProfileLoading
               ? const Center(
-                  child: CircularProgressIndicator(color: Colors.yellowAccent),
+                  child: CircularProgressIndicator(color: AppTheme.darkTeal),
                 )
               : SafeArea(
                   child: SingleChildScrollView(
@@ -230,15 +229,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.yellowAccent,
+                                color: AppTheme.darkTeal,
                                 width: 3,
                               ),
-                              color: Colors.grey[900],
+                              color: AppTheme.cream,
                             ),
                             child: const Icon(
                               Icons.person,
                               size: 52,
-                              color: Colors.yellowAccent,
+                              color: AppTheme.darkTeal,
                             ),
                           ),
                         ),
@@ -301,7 +300,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 onPressed: () => _togglePasswordFields(l),
                                 icon: const Icon(
                                   Icons.lock_outline,
-                                  color: Colors.yellowAccent,
+                                  color: AppTheme.darkTeal,
                                   size: 26,
                                 ),
                                 label: Text(
@@ -309,12 +308,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   style: const TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.yellowAccent,
+                                    color: AppTheme.darkTeal,
                                   ),
                                 ),
                                 style: OutlinedButton.styleFrom(
                                   side: const BorderSide(
-                                    color: Colors.yellowAccent,
+                                    color: AppTheme.darkTeal,
                                     width: 2,
                                   ),
                                   shape: RoundedRectangleBorder(
@@ -396,9 +395,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     ? null
                                     : () => _handleChangePassword(ctx),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.yellowAccent,
-                                  foregroundColor: Colors.black,
-                                  disabledBackgroundColor: Colors.yellowAccent
+                                  backgroundColor: AppTheme.darkTeal,
+                                  foregroundColor: AppTheme.cream,
+                                  disabledBackgroundColor: AppTheme.darkTeal
                                       .withValues(alpha: 0.4),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16),
@@ -409,7 +408,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         width: 28,
                                         height: 28,
                                         child: CircularProgressIndicator(
-                                          color: Colors.black,
+                                          color: AppTheme.cream,
                                           strokeWidth: 3,
                                         ),
                                       )
@@ -440,7 +439,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   'Annuler',
                                   style: TextStyle(
                                     fontSize: 20,
-                                    color: Colors.white54,
+                                    color: AppTheme.darkTeal,
                                   ),
                                 ),
                               ),
@@ -449,7 +448,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
 
                         const SizedBox(height: 40),
-                        const Divider(color: Colors.white24, thickness: 1),
+                        const Divider(color: AppTheme.navy, thickness: 1),
                         const SizedBox(height: 24),
 
                         // ── Logout button ─────────────────────────────────
@@ -461,22 +460,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: OutlinedButton.icon(
                               key: const Key('profile_logout_btn'),
                               onPressed: () => _handleLogout(ctx, l),
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.logout,
-                                color: Colors.redAccent,
+                                color: Colors.red.shade700,
                                 size: 28,
                               ),
                               label: Text(
                                 l.profileLogout,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
+                                  color: Colors.red.shade700,
                                 ),
                               ),
                               style: OutlinedButton.styleFrom(
-                                side: const BorderSide(
-                                  color: Colors.redAccent,
+                                side: BorderSide(
+                                  color: Colors.red.shade700,
                                   width: 2,
                                 ),
                                 shape: RoundedRectangleBorder(
@@ -525,7 +524,7 @@ class _SectionHeader extends StatelessWidget {
       style: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
-        color: Colors.yellowAccent,
+        color: AppTheme.darkTeal,
         letterSpacing: 0.8,
       ),
     );
@@ -549,31 +548,33 @@ class _InfoTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
-        color: Colors.grey[900],
-        border: Border.all(color: Colors.white24, width: 1),
+        color: AppTheme.cream,
+        border: Border.all(color: AppTheme.darkTeal, width: 1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
-          Icon(icon, color: Colors.yellowAccent, size: 28),
+          Icon(icon, color: AppTheme.navy, size: 28),
           const SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: const TextStyle(fontSize: 14, color: Colors.white60),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(fontSize: 14, color: AppTheme.darkTeal),
                 ),
-              ),
-            ],
+                const SizedBox(height: 4),
+                Text(
+                  value,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: AppTheme.navy,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -608,17 +609,17 @@ class _PasswordField extends StatelessWidget {
       obscureText: true,
       textInputAction: textInputAction,
       onSubmitted: onSubmitted,
-      style: const TextStyle(fontSize: 20, color: Colors.white),
+      style: const TextStyle(fontSize: 20, color: AppTheme.navy),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(fontSize: 18, color: Colors.yellowAccent),
-        prefixIcon: const Icon(Icons.lock_outline, color: Colors.yellowAccent),
+        labelStyle: const TextStyle(fontSize: 18, color: AppTheme.darkTeal),
+        prefixIcon: const Icon(Icons.lock_outline, color: AppTheme.darkTeal),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white38, width: 2),
+          borderSide: const BorderSide(color: AppTheme.darkTeal, width: 2),
           borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.yellowAccent, width: 3),
+          borderSide: const BorderSide(color: AppTheme.navy, width: 3),
           borderRadius: BorderRadius.circular(12),
         ),
         contentPadding: const EdgeInsets.symmetric(
@@ -641,18 +642,18 @@ class _ErrorBanner extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.red.shade900.withValues(alpha: 0.6),
-        border: Border.all(color: Colors.redAccent, width: 1.5),
+        color: AppTheme.cream,
+        border: Border.all(color: Colors.red.shade700, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
-          const Icon(Icons.error_outline, color: Colors.redAccent, size: 24),
+          Icon(Icons.error_outline, color: Colors.red.shade700, size: 28),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               message,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: AppTheme.navy, fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -672,22 +673,22 @@ class _SuccessBanner extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.green.shade900.withValues(alpha: 0.6),
-        border: Border.all(color: Colors.greenAccent, width: 1.5),
+        color: AppTheme.cream,
+        border: Border.all(color: Colors.green.shade800, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
-          const Icon(
+          Icon(
             Icons.check_circle_outline,
-            color: Colors.greenAccent,
-            size: 24,
+            color: Colors.green.shade800,
+            size: 28,
           ),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               message,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: AppTheme.navy, fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ],
