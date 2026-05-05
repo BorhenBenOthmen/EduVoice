@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
+import '../core/audio/tts_service.dart';
 import '../core/auth/token_manager.dart';
 import '../features/auth/presentation/login_screen.dart';
 import '../features/home/presentation/home_screen.dart';
+import '../l10n/app_localizations.dart';
 import 'offline_screen.dart';
 
 /// Splash screen displayed on cold start.
@@ -24,9 +26,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final _tts = GetIt.I<TtsService>();
+
   @override
   void initState() {
     super.initState();
+
+    // Greet the user with TTS as soon as the app opens.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final l = AppLocalizations.of(context)!;
+      _tts.speak(l.welcomeMessage);
+    });
 
     // Navigate after 1 second based on session state.
     Timer(const Duration(seconds: 1), _navigateToNextScreen);

@@ -28,11 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    // Greet the user with TTS on screen load — uses localized string.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final l = AppLocalizations.of(context)!;
-      _tts.speak(l.welcomeMessage);
-    });
   }
 
   @override
