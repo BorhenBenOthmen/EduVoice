@@ -80,7 +80,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeMenuRadio => 'Radio';
 
   @override
-  String get homeMenuRadioDesc => 'Flux en direct';
+  String get homeMenuRadioDesc => 'Meilleurs épisodes';
 
   @override
   String get homeMenuLessonSemantics =>
@@ -290,14 +290,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get radioTts =>
-      'Section Radio. Bientôt disponible — flux éducatifs en direct.';
+      'Section Radio. Bientôt disponible — meilleurs épisodes éducatifs.';
 
   @override
   String get radioComingSoon => 'Bientôt disponible';
 
   @override
   String get radioComingSoonDesc =>
-      'Des flux radio éducatifs en direct seront disponibles très prochainement.';
+      'Les meilleurs épisodes radio éducatifs seront disponibles très prochainement.';
 
   @override
   String get cultureTitle => 'Culture';
@@ -461,7 +461,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get aboutFeature1 => 'Leçons audio interactives';
 
   @override
-  String get aboutFeature2 => 'Radio éducative en direct';
+  String get aboutFeature2 => 'Meilleurs épisodes radio éducatifs';
 
   @override
   String get aboutFeature3 => 'Podcasts sélectionnés';

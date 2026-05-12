@@ -77,7 +77,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeMenuRadio => 'الراديو';
 
   @override
-  String get homeMenuRadioDesc => 'بث مباشر';
+  String get homeMenuRadioDesc => 'أفضل الحلقات';
 
   @override
   String get homeMenuLessonSemantics => 'قسم الدروس. انقر مرتين للفتح.';
@@ -279,14 +279,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get radioTitle => 'الراديو';
 
   @override
-  String get radioTts => 'قسم الراديو. قريباً — بث تعليمي مباشر.';
+  String get radioTts => 'قسم الراديو. قريباً — أفضل الحلقات التعليمية.';
 
   @override
   String get radioComingSoon => 'قريباً';
 
   @override
   String get radioComingSoonDesc =>
-      'ستتوفر قنوات راديو تعليمية مباشرة قريباً جداً.';
+      'ستتوفر أفضل حلقات الراديو التعليمية قريباً جداً.';
 
   @override
   String get cultureTitle => 'الثقافة';
@@ -449,7 +449,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutFeature1 => 'دروس صوتية تفاعلية';
 
   @override
-  String get aboutFeature2 => 'راديو تعليمي مباشر';
+  String get aboutFeature2 => 'أفضل حلقات الراديو التعليمية';
 
   @override
   String get aboutFeature3 => 'بودكاست مختار';

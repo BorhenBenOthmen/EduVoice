@@ -235,7 +235,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeMenuRadioDesc.
   ///
   /// In fr, this message translates to:
-  /// **'Flux en direct'**
+  /// **'Meilleurs épisodes'**
   String get homeMenuRadioDesc;
 
   /// No description provided for @homeMenuLessonSemantics.
@@ -583,7 +583,7 @@ abstract class AppLocalizations {
   /// No description provided for @radioTts.
   ///
   /// In fr, this message translates to:
-  /// **'Section Radio. Bientôt disponible — flux éducatifs en direct.'**
+  /// **'Section Radio. Bientôt disponible — meilleurs épisodes éducatifs.'**
   String get radioTts;
 
   /// No description provided for @radioComingSoon.
@@ -595,7 +595,7 @@ abstract class AppLocalizations {
   /// No description provided for @radioComingSoonDesc.
   ///
   /// In fr, this message translates to:
-  /// **'Des flux radio éducatifs en direct seront disponibles très prochainement.'**
+  /// **'Les meilleurs épisodes radio éducatifs seront disponibles très prochainement.'**
   String get radioComingSoonDesc;
 
   /// No description provided for @cultureTitle.
@@ -883,7 +883,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutFeature2.
   ///
   /// In fr, this message translates to:
-  /// **'Radio éducative en direct'**
+  /// **'Meilleurs épisodes radio éducatifs'**
   String get aboutFeature2;
 
   /// No description provided for @aboutFeature3.

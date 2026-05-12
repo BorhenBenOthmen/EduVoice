@@ -64,7 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final l = AppLocalizations.of(context);
       if (l != null) {
-        _tts.speakWithDelay(l.profileTts);
+        _tts.speak(l.profileTts);
       }
     });
   }

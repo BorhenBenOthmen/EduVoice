@@ -78,7 +78,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeMenuRadio => 'Radio';
 
   @override
-  String get homeMenuRadioDesc => 'Live streams';
+  String get homeMenuRadioDesc => 'Best episodes';
 
   @override
   String get homeMenuLessonSemantics => 'Lessons section. Double-tap to open.';
@@ -282,14 +282,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get radioTts =>
-      'Radio section. Coming soon — live educational streams.';
+      'Radio section. Coming soon — best educational episodes.';
 
   @override
   String get radioComingSoon => 'Coming Soon';
 
   @override
   String get radioComingSoonDesc =>
-      'Live educational radio streams will be available very soon.';
+      'The best educational radio episodes will be available very soon.';
 
   @override
   String get cultureTitle => 'Culture';
@@ -453,7 +453,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutFeature1 => 'Interactive audio lessons';
 
   @override
-  String get aboutFeature2 => 'Live educational radio';
+  String get aboutFeature2 => 'Best educational radio episodes';
 
   @override
   String get aboutFeature3 => 'Curated podcasts';

@@ -24,9 +24,20 @@ class LessonRepositoryImpl implements ILessonRepository {
         throw Exception("User not authenticated.");
       }
 
-      // Correct endpoint: /lesson/list/{current_account_id}/
-      final uri = Uri.parse('${ApiConstants.baseUrl}/lesson/list/$accountId/');
+      // Use the search endpoint filtered by the student's level so that
+      // only lessons matching their grade are returned.
+      final levelName = await _tokenManager.getLevelName();
 
+      final queryParams = <String, String>{};
+      if (levelName != null && levelName.isNotEmpty) {
+        queryParams['level'] = levelName;
+      }
+
+      final uri = Uri.parse(
+        '${ApiConstants.baseUrl}/lesson/search/$accountId/',
+      ).replace(queryParameters: queryParams);
+
+      debugPrint('LessonRepository: fetching $uri');
       final response = await _authClient.get(uri);
 
       if (response.statusCode == 200) {

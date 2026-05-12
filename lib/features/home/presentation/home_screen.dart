@@ -65,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
               excludeSemantics: true,
               child: IconButton(
                 onPressed: () {
-                  locator<TtsService>().speak(l.profileTitle);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
