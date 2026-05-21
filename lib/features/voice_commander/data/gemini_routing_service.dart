@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
+import '../../../core/network/api_constants.dart';
 import 'package:record/record.dart';
 import 'package:flutter_pcm_sound/flutter_pcm_sound.dart';
 import '../../../core/auth/token_manager.dart';
@@ -14,7 +15,12 @@ class GeminiRoutingService {
   final AudioRecorder _recorder = AudioRecorder();
   StreamSubscription<Uint8List>? _recordSubscription;
 
-  final String _baseWsUrl = 'ws://127.0.0.1:8000/ws';
+  /// Secure WebSocket endpoint.
+  /// - DEBUG builds  → local dev server (Android emulator: 10.0.2.2).
+  /// - RELEASE builds → production server over WSS (TLS-secured).
+  final String _baseWsUrl = kDebugMode
+      ? ApiConstants.aiWsUrlDev   // ws://10.0.2.2:8000/ws
+      : ApiConstants.aiWsUrl;     // wss://basira.ecocloud.tn/ws
 
   bool _isConnected = false;
   bool get isConnected => _isConnected;
