@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 
 import '../core/audio/tts_service.dart';
 import '../core/auth/token_manager.dart';
+import '../features/auth/data/auth_repository.dart';
 import '../features/auth/presentation/login_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../l10n/app_localizations.dart';
@@ -68,12 +69,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
     final hasSession = await GetIt.I<TokenManager>().hasValidSession();
 
+    // If tokens are expired, try to silently re-login with saved credentials
+    bool isLoggedIn = hasSession;
+    if (!hasSession) {
+      isLoggedIn = await GetIt.I<AuthRepository>().trySilentLogin();
+    }
+
     if (!mounted) return;
 
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (_) => hasSession ? const HomeScreen() : const LoginScreen(),
+        builder: (_) => isLoggedIn ? const HomeScreen() : const LoginScreen(),
       ),
     );
   }

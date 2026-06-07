@@ -88,6 +88,9 @@ class AuthRepository {
           lastName: lastName,
           levelName: levelName,
         );
+
+        // 3. Persist credentials for silent re-login when tokens expire
+        await _tokenManager.saveCredentials(email: email, password: password);
         
         return true;
       }
@@ -99,7 +102,17 @@ class AuthRepository {
   }
 
   Future<void> logout() async {
+    await _tokenManager.clearCredentials();
     await _tokenManager.clearTokens();
+  }
+
+  /// Attempts to re-authenticate using saved credentials.
+  /// Returns true if re-login succeeded, false otherwise.
+  Future<bool> trySilentLogin() async {
+    final email = await _tokenManager.getSavedEmail();
+    final password = await _tokenManager.getSavedPassword();
+    if (email == null || password == null) return false;
+    return login(email, password);
   }
 
   /// Changes the user's password via the Django backend.

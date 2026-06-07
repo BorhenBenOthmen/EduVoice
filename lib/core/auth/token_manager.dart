@@ -15,6 +15,8 @@ class TokenManager {
   static const String _lastNameKey = 'last_name';
   static const String _levelNameKey = 'level_name';
   static const String _levelCodeKey = 'level_code';
+  static const String _emailKey = 'saved_email';
+  static const String _passwordKey = 'saved_password';
 
   /// Maps Django display names to internal grade codes used by the WebSocket.
   static const Map<String, String> _levelCodeMap = {
@@ -74,6 +76,21 @@ class TokenManager {
   /// Returns the internal grade code (e.g. 'primary_6') used by the WebSocket.
   Future<String?> getLevelCode() async =>
       await _storage.read(key: _levelCodeKey);
+
+  /// Saves the user's login credentials for silent re-authentication.
+  Future<void> saveCredentials({required String email, required String password}) async {
+    await _storage.write(key: _emailKey, value: email);
+    await _storage.write(key: _passwordKey, value: password);
+  }
+
+  Future<String?> getSavedEmail() async => await _storage.read(key: _emailKey);
+  Future<String?> getSavedPassword() async => await _storage.read(key: _passwordKey);
+
+  /// Clears saved credentials — called only on explicit user logout.
+  Future<void> clearCredentials() async {
+    await _storage.delete(key: _emailKey);
+    await _storage.delete(key: _passwordKey);
+  }
 
   Future<String?> getAccessToken() async =>
       await _storage.read(key: _accessKey);

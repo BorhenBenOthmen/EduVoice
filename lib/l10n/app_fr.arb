@@ -201,9 +201,25 @@
   "aboutA11yTitle": "Accessibilité",
   "aboutA11yBody": "EduVoice est conçu selon les critères WCAG 2.1 AA et les meilleures pratiques d'accessibilité pour les lecteurs d'écran. Chaque écran est entièrement navigable à la voix et au toucher.",
   "aboutTeamTitle": "Équipe",
-  "aboutTeamBody": "Développé par l'équipe PFE — Projet de Fin d'Études en ingénierie logicielle.",
+  "aboutTeamBody": "Développé par Borhen Ben Othmen et Hamdi Zayen.",
   "aboutContactTitle": "Contact",
   "aboutContactBody": "contact@eduvoice.app",
+  "aboutAssociationWebsiteLabel": "Site Web de l'association",
+  "aboutAssociationWebsiteUrl": "https://radio.ecocloud.tn",
+  "aboutAssociationContactLabel": "Contact de l'association",
+  "aboutAssociationContactUrl": "https://radio.ecocloud.tn/contact",
+  "aboutContactEmailSemantics": "Contacter par e-mail : {email}. Appuyez deux fois pour envoyer un e-mail.",
+  "@aboutContactEmailSemantics": {
+    "placeholders": { "email": { "type": "String" } }
+  },
+  "aboutAssociationWebsiteSemantics": "Visiter le site web de l'association : {url}. Appuyez deux fois pour ouvrir.",
+  "@aboutAssociationWebsiteSemantics": {
+    "placeholders": { "url": { "type": "String" } }
+  },
+  "aboutAssociationContactSemantics": "Ouvrir la page de contact de l'association : {url}. Appuyez deux fois pour ouvrir.",
+  "@aboutAssociationContactSemantics": {
+    "placeholders": { "url": { "type": "String" } }
+  },
 
   "radioSearchLabel": "Rechercher un flux radio",
   "radioSearchHint": "Saisir le nom du flux",

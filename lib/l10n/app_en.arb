@@ -199,9 +199,25 @@
   "aboutA11yTitle": "Accessibility",
   "aboutA11yBody": "EduVoice is designed to WCAG 2.1 AA standards and screen-reader best practices. Every screen is fully navigable by voice and touch.",
   "aboutTeamTitle": "Team",
-  "aboutTeamBody": "Developed by the PFE Team — Final Year Software Engineering Project.",
+  "aboutTeamBody": "Developed by Borhen Ben Othmen and Hamdi Zayen.",
   "aboutContactTitle": "Contact",
   "aboutContactBody": "contact@eduvoice.app",
+  "aboutAssociationWebsiteLabel": "Association Website",
+  "aboutAssociationWebsiteUrl": "https://radio.ecocloud.tn",
+  "aboutAssociationContactLabel": "Association Contact",
+  "aboutAssociationContactUrl": "https://radio.ecocloud.tn/contact",
+  "aboutContactEmailSemantics": "Contact via email: {email}. Double-tap to send an email.",
+  "@aboutContactEmailSemantics": {
+    "placeholders": { "email": { "type": "String" } }
+  },
+  "aboutAssociationWebsiteSemantics": "Visit the association website: {url}. Double-tap to open.",
+  "@aboutAssociationWebsiteSemantics": {
+    "placeholders": { "url": { "type": "String" } }
+  },
+  "aboutAssociationContactSemantics": "Open the association contact page: {url}. Double-tap to open.",
+  "@aboutAssociationContactSemantics": {
+    "placeholders": { "url": { "type": "String" } }
+  },
 
   "radioSearchLabel": "Search for a radio stream",
   "radioSearchHint": "Enter the stream name",

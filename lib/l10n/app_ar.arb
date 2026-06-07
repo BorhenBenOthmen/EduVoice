@@ -199,9 +199,25 @@
   "aboutA11yTitle": "الإتاحة",
   "aboutA11yBody": "صُمّمت EduVoice وفق معايير WCAG 2.1 AA وأفضل ممارسات قارئات الشاشة. كل شاشة قابلة للتنقل الكامل بالصوت واللمس.",
   "aboutTeamTitle": "الفريق",
-  "aboutTeamBody": "طوّره فريق PFE — مشروع التخرج في هندسة البرمجيات.",
+  "aboutTeamBody": "طوّره Borhen Ben Othmen و Hamdi Zayen.",
   "aboutContactTitle": "التواصل",
   "aboutContactBody": "contact@eduvoice.app",
+  "aboutAssociationWebsiteLabel": "الموقع الإلكتروني للجمعية",
+  "aboutAssociationWebsiteUrl": "https://radio.ecocloud.tn",
+  "aboutAssociationContactLabel": "الاتصال بالجمعية",
+  "aboutAssociationContactUrl": "https://radio.ecocloud.tn/contact",
+  "aboutContactEmailSemantics": "الاتصال عبر البريد الإلكتروني: {email}. انقر مرتين لإرسال بريد إلكتروني.",
+  "@aboutContactEmailSemantics": {
+    "placeholders": { "email": { "type": "String" } }
+  },
+  "aboutAssociationWebsiteSemantics": "زيارة الموقع الإلكتروني للجمعية: {url}. انقر مرتين للفتح.",
+  "@aboutAssociationWebsiteSemantics": {
+    "placeholders": { "url": { "type": "String" } }
+  },
+  "aboutAssociationContactSemantics": "فتح صفحة الاتصال بالجمعية: {url}. انقر مرتين للفتح.",
+  "@aboutAssociationContactSemantics": {
+    "placeholders": { "url": { "type": "String" } }
+  },
 
   "radioSearchLabel": "البحث عن بث راديو",
   "radioSearchHint": "أدخل اسم البث",

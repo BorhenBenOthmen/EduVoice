@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/audio/tts_service.dart';
 import '../../../injection_container.dart';
 import '../../../l10n/app_localizations.dart';
@@ -29,6 +30,33 @@ class _AboutScreenState extends State<AboutScreen> {
       final l = AppLocalizations.of(context)!;
       _tts.speak(l.aboutTts);
     });
+  }
+
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Impossible d\'ouvrir le lien : $urlString'),
+              backgroundColor: AppTheme.darkTeal,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erreur : $e'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
   }
 
   @override
@@ -137,43 +165,22 @@ class _AboutScreenState extends State<AboutScreen> {
             // ─── CONTACT ──────────────────────────────────────────────
             Semantics(
               header: true,
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppTheme.darkTeal, width: 2),
-                  borderRadius: BorderRadius.circular(16),
-                  color: AppTheme.teal.withAlpha(25),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.mail_outline, color: AppTheme.navy, size: 32),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            l.aboutContactTitle,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: AppTheme.darkTeal,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            l.aboutContactBody,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              color: AppTheme.navy,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              child: _SectionTitle(l.aboutContactTitle),
+            ),
+            const SizedBox(height: 12),
+            _ContactTile(
+              icon: Icons.language,
+              title: l.aboutAssociationWebsiteLabel,
+              subtitle: l.aboutAssociationWebsiteUrl,
+              onTap: () => _launchUrl(l.aboutAssociationWebsiteUrl),
+              semanticsLabel: l.aboutAssociationWebsiteSemantics(l.aboutAssociationWebsiteUrl),
+            ),
+            _ContactTile(
+              icon: Icons.contact_support_outlined,
+              title: l.aboutAssociationContactLabel,
+              subtitle: l.aboutAssociationContactUrl,
+              onTap: () => _launchUrl(l.aboutAssociationContactUrl),
+              semanticsLabel: l.aboutAssociationContactSemantics(l.aboutAssociationContactUrl),
             ),
             const SizedBox(height: 40),
           ],
@@ -290,6 +297,80 @@ class _FeatureTile extends StatelessWidget {
             ),
           ],
         ),
+    );
+  }
+}
+
+class _ContactTile extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+  final String semanticsLabel;
+
+  const _ContactTile({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+    required this.semanticsLabel,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      margin: const EdgeInsets.only(bottom: 12),
+      color: AppTheme.teal.withAlpha(15),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: const BorderSide(color: AppTheme.darkTeal, width: 1.5),
+      ),
+      child: Semantics(
+        label: semanticsLabel,
+        button: true,
+        onTap: onTap,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Icon(icon, color: AppTheme.navy, size: 28),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: AppTheme.darkTeal,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        subtitle,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: AppTheme.navy,
+                          decoration: TextDecoration.underline,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.arrow_forward_ios, size: 16, color: AppTheme.navy),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

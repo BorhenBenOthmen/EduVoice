@@ -925,7 +925,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutTeamBody.
   ///
   /// In fr, this message translates to:
-  /// **'Développé par l\'équipe PFE — Projet de Fin d\'Études en ingénierie logicielle.'**
+  /// **'Développé par Borhen Ben Othmen et Hamdi Zayen.'**
   String get aboutTeamBody;
 
   /// No description provided for @aboutContactTitle.
@@ -939,6 +939,48 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'contact@eduvoice.app'**
   String get aboutContactBody;
+
+  /// No description provided for @aboutAssociationWebsiteLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Site Web de l\'association'**
+  String get aboutAssociationWebsiteLabel;
+
+  /// No description provided for @aboutAssociationWebsiteUrl.
+  ///
+  /// In fr, this message translates to:
+  /// **'https://radio.ecocloud.tn'**
+  String get aboutAssociationWebsiteUrl;
+
+  /// No description provided for @aboutAssociationContactLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Contact de l\'association'**
+  String get aboutAssociationContactLabel;
+
+  /// No description provided for @aboutAssociationContactUrl.
+  ///
+  /// In fr, this message translates to:
+  /// **'https://radio.ecocloud.tn/contact'**
+  String get aboutAssociationContactUrl;
+
+  /// No description provided for @aboutContactEmailSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Contacter par e-mail : {email}. Appuyez deux fois pour envoyer un e-mail.'**
+  String aboutContactEmailSemantics(String email);
+
+  /// No description provided for @aboutAssociationWebsiteSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Visiter le site web de l\'association : {url}. Appuyez deux fois pour ouvrir.'**
+  String aboutAssociationWebsiteSemantics(String url);
+
+  /// No description provided for @aboutAssociationContactSemantics.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouvrir la page de contact de l\'association : {url}. Appuyez deux fois pour ouvrir.'**
+  String aboutAssociationContactSemantics(String url);
 
   /// No description provided for @radioSearchLabel.
   ///

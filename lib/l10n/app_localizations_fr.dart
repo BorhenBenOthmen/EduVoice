@@ -483,14 +483,40 @@ class AppLocalizationsFr extends AppLocalizations {
   String get aboutTeamTitle => 'Équipe';
 
   @override
-  String get aboutTeamBody =>
-      'Développé par l\'équipe PFE — Projet de Fin d\'Études en ingénierie logicielle.';
+  String get aboutTeamBody => 'Développé par Borhen Ben Othmen et Hamdi Zayen.';
 
   @override
   String get aboutContactTitle => 'Contact';
 
   @override
   String get aboutContactBody => 'contact@eduvoice.app';
+
+  @override
+  String get aboutAssociationWebsiteLabel => 'Site Web de l\'association';
+
+  @override
+  String get aboutAssociationWebsiteUrl => 'https://radio.ecocloud.tn';
+
+  @override
+  String get aboutAssociationContactLabel => 'Contact de l\'association';
+
+  @override
+  String get aboutAssociationContactUrl => 'https://radio.ecocloud.tn/contact';
+
+  @override
+  String aboutContactEmailSemantics(String email) {
+    return 'Contacter par e-mail : $email. Appuyez deux fois pour envoyer un e-mail.';
+  }
+
+  @override
+  String aboutAssociationWebsiteSemantics(String url) {
+    return 'Visiter le site web de l\'association : $url. Appuyez deux fois pour ouvrir.';
+  }
+
+  @override
+  String aboutAssociationContactSemantics(String url) {
+    return 'Ouvrir la page de contact de l\'association : $url. Appuyez deux fois pour ouvrir.';
+  }
 
   @override
   String get radioSearchLabel => 'Rechercher un flux radio';
