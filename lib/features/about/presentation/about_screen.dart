@@ -66,12 +66,10 @@ class _AboutScreenState extends State<AboutScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text(
-          l.aboutTitle,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: AppTheme.navy,
+        title: Semantics(
+          header: true,
+          child: Text(
+            l.aboutTitle,
           ),
         ),
         iconTheme: const IconThemeData(color: AppTheme.cream),

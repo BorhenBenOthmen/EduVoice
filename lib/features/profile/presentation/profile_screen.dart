@@ -187,16 +187,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
-            // Back button — auto-generated, fully accessible via TalkBack
             title: Semantics(
               header: true,
               child: Text(
                 l.profileTitle,
-                style: const TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: AppTheme.navy,
-                ),
               ),
             ),
             bottom: PreferredSize(
